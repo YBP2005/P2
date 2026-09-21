@@ -1,0 +1,39 @@
+released runs with results.csv (local archives): 569
+run names present in more than one root: 348  eg ['a2d15_base100_s42n', 'a2d15_base100_s43n', 'a2d15_base100_s44n', 'a2d15_base100_s45n']
+
+cell / arm                     seed                           best     last    last5  premium
+smoke2sf (strong cell)         matched base=11 strat=11 paired=11
+   base                       42,43,44,45,46,47,48,49,50   42.156   41.357   41.287   +0.799
+   strat                      42,43,44,45,46,47,48,49,50   43.863   43.481   43.373   +0.382
+   paired contrast (n=11):
+      best   delta +1.708 pp  sd 0.267  paired t  21.18  p 1.223e-09
+      last   delta +2.124 pp  sd 0.337  paired t  20.89  p 1.402e-09
+      last5  delta +2.086 pp  sd 0.291  paired t  23.79  p 3.904e-10
+
+shwd2sf (corroborating)        matched base=11 strat=11 paired=11
+   base                       42,43,44,45,46,47,48,49,50   43.864   42.826   42.760   +1.038
+   strat                      42,43,44,45,46,47,48,49,50   44.428   43.916   43.839   +0.512
+   paired contrast (n=11):
+      best   delta +0.564 pp  sd 0.192  paired t   9.77  p 1.972e-06
+      last   delta +1.090 pp  sd 0.335  paired t  10.79  p 7.876e-07
+      last5  delta +1.079 pp  sd 0.298  paired t  12.02  p 2.885e-07
+
+a2d15 (directional probe)      matched base=10 strat=10 paired=10
+   base                       42,43,44,45,46,47,48,49,50   11.802   11.268   11.307   +0.534
+   strat                      42,43,44,45,46,47,48,49,50   15.401   15.139   15.082   +0.262
+   paired contrast (n=10):
+      best   delta +3.599 pp  sd 0.168  paired t  67.84  p 1.661e-13
+      last   delta +3.871 pp  sd 0.260  paired t  47.15  p 4.352e-12
+      last5  delta +3.775 pp  sd 0.242  paired t  49.24  p 2.948e-12
+
+dota15 within-domain 100ep     matched base=3 strat=3 paired=3
+   base                       43,44,unseeded               16.196   15.328   15.364   +0.868
+   strat                      43,44,unseeded               17.195   16.916   16.802   +0.279
+   paired contrast (n=3):
+      best   delta +0.999 pp  sd 0.106  paired t  16.39  p 0.003704
+      last   delta +1.588 pp  sd 0.161  paired t  17.08  p 0.003409
+      last5  delta +1.438 pp  sd 0.164  paired t  15.20  p 0.0043
+
+==============================================================================
+premium = best-epoch minus final-epoch mAP50-95 within a run.
+With val == test in the corpus yamls, "best" is selected on the reported split; "last"/"last5" are not.
