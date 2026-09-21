@@ -1,0 +1,41 @@
+====================================================================================================
+X10：注册复现的别名偏差审计（val 侧）+ 运行数复算
+====================================================================================================
+run 目录（去重后，跨 5 个根）共 569 个
+
+(1) 运行数复算（正文 §9 称"冻结 70 + 追加 10 = 80"）
+   格                                     arm  seeds   runs seeds 明细
+   T1-a dota15→aitod                  base100     10     10 42–51
+   T1-a dota15→aitod                  lr005_100ep     10     10 42–51
+   T1-b aitod→visdrone                base100     10     10 42–51
+   T1-b aitod→visdrone                lr005_100ep     10     10 42–51
+   T1-c visdrone→dota15               base100     10     10 42–51
+   T1-c visdrone→dota15               lr005_100ep     10     10 42–51
+   saturated control (mask→mendeley)  base100      5      5 42–46
+   saturated control (mask→mendeley)  lr005_100ep      5      5 42–46
+   appended control C (dota→dota15)   base100     10     10 42–51
+   appended control C (dota→dota15)   lr005_100ep     10     10 42–51
+   ── 合计 90 个 run
+
+(2) 每格的 val 侧选择溢价 p = max_e − final（%）与臂间配对差 d̄
+   格                                  n_seed   p_base  p_strat   d̄ (pp) 95 % CI (bootstrap)    val/test
+   T1-a dota15→aitod                     10    0.137    0.086     0.051 [+0.006, +0.099]  same directory
+   T1-b aitod→visdrone                   10    0.157    0.212    -0.055 [-0.135, +0.014]  separated
+   T1-c visdrone→dota15                  10    0.602    0.388     0.214 [+0.086, +0.326]  same directory
+   saturated control (mask→mendeley)      5    2.505    1.543     0.961 [+0.440, +1.674]  same directory
+   appended control C (dota→dota15)      10    0.842    0.436     0.406 [+0.313, +0.498]  same directory (per §9)
+
+(3) 读法（GLM 的表述：Δ ≈ Δ_reported + d̄）
+   T1-a dota15→aitod                  公开 Δ = +0.147 ｜ d̄ = +0.051 （区间不含 0） ｜ Δ + d̄ = +0.198
+   T1-b aitod→visdrone                公开 Δ = +0.168 ｜ **不适用**：该格 val/test 分离，训练期看到的量
+                                      与上报量不是同一个，val 侧项无法界定两项偏差（提取件 M1 的更正）
+   T1-c visdrone→dota15               公开 Δ = +3.727 ｜ d̄ = +0.214 （区间不含 0） ｜ Δ + d̄ = +3.941
+   saturated control (mask→mendeley)  公开 Δ = -1.490 ｜ d̄ = +0.961 （区间不含 0） ｜ Δ + d̄ = -0.529
+   appended control C (dota→dota15)   公开 Δ = +0.727 ｜ d̄ = +0.406 （区间不含 0） ｜ Δ + d̄ = +1.133
+
+(4) 判据（面板给的）
+   若某格因修正跨过冻结判据边界 ⇒ 影响 §9 的头条结论；若所有 |d̄| 都很小 ⇒ §9 的裁定稳健。
+   T1-a dota15→aitod                  |d̄| = 0.051 pp （< 0.1 pp：对判据无实质影响）
+   T1-c visdrone→dota15               |d̄| = 0.214 pp （≥ 0.1 pp：需与判据边界比对）
+   saturated control (mask→mendeley)  |d̄| = 0.961 pp （≥ 0.1 pp：需与判据边界比对）
+   appended control C (dota→dota15)   |d̄| = 0.406 pp （≥ 0.1 pp：需与判据边界比对）
