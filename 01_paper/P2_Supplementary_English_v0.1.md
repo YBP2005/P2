@@ -2598,6 +2598,31 @@ remove them**, and a blind human rater working from the same pointers would meet
 The per-coder, per-unit, pairwise and Fleiss values, the 76 x 8 raw marks and the coders' own
 ambiguity reports are held with this revision's measurement batch.
 
+**A fourth round, on a repaired instrument, and what it changes.** The three causes above are
+properties of the instrument rather than of the coders, so the instrument was repaired and the same
+eight coders re-ran the table under it in the same blind conditions: the scale became five-valued
+(`independent` / `alias` / `absent` / `gated` / `unknown`, so that "this layer does not exist" is no
+longer forced into `unknown`), the `reported` frame was stated as **the number the literature prints**,
+and version anchoring was made explicit with worked examples. For the headline quantity the repair did
+what it was designed to do: the eight coders' own counts of `reported`-is-non-independent moved from
+0, 0, 0, 0, 0, 3, 4 and 5 of 19 under the first instrument to 3, 8, 7, 1, 8, 3, 9 and 14 under the
+repaired one, so **the printed 12 now lies inside the coders' range instead of outside it**. It did
+not make the table reproducible. Against the printed coding, agreement is 0.116-0.350 per coder
+(median 0.326, against 0.105-0.325 before the repair); among themselves the eight agree at a median
+pairwise kappa of 0.440, and Fleiss' kappa is 0.417 overall with release 0.457, protocol 0.505 and,
+again weakest, `yolo_dist` 0.178 and `reported` 0.201. **No unit reaches substantial agreement.** The
+residual is once more a convention difference rather than rule wording, and it is locatable: on the
+nine rows whose `release` the table marks `absent` for want of a usable held-out test, the eight
+coders answered "independent" 40 times, because a release that ships *some* split looks like an
+independent test unless one also knows which of its versions the literature reports from; and where
+the table records an independent local protocol the coders answered `gated` 25 times, because the
+official evaluation is behind a submission server. The honest summary of **four rounds and eleven
+coders** is therefore this: the table's marks are reproducible from the recorded evidence only at
+slight-to-fair agreement, the headline count lies **inside the spread of independent counts rather
+than reproduced by them**, and no further coding round will change either statement. Both instruments,
+the sixteen returns, the per-coder, per-unit, pairwise and Fleiss values and both analysis scripts are
+held with this revision's measurement batch.
+
 **The consequence for this paper's claims.** The counts printed in section 6.1 -- 12/19, 80 % and the
 rest -- are the judgements of a single coder, and independent re-coding from the recorded evidence
 reproduces them only at fair-to-moderate agreement. They are therefore presented as a convenience audit

@@ -1,0 +1,71 @@
+==============================================================================================================
+G8 v2（5 值刻度：independent / alias / absent / gated / unknown）· 一致性分析
+==============================================================================================================
+编码者 8 位：DeepSeek-V4.1-Flash、GLM-5.2、Kimi-K3、deepseek-v4-pro、gemini-3.8-flash、grok-4.7、hy4-preview、qwen3.8-max
+已印 12 标记 → 五值：**全定义域逐类对应**（见脚本头）⇒ 与已印表直接可比。
+
+【已印标记折成五值后的分布】
+  release   independent 7 · alias 1 · absent 9 · gated 1 · unknown 1
+  protocol  independent 6 · alias 1 · absent 8 · gated 3 · unknown 1
+  yolo_dist independent 5 · alias 4 · absent 6 · unknown 4
+  reported  independent 3 · alias 12 · unknown 4
+
+【逐位编码者 vs 已印标记（Cohen's κ）】
+编码者                      overall（76 格）                      逐单元（release/protocol/yolo_dist/reported）
+DeepSeek-V4.1-Flash      κ=0.116 (95% CI -0.015–0.247)  p0=0.303 pe=0.211 n=76 0.157 / 0.248 / -0.262 / 0.068
+GLM-5.2                  κ=0.120 (95% CI -0.006–0.246)  p0=0.289 pe=0.193 n=76 0.186 / 0.168 / -0.267 / 0.063
+Kimi-K3                  κ=0.339 (95% CI 0.191–0.488)  p0=0.500 pe=0.243 n=76 0.350 / 0.364 / 0.126 / 0.282
+deepseek-v4-pro          κ=0.209 (95% CI 0.069–0.349)  p0=0.382 pe=0.218 n=76 0.240 / 0.160 / 0.136 / 0.208
+gemini-3.8-flash         κ=0.338 (95% CI 0.192–0.483)  p0=0.487 pe=0.225 n=76 0.441 / 0.309 / 0.152 / 0.163
+grok-4.7                 κ=0.197 (95% CI 0.067–0.328)  p0=0.342 pe=0.180 n=76 0.286 / 0.174 / 0.099 / -0.015
+hy4-preview              κ=0.326 (95% CI 0.182–0.470)  p0=0.474 pe=0.219 n=76 0.275 / 0.186 / 0.226 / 0.309
+qwen3.8-max              κ=0.350 (95% CI 0.203–0.496)  p0=0.500 pe=0.231 n=76 0.432 / 0.317 / 0.156 / 0.034
+  ⇒ overall κ：中位 0.326，范围 0.116–0.350（n = 8 位）
+
+【两两（v2，8 位，overall 76 格）】
+  28 对：中位 0.440，范围 0.146–0.702
+  明细：0.15  0.17  0.18  0.18  0.31  0.31  0.35  0.36  0.38  0.38  0.38  0.39  0.40  0.42  0.44  0.44  0.46  0.46  0.48  0.51  0.52  0.55  0.55  0.55  0.60  0.61  0.62  0.70
+
+【Fleiss' κ（v2，8 位）】
+  overall   κ=0.417  P̄=0.556  Pe=0.238
+  release   κ=0.457  P̄=0.707  Pe=0.459
+  protocol  κ=0.505  P̄=0.645  Pe=0.283
+  yolo_dist κ=0.178  P̄=0.402  Pe=0.273
+  reported  κ=0.201  P̄=0.470  Pe=0.336
+
+【混淆（已印 → 8 位作答合计）】
+  release：
+     已印=independent （ 7 行）→ independent 50 · absent 1 · gated 3 · unknown 2
+     已印=alias       （ 1 行）→ alias 1 · absent 1 · unknown 6
+     已印=absent      （ 9 行）→ independent 40 · absent 19 · gated 3 · unknown 10
+     已印=gated       （ 1 行）→ independent 7 · unknown 1
+     已印=unknown     （ 1 行）→ unknown 8
+  protocol：
+     已印=independent （ 6 行）→ independent 19 · alias 1 · absent 1 · gated 25 · unknown 2
+     已印=alias       （ 1 行）→ independent 2 · gated 5 · unknown 1
+     已印=absent      （ 8 行）→ independent 14 · alias 1 · absent 18 · gated 13 · unknown 18
+     已印=gated       （ 3 行）→ independent 8 · gated 16
+     已印=unknown     （ 1 行）→ unknown 8
+  yolo_dist：
+     已印=independent （ 5 行）→ independent 14 · alias 10 · absent 5 · gated 5 · unknown 6
+     已印=alias       （ 4 行）→ independent 3 · alias 6 · absent 12 · unknown 11
+     已印=absent      （ 6 行）→ independent 12 · alias 6 · absent 18 · unknown 12
+     已印=unknown     （ 4 行）→ absent 26 · unknown 6
+  reported：
+     已印=independent （ 3 行）→ independent 11 · alias 11 · unknown 2
+     已印=alias       （12 行）→ independent 22 · alias 38 · unknown 36
+     已印=unknown     （ 4 行）→ independent 11 · alias 4 · unknown 17
+
+【headline：每位数出的 `reported = alias`（= 非独立）行数】
+  已印：12/19
+  DeepSeek-V4.1-Flash 3  GLM-5.2 8  Kimi-K3 7  deepseek-v4-pro 1  gemini-3.8-flash 8  grok-4.7 3  hy4-preview 9  qwen3.8-max 14
+  ⇒ 编码者区间 1–14（中位 8）；已印 12 落在区间内
+
+【v1 → v2 配对（同一位编码者，overall 76 格；两轮刻度不同，v1 按其三值口径重算仅作参考）】
+  v1 里同名可比 6 位：DeepSeek-V4.1-Flash、GLM-5.2、deepseek-v4-pro、gemini-3.8-flash、grok-4.7、qwen3.8-max
+     DeepSeek-V4.1-Flash      v1 答 yes 22 格 → v2 答 independent 23 格
+     GLM-5.2                  v1 答 yes 29 格 → v2 答 independent 18 格
+     deepseek-v4-pro          v1 答 yes 36 格 → v2 答 independent 39 格
+     gemini-3.8-flash         v1 答 yes 38 格 → v2 答 independent 26 格
+     grok-4.7                 v1 答 yes 30 格 → v2 答 independent 17 格
+     qwen3.8-max              v1 答 yes 15 格 → v2 答 independent 24 格
