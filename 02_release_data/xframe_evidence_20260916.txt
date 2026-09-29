@@ -1,0 +1,229 @@
+====================================================================================================
+C 项：跨框架"划分与选点"证据抽取（机械抽取，带行号；判定不在此文件）
+====================================================================================================
+
+  repo	default_branch	commit_sha
+  mmdetection	open-mmlab/mmdetection	main	cfd5d3a985b0249de009b67d04f37263e11cdf3d
+  detectron2	facebookresearch/detectron2	main	a2f4a8771ab77e8411c26b27f24f9489a28a2453
+  yolox	Megvii-BaseDetection/YOLOX	main	6ddff4824372906469a7fae2dc3206c7aa4bbaee
+  paddledetection	PaddlePaddle/PaddleDetection	release/2.9	b25522a0f4bde8c80603f3ba5e3472059972e3b5
+  detr	facebookresearch/detr	main	29901c51d7fe8712168b8d0d64351170bc0f83e0
+
+----------------------------------------------------------------------------------------------------
+### MMDetection :: mmdetection/configs___base___datasets__coco_detection.py   （96 行）
+     3: data_root = 'data/coco/'
+    21:     dict(type='LoadImageFromFile', backend_args=backend_args),
+    22:     dict(type='LoadAnnotations', with_bbox=True),
+    23:     dict(type='Resize', scale=(1333, 800), keep_ratio=True),
+    24:     dict(type='RandomFlip', prob=0.5),
+    25:     dict(type='PackDetInputs')
+    28:     dict(type='LoadImageFromFile', backend_args=backend_args),
+    29:     dict(type='Resize', scale=(1333, 800), keep_ratio=True),
+    31:     dict(type='LoadAnnotations', with_bbox=True),
+    33:         type='PackDetInputs',
+    41:     sampler=dict(type='DefaultSampler', shuffle=True),
+    42:     batch_sampler=dict(type='AspectRatioBatchSampler'),
+    45:         data_root=data_root,
+    46:         ann_file='annotations/instances_train2017.json',
+    47:         data_prefix=dict(img='train2017/'),
+    56:     sampler=dict(type='DefaultSampler', shuffle=False),
+    59:         data_root=data_root,
+    60:         ann_file='annotations/instances_val2017.json',
+    61:         data_prefix=dict(img='val2017/'),
+    68:     type='CocoMetric',
+    69:     ann_file=data_root + 'annotations/instances_val2017.json',
+
+----------------------------------------------------------------------------------------------------
+### MMDetection :: mmdetection/configs___base___default_runtime.py   （25 行）
+  （无命中）
+
+----------------------------------------------------------------------------------------------------
+### MMDetection :: mmdetection/configs__faster_rcnn__faster-rcnn_r50_fpn_1x_coco.py   （6 行）
+     1: _base_ = [
+     2:     '../_base_/models/faster-rcnn_r50_fpn.py',
+     3:     '../_base_/datasets/coco_detection.py',
+     4:     '../_base_/schedules/schedule_1x.py', '../_base_/default_runtime.py'
+     5: ]
+
+----------------------------------------------------------------------------------------------------
+### MMDetection :: mmdetection/tools__train.py   （122 行）
+  （无命中）
+
+----------------------------------------------------------------------------------------------------
+### Detectron2 :: detectron2/configs__COCO-Detection__faster_rcnn_R_50_FPN_1x.yaml   （7 行）
+     1: _BASE_: "../Base-RCNN-FPN.yaml"
+     2: MODEL:
+     3:   WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+     4:   MASK_ON: False
+     5:   RESNETS:
+     6:     DEPTH: 50
+
+----------------------------------------------------------------------------------------------------
+### Detectron2 :: detectron2/configs__Base-RCNN-FPN.yaml   （43 行）
+    14:     PRE_NMS_TOPK_TRAIN: 2000  # Per FPN level
+    15:     PRE_NMS_TOPK_TEST: 1000  # Per FPN level
+    19:     POST_NMS_TOPK_TRAIN: 1000
+    20:     POST_NMS_TOPK_TEST: 1000
+    32: DATASETS:
+    33:   TRAIN: ("coco_2017_train",)
+    34:   TEST: ("coco_2017_val",)
+    36:   IMS_PER_BATCH: 16
+    41:   MIN_SIZE_TRAIN: (640, 672, 704, 736, 768, 800)
+
+----------------------------------------------------------------------------------------------------
+### Detectron2 :: detectron2/tools__train_net.py   （168 行）
+   105:             for name in cfg.DATASETS.TEST
+
+----------------------------------------------------------------------------------------------------
+### Detectron2 :: detectron2/detectron2__data__datasets__builtin.py   （260 行）
+    11:    without having to download the dataset annotations
+    36:     "coco_2014_train": ("coco/train2014", "coco/annotations/instances_train2014.json"),
+    37:     "coco_2014_val": ("coco/val2014", "coco/annotations/instances_val2014.json"),
+    38:     "coco_2014_minival": ("coco/val2014", "coco/annotations/instances_minival2014.json"),
+    41:         "coco/annotations/instances_valminusminival2014.json",
+    43:     "coco_2017_train": ("coco/train2017", "coco/annotations/instances_train2017.json"),
+    44:     "coco_2017_val": ("coco/val2017", "coco/annotations/instances_val2017.json"),
+    45:     "coco_2017_test": ("coco/test2017", "coco/annotations/image_info_test2017.json"),
+    46:     "coco_2017_test-dev": ("coco/test2017", "coco/annotations/image_info_test-dev2017.json"),
+    47:     "coco_2017_val_100": ("coco/val2017", "coco/annotations/instances_val2017_100.json"),
+    53:         "coco/annotations/person_keypoints_train2014.json",
+    55:     "keypoints_coco_2014_val": ("coco/val2014", "coco/annotations/person_keypoints_val2014.json"),
+    58:         "coco/annotations/person_keypoints_minival2014.json",
+    62:         "coco/annotations/person_keypoints_valminusminival2014.json",
+    64:     "keypoints_coco_2017_train": (
+    66:         "coco/annotations/person_keypoints_train2017.json",
+    68:     "keypoints_coco_2017_val": ("coco/val2017", "coco/annotations/person_keypoints_val2017.json"),
+    69:     "keypoints_coco_2017_val_100": (
+    70:         "coco/val2017",
+    71:         "coco/annotations/person_keypoints_val2017_100.json",
+    77:     "coco_2017_train_panoptic": (
+    80:         "coco/annotations/panoptic_train2017.json",
+    88:     "coco_2017_val_panoptic": (
+    89:         "coco/panoptic_val2017",
+    90:         "coco/annotations/panoptic_val2017.json",
+    91:         "coco/panoptic_stuff_val2017",
+    93:     "coco_2017_val_100_panoptic": (
+    94:         "coco/panoptic_val2017_100",
+    95:         "coco/annotations/panoptic_val2017_100.json",
+    96:         "coco/panoptic_stuff_val2017_100",
+   235:         gt_dir = os.path.join(root, "annotations_detectron2", dirname)
+
+----------------------------------------------------------------------------------------------------
+### Detectron2 :: detectron2/detectron2__config__defaults.py   （657 行）
+   103: _C.DATASETS.TEST = ()
+   607: _C.TEST.EVAL_PERIOD = 0
+
+----------------------------------------------------------------------------------------------------
+### YOLOX :: yolox/exps__default__yolox_s.py   （16 行）
+     7: from yolox.exp import Exp as MyExp
+    15:         self.exp_name = os.path.split(os.path.realpath(__file__))[1].split(".")[0]
+
+----------------------------------------------------------------------------------------------------
+### YOLOX :: yolox/yolox__data__datasets__coco.py   （189 行）
+    42:         json_file="instances_train2017.json",
+    43:         name="train2017",
+    54:             name (str): COCO data name (e.g. 'train2017' or 'val2017')
+
+----------------------------------------------------------------------------------------------------
+### YOLOX :: yolox/tools__train.py   （147 行）
+  （无命中）
+
+----------------------------------------------------------------------------------------------------
+### YOLOX :: yolox/tools__eval.py   （221 行）
+    93:         "--test",
+
+----------------------------------------------------------------------------------------------------
+### PaddleDetection :: paddledetection/configs__yolov3__yolov3_darknet53_270e_coco.yml   （11 行）
+     1: _BASE_: [
+     2:   '../datasets/coco_detection.yml',
+     3:   '../runtime.yml',
+     4:   '_base_/optimizer_270e.yml',
+     5:   '_base_/yolov3_darknet53.yml',
+     6:   '_base_/yolov3_reader.yml',
+     7: ]
+     9: snapshot_epoch: 5
+    10: weights: output/yolov3_darknet53_270e_coco/model_final
+
+----------------------------------------------------------------------------------------------------
+### PaddleDetection :: paddledetection/tools__train.py   （220 行）
+    51:         "--eval",
+    54:         help="Whether to perform evaluation in train")
+    66:         help="If set True, enable continuous evaluation job."
+    94:         help='Whether to save the evaluation results only')
+   100:         "format \"key1=value1;key2=value2;key3=value3\"."
+   161:     trainer.train(FLAGS.eval)
+
+----------------------------------------------------------------------------------------------------
+### DETR :: detr/main.py   （249 行）
+    16: from engine import evaluate, train_one_epoch
+    95:     parser.add_argument('--eval', action='store_true')
+   143:     dataset_val = build_dataset(image_set='val', args=args)
+   147:         sampler_val = DistributedSampler(dataset_val, shuffle=False)
+   150:         sampler_val = torch.utils.data.SequentialSampler(dataset_val)
+   157:     data_loader_val = DataLoader(dataset_val, args.batch_size, sampler=sampler_val,
+   162:         coco_val = datasets.coco.build("val", args)
+   163:         base_ds = get_coco_api_from_dataset(coco_val)
+   165:         base_ds = get_coco_api_from_dataset(dataset_val)
+   179:         if not args.eval and 'optimizer' in checkpoint and 'lr_scheduler' in checkpoint and 'epoch' in checkpoint:
+   184:     if args.eval:
+   185:         test_stats, coco_evaluator = evaluate(model, criterion, postprocessors,
+   186:                                               data_loader_val, base_ds, device, args.output_dir)
+   188:             utils.save_on_master(coco_evaluator.coco_eval["bbox"].eval, output_dir / "eval.pth")
+   214:         test_stats, coco_evaluator = evaluate(
+   215:             model, criterion, postprocessors, data_loader_val, base_ds, device, args.output_dir
+   228:             if coco_evaluator is not None:
+   229:                 (output_dir / 'eval').mkdir(exist_ok=True)
+   230:                 if "bbox" in coco_evaluator.coco_eval:
+   235:                         torch.save(coco_evaluator.coco_eval["bbox"].eval,
+   236:                                    output_dir / "eval" / name)
+   244:     parser = argparse.ArgumentParser('DETR training and evaluation script', parents=[get_args_parser()])
+
+----------------------------------------------------------------------------------------------------
+### DETR :: detr/datasets__coco.py   （159 行）
+   151:     PATHS = {
+   152:         "train": (root / "train2017", root / "annotations" / f'{mode}_train2017.json'),
+   153:         "val": (root / "val2017", root / "annotations" / f'{mode}_val2017.json'),
+   156:     img_folder, ann_file = PATHS[image_set]
+
+----------------------------------------------------------------------------------------------------
+### DETR :: detr/engine.py   （152 行）
+     3: Train and eval functions used in main.py
+    13: from datasets.coco_eval import CocoEvaluator
+    14: from datasets.panoptic_eval import PanopticEvaluator
+    23:     metric_logger.add_meter('lr', utils.SmoothedValue(window_size=1, fmt='{value:.6f}'))
+    24:     metric_logger.add_meter('class_error', utils.SmoothedValue(window_size=1, fmt='{value:.2f}'))
+    43:         losses_reduced_scaled = sum(loss_dict_reduced_scaled.values())
+    45:         loss_value = losses_reduced_scaled.item()
+    47:         if not math.isfinite(loss_value):
+    48:             print("Loss is {}, stopping training".format(loss_value))
+    58:         metric_logger.update(loss=loss_value, **loss_dict_reduced_scaled, **loss_dict_reduced_unscaled)
+    68: def evaluate(model, criterion, postprocessors, data_loader, base_ds, device, output_dir):
+    69:     model.eval()
+    70:     criterion.eval()
+    73:     metric_logger.add_meter('class_error', utils.SmoothedValue(window_size=1, fmt='{value:.2f}'))
+    77:     coco_evaluator = CocoEvaluator(base_ds, iou_types)
+    80:     panoptic_evaluator = None
+    82:         panoptic_evaluator = PanopticEvaluator(
+    85:             output_dir=os.path.join(output_dir, "panoptic_eval"),
+   102:         metric_logger.update(loss=sum(loss_dict_reduced_scaled.values()),
+   113:         if coco_evaluator is not None:
+   114:             coco_evaluator.update(res)
+   116:         if panoptic_evaluator is not None:
+   124:             panoptic_evaluator.update(res_pano)
+   129:     if coco_evaluator is not None:
+   130:         coco_evaluator.synchronize_between_processes()
+   131:     if panoptic_evaluator is not None:
+   132:         panoptic_evaluator.synchronize_between_processes()
+   135:     if coco_evaluator is not None:
+   136:         coco_evaluator.accumulate()
+   137:         coco_evaluator.summarize()
+   139:     if panoptic_evaluator is not None:
+   140:         panoptic_res = panoptic_evaluator.summarize()
+   142:     if coco_evaluator is not None:
+   144:             stats['coco_eval_bbox'] = coco_evaluator.coco_eval['bbox'].stats.tolist()
+   146:             stats['coco_eval_masks'] = coco_evaluator.coco_eval['segm'].stats.tolist()
+   151:     return stats, coco_evaluator
+
+====================================================================================================
+缺失文件：无
+

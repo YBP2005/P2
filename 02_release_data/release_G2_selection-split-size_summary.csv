@@ -1,0 +1,8 @@
+selection_split,val_size,arm,n,prem_val_mean_pp,prem_test_mean_pp,WC_mean_pp,realization_rate_pct,source_run
+small,30,base100,5,2.7470,0.6456,2.1014,23.5,E:\workplace\g2_valsize_20260919_runs\*  +  E:\workplace\g2t_g1p_20260919\g2_test.csv
+small,30,lr005_100ep,5,1.2582,0.0638,1.1944,5.1,E:\workplace\g2_valsize_20260919_runs\*  +  E:\workplace\g2t_g1p_20260919\g2_test.csv
+small,30,both-pooled,10,2.0026,0.3547,1.6479,17.7,E:\workplace\g2_valsize_20260919_runs\*  +  E:\workplace\g2t_g1p_20260919\g2_test.csv
+large,90,base100,5,2.5492,0.6880,1.8612,27.0,E:\workplace\g2_valsize_20260919_runs\*  +  E:\workplace\g2t_g1p_20260919\g2_test.csv
+large,90,lr005_100ep,5,1.0624,0.1654,0.8970,15.6,E:\workplace\g2_valsize_20260919_runs\*  +  E:\workplace\g2t_g1p_20260919\g2_test.csv
+large,90,both-pooled,10,1.8058,0.4267,1.3791,23.6,E:\workplace\g2_valsize_20260919_runs\*  +  E:\workplace\g2t_g1p_20260919\g2_test.csv
+WC ratio small/large,,both,,,,1.1949,,E:\workplace\g2_valsize_20260919_runs\*  +  E:\workplace\g2t_g1p_20260919\g2_test.csv

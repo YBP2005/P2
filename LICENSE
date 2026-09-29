@@ -1,0 +1,36 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+================================================================
+
+The author's own material in this repository -- the manuscript sources, the
+supplementary material, the release tables, the scripts and the checkers -- is
+released under the Creative Commons Attribution 4.0 International licence.
+The full legal text is at
+
+    https://creativecommons.org/licenses/by/4.0/legalcode.txt
+
+You are free to share and adapt this material for any purpose, provided you
+give appropriate credit and indicate whether changes were made.
+
+THIRD-PARTY EXCEPTIONS (these are NOT covered by the licence above)
+------------------------------------------------------------------
+
+1. Datasets.  The object-detection corpora used in the paper (AI-TOD, DOTA v1
+   and v1.5, DIOR, the Mendeley face-mask records, D-Fire, SHWD, xView and the
+   COCO 2017 validation set) are third-party works.  They are NOT redistributed
+   here, they are NOT covered by the CC BY 4.0 grant above, and each remains
+   under its own terms and its own citation requirement.  Where a corpus is
+   named only by a public download pointer in the manuscript, that pointer is
+   the authoritative source; the archive that produced the paper holds no copy
+   of six of the seven corpora, as section 10 defect 6 of the article states.
+   At least one of the sources used for the detection datasets is restricted to
+   academic use; check the source before any reuse.
+
+2. Third-party training logs.  The twenty public training logs (six sources)
+   analysed in section 5.5 are not redistributed.  Only their hashes and source
+   pointers are given, because five of those sources state no licence at all.
+
+3. Software and pinned repositories.  The detector frameworks (Ultralytics
+   YOLO, YOLOX, Detectron2, MMDetection, DETR, PaddleDetection) and the
+   benchmark releases are cited, not vendored; their licences apply to them.
+
+No warranty of any kind is given for any file in this repository.

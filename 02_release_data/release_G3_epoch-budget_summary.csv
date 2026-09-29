@@ -1,0 +1,7 @@
+experiment,arm,budget_epochs,n,premium_val_mean_pp,premium_val_sd_pp,paired_t,paired_p,note,source_run
+G3,base,100,5,0.8966,0.1005,4.720,0.009203,,E:\workplace\g3_epochs_runs
+G3,base,200,5,1.1868,0.0839,4.720,0.009203,,E:\workplace\g3_epochs_runs
+G3,lr005,100,5,0.4682,0.2202,2.680,0.055130,,E:\workplace\g3_epochs_runs
+G3,lr005,200,5,0.7556,0.1632,2.680,0.055130,,E:\workplace\g3_epochs_runs
+G3,pooled,100,10,0.6824,0.2775,4.960,0.000784,,E:\workplace\g3_epochs_runs
+G3,pooled,200,10,0.9712,0.2581,4.960,0.000784,,E:\workplace\g3_epochs_runs

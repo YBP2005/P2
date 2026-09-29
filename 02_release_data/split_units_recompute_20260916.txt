@@ -1,0 +1,145 @@
+==============================================================================
+19 行 × 5 列单位标记表 —— 重算输出
+生成：recompute_split_units_20260916.py（新文件；未改动 analysis/ 下任何既有文件）
+==============================================================================
+
+【三种单位的定义】
+  release   基准自身发布物层：官方分划产物/脚本是否提供独立留出 test
+  protocol  官方协议层：官方 README/论文/网站声明的划分，且该 test 是否本地可自评
+  reported  实际报告层：文献报告的数字来自哪个划分、该划分是否独立于选点
+  （另有 yolo_dist = 通用 YOLO 分发包层，即审计 §1 表第 4 列所测的那一列）
+
+【已施加的更正】
+  (h-1)  D-Fire / FireSmoke 族
+      族行 "mixed" 判据取自一条 SHWD 血统的 config（A:59 引 Reflective_vests.yaml；A:52 注明其基于 SHWD）。属 FireSmoke/D-Fire 的三个副本全部 distinct。据 3a 明文采用的"发布物层"单位，D-Fire 归干净组。
+  (d-1)  AI-TOD / DOTA 不对称
+      审计对含 trainval 的 AI-TOD 标 F-C，对同样含 trainval 的 DOTA v1/v2 未标。本表统一采用"发布物/协议层"单位：trainval 属用户协议注意事项，不作判决依据；两处均不改判，但 AI-TOD 因 v2 发布声明自相矛盾而为 contradictory。
+
+【19 × 5 标记表】
+ #  benchmark            release                protocol                 yolo_dist          reported              
+------------------------------------------------------------------------------------------------------------------
+ 1  COCO                 n_a(A)                 independent_test(A)      clean(A)           clean(A)              
+ 2  PASCAL VOC           n_a(A)                 test_gated(A)            alias(A)           alias(A)              
+ 3  Objects365           no_test(A)             no_test(A)               no_test_key(A)     alias(D)              
+ 4  Open Images v7       independent_test(A)    independent_test(A)      no_test_key(A)     alias(D)              
+ 5  DOTA v1.0            independent_test(A)    independent_test(A)      clean(A)           clean(A)              
+ 6  DOTA v2.0            independent_test(A)    test_gated(A)            clean(A)           alias(D)              
+ 7  VisDrone-DET         independent_test(A)    independent_test(A)      clean(A)           clean(A)              
+ 8  AI-TOD               contradictory(A)       contradictory(A)         unknown(A)         unknown(?)            
+ 9  UAVDT                no_val(A)              no_val(A)                unknown(A)         alias(A)              
+10  xView                no_test(A)             no_test(A)               no_test_key(A)     alias(A)              
+11  DIOR                 independent_test(A)    independent_test(A)      no_test_key(A)     unknown(?)            
+12  NWPU VHR-10          no_split(A)            no_split(A)              unknown(A)         alias(A)              
+13  SHWD                 no_yaml(A)             no_val(A)                train_val_alias(A) alias(A)              
+14  SFCHD                alias(A)               no_val(A)                alias(A)           alias(A)              
+15  MAFA                 no_val(A)              no_val(A)                unknown(?)         alias(A)              
+16  Mendeley face-mask   no_split(A)            no_split(A)              alias(D)           unknown(?)            
+17  WIDER FACE           independent_test(A)    test_gated(A)            no_test_key(A)     alias(A)              
+18  CrowdHuman           test_gated(A)          alias(A)                 no_test_key(A)     alias(A)              
+19  D-Fire (FireSmoke)   independent_test(A)    independent_test(A)      clean(A)           unknown(?)            
+
+--- 单位「release」(基准自身发布物层)
+       7  independent_test
+       2  n_a
+       2  no_test ←alias/非独立
+       2  no_val ←alias/非独立
+       2  no_split ←alias/非独立
+       1  contradictory ←alias/非独立
+       1  no_yaml ←alias/非独立
+       1  alias ←alias/非独立
+       1  test_gated ←alias/非独立
+      小计校验：19 / 19 行
+      **alias/非独立 = 10/19 = 52.6%**（可判定行中 10/19 = 52.6%）
+
+--- 单位「protocol」(官方协议层)
+       6  independent_test
+       4  no_val ←alias/非独立
+       3  test_gated ←alias/非独立
+       2  no_test ←alias/非独立
+       2  no_split ←alias/非独立
+       1  contradictory ←alias/非独立
+       1  alias ←alias/非独立
+      小计校验：19 / 19 行
+      **alias/非独立 = 13/19 = 68.4%**（可判定行中 13/19 = 68.4%）
+
+--- 单位「yolo」(通用 YOLO 分发包层（yolo_dist）)
+       6  no_test_key
+       5  clean
+       4  unknown
+       3  alias ←alias/非独立
+       1  train_val_alias ←alias/非独立
+      小计校验：19 / 19 行
+      **alias/非独立 = 4/19 = 21.1%**（可判定行中 4/15 = 26.7%）；unknown 4 行
+
+--- 单位「reported」(实际报告层)
+      12  alias ←alias/非独立
+       4  unknown
+       3  clean
+      小计校验：19 / 19 行
+      **alias/非独立 = 12/19 = 63.2%**（可判定行中 12/15 = 80.0%）；unknown 4 行
+
+【与审计文档已发表数字的交叉核对】
+  审计 3a 字面 val == test (2/19)：本表「分发包 config 两键同路径」(A 证源) 得 2/19 — PASCAL VOC, SFCHD → **复现 ✓**
+     （另 1 行走 alias 由**生成器**造成，非分发包 config，不计入 3a 口径：Mendeley face-mask）
+  审计 14/19（reported 层）：本表 reported=alias/非独立 得 12/19 → 与 14 的差 = -2（(h-1) 移除 D-Fire；DOTA v2 与 DIOR/Mendeley 的证源差异见各行 note）
+  审计 5/19 clean（reported 层）：本表 reported=clean 得 3/19 → 与 5 的差 = -2
+
+  ⚠ 审计的 12/19 是"移出 WIDER FACE + CrowdHuman"两行手调所得，不是把某一单位一致施加于 19 行的结果；本表用一致规则重算，故数值不必相同。
+
+【供正文采用的一组自洽数】
+  · 字面 val == test（通用分发包 config，A 证源）：**2/19 = 11%** — PASCAL VOC, SFCHD
+  · 另有生成器制造的 train/val 同源：**1/19**（Mendeley face-mask），口径不同，须单独表述
+  · 官方协议层非独立（test_gated/no_test/no_val/no_split/contradictory/alias）：**13/19 = 68%**
+  · 实际报告层非独立：**12/19 = 63%**（unknown 4 行）
+  · 实际报告层干净：**3/19 = 16%**
+  · 求和校验：12 + 3 + 4 = 19 （应为 19）
+
+【"same directory" 的四层级（解 (g0)，审计只报了最窄一层）】
+  L1 通用分发包字面 val==test：2 行 — PASCAL VOC, SFCHD
+  L2 分发包 train==val（F-C）：1 行 — SHWD
+  L3 分发包干净但报告层非独立：9 行 — Objects365, Open Images v7, DOTA v2.0, UAVDT, xView, NWPU VHR-10, MAFA, WIDER FACE, CrowdHuman
+  L4 其余：7 行
+
+【每行证据类别与置信度（沿用审计自评）】
+   1. COCO                 conf=high     ev=官方计数 + mirror yaml
+   2. PASCAL VOC           conf=high     ev=mirror VOC.yaml（两键逐行引用）
+   3. Objects365           conf=high     ev=mirror yaml + Ultralytics docs
+   4. Open Images v7       conf=high     ev=官方 facts page + mirror yaml
+   5. DOTA v1.0            conf=high     ev=官方下载页 + mirror DOTAv1.yaml
+   6. DOTA v2.0            conf=high     ev=官方/mirror 文档
+   7. VisDrone-DET         conf=high     ev=mirror + converter
+   8. AI-TOD               conf=low      ev=官方 README（含两条互相矛盾的发布声明）
+   9. UAVDT                conf=medium   ev=官方论文 + 两个 mirror（审计称 unverified beyond these two）
+  10. xView                conf=low      ev=mirror xView.yaml
+  11. DIOR                 conf=low      ev=官方描述（无计数）+ mirror DIOR-R yaml
+  12. NWPU VHR-10          conf=high     ev=官方 TorchGeo（split 指 positive/negative）
+  13. SHWD                 conf=medium   ev=官方 README + mirror Reflective_vests.yaml
+  14. SFCHD                conf=highest  ev=官方一方发布物（机器比对 _ev_sfchd_check2.py）
+  15. MAFA                 conf=high     ev=官方 CVPR PDF（pypdf 抽取）
+  16. Mendeley face-mask   conf=lowest   ev=官方数据记录 + mirror generator
+  17. WIDER FACE           conf=high     ev=官方站点（GT 不发布逐字核实）+ mirror
+  18. CrowdHuman           conf=high     ev=官方论文 + mirror
+  19. D-Fire (FireSmoke)   conf=medium   ev=官方 README
+
+【逐行推导/更正说明】
+   1. COCO: 官方不发 yaml。审计注记：训练于 train2017、早停于 test-dev 已属 "mild F-A-adjacent"，但仍计入干净。
+   2. PASCAL VOC: 审计称 "the cleanest val == test instance in the whole audit"。VOC2012 test 标注从未发布。
+   3. Objects365: 推导：审计引官方以 mAP^val 报告 → 报的是 val。v1 无 test；v2 才有 challenge test。
+   4. Open Images v7: 推导：官方三划分全标注，但 YOLO 配置丢弃 test、报 val。
+   5. DOTA v1.0: Ultralytics 1411/458/937 是官方 train+val 的重划；test 是已标注数据的留出切片，非官方 test server。
+   6. DOTA v2.0: 推导：官方 test 标注 server-only → 本地不可自评 → 报的是 val。审计把它计入干净组，本表据"实际报告层"改判并留痕。
+   7. VisDrone-DET: 审计备注：论文报告的 test 数是 test-dev 上的；test-challenge 被排除。
+   8. AI-TOD: 审计自陈 "cannot determine from this README alone whether a third party can evaluate locally on AI-TOD-v2 test"。审计仍将其计入干净组——(d) 缺陷所在。
+   9. UAVDT: 官方只有 train/test（30/70 序列）。常用副本的 "128 images" 注释系从 coco128 复制。
+  10. xView: 审计明示 "Treat 847/282 as config-asserted, not independently confirmed"；Ultralytics 用 847 的随机 90/10 autosplit 取代官方划分。
+  11. DIOR: 审计称无一次源给出官方逐划分计数；且 "DIOR" 在野外混指 HBB DIOR 与 OBB DIOR-R。
+  12. NWPU VHR-10: 数据集完全不发划分，任何 val==test 是第三方选择。审计要求正文写明"责任在 baseline 而非基准作者"。
+  13. SHWD: 官方只有 trainval/test，无 val；官方训练脚本把 test 叫 "val"。审计自陈无法声称该镜像对 SHWD 用户有代表性。
+  14. SFCHD: test.txt 6 行、val.txt 2475 行，test ⊆ val 且 val.txt[:6] == test.txt。审计称 "the strongest single finding"。
+  15. MAFA: 全文 "validation" 出现 0 次。另附一条引用更正：arXiv 1804.04017 不是 MAFA。
+  16. Mendeley face-mask: 推导：VOC→YOLO 生成器从同一 images_dir 写 train 与 val，且不发 test 键。审计自评 "treat it as a hypothesis"。
+  17. WIDER FACE: mirror 的 16551/4952 注释系 VOC 计数；其 val 是否为官方 val 未核实。
+  18. CrowdHuman: 作者自己的 baseline 即为 F-B："the results are evaluated in the validation subset"。计数为二次源。
+  19. D-Fire (FireSmoke): 【已按 (h-1) 裁定更正】官方发布物为三个预分文件夹（train/val/test），无 yaml。审计原将 FireSmoke 族行判 "mixed" 并把 D-Fire 计入 alias 组，其唯一依据 Reflective_vests.yaml 在审计 A:52 明写 "built on SHWD" → 证据不支持，族行判决应为 "D-Fire 族副本 3 distinct / 0 aliasing"。
+
+END
