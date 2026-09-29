@@ -146,7 +146,7 @@ premium on a disjoint split with the reporting conventions it depends on (§8.6�
    varies by corpus: three-way paired differencing gives 2 cells where `val` understates, 2 where it
    overstates and 9 not significant — the **no-systematic-direction** [14] reports, measured here on
    detection corpora (the crossing cells are now **all at n = 10**).
-   **We do not claim a general understatement** (§5). It appears in third-party logs too (a searched sample of 20 logs from 6 sources; §5.5) — a **convenience sample found by repository search**, cited as
+   **We do not claim a general understatement** (§5). It appears in third-party logs too (a searched 20-log sample; §5.5) — a **convenience sample found by repository search**, cited as
 corroboration that the component exists elsewhere, **not as independent evidence** and not as a
 field-level rate.
    *Note: **image-level** leakage magnitude is quantified by the two 2026 studies;
@@ -182,8 +182,8 @@ The companion and this paper share project-internal process protocols — a mult
 - **`yolo_dist`** — the split a **generic YOLO distribution package's** own configuration resolves to,
   i.e. what a practitioner taking the pipeline off the shelf gets. *Example*: a clean release whose
   community YAML points `val:` and `test:` at one directory records "yes" **only** here.
-- **`reported`** — the split the number **actually reported** in a paper or leaderboard came from, read
-  from the release documentation and the dataset's own paper. *Example*: two papers on one benchmark can
+- **`reported`** — the split the number **the literature prints** came from (not the official leaderboard's
+  own score), read from the release documentation and the dataset's own paper. *Example*: two papers on one benchmark can
   differ here while agreeing under all three units above — hence the headline count uses this unit (§6.1).
 
 **A count is meaningless without its unit**: the same nineteen benchmarks answer differently under each
@@ -277,7 +277,7 @@ convention.
 **Tier 1: the selection premium is positive in all four cells and the baseline arm gains more**,
 consistent with the selection-bias literature, not new in kind; **on the monitored split that positivity is near-definitional** (`best` is that curve's own argmax), and **the finding we report is the paired arm difference and its test side (§8.6)**. Pairing brings **no** variance benefit:
 the paired t of 5.74 and the unpaired Welch t [28] of **5.68** agree — at ρ = 0, **standard arithmetic
-rather than an empirical finding of ours** [27]. **Permutation checks.** A sign-flip permutation test on the same paired differences agrees with the t-tests at each cell’s attainable floor (**Supplementary S12**, §5.1).
+rather than an empirical finding of ours** [27]. **Permutation checks.** A sign-flip test on the same paired differences agrees with the t-tests at each cell’s attainable floor (**Supplementary S12**).
 
 **Meta-analyses of published results have long quantified this optimism**: development-set early stopping
 is measured to *overestimate realistic model performance*, by as much as **18.0 %** accuracy [29]; and a
@@ -386,7 +386,7 @@ is taken to measure, but neither audits a release's configuration binding.
 > rate estimated from independent coding. A "yes" under any
 > unit means the reported number is **not a sample from an independent split**; it does **not** mean
 > the benchmark is broken or the experiment dishonest, and it does not license a generalization claim.
-**These 19 rows were coded by one rater** — hand-written, 28 literal judgements (**§10**, defect 5) — and a **blind pass by three language models** reached only **fair-to-moderate** agreement (per-coder κ **0.272–0.437**, weakest on `reported`); a **separate non-blind, model-assisted** pass agrees at κ **0.874** (**Supplementary S12**) and **moves two rows**, so `reported` is printed as a range, **12–14 of the 19 ≈ 63–74 %** (the **80 %** column is over the **12/15** decidable rows) — rows marked `n_a` enter the **19** but not the numerator, and are **not** undecidable (**Supplementary S12**).
+**These 19 rows were coded by one rater** — hand-written, 28 literal judgements (**§10**, defect 5) — and **eleven blind language-model coders in two rounds** reached only **fair-to-moderate** agreement with them (per-coder κ **0.11–0.44**, weakest on `reported` throughout); a **non-blind, model-assisted** pass agrees at κ **0.874** (**Supplementary S12**) and **moves two rows**. `reported` means **the number the literature prints, not the official leaderboard's**, so it is printed as a range, **12–14 of the 19 ≈ 63–74 %** (the **80 %** column is over the **12/15** decidable rows); rows marked `n_a` enter the **19** but not the numerator (**Supplementary S12**).
 
 **Five clauses move to Supplementary S12** (the self-check's column and subtotal equalities to
 **S1**): the COCO row's judged number, the `yolo_dist` first-version correction (**4/19**), the
@@ -427,7 +427,7 @@ licenses are in Supplementary S12.**
 > named to the editor while it carries no identifier — is in **Supplementary S12**.
 
 ### 7.3 A cross-archive endpoint conflict on the same run (investigated — and itself a disclosure)
-**One run is recorded with two different endpoints in two archives** — which checkpoint is recorded was never specified: **Supplementary S12**, Table S16. taking the final-epoch row (67.12) gives Δ = **−1.490**, p = **0.0141**; taking the best-epoch row (70.06) gives Δ = **−0.902**, p = **0.2931**. **The headline tables of this article report the `best` reading** — the frozen endpoint convention of §5 — so that cell is **not** significant as printed; the `final` reading appears only where §7.2–§7.3 compare the two conventions. The affected run, named with both archived endpoints in **Supplementary S12**, appears in the article only in the `sio_b` cross-check of §5.1 and in §10's defect table; the ambiguity therefore **does not move a number printed here**.
+**One run is recorded with two different endpoints in two archives** — which checkpoint is recorded was never specified: **Supplementary S12**, Table S16. taking the final-epoch row (67.12) gives Δ = **−1.490**, p = **0.0141**; taking the best-epoch row (70.06) gives Δ = **−0.902**, p = **0.2931**. **The headline tables of this article report the `best` reading** — the frozen endpoint convention of §5 — so that cell is **not** significant as printed; the `final` reading appears only where §7.2–§7.3 compare the two conventions. The affected run, named with both archived endpoints in **Supplementary S12**, appears in the article only in the `sio_b` cross-check and §10's defect table; the ambiguity therefore **does not move a number printed here**.
 
 ## 8. Finding 5: how far the selection premium transfers to an independent split
 
@@ -483,9 +483,9 @@ where `prem_val = V_max − V_final` (**selecting on val**) and
 
 **Aggregate (runs weighted equally, n = 50; the `aitod20` cell completed from **1** run to **10**): `prem_val` +0.879 pp → `prem_test` +0.205 pp — arm-cell median **17.6 %**, span **−28.5 % to +73.7 %** (**102.2** pp), **2/5** negative; run-weighted, a realization rate of **23.3 %**, reported with the **cell-level interval as the primary one: [−17.3 %, 53.2 %]** (five clusters, P(rate ≤ 0) = **0.118**), the run-level bootstrap giving [8.4 %, 37.4 %] (P(rate ≤ 0) = 0.002) as the narrower sensitivity (script `work/item2_final_v2_20260925.py`).** **On a difference scale the eleven clusters give `prem_test − prem_val` = −1.367 pp, 95 % CI [−1.59, −1.15]** (not a new experiment; **Supplementary S12**). The same re-aggregation’s arm-cell-equal rate is **36.9 %**, 95 % CI **[19.3 %, 60.4 %]** — the interval’s sign depends on the base. **Completing the cell, not the weighting, removes the spread** they showed on the previous 41-run sample. **Leave-one-out 9.77 % to 34.16 %**: *partial realization* is a **descriptive five-cell statement**, **not significant** at claim level; in two of the five arm-cells the selection action does not merely fail to pay off, it **costs** — the `smoke2sf` strategy arm and the `aitod20` baseline. Closest concurrent work (**82 % / 104 %** and **56 % / 29 %**, pooled **55 %**), the winner's-curse check, the withdrawn σ√(2 ln E) form, and each arm-cell's corpus pair and public status: **Supplementary S12**.
 
-(the `best.pt`-versus-argmax residual of 0.083 pp, our withdrawn attribution and why the remainder is **unidentified**: **Supplementary S12**.)
+(the `best.pt`-versus-argmax residual, our withdrawn attribution and why the remainder is **unidentified**: **Supplementary S12**.)
 
-The monotonicity is a correlation, not a causal claim, and it is stated at the arm-cell unit — at the nine-cluster level ρ = **−0.433** (p = 0.244) — see **Fig. 4** and **Supplementary S12**: the n = 80 are the 81 runs with a measured
+The monotonicity is a correlation, not a causal claim, and at the arm-cell unit the nine-cluster reading is ρ = **−0.433** (p = 0.244) — see **Fig. 4** and **Supplementary S12**: the n = 80 are the 81 runs with a measured
 `test` side less the one whose `prem_val` is 0. It has a named precedent: [53] gives validation
 overfitting (VO) its name and bounds the expected best observed loss by
 E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of selection queries Nq.
@@ -564,7 +564,7 @@ behind every count, as Table 3's header does.
 ⑤ **A plateau is a post-hoc candidate, not a rule we validate.** Weight averaging is established [55];
    what is *measured here* averages the top-5 `val` epochs' **metric values**, capturing **70 %** of the
    realizable gain against the argmax's **30 %**, at the cost of **0.73 pp** below the peak — a post-hoc
-   reading of our own 40 runs, untested as an intervention. The per-rule table, the grid caveat and the
+   reading of our own 40 runs, untested as an intervention. The per-rule table and the
    candidate mechanism are in **Supplementary S11**, Measurement 3.
 
 ---
