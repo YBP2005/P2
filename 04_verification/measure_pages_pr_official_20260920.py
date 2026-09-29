@@ -119,7 +119,7 @@ def build(out_path, body_pt=10.0, spacing=1.5, m=(4.3, 4.8, 4.3, 4.8)):
             path = t[t.index('](') + 2:t.rindex(')')]
             full = os.path.join(W, path)
             if os.path.exists(full):
-                doc.add_picture(full, width=Cm(9.0))     # r118：必须与 md_to_docx 的实际图宽一致
+                doc.add_picture(full, width=Cm(9.5))     # r118：必须与 md_to_docx 的实际图宽一致
             i += 1
             continue
         if t.startswith('#'):

@@ -54,7 +54,7 @@ then report that it misses its criterion — a registration **also reported in t
 Ask "how many of these benchmarks have a split problem?" and, unless a unit is declared, every answer is
 defensible and they disagree by a factor of six: 2/19 (the release artifact binds both keys to one path),
 10/19 (no independent held-out test), 13/19 (the official protocol does not let you evaluate an independent
-test locally), **12–14 of the 19** (**a single rater's judgement, re-coded by models, not blind humans**; the reported number comes from a non-independent split). These are defensible answers, not the four units of **Table 3**, whose unit-level counts are 10/19, 13/19, 4/19 and 12/19. Declaring the unit is
+test locally), **12–14 of the 19** (**a single rater's judgement, re-coded by models, not blind humans**; the reported number comes from a non-independent split). These are defensible answers, not the four counting units (§6.1), whose unit-level counts are 10/19, 13/19, 4/19 and 12/19. Declaring the unit is
 therefore a methodological premise, not a caveat (§3, §6).
 
 ### 1.2 What we do not claim
@@ -179,7 +179,7 @@ The companion and this paper share project-internal process protocols — a mult
 **The proposition is not ours to claim.** That *the same data yield different defensible audit counts under
 different operational definitions* has been stated independently, for molecular benchmark auditing, in a 2026
 preprint whose abstract closes "different defensible definitions return different answers from the same
-file" [18]. Our contribution is therefore **not the observation but its instantiation in detection
+file" [18]. **The observation is the cited literature's; the instantiation, and the four named units, are ours.** Our contribution is therefore **not the observation but its instantiation in detection
 evaluation**: naming the four units by *who controls the split*, and backing them with the 19-row, four-unit
 evidence table. The decomposition is also orthogonal to [17], which separates leakage by **type**: we
 separate the **counting subject**, so one leakage type can still be counted under four units (§6.1).
@@ -187,15 +187,15 @@ separate the **counting subject**, so one leakage type can still be counted unde
 > **Table S2** → Supplementary §S8.
 
 **The `reported` unit is read from the release documentation and from the dataset's own paper**: we did not sample papers per benchmark and make no claim about prevalence; a stated-frame sample is future work (§11). For each of 19 benchmarks we record all four units, an evidence class and a confidence level, and recompute every percentage from the row markers under a per-unit subtotal check — the full 19 × 4
-table and the cross-check against the original audit are **Supplementary S1**, the derived counts §6.1 and
-Table 3.
+table and the cross-check against the original audit are **Supplementary S1**, the derived counts §6.1 and its
+table.
 
 **The rule itself is not new.** The same toolchain's own course states it normatively — *"Test set is
 touched once, at the end. Not for tuning."* and *"The splits must be independent on the dimension that
 matters at deployment."* [19] — so what this paper adds is not the rule but the **audit and the count**
 under it.
 
-**The premise we rely on throughout:** a "yes" under any unit means *the reported number is not a sample from an independent split*. **What that does and does not license is stated where the counts are printed** (§6.1 and the note under Table 3).
+**The premise we rely on throughout:** a "yes" under any unit means *the reported number is not a sample from an independent split*. **What that does and does not license is stated where the counts are printed** (§6.1 and the note under its table).
 
 ### 3.1 Formalisation: what the four quantities are, and what they can and cannot identify
 
@@ -211,24 +211,14 @@ under it.
 
 ### 3.2 Six experiments, five judged criteria, on GPU machines, each with its criterion written down first
 
-The propositions of §S11 are testable, so we ran them on rented GPUs with the **criterion fixed before the runs**; **Table 5** gives, for each of the six experiments, the criterion it was judged against. Counts below are over **experiments**, not criteria.
+The propositions of §S11 are testable, so we ran them on rented GPUs with the **criterion fixed before the runs**; **Supplementary Table S37** gives, for each of the six experiments, the criterion it was judged against. Counts below are over **experiments**, not criteria.
 
-**Table 5.** The six pre-registered experiments; G1 is **void** (design confounded), so no verdict is entered for it. **Two of the five judged experiments are negative — G1′ and G2 — and one design had to be redone**; negative outcomes are reported as negative. The values behind every verdict are in **Supplementary S31–S33** (the G1 family in **S12**).
-
-| Experiment (design) | Pre-declared criterion | Verdict |
-|---|---|---|
-| **G1** aliasing calibration, disjoint split | none entered: design confounded | **void** — the pair differed by 14.7 pp in difficulty; redone as G1′ (§S12) |
-| **G1″** three-way carve levels | the paired levels differ by ≤ 3 pp | **met** (−0.122 pp; §S12) |
-| **G1′** aliasing, level-matched pair | WC > 0, paired t, p < 0.05 | **not met** (p = 0.83, n = 10; §S12) |
-| **G2** selection-split size, 30 vs 90 | the rate rises with size; `WC_small/WC_large` ∈ [1.4, 2.1] | **direction met, magnitude not met** (pooled ratio 1.19; Table S31) |
-| **G3** epoch budget `E` | C1 rise in `E`; C2 the σ√(2 ln E) form in [0.86, 1.43]; C3 shape; C4 WC on a disjoint readout | **revised** (§3.1, S32 · S34b, **clean re-run**): C1 met, C2 out of band, so the scaling stays withdrawn; C3 passes on the mean only; C4 not met |
-| **G4** third corpus, `mende20_3way` | identity value by value; WC > 0 | **met** (WC = +5.21 pp, CI [+4.82, +5.66], 20/20; Table S33) |
-
+**The two negative outcomes and the redone design are stated as such in Supplementary Table S37** (G1 is void, and **two of the five judged experiments are negative — G1′ and G2**); the values behind every verdict are in **Supplementary S31–S33** (the G1 family in **S12**).
 The reading below is stated more weakly in **Supplementary S11, section 13.3**.
 
 **We then ran the clean test** of G3's epoch-budget series on **one machine with early stopping disabled**, all four budgets present: C1 is **met**, C2 falls **outside** its band, and C3 **passes** on the mean ê/E it specifies but not per arm — see §3.1 and **Table S34b**. **The pre-declared verdict stays with the with-early-stopping series; the clean re-run is the reading used here.** The judged criteria carry one message: **the selection bias moves with the absolute amount of selection noise and with the number of selection opportunities, but not with whether the two splits are the same file.** Two consequences do not follow: the configuration-level fact of §4 stands — the reported number *is* the selected number — while the stronger reading, that aliasing *adds* a measurable amount on top of it, does not.
 
-On the shared 5-epoch grid the `val` and `test` peaks agree in only **17.5 %** of runs, and conditioning on that single observable splits the 40 runs: where they agree the **median Δgap is lower** (mean **+0.13 pp**, median **−0.20 pp**, n = 7; **post-hoc**), where they differ it is **systematically not** (mean **+0.91 pp**, n = 33; permutation p = **0.009**, **post-hoc**). **This is a partial predictor, not an explanation of the sign**; its limits — including the four of seven agreement runs whose gap is non-positive — the per-run table and the test are in **Supplementary S11**.
+On the shared 5-epoch grid the `val` and `test` peaks agree in only **17.5 %** of runs, and conditioning on that single observable splits the 40 runs: where they agree the **median Δgap is lower** (mean **+0.13 pp**, median **−0.20 pp**, n = 7; **post-hoc**), where they differ it is **systematically not** (mean **+0.91 pp**, n = 33; permutation p = **0.009**, **post-hoc**; the median reading is **p = 0.0011**). **This is a partial predictor, not an explanation of the sign**; its limits — including the four of seven agreement runs whose gap is non-positive — the per-run table and the test are in **Supplementary S11**.
 
 ---
 
@@ -276,7 +266,7 @@ than contrary, since its mechanism is holdout **reuse** and ours needs none.
 11+/0−): **the mean direction is metric-robust, one cell's significance and sign unanimity are not**
 (full mAP50 columns and both mAP75 columns — the mAP75 `val` side is a **5-epoch grid**, so a rate computed from it is **upward-biased** — **Supplementary S12**).
 
-**Table 1.** Tier 1 — each arm's **peak−final gap** and the **paired difference** between arms, by cell; the gap is a within-run maximum (§5.1), so the finding is the paired difference. `n` counts paired units (ten seeded, one unseeded — Supplementary S12); at n = 10 the two differences hold (**+0.272**, **+0.449** pp). **A different run set from Table 4**: these are the 569-run local archive under the published (aliased) protocol, while Table 4’s premiums come from the clean three-way runs — the two tables’ premiums are different quantities, not two readings of one. Source: `verify_two_critiques_20260916.txt`; the `dota15` row's n = 10 escalation is in Table S28.
+**Table 1.** Tier 1 — each arm's **peak−final gap** and the **paired difference** between arms, by cell; the gap is a within-run maximum (§5.1), so the finding is the paired difference. `n` counts paired units (ten seeded, one unseeded — Supplementary S12); at n = 10 the two differences hold (**+0.272**, **+0.449** pp). **A different run set from the transfer measurement in §8.6**: these are the 569-run local archive under the published (aliased) protocol, while that measurement’s premiums come from the clean three-way runs — the two tables’ premiums are different quantities, not two readings of one. Source: `verify_two_critiques_20260916.txt`; the `dota15` row's n = 10 escalation is in Table S28.
 
 | Cell | n (paired units) | peak−final gap, base | peak−final gap, strat | **paired diff** | sd | t | p | 95 % CI |
 |---|---|---|---|---|---|---|---|---|
@@ -357,7 +347,7 @@ is taken to measure, but neither audits a release's configuration binding.
 
 ![Fig. 1](figures/fig3_four_units.png)
 
-**Table 3.** The four counting units over the 19 audited benchmarks. **A count is meaningless without its unit** (§3). Source: `split_units_19rows_20260916.md`. **Rows marked `n_a` enter the denominator, not the numerator, and are not undecidable**; the other readings are **12/19** for `release` and **10/15 ≈ 67 %** for `yolo_dist` (six rows enter that denominator only), and **12/15** is the 19 rows less the four `n_a` rows.
+**Table 3.** The four counting units over the 19 audited benchmarks. **A count is meaningless without its unit** (§3). Source: `split_units_19rows_20260916.md`. **Rows marked `n_a` enter the denominator, not the numerator, and are not undecidable**; the other readings are **12/19** for `release` and **10/15 ≈ 67 %** for `yolo_dist` (six rows enter that denominator only), and **12/15** is the 19 rows less the four `n_a` rows; under the COCO-`val` reading the `reported` unit is **13/19**.
 
 | Unit | non-independent | of decidable rows | undecidable |
 |---|---|---|---|
@@ -468,7 +458,7 @@ revision's two batches (`x4_teval.csv` on A, `x4fill_20260925.csv` on B, for `pr
 where `prem_val = V_max − V_final` (**selecting on val**) and
 `prem_test = T_best − T_final` (**realized on test**).
 
-**Aggregate (runs weighted equally, n = 50; the `aitod20` cell completed from **1** run to **10**): `prem_val` +0.879 pp → `prem_test` +0.205 pp — arm-cell median **17.6 %**, span **−28.5 % to +73.7 %** (**102.2** pp), **2/5** negative; run-weighted, a realization rate of **23.3 %**, reported with the **cell-level interval as the primary one: [−17.3 %, 53.2 %]** (five clusters, P(rate ≤ 0) = **0.118**), the run-level bootstrap giving [8.4 %, 37.4 %] (P(rate ≤ 0) = 0.002) as the narrower sensitivity (script `work/item2_final_v2_20260925.py`).** **On a difference scale the eleven clusters give `prem_test − prem_val` = −1.367 pp, 95 % CI [−1.59, −1.15]** (not a new experiment; **Supplementary S12**). The same re-aggregation’s arm-cell-equal rate is **36.9 %**, 95 % CI **[19.3 %, 60.4 %]** — the interval’s sign depends on the base. **Completing the cell, not the weighting, removes the spread** they showed on the previous 41-run sample. **Leave-one-out 9.77 % to 34.16 %**: *partial realization* is a **descriptive five-cell statement**, **not significant** at claim level; in two of the five arm-cells the selection action does not merely fail to pay off, it **costs** — the `smoke2sf` strategy arm and the `aitod20` baseline. Closest concurrent work (**82 % / 104 %** and **56 % / 29 %**, pooled **55 %**), the winner's-curse check, the withdrawn σ√(2 ln E) form, and each arm-cell's corpus pair and public status: **Supplementary S12**.
+**Aggregate (runs weighted equally, n = 50; the `aitod20` cell completed from **1** run to **10**): `prem_val` +0.879 pp → `prem_test` +0.205 pp — arm-cell median **17.6 %**, span **−28.5 % to +73.7 %** (**102.2** pp), **2/5** negative; run-weighted, a realization rate of **23.3 %**, reported with the **cell-level interval as the primary one: [−17.3 %, 53.2 %]** (five clusters, P(rate ≤ 0) = **0.118**), the run-level bootstrap giving [8.4 %, 37.4 %] (P(rate ≤ 0) = 0.002) as the narrower sensitivity (script `work/item2_final_v2_20260925.py`).** **On a difference scale the eleven clusters give `prem_test − prem_val` = −1.367 pp, 95 % CI [−1.59, −1.15]** (not a new experiment; **Supplementary S12**), on a denominator that spans **+0.605 to +1.469 pp** across the five arm-cells. The same re-aggregation’s arm-cell-equal rate is **36.9 %**, 95 % CI **[19.3 %, 60.4 %]** — the interval’s sign depends on the base. **Completing the cell, not the weighting, removes the spread** they showed on the previous 41-run sample. **Leave-one-out 9.77 % to 34.16 %**: *partial realization* is a **descriptive five-cell statement**, **not significant** at claim level; in two of the five arm-cells the selection action does not merely fail to pay off, it **costs** — the `smoke2sf` strategy arm and the `aitod20` baseline. Closest concurrent work (**82 % / 104 %** and **56 % / 29 %**, pooled **55 %**), the winner's-curse check, the withdrawn σ√(2 ln E) form, and each arm-cell's corpus pair and public status: **Supplementary S12**.
 
 (the `best.pt`-versus-argmax residual, our withdrawn attribution and why the remainder is **unidentified**: **Supplementary S12**.)
 
