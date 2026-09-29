@@ -1,0 +1,14 @@
+run,seed,arm,budget_epochs,epochs,split,metric,value_pp,measurement,final_epoch,peak_epoch,peak_relative_position,val_final_pp,val_max_pp,source_run
+g3ext_e400_base_s42n,42,base,400,400,val,premium_val_mAP50-95_pp,1.2880,val_max_minus_final_epoch,400,354,0.8850,15.9020,17.1900,E:\workplace\g3ext_runs\g3ext_e400_base_s42n\results.csv
+g3ext_e400_base_s43n,43,base,400,400,val,premium_val_mAP50-95_pp,1.3450,val_max_minus_final_epoch,400,338,0.8450,16.1550,17.5000,E:\workplace\g3ext_runs\g3ext_e400_base_s43n\results.csv
+g3ext_e400_lr005_s42n,42,lr005,400,400,val,premium_val_mAP50-95_pp,1.2330,val_max_minus_final_epoch,400,353,0.8825,17.0190,18.2520,E:\workplace\g3ext_runs\g3ext_e400_lr005_s42n\results.csv
+g3ext_e50_base_s42n,42,base,50,50,val,premium_val_mAP50-95_pp,0.6990,val_max_minus_final_epoch,50,38,0.7600,14.9410,15.6400,E:\workplace\g3ext_runs\g3ext_e50_base_s42n\results.csv
+g3ext_e50_base_s43n,43,base,50,50,val,premium_val_mAP50-95_pp,0.7330,val_max_minus_final_epoch,50,40,0.8000,15.0480,15.7810,E:\workplace\g3ext_runs\g3ext_e50_base_s43n\results.csv
+g3ext_e50_base_s44n,44,base,50,50,val,premium_val_mAP50-95_pp,0.6520,val_max_minus_final_epoch,50,32,0.6400,14.9930,15.6450,E:\workplace\g3ext_runs\g3ext_e50_base_s44n\results.csv
+g3ext_e50_base_s45n,45,base,50,50,val,premium_val_mAP50-95_pp,0.8820,val_max_minus_final_epoch,50,40,0.8000,15.1660,16.0480,E:\workplace\g3ext_runs\g3ext_e50_base_s45n\results.csv
+g3ext_e50_base_s46n,46,base,50,50,val,premium_val_mAP50-95_pp,0.6560,val_max_minus_final_epoch,50,40,0.8000,15.0710,15.7270,E:\workplace\g3ext_runs\g3ext_e50_base_s46n\results.csv
+g3ext_e50_lr005_s42n,42,lr005,50,50,val,premium_val_mAP50-95_pp,0.2580,val_max_minus_final_epoch,50,38,0.7600,16.1230,16.3810,E:\workplace\g3ext_runs\g3ext_e50_lr005_s42n\results.csv
+g3ext_e50_lr005_s43n,43,lr005,50,50,val,premium_val_mAP50-95_pp,0.4100,val_max_minus_final_epoch,50,33,0.6600,15.7660,16.1760,E:\workplace\g3ext_runs\g3ext_e50_lr005_s43n\results.csv
+g3ext_e50_lr005_s44n,44,lr005,50,50,val,premium_val_mAP50-95_pp,0.1490,val_max_minus_final_epoch,50,48,0.9600,15.9850,16.1340,E:\workplace\g3ext_runs\g3ext_e50_lr005_s44n\results.csv
+g3ext_e50_lr005_s45n,45,lr005,50,50,val,premium_val_mAP50-95_pp,0.0000,val_max_minus_final_epoch,50,50,1.0000,15.8750,15.8750,E:\workplace\g3ext_runs\g3ext_e50_lr005_s45n\results.csv
+g3ext_e50_lr005_s46n,46,lr005,50,50,val,premium_val_mAP50-95_pp,0.0000,val_max_minus_final_epoch,50,50,1.0000,15.9830,15.9830,E:\workplace\g3ext_runs\g3ext_e50_lr005_s46n\results.csv

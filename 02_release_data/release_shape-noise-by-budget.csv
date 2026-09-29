@@ -1,0 +1,9 @@
+budget_epochs,arm,n,premium_mean_pp,shape_pp,shape_share_pct,sd_nu_pp,nu_mean_pp,source_run
+50,base,5,0.7244,0.6322,87.3,0.0942,0.0922,E:\workplace\g3cleanb_20260925 | single machine B; clean batch G3CLEAN_NOSTOP=1 (early stopping disabled); only runs that completed epochs 1..E; arms base+lr005 x seeds 42-46 => n=5 per arm
+50,lr005,5,0.1634,0.0000,0.0,0.1756,0.1634,E:\workplace\g3cleanb_20260925 | single machine B; clean batch G3CLEAN_NOSTOP=1 (early stopping disabled); only runs that completed epochs 1..E; arms base+lr005 x seeds 42-46 => n=5 per arm
+100,base,5,0.8966,0.8302,92.6,0.1005,0.0664,E:\workplace\g3cleanb_20260925 | single machine B; clean batch G3CLEAN_NOSTOP=1 (early stopping disabled); only runs that completed epochs 1..E; arms base+lr005 x seeds 42-46 => n=5 per arm
+100,lr005,5,0.4682,0.4050,86.5,0.2202,0.0632,E:\workplace\g3cleanb_20260925 | single machine B; clean batch G3CLEAN_NOSTOP=1 (early stopping disabled); only runs that completed epochs 1..E; arms base+lr005 x seeds 42-46 => n=5 per arm
+200,base,5,1.1868,1.0968,92.4,0.0839,0.0900,E:\workplace\g3cleanb_20260925 | single machine B; clean batch G3CLEAN_NOSTOP=1 (early stopping disabled); only runs that completed epochs 1..E; arms base+lr005 x seeds 42-46 => n=5 per arm
+200,lr005,5,0.7556,0.6066,80.3,0.1632,0.1490,E:\workplace\g3cleanb_20260925 | single machine B; clean batch G3CLEAN_NOSTOP=1 (early stopping disabled); only runs that completed epochs 1..E; arms base+lr005 x seeds 42-46 => n=5 per arm
+400,base,5,1.2952,1.2510,96.6,0.0826,0.0442,E:\workplace\g3cleanb_20260925 | single machine B; clean batch G3CLEAN_NOSTOP=1 (early stopping disabled); only runs that completed epochs 1..E; arms base+lr005 x seeds 42-46 => n=5 per arm
+400,lr005,5,1.2482,0.9774,78.3,0.0846,0.2708,E:\workplace\g3cleanb_20260925 | single machine B; clean batch G3CLEAN_NOSTOP=1 (early stopping disabled); only runs that completed epochs 1..E; arms base+lr005 x seeds 42-46 => n=5 per arm

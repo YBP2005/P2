@@ -1,0 +1,58 @@
+==============================================================================
+Second coding vs printed coding - agreement statistics (computed 2026-09-27)
+printed source: P2_Supplementary_English_v0.1.md, §S1 fenced marking table
+second source:  work/second_coding_20260927.csv
+==============================================================================
+
+[name check]
+  (only differing names listed; row numbers are the join key)
+
+[decision-scale kappa, convention A: unknown kept as a category]
+  release   kappa = 0.7164 (95% CI 0.422 to 1.000)   p0 = 0.8421, pe = 0.4432, n = 19
+  protocol  kappa = 1.0000 (95% CI degenerate at 1.00; all 19 cells agree)
+  yolo_dist kappa = 0.9286 (95% CI 0.792 to 1.000)   p0 = 0.9474, pe = 0.2632, n = 19
+  reported  kappa = 0.7841 (95% CI 0.501 to 1.000)   p0 = 0.8947, pe = 0.5125, n = 19
+  OVERALL   kappa = 0.8744 (95% CI 0.778 to 0.971)   p0 = 0.9211, pe = 0.3715, n = 76
+
+[decision-scale kappa, convention B: cells where EITHER coding is unknown dropped]
+  release   kappa = 0.7164 (95% CI 0.422 to 1.000)   p0 = 0.8421, pe = 0.4432, n = 19   (dropped rows: none)
+  protocol  kappa = 1.0000 (95% CI degenerate at 1.00; all 19 cells agree)   (dropped rows: none)
+  yolo_dist kappa = 1.0000 (95% CI degenerate at 1.00; all 15 cells agree)   (dropped rows: [8, 9, 12, 15])
+  reported  kappa = 1.0000 (95% CI degenerate at 1.00; all 15 cells agree)   (dropped rows: [8, 11, 16, 19])
+  OVERALL   kappa = 0.9216 (95% CI 0.835 to 1.000)   p0 = 0.9559, pe = 0.4373, n = 68   (cell-wise: 68 of 76 cells kept; dropped cells sit in rows [8, 9, 11, 12, 15, 16, 19])
+
+[exact-mark agreement and mark-level kappa (literal marks)]
+  release   exact 16/19 agree;  kappa = 0.7935 (95% CI 0.579 to 1.000)   p0 = 0.8421, pe = 0.2355, n = 19
+  protocol  exact 18/19 agree;  kappa = 0.9340 (95% CI 0.808 to 1.000)   p0 = 0.9474, pe = 0.2022, n = 19
+  yolo_dist exact 17/19 agree;  kappa = 0.8613 (95% CI 0.680 to 1.000)   p0 = 0.8947, pe = 0.2410, n = 19
+  reported  exact 17/19 agree;  kappa = 0.7841 (95% CI 0.501 to 1.000)   p0 = 0.8947, pe = 0.5125, n = 19
+  OVERALL   exact 68/76 agree;  kappa = 0.8794 (95% CI 0.800 to 0.958)   p0 = 0.8947, pe = 0.1271, n = 76
+
+[disagreement cells (literal marks differ)]
+  row  1 COCO               release   printed `n_a(A)`               second independent_test    [n_a -> clean]
+  row  2 PASCAL VOC         release   printed `n_a(A)`               second independent_test    [n_a -> clean]
+  row  9 UAVDT              yolo_dist printed `unknown(A)`           second no_test_key         [unknown -> no_test_key]
+  row 11 DIOR               reported  printed `unknown(?)`           second alias               [unknown -> non_ind]
+  row 16 Mendeley face-mask yolo_dist printed `alias(D)`             second train_val_alias     [non_ind -> non_ind]
+  row 16 Mendeley face-mask reported  printed `unknown(?)`           second alias               [unknown -> non_ind]
+  row 18 CrowdHuman         release   printed `test_gated(A)`        second independent_test    [non_ind -> clean]
+  row 18 CrowdHuman         protocol  printed `alias(A)`             second test_gated          [non_ind -> non_ind]
+  total: 8 of 76 cells differ at mark level
+
+[decision-scale confusion matrices, convention A; rows=printed, cols=second]
+  release   clean        n_a          non_ind    
+    clean     7            0            0          
+    n_a       2            0            0          
+    non_ind   1            0            9          
+  protocol  clean        non_ind    
+    clean     6            0          
+    non_ind   0            13         
+  yolo_dist clean        no_test_key  non_ind      unknown    
+    clean     5            0            0            0          
+    no_test_key 0            6            0            0          
+    non_ind   0            0            4            0          
+    unknown   0            1            0            3          
+  reported  clean        non_ind      unknown    
+    clean     3            0            0          
+    non_ind   0            12           0          
+    unknown   0            2            2          

@@ -1,0 +1,65 @@
+{
+ "measured_at": "2026-09-29T13:00:32",
+ "inputs": {
+  "blind_md5": "9740d2c5823fec251875b41911b8f6ff",
+  "sup_md5": "4c05444556251b15fc6b5de3af5715c2",
+  "blind_words": 12092
+ },
+ "variants": {
+  "official_10pt_1.5": {
+   "pages": 35,
+   "words": 11736,
+   "body_pt": 10.0,
+   "spacing": 1.5,
+   "margins_cm": [
+    4.3,
+    4.8,
+    4.3,
+    4.8
+   ]
+  },
+  "variant_12pt_1.5": {
+   "pages": 49,
+   "words": 11737,
+   "body_pt": 12.0,
+   "spacing": 1.5,
+   "margins_cm": [
+    4.3,
+    4.8,
+    4.3,
+    4.8
+   ]
+  },
+  "variant_10pt_2.0": {
+   "pages": 45,
+   "words": 11736,
+   "body_pt": 10.0,
+   "spacing": 2.0,
+   "margins_cm": [
+    4.3,
+    4.8,
+    4.3,
+    4.8
+   ]
+  }
+ },
+ "official_geometry": "single column | Times New Roman 10 pt text and tables | 1.5 line spacing | A4 | margins 4.3/4.8/4.3/4.8 cm (official order = top/right/bottom/left) | justified | numbered pages",
+ "text_block_cm": {
+  "width": 11.4,
+  "height": 21.1
+ },
+ "embedded_figures": {
+  "markdown_image_lines": 4,
+  "note": "This article now embeds **four** figures in the body (Fig. 1-4, at 8.6 / 6.1 / 8.7 / 12) and the remaining two stay in the Supplementary; the count above is asserted, not assumed, and the page effect of the four in-text figures is measured by the pagination engine rather than estimated."
+ },
+ "limit": 35,
+ "positive_control": {
+  "injected_words": 600,
+  "pages_before": 35,
+  "pages_after": 37,
+  "responded": true,
+  "geometry": "official 10pt/1.5/4.3-4.8cm"
+ },
+ "verdict": "IN",
+ "note": "27 号文 §3 / 28 号文 §3.3：合规判据必须是分页引擎实测，且实测必须自带阳性对照；本文件是该项的唯一写者。"
+}
