@@ -18,25 +18,23 @@
 
 ## Abstract
 
-Object-detection papers report a number from a split they call held out. We audit that premise and
-report three results.
+Object-detection papers report a number from a split they call held out. We audit that premise, with three results.
 
-**1. The convention is broken in our own corpora.** **6 of 14** YOLO configurations we produced give the reported number no independent held-out split: the reported checkpoint was selected on the reported split.
+**1. The convention is broken in our own corpora.** **6 of 14** YOLO configurations we produced give the reported number no independent held-out split: the reported checkpoint was selected on that split.
 Training and evaluation do not overlap at the image level (intersection zero, SHWD excepted): not
 contamination but **checkpoint selection**.
 
-**2. The direction varies by corpus.** The selection premium is **positive in all four cells** (§5.1),
-the baseline arm gaining more, while the paired contrast changes sign between corpora; a declared
+**2. The direction varies by corpus.** The selection premium is **positive in all four cells** (§5.1, an escalated four-cell base),
+the baseline arm gaining more, while the paired contrast changes sign by corpus; a declared
 13-cell family leaves **3** cells after Benjamini–Hochberg; in 19 public benchmarks the reported number
-can come from a non-independent split (§6.1 — a **single rater's judgement, not a rate**), yet four
-all-correct answers exist by unit. **Changing the metric keeps the mean direction, but one cell loses
-its significance and sign unanimity** (`smoke2sf` **+0.063 pp**, p = 0.54, **6+/5−**).
+can come from a non-independent split (§6.1 — **one rater's judgement, not a rate**), yet each counting unit yields a defensible count. **Changing the metric keeps the mean direction, but one cell loses
+significance and sign unanimity** (`smoke2sf` **+0.063 pp**, p = 0.54, **6+/5−**).
 
 **3. Partial realization on a disjoint split.** Separating the selection set from the reported set, that
 premium survives at an **arm-cell median 17.6 %**, span **−28.5 % to +73.7 %** (**102.2** pp),
-**2/5 negative**; run-weighted **23.3 %**, at the claim's level **[−17.3 %, 53.2 %]** (P = 0.118),
+**2/5 negative**; run-weighted **23.3 %**, at the claim's level **[−17.3 %, 53.2 %]** (P = 0.118; **zero inside**),
 run-level [8.4 %, 37.4 %] (P = 0.002); leave-one-out **9.77 %–34.16 %**.
-Data-order replication lowers the mean by **9 %–29 %** (§8); no prospective power analysis was registered, so the
+Data-order replication lowers the mean **9 %–29 %** (§8); no prospective power analysis was registered, so the
 nine `n = 3` cells stay descriptive.
 
 **Keywords:** evaluation validity; dataset splits; checkpoint selection; object detection; benchmark audit;
@@ -148,8 +146,7 @@ premium on a disjoint split with the reporting conventions it depends on (§8.6�
    varies by corpus: three-way paired differencing gives 2 cells where `val` understates, 2 where it
    overstates and 9 not significant — the **no-systematic-direction** [14] reports, measured here on
    detection corpora (the crossing cells are now **all at n = 10**).
-   **We do not claim a general understatement** (§5). It appears in third-party logs too (20 logs / 6 sources, median +1.04 pp, max +5.65 pp,
-18/20 positive; §5.5) — a **convenience sample found by repository search**, cited as
+   **We do not claim a general understatement** (§5). It appears in third-party logs too (a searched sample of 20 logs from 6 sources; §5.5) — a **convenience sample found by repository search**, cited as
 corroboration that the component exists elsewhere, **not as independent evidence** and not as a
 field-level rate.
    *Note: **image-level** leakage magnitude is quantified by the two 2026 studies;
@@ -280,7 +277,7 @@ convention.
 **Tier 1: the selection premium is positive in all four cells and the baseline arm gains more**,
 consistent with the selection-bias literature, not new in kind; **on the monitored split that positivity is near-definitional** (`best` is that curve's own argmax), and **the finding we report is the paired arm difference and its test side (§8.6)**. Pairing brings **no** variance benefit:
 the paired t of 5.74 and the unpaired Welch t [28] of **5.68** agree — at ρ = 0, **standard arithmetic
-rather than an empirical finding of ours** [27]. **Permutation checks.** A sign-flip permutation test on the same paired differences agrees with the t-tests: smoke2sf and shwd2sf (11+/0−) at their attainable floor 2/2¹¹, p = 0.00098; dota15 (10+/0−) at the n = 10 floor, p = 0.00195; a2d15 (9+/1−) one pair short, p = 0.00391.
+rather than an empirical finding of ours** [27]. **Permutation checks.** A sign-flip permutation test on the same paired differences agrees with the t-tests at each cell’s attainable floor (**Supplementary S12**, §5.1).
 
 **Meta-analyses of published results have long quantified this optimism**: development-set early stopping
 is measured to *overestimate realistic model performance*, by as much as **18.0 %** accuracy [29]; and a
@@ -328,7 +325,7 @@ reproduces the archived `sio_b_results.csv` to **0.0046 pp**.
 **The formal claim:** the convention systematically shifts **arm-to-arm comparisons** (Tier 1: four
 cells, CIs excluding zero); **the direction of that shift varies by corpus** (Tier 2: 2 understate /
 2 overstate on the four-cell base) — **neither "a general understatement" nor "no systematic direction"**.
-BH at q = 0.05 **now leaves three cells significant** [31], **reversing what we reported before the
+BH at q = 0.05 **now leaves three cells significant** — `p_vistod15`, `p_aitovis`, `shwd2sf` [31], **reversing what we reported before the
 escalation**.
 
 **Scope (cross-framework boundary).** The convention this paper audits belongs to the **YOLO lineage —
@@ -373,7 +370,7 @@ is taken to measure, but neither audits a release's configuration binding.
 
 ![Fig. 1](figures/fig3_four_units.png)
 
-**Table 3.** The four counting units over the 19 audited benchmarks. **A count is meaningless without its unit** (§3). Source: `split_units_19rows_20260916.md`. **Rows marked `n_a` enter the denominator, not the numerator, and are not undecidable**; the other reading of the **`release`** column is **12/19**.
+**Table 3.** The four counting units over the 19 audited benchmarks. **A count is meaningless without its unit** (§3). Source: `split_units_19rows_20260916.md`. **Rows marked `n_a` enter the denominator, not the numerator, and are not undecidable**; the other readings are **12/19** for `release` and **10/15 ≈ 67 %** for `yolo_dist` (six rows enter that denominator only), and **12/15** is the 19 rows less the four `n_a` rows.
 
 | Unit | non-independent | of decidable rows | undecidable |
 |---|---|---|---|
@@ -430,7 +427,7 @@ licenses are in Supplementary S12.**
 > named to the editor while it carries no identifier — is in **Supplementary S12**.
 
 ### 7.3 A cross-archive endpoint conflict on the same run (investigated — and itself a disclosure)
-**One run is recorded with two different endpoints in two archives** — which checkpoint is recorded was never specified: **Supplementary S12**, Table S16. taking the final-epoch row (67.12) gives Δ = **−1.490**, p = **0.0141**; taking the best-epoch row (70.06) gives Δ = **−0.902**, p = **0.2931**. **The headline tables of this article report the `best` reading** — the frozen endpoint convention of §5 — so that cell is **not** significant as printed; the `final` reading appears only where §7.2–§7.3 compare the two conventions. **The affected run, `t2_mask2mende_base100_s42n`, appears in this article only in the `sio_b` cross-check of §5.1 and in §10's defect table, and in no headline table** — the ambiguity therefore **does not move a number printed here**.
+**One run is recorded with two different endpoints in two archives** — which checkpoint is recorded was never specified: **Supplementary S12**, Table S16. taking the final-epoch row (67.12) gives Δ = **−1.490**, p = **0.0141**; taking the best-epoch row (70.06) gives Δ = **−0.902**, p = **0.2931**. **The headline tables of this article report the `best` reading** — the frozen endpoint convention of §5 — so that cell is **not** significant as printed; the `final` reading appears only where §7.2–§7.3 compare the two conventions. The affected run, named with both archived endpoints in **Supplementary S12**, appears in the article only in the `sio_b` cross-check of §5.1 and in §10's defect table; the ambiguity therefore **does not move a number printed here**.
 
 ## 8. Finding 5: how far the selection premium transfers to an independent split
 
@@ -484,11 +481,11 @@ revision's two batches (`x4_teval.csv` on A, `x4fill_20260925.csv` on B, for `pr
 where `prem_val = V_max − V_final` (**selecting on val**) and
 `prem_test = T_best − T_final` (**realized on test**).
 
-**Aggregate (runs weighted equally, n = 50; the `aitod20` cell completed from **1** run to **10**): `prem_val` +0.879 pp → `prem_test` +0.205 pp — arm-cell median **17.6 %**, span **−28.5 % to +73.7 %** (**102.2** pp), **2/5** negative; run-weighted, a realization rate of **23.3 %**, reported with the **cell-level interval as the primary one: [−17.3 %, 53.2 %]** (five clusters, P(rate ≤ 0) = **0.118**), the run-level bootstrap giving [8.4 %, 37.4 %] (P(rate ≤ 0) = 0.002) as the narrower sensitivity (script `work/item2_final_v2_20260925.py`).** **On a difference scale the eleven clusters give `prem_test − prem_val` = −1.367 pp, 95 % CI [−1.59, −1.15]** (not a new experiment; **Supplementary S12**). **Completing the cell, not the weighting, removes the spread** they showed on the previous 41-run sample. **Leave-one-out 9.77 % to 34.16 %**: *partial realization* is a **descriptive five-cell statement**, **not significant** at claim level; in two of the five arm-cells the selection action does not merely fail to pay off, it **costs** — the `smoke2sf` strategy arm and the `aitod20` baseline. Closest concurrent work (**82 % / 104 %** and **56 % / 29 %**, pooled **55 %**), the winner's-curse check, the withdrawn σ√(2 ln E) form, and each arm-cell's corpus pair and public status: **Supplementary S12**.
+**Aggregate (runs weighted equally, n = 50; the `aitod20` cell completed from **1** run to **10**): `prem_val` +0.879 pp → `prem_test` +0.205 pp — arm-cell median **17.6 %**, span **−28.5 % to +73.7 %** (**102.2** pp), **2/5** negative; run-weighted, a realization rate of **23.3 %**, reported with the **cell-level interval as the primary one: [−17.3 %, 53.2 %]** (five clusters, P(rate ≤ 0) = **0.118**), the run-level bootstrap giving [8.4 %, 37.4 %] (P(rate ≤ 0) = 0.002) as the narrower sensitivity (script `work/item2_final_v2_20260925.py`).** **On a difference scale the eleven clusters give `prem_test − prem_val` = −1.367 pp, 95 % CI [−1.59, −1.15]** (not a new experiment; **Supplementary S12**). The same re-aggregation’s arm-cell-equal rate is **36.9 %**, 95 % CI **[19.3 %, 60.4 %]** — the interval’s sign depends on the base. **Completing the cell, not the weighting, removes the spread** they showed on the previous 41-run sample. **Leave-one-out 9.77 % to 34.16 %**: *partial realization* is a **descriptive five-cell statement**, **not significant** at claim level; in two of the five arm-cells the selection action does not merely fail to pay off, it **costs** — the `smoke2sf` strategy arm and the `aitod20` baseline. Closest concurrent work (**82 % / 104 %** and **56 % / 29 %**, pooled **55 %**), the winner's-curse check, the withdrawn σ√(2 ln E) form, and each arm-cell's corpus pair and public status: **Supplementary S12**.
 
-(`best.pt × val` versus the per-epoch `results.csv` maximum differs by up to 0.083 pp; in **pinned v8.4.120** `fitness ≡ mAP50-95` on the monitored split, so **we withdraw our earlier attribution** and the residual is **unidentified** — **Supplementary S12**.)
+(the `best.pt`-versus-argmax residual of 0.083 pp, our withdrawn attribution and why the remainder is **unidentified**: **Supplementary S12**.)
 
-The monotonicity is a correlation, not a causal claim: the n = 80 are the 81 runs with a measured
+The monotonicity is a correlation, not a causal claim, and it is stated at the arm-cell unit — at the nine-cluster level ρ = **−0.433** (p = 0.244) — see **Fig. 4** and **Supplementary S12**: the n = 80 are the 81 runs with a measured
 `test` side less the one whose `prem_val` is 0. It has a named precedent: [53] gives validation
 overfitting (VO) its name and bounds the expected best observed loss by
 E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of selection queries Nq.
@@ -496,6 +493,8 @@ E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of s
 **Recomputation status.** The readings were originally **not locally recomputable** (the archive lacks 6 of 7 corpora; **§10, defect 5**); a GPU **2 × 2 evaluation** on **41** three-way runs of **YOLOv12n [54]** × {`best`, `last`} × {`val`, `test`} makes them so, **retraining not**, reproducing the archived `best × test` values to within **0.0047 pp** (median **0.0021 pp**) — the endpoint rule's positive control (**Supplementary S12**).
 
 **Three limitations**: ① in the **41-run epoch sweep** only the two headline cells reach n = 10; `aitod20` contributes one run of 30 epochs and 6 checkpoints where others contribute **20** (hence 806, not 820), its Table 4 arm-cell a separate n = 10 batch; ② **closed: every retained checkpoint is now evaluated**, the *stability* reading is narrower than the grid; ③ κ is relative to each run's own final epoch, not causal. The 806-row evaluation is archived as `xeval_perepoch_20260918/matrix_perepoch.csv` with a SHA-256 list.
+
+![Fig. 4](figures/fig6_sigma_vs_rate.png)
 
 ### 8.7 The per-epoch view: the realization rate is not a constant
 
@@ -528,7 +527,7 @@ negative) and is **narrowed here**; per-checkpoint values: **Supplementary S11**
 
 This paper does not restate its numbers **as claims of this paper**: the registered endpoint table is reprinted as the **companion's** in **Supplementary S24–S26**, and this section gives only what a reader needs here to follow the argument.
 
-The pre-registered multi-target replication is **reported in the companion paper**, where it is a **first report**: its frozen registration (**2026-09-13 01:37:27 UTC**, FROZEN-HASH md5 `6a7eee7b3e34b15ce5adcba14cf7ea36`, **zero runs existing at freeze time**) and its verdict (**"criterion not met"**, written deliberately **not** as "hypothesis refuted"). This section states the protocol points a reader needs in order to read that registration from inside this paper; it reprints none of the companion's results.
+The pre-registered multi-target replication is **reported in the companion paper**, where it is a **first report**: its frozen registration (**2026-09-13 01:37:27 UTC**, FROZEN-HASH md5 `6a7eee7b3e34b15ce5adcba14cf7ea36`, **zero runs existing at freeze time**) and its verdict (**"criterion not met"**, written deliberately **not** as "hypothesis refuted"). This section states the protocol points a reader needs in order to read that registration from inside this paper; the endpoint table above is reprinted as the companion's, and none of its results is stated here as a claim of this paper.
 
 **Data.** Three registered target corpora, each taken from the public pools this paper audits and each carrying its own `train` / `val` / `test` configuration; the `test` half is the corpus's own held-out split and no selection rule sees it. Every run is a directory whose name carries its corpus, its arm and its `--shuffle-seed`; the per-seed table for **all 90 runs** is deposited with the registration.
 
@@ -562,20 +561,15 @@ alongside — the step **enlarges** the arm difference (§5.1). ③ State the te
 permutation test has no resolution; print the `2/2ⁿ` floor beside every p. ④ Declare the counting unit
 behind every count, as Table 3's header does.
 
-⑤ **A plateau is a post-hoc candidate, not a rule we validate.** What is *established* is that averaging the **weights**
-   of the candidate checkpoints beats picking the `val` best [55]; what is *measured here* averages
-   the five best `val` epochs' **metric values** — neither their weights nor their predictions — and
-   its **within-run capture rate** against the `val` argmax on our own 40 paired runs is: the argmax captured
-   **30 %** of the realizable gain and the plateau mean **70 %**, at the cost of reporting a number
-   **0.73 pp** below the peak. That gap is the part of the peak belonging to the split rather than
-   to the model, so plateau selection is a **candidate remedy for future work**: a post-hoc reading of
-   our own 40 runs, untested as an intervention.
+⑤ **A plateau is a post-hoc candidate, not a rule we validate.** Weight averaging is established [55];
+   what is *measured here* averages the top-5 `val` epochs' **metric values**, capturing **70 %** of the
+   realizable gain against the argmax's **30 %**, at the cost of **0.73 pp** below the peak — a post-hoc
+   reading of our own 40 runs, untested as an intervention. The per-rule table, the grid caveat and the
+   candidate mechanism are in **Supplementary S11**, Measurement 3.
 
 ---
 
 ## 12. Limitations
-
-![Fig. 4](figures/fig6_sigma_vs_rate.png)
 
 - The audit reads **split definitions** (YAML, README, paper text), **no datasets downloaded**.
 - For several benchmarks the "generic YOLO copy" is **per-project**, not canonical.

@@ -1337,7 +1337,7 @@ figures are printed there and which live here. It sits at the end of §S8 so tha
 the moved tables it indexes.
 
 **Where the evidence lives.** The article keeps its claims, argument, **five headline tables** and
-its disclosure; the other tables are in the Supplementary **unchanged**, and **four of the six figures are printed in the article** (§6.1, §8.6, §8.7, §12) with the remaining two in §S9, **and the printed numbers map to the deposited files as `Fig. 1` = `fig3_four_units.png`, `Fig. 2` = `fig2_realization_rate.png`, `Fig. 3` = `fig5_epoch_curve.png`, `Fig. 4` = `fig6_sigma_vs_rate.png`, `Fig. S1` = `fig1_dgap_decomposition.png`, `Fig. S2` = `fig4_public_logs.png`**, so a reader can pair every caption with its file,
+its disclosure; the other tables are in the Supplementary **unchanged**, and **four of the six figures are printed in the article** — §6.1 (Fig. 1), §8.6 (Figs. 2 and 4) and §8.7 (Fig. 3) — with the remaining two in §S9, **and the printed numbers map to the deposited files as `Fig. 1` = `fig3_four_units.png`, `Fig. 2` = `fig2_realization_rate.png`, `Fig. 3` = `fig5_epoch_curve.png`, `Fig. 4` = `fig6_sigma_vs_rate.png`, `Fig. S1` = `fig1_dgap_decomposition.png`, `Fig. S2` = `fig4_public_logs.png`**, so a reader can pair every caption with its file,
 every number backed by an artifact pointer. Five tables are printed **in the article**
 too, each carrying a headline number to check:
 
@@ -1356,7 +1356,7 @@ too, each carrying a headline number to check:
 | **Fig. 1** | **this article**, §6.1 |
 | **Fig. 2** | **this article**, §8.6 |
 | **Fig. 3** | **this article**, §8.7 |
-| **Fig. 4** | **this article**, §12 |
+| **Fig. 4** | **this article**, §8.6 |
 | **Fig. S1** | Supplementary §S9, §5.6 |
 | **Fig. S2** | Supplementary §S9, §5.5 |
 

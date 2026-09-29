@@ -1604,10 +1604,36 @@
      "ptr_to": 0,
      "rows_from": 0,
      "rows_to": 0,
-     "to": "en_part1.md",
+     "to": "en_part1.md.bak_before_r122_20260929",
      "to_md5": "0e1e80350ffd659ef72285e7d55f6c93",
      "words_from": 2097,
      "words_to": 2107,
+     "xref_lost": {},
+     "xref_new": {}
+    },
+    {
+     "from": "en_part1.md.bak_before_r122_20260929",
+     "from_md5": "0e1e80350ffd659ef72285e7d55f6c93",
+     "head_lost": [],
+     "head_new": [],
+     "num_gain": {},
+     "num_loss": {
+      "1.04": 1,
+      "18": 1,
+      "20": 1,
+      "5.65": 1
+     },
+     "produced_by": "r122",
+     "ptr_from": 0,
+     "ptr_lost": [],
+     "ptr_new": [],
+     "ptr_to": 0,
+     "rows_from": 0,
+     "rows_to": 0,
+     "to": "en_part1.md",
+     "to_md5": "c8e20f8aba9351ff4c7ce14aa33b84ea",
+     "words_from": 2107,
+     "words_to": 2105,
      "xref_lost": {},
      "xref_new": {}
     }
@@ -4352,7 +4378,7 @@
      "ptr_to": 2,
      "rows_from": 20,
      "rows_to": 20,
-     "to": "en_part2.md",
+     "to": "en_part2.md.bak_before_r122_20260929",
      "to_md5": "f59b08de58a65da5c032d9c9d575ad58",
      "words_from": 3724,
      "words_to": 3771,
@@ -4360,6 +4386,43 @@
       "§12": 1
      },
      "xref_new": {}
+    },
+    {
+     "from": "en_part2.md.bak_before_r122_20260929",
+     "from_md5": "f59b08de58a65da5c032d9c9d575ad58",
+     "head_lost": [],
+     "head_new": [],
+     "num_gain": {
+      "12": 1,
+      "5.1": 1
+     },
+     "num_loss": {
+      "0": 2,
+      "0.00098": 1,
+      "0.00195": 1,
+      "0.00391": 1,
+      "1": 1,
+      "10": 2,
+      "11": 1,
+      "15": 1,
+      "2": 4,
+      "9": 1
+     },
+     "produced_by": "r122",
+     "ptr_from": 2,
+     "ptr_lost": [],
+     "ptr_new": [],
+     "ptr_to": 2,
+     "rows_from": 20,
+     "rows_to": 20,
+     "to": "en_part2.md",
+     "to_md5": "e3189b7f6facb6f43aa67c43405bf6f6",
+     "words_from": 3771,
+     "words_to": 3752,
+     "xref_lost": {},
+     "xref_new": {
+      "§5.1": 1
+     }
     }
    ]
   },
@@ -5904,10 +5967,41 @@
      "ptr_to": 0,
      "rows_from": 8,
      "rows_to": 8,
-     "to": "en_part3.md",
+     "to": "en_part3.md.bak_before_r122_20260929",
      "to_md5": "f7329f04db79bf22286c28fcf8cfabf7",
      "words_from": 1300,
      "words_to": 1304,
+     "xref_lost": {},
+     "xref_new": {}
+    },
+    {
+     "from": "en_part3.md.bak_before_r122_20260929",
+     "from_md5": "f7329f04db79bf22286c28fcf8cfabf7",
+     "head_lost": [],
+     "head_new": [],
+     "num_gain": {
+      "10": 1,
+      "12": 2,
+      "15": 2,
+      "19": 1,
+      "67": 1
+     },
+     "num_loss": {
+      "100": 1,
+      "2": 2,
+      "42": 1
+     },
+     "produced_by": "r122",
+     "ptr_from": 0,
+     "ptr_lost": [],
+     "ptr_new": [],
+     "ptr_to": 0,
+     "rows_from": 8,
+     "rows_to": 8,
+     "to": "en_part3.md",
+     "to_md5": "baeba5c4effbb6fd85138ef953561f15",
+     "words_from": 1304,
+     "words_to": 1327,
      "xref_lost": {},
      "xref_new": {}
     }
@@ -10783,10 +10877,45 @@
      "ptr_to": 1,
      "rows_from": 19,
      "rows_to": 19,
-     "to": "en_part4.md",
+     "to": "en_part4.md.bak_before_r123_20260929",
      "to_md5": "79b45ec2d6deb380f055b1474134f590",
      "words_from": 5097,
      "words_to": 5097,
+     "xref_lost": {},
+     "xref_new": {}
+    },
+    {
+     "from": "en_part4.md.bak_before_r123_20260929",
+     "from_md5": "79b45ec2d6deb380f055b1474134f590",
+     "head_lost": [],
+     "head_new": [],
+     "num_gain": {
+      "0.244": 1,
+      "0.433": 1,
+      "11": 1,
+      "12": 1,
+      "19.3": 1,
+      "36.9": 1,
+      "4": 1,
+      "5": 1,
+      "60.4": 1
+     },
+     "num_loss": {
+      "40": 1,
+      "50": 1,
+      "8.4.120": 1
+     },
+     "produced_by": "r123",
+     "ptr_from": 1,
+     "ptr_lost": [],
+     "ptr_new": [],
+     "ptr_to": 1,
+     "rows_from": 19,
+     "rows_to": 19,
+     "to": "en_part4.md",
+     "to_md5": "49996f7bd14331e4839d5dbae11a4577",
+     "words_from": 5097,
+     "words_to": 5087,
      "xref_lost": {},
      "xref_new": {}
     }
