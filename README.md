@@ -5,7 +5,7 @@ checked rather than taken on trust. It accompanies the manuscript and its Supple
 
 ## Version and snapshot
 
-This snapshot carries the submission text of **2026-09-29** (editing rounds r121 and r122 of the authors' own log). The manuscript copies under `01_paper/` are **byte-identical** to the submitted files: `P2_English_v0.1.md` md5 `3f4d604df600acdf7745e990acd85773`, `P2_English_submission_blind_v1.md` md5 `744feff3eea639dbb0b3862d28b75fed`, `P2_Supplementary_English_v0.1.md` md5 `6982662459da2b65cec050c83ed8f64b`. The Data availability statement in the article names this repository with the access date **2026-09-29**, the date of the commit that carries this snapshot; the commit hash is the one this file is served from.
+This snapshot carries the submission text of **2026-09-29** (editing rounds r121 and r122 of the authors' own log). The manuscript copies under `01_paper/` are **byte-identical** to the submitted files: `P2_English_v0.1.md` md5 `d41f238e0f0b23b87e424079f0687b7a`, `P2_English_submission_blind_v1.md` md5 `84a3ee77d2b95c3dfb7c3e399133f8e2`, `P2_Supplementary_English_v0.1.md` md5 `183f5559fde0d4fc3b4943b2a7f1265a`. The Data availability statement in the article names this repository with the access date **2026-09-29**, the date of the commit that carries this snapshot; the commit hash is the one this file is served from.
 
 ## Licence
 

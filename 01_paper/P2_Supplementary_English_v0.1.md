@@ -2570,6 +2570,34 @@ their errors may be correlated and three of them are not three independent rater
 is `reported` (per-unit kappa ~0.10), which is the unit the headline count rests on, because which split
 the literature's number comes from is not decidable from any single file.
 
+**A third round, with eight more coders, and what it settles (2026-09-29).** Eight further language
+models, from vendors distinct from the first six, each coded the same 19 x 4 table blind, in a fresh
+session, under the SAME clarified rules as the second pass, receiving the rules and the per-row
+evidence pointers and nothing else; they produced in-chat answers, transcribed verbatim by the
+coordinator, so that no coder could see any other coder's output or any file. Against the printed
+coding the eight agree at per-coder kappa **0.105-0.325** (median 0.308; per unit: `protocol`
+0.03-0.54, `release` 0.06-0.50, `yolo_dist` 0.00-0.42, `reported` 0.04-0.23), i.e. the same
+fair-to-moderate band as the three coders of the second pass and no better with nearly three times
+the coders. Among themselves the eight agree at a median pairwise kappa of **0.504** (range
+0.046-0.824) and their Fleiss' kappa is **0.455** overall (0.468 `protocol`, 0.429 `yolo_dist`,
+0.271 `release`, **0.254 `reported`**) -- again highest between coders and lowest against the table.
+Three causes were identified in the returns and are worth recording because they bound what this
+instrument can measure. (i) **Reference frame.** The instrument asked which half the *official paper
+or leaderboard* number came from, whereas the printed column asks which half the number *the
+literature prints* came from; on benchmarks whose official leaderboard is clean but whose community
+numbers alias (VOC is the clearest), the coders answered "independent" where the table records
+`alias`, and the eight coders' `reported`-is-non-independent counts came out at 0, 0, 0, 0, 0, 3, 4
+and 5 of 19 against the printed 12 -- a frame difference, not a disagreement about the facts, which
+is why section 3 now states the frame in the definition of `reported`. (ii) **No category for
+"this layer does not exist".** The instrument offered only yes/no/unknown, so the table's `n_a`,
+`no_test`, `no_val`, `no_split` and `no_yaml` marks had to be forced into `unknown`; the coders
+instead answered "yes, the release ships a split" (all eight, for COCO and VOC). (iii) **Version
+anchoring** (`Objects365` v1/v2, VOC 2007/2012, DIOR vs DIOR-R) was flagged by the coders as
+undecidable from the pointer alone. All three are instrument properties: **more coders will not
+remove them**, and a blind human rater working from the same pointers would meet the same three.
+The per-coder, per-unit, pairwise and Fleiss values, the 76 x 8 raw marks and the coders' own
+ambiguity reports are held with this revision's measurement batch.
+
 **The consequence for this paper's claims.** The counts printed in section 6.1 -- 12/19, 80 % and the
 rest -- are the judgements of a single coder, and independent re-coding from the recorded evidence
 reproduces them only at fair-to-moderate agreement. They are therefore presented as a convenience audit
