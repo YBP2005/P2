@@ -1653,12 +1653,39 @@
      "ptr_to": 0,
      "rows_from": 0,
      "rows_to": 0,
-     "to": "en_part1.md",
+     "to": "en_part1.md.bak_before_r125_20260929",
      "to_md5": "f4d52e53595800b87a6b4e12f71c9138",
      "words_from": 2105,
      "words_to": 2100,
      "xref_lost": {},
      "xref_new": {}
+    },
+    {
+     "from": "en_part1.md.bak_before_r125_20260929",
+     "from_md5": "f4d52e53595800b87a6b4e12f71c9138",
+     "head_lost": [],
+     "head_new": [],
+     "num_gain": {
+      "6.1": 1
+     },
+     "num_loss": {
+      "3": 1
+     },
+     "produced_by": "r125",
+     "ptr_from": 0,
+     "ptr_lost": [],
+     "ptr_new": [],
+     "ptr_to": 0,
+     "rows_from": 0,
+     "rows_to": 0,
+     "to": "en_part1.md",
+     "to_md5": "97de9089c32e71c2a5b2496e5a5a6e95",
+     "words_from": 2100,
+     "words_to": 2099,
+     "xref_lost": {},
+     "xref_new": {
+      "§6.1": 1
+     }
     }
    ]
   },
@@ -4463,7 +4490,7 @@
      "ptr_to": 2,
      "rows_from": 20,
      "rows_to": 20,
-     "to": "en_part2.md",
+     "to": "en_part2.md.bak_before_r125_20260929",
      "to_md5": "ec8a1185788a6bb95aa0dce71eb264b6",
      "words_from": 3752,
      "words_to": 3752,
@@ -4471,6 +4498,64 @@
       "§5.1": 1
      },
      "xref_new": {}
+    },
+    {
+     "from": "en_part2.md.bak_before_r125_20260929",
+     "from_md5": "ec8a1185788a6bb95aa0dce71eb264b6",
+     "head_lost": [],
+     "head_new": [],
+     "num_gain": {
+      "0.0011": 1,
+      "37": 2,
+      "8.6": 1
+     },
+     "num_loss": {
+      "0": 2,
+      "0.05": 1,
+      "0.122": 1,
+      "0.83": 1,
+      "0.86": 1,
+      "1": 6,
+      "1.19": 1,
+      "1.4": 1,
+      "1.43": 1,
+      "10": 1,
+      "12": 3,
+      "14.7": 1,
+      "2": 4,
+      "2.1": 1,
+      "20": 3,
+      "3": 6,
+      "3.1": 1,
+      "30": 1,
+      "31": 1,
+      "32": 1,
+      "33": 1,
+      "34": 1,
+      "4": 5,
+      "4.82": 1,
+      "5": 2,
+      "5.21": 1,
+      "5.66": 1,
+      "90": 1
+     },
+     "produced_by": "r125",
+     "ptr_from": 2,
+     "ptr_lost": [],
+     "ptr_new": [],
+     "ptr_to": 2,
+     "rows_from": 20,
+     "rows_to": 12,
+     "to": "en_part2.md",
+     "to_md5": "527d04a76e3fc36ff1217d2eda7792f7",
+     "words_from": 3752,
+     "words_to": 3573,
+     "xref_lost": {
+      "§3.1": 1
+     },
+     "xref_new": {
+      "§8.6": 1
+     }
     }
    ]
   },
@@ -6097,10 +6182,34 @@
      "ptr_to": 0,
      "rows_from": 8,
      "rows_to": 8,
-     "to": "en_part3.md",
+     "to": "en_part3.md.bak_before_r126_20260929",
      "to_md5": "a67fd6a518bd0134d604c66b2c083681",
      "words_from": 1332,
      "words_to": 1332,
+     "xref_lost": {},
+     "xref_new": {}
+    },
+    {
+     "from": "en_part3.md.bak_before_r126_20260929",
+     "from_md5": "a67fd6a518bd0134d604c66b2c083681",
+     "head_lost": [],
+     "head_new": [],
+     "num_gain": {
+      "13": 1,
+      "19": 1
+     },
+     "num_loss": {},
+     "produced_by": "r126",
+     "ptr_from": 0,
+     "ptr_lost": [],
+     "ptr_new": [],
+     "ptr_to": 0,
+     "rows_from": 8,
+     "rows_to": 8,
+     "to": "en_part3.md",
+     "to_md5": "bd218ed91ac7428b5bcee22bc01563da",
+     "words_from": 1332,
+     "words_to": 1341,
      "xref_lost": {},
      "xref_new": {}
     }
@@ -11034,10 +11143,34 @@
      "ptr_to": 1,
      "rows_from": 19,
      "rows_to": 19,
-     "to": "en_part4.md",
+     "to": "en_part4.md.bak_before_r125_20260929",
      "to_md5": "b0f4028a46e7df92bc244b85257fe819",
      "words_from": 5087,
      "words_to": 5077,
+     "xref_lost": {},
+     "xref_new": {}
+    },
+    {
+     "from": "en_part4.md.bak_before_r125_20260929",
+     "from_md5": "b0f4028a46e7df92bc244b85257fe819",
+     "head_lost": [],
+     "head_new": [],
+     "num_gain": {
+      "0.605": 1,
+      "1.469": 1
+     },
+     "num_loss": {},
+     "produced_by": "r125",
+     "ptr_from": 1,
+     "ptr_lost": [],
+     "ptr_new": [],
+     "ptr_to": 1,
+     "rows_from": 19,
+     "rows_to": 19,
+     "to": "en_part4.md",
+     "to_md5": "93defad1ace4d70e0ef4d84c9032535c",
+     "words_from": 5077,
+     "words_to": 5090,
      "xref_lost": {},
      "xref_new": {}
     }

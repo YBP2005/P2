@@ -685,6 +685,7 @@ The strength of every statement in the main text is distinguished accordingly.
 | **Table S31** | 3.2 Six experiments, five judged criteria, on GPU machines, each with its criterion written down first (G2: the selection split's size) | selection split, arm, n, `prem_val`, `prem_test`, WC, realization rate | 4 |
 | **Table S32** | 3.2 Six experiments, five judged criteria, on GPU machines, each with its criterion written down first (G3: the epoch budget) | arm, n, premium at E = 50/100/200/400, ratio 400/100 | 2 |
 | **Table S33** | 3.2 Six experiments, five judged criteria, on GPU machines, each with its criterion written down first (G4: a third corpus) | run, `prem_val`, `prem_test`, WC, realization rate | 20 |
+| **Table S37** | 3.2 Six experiments, five judged criteria, on GPU machines, each with its criterion written down first | experiment (design), pre-declared criterion, verdict | 6 |
 
 
 > **Two notes spanning S24–S27 (added 2026-09-18).** ① The experiment contains
@@ -1147,6 +1148,19 @@ directory. The table above is a recomputation from those files, not a restatemen
 > and for `p_vistod15` −3.315 = (−7.072) + (−0.213) + (+3.971); both identities check to the printed
 > digit. Scripts: `work/x1_gap_analysis_20260918.py`, `work/x1_aux_20260918.py`.
 
+### Table S37 — moved from *3.2 Six experiments, five judged criteria, on GPU machines, each with its criterion written down first*
+
+**Table S37.** *3.2* — the six pre-registered experiments and the criterion each was judged against. **G1 is void** (design confounded), so no verdict is entered for it; **two of the five judged experiments are negative — G1′ and G2** — and one design had to be redone, all reported as such. Counts are over experiments, not criteria. The values behind every verdict are in Tables S31–S33 (the G1 family in S12).
+
+| Experiment (design) | Pre-declared criterion | Verdict |
+|---|---|---|
+| **G1** aliasing calibration, disjoint split | none entered: design confounded | **void** — the pair differed by 14.7 pp in difficulty; redone as G1′ (§S12) |
+| **G1″** three-way carve levels | the paired levels differ by ≤ 3 pp | **met** (−0.122 pp; §S12) |
+| **G1′** aliasing, level-matched pair | WC > 0, paired t, p < 0.05 | **not met** (p = 0.83, n = 10; §S12) |
+| **G2** selection-split size, 30 vs 90 | the rate rises with size; `WC_small/WC_large` ∈ [1.4, 2.1] | **direction met, magnitude not met** (pooled ratio 1.19; Table S31) |
+| **G3** epoch budget `E` | C1 rise in `E`; C2 the σ√(2 ln E) form in [0.86, 1.43]; C3 shape; C4 WC on a disjoint readout | **revised** (§3.1, S32 · S34b, **clean re-run**): C1 met, C2 out of band, so the scaling stays withdrawn; C3 passes on the mean only; C4 not met |
+| **G4** third corpus, `mende20_3way` | identity value by value; WC > 0 | **met** (WC = +5.21 pp, CI [+4.82, +5.66], 20/20; Table S33) |
+
 ### Table S31 — moved from *3.2 Six experiments, five judged criteria, on GPU machines, each with its criterion written down first*
 
 **Table S31.** *3.2 (G2)* — the selection split's **size** is the only thing that changes: two nested validation splits drawn from one verified-disjoint pool (30 and 90 images), the same training set, and an identical test side.  Columns: selection split, arm, n, `prem_val`, `prem_test`, WC, realization rate.  Source: `g2_valsize_20260919_runs/`, `g2t_g1p_20260919/g2_test.csv`.
@@ -1203,6 +1217,7 @@ directory. The table above is a recomputation from those files, not a restatemen
 | lr005_100ep_s51n | +7.355 | +2.563 | +4.792 | 34.8 % |
 
 > **Result.** WC = **+5.212 pp**, 95 % bootstrap CI [+4.822, +5.655], positive in **20 of 20** runs — the same direction as the 81 runs of §8.6 and the 40 of §5.1.  No pass/fail is set for the rate itself (Proposition 4 bounds only its expectation).
+
 
 
 ### Table S34 — cross-lineage realization test (non-YOLO detector)
@@ -1338,7 +1353,7 @@ the moved tables it indexes.
 
 **Where the evidence lives.** The article keeps its claims, argument, **five headline tables** and
 its disclosure; the other tables are in the Supplementary **unchanged**, and **four of the six figures are printed in the article** — §6.1 (Fig. 1), §8.6 (Figs. 2 and 4) and §8.7 (Fig. 3) — with the remaining two in §S9, **and the printed numbers map to the deposited files as `Fig. 1` = `fig3_four_units.png`, `Fig. 2` = `fig2_realization_rate.png`, `Fig. 3` = `fig5_epoch_curve.png`, `Fig. 4` = `fig6_sigma_vs_rate.png`, `Fig. S1` = `fig1_dgap_decomposition.png`, `Fig. S2` = `fig4_public_logs.png`**, so a reader can pair every caption with its file,
-every number backed by an artifact pointer. Five tables are printed **in the article**
+every number backed by an artifact pointer. Four tables are printed **in the article**
 too, each carrying a headline number to check:
 
 | In this article | §S8 counterpart | What it settles |
@@ -1347,9 +1362,8 @@ too, each carrying a headline number to check:
 | **Table 2** | Table S6 | **Tier 2** — Δgap by corpus, with its reading |
 | **Table 3** | Table S11 | the four counting units over the 19 audited benchmarks |
 | **Table 4** | Table S20 | the premium selected on `val`, and what it realizes on `test` |
-| **Table 5** | Tables S31–S34b | the six pre-registered experiments, their criteria and their verdicts |
 
-**Everything else is in §S8–§S9**, keyed by section, including **S24–S27** (the registration, now the companion's), plus **two tables this revision adds in §S12 rather than moves from the article** — **Table S35** (the estimand and scope map) and **Table S36** (the analysis-status ledger) — which the §S8 index does not list, since that index lists only the tables moved from the article; the six figures are:
+**Everything else is in §S8–§S9**, keyed by section, including **S24–S27** (the registration, now the companion's), plus **two tables this revision adds in §S12 rather than moves from the article** — **Table S35** (the estimand and scope map) and **Table S36** (the analysis-status ledger), and **Table S37** (the article's former Table 5: the six pre-registered experiments, their criteria and their verdicts, moved here in this revision) — which the §S8 index does not list, since that index lists only the tables moved from the article; the six figures are:
 
 | Figure | Main-text section |
 |---|---|
