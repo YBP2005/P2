@@ -1,0 +1,5 @@
+
+--- stderr ---
+cat: /workspace/g6_coverage.txt: No such file or directory
+
+[remote exit 1]
