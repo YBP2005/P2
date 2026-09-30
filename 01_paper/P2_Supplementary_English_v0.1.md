@@ -916,7 +916,7 @@ The strength of every statement in the main text is distinguished accordingly.
 | Source | What was varied | Magnitude |
 |---|---|---|
 | augmentation RNG | 3 augmentation seeds | 0.246 pp (strategy) / 0.190 pp (baseline) |
-| **initialization (source-side retraining from scratch)** | 3 independent initializations | **0.146 pp (gain) / 0.209 pp (absolute endpoint)** |
+| **initialization (source-side retraining from scratch)** | 3 → **5** independent initializations | **0.146 → 0.439 pp (gain) / 0.209 → 0.253 pp (absolute endpoint)** |
 | second-stage data order | 9–10 seeds | 0.403 pp (smoke) / **0.515 pp (SHWD)** |
 
 > **The three rows are not in one unit, and we do not compare them as if they were.** The augmentation and
@@ -925,6 +925,17 @@ The strength of every statement in the main text is distinguished accordingly.
 > absolute endpoint** — because those two are not interchangeable. The claim §8.4 makes is a **ranking**,
 > and that ranking holds under either reading; the three magnitudes are **not** comparable across rows in a
 > single unit, and **no cross-row arithmetic is performed on them**.
+
+> **The initialization row was extended on 2026-09-30 (five initializations), and the extension weakens
+> the reading rather than confirming it.** Two further source-side retrainings (data-order seeds 45 and
+> 46, augmentation seeds 404 and 505) give gains of **+0.430** and **+1.390 pp**; with them the gain SD
+> moves **0.146 → 0.439 pp** (mean **+0.626**, range **1.110**) and the absolute-endpoint SD
+> **0.209 → 0.253 pp** (43.070–43.630). The bootstrap 95 % interval for the five-initialization gain SD is
+> **[0.058, 0.580]**, which **overlaps** the data-order row's **0.488 pp** (n = 10; 0.515 pp at n = 9) — so
+> "the excluded component is the smaller" holds **in the three-initialization sample only**, and this
+> supplement reports the ranking as sample-scoped rather than established. The same run reproduces the
+> archived three initializations value by value (43.630/+0.570, 43.590/+0.280, 43.250/+0.460, max
+> |Δ| = **0.005 pp**). Script: `work/G3_sigma_n5_20260930.py`.
 
 ### Table S20 — moved from *8.6 ⭐ The premium's realization rate: arm-cell median **17.6 %** (five arm-cells, n = 10; run-weighted **23.3 %**)*
 
@@ -1056,6 +1067,74 @@ The strength of every statement in the main text is distinguished accordingly.
 > `work/g6_repro_vs_printed_20260930.py`; the evaluation itself: `work/g6_perepoch_eval.py`,
 > `work/g6_coverage_audit.py`.
 
+### Table S39 — the second intervention axis (`weight_decay` 1e-4 → 1e-3)
+
+**Table S39.** *the second (weight-decay) axis, cell by cell* — both levels re-run fresh on one machine (A), `lr0` fixed at 0.001; `reference` = wd 1e-4 (the archived value), `treatment` = wd 1e-3
+
+| Cell | seed | reference | treatment | gain |
+|---|---|---|---|---|
+| smoke2sf | s42 | +42.310 | +41.880 | **-0.430** |
+| smoke2sf | s43 | +41.930 | +42.400 | **+0.470** |
+| smoke2sf | s44 | +41.930 | +41.750 | **-0.180** |
+| smoke2sf | s45 | +42.060 | +42.090 | **+0.030** |
+| smoke2sf | s46 | +42.060 | +42.570 | **+0.510** |
+| smoke2sf | s47 | +42.670 | +42.460 | **-0.210** |
+| smoke2sf | s48 | +42.660 | +42.740 | **+0.080** |
+| smoke2sf | s49 | +42.470 | +42.450 | **-0.020** |
+| smoke2sf | s50 | +42.130 | +42.220 | **+0.090** |
+| smoke2sf | s51 | +41.860 | +41.720 | **-0.140** |
+| shwd2sf | s42 | +43.510 | +42.950 | **-0.560** |
+| shwd2sf | s43 | +42.770 | +43.200 | **+0.430** |
+| shwd2sf | s44 | +43.530 | +43.510 | **-0.020** |
+| shwd2sf | s45 | +42.870 | +43.490 | **+0.620** |
+| shwd2sf | s46 | +42.830 | +43.700 | **+0.870** |
+| shwd2sf | s47 | +43.140 | +43.300 | **+0.160** |
+| shwd2sf | s48 | +43.600 | +43.290 | **-0.310** |
+| shwd2sf | s49 | +43.180 | +43.540 | **+0.360** |
+| shwd2sf | s50 | +43.550 | +42.890 | **-0.660** |
+| shwd2sf | s51 | +43.690 | +43.700 | **+0.010** |
+
+* **smoke2sf**: n = 10, sign **5+/5−**, mean **+0.020 pp**, SD **0.293**, sign-flip permutation **p = 0.8535**; the axis moves the absolute endpoint by SD **0.321** (range 1.020); second-axis Δgap mean **-0.009 pp** (SD 0.537, 6+/4−, permutation p = 0.9648); archive anchor mean |Δ| **0.362**, max **0.810 pp**.
+* **shwd2sf**: n = 10, sign **6+/4−**, mean **+0.090 pp**, SD **0.500**, sign-flip permutation **p = 0.582**; the axis moves the absolute endpoint by SD **0.315** (range 0.930); second-axis Δgap mean **+0.190 pp** (SD 0.567, 7+/3−, permutation p = 0.3066); archive anchor mean |Δ| **0.442**, max **1.110 pp**.
+### Table S40 — the third intervention axis (`mosaic` 1.0 → 0.0)
+
+**Table S40.** *the third (augmentation) axis, cell by cell* — both levels re-run fresh on one machine per cell (`smoke2sf` on B, `shwd2sf` on A), `lr0` fixed at 0.001; `reference` = mosaic 1.0 (the archived default), `treatment` = 0.0
+
+| Cell | seed | reference | treatment | gain |
+|---|---|---|---|---|
+| smoke2sf | s42 | +42.310 | +41.200 | **-1.110** |
+| smoke2sf | s43 | +41.930 | +41.400 | **-0.530** |
+| smoke2sf | s44 | +41.930 | +41.270 | **-0.660** |
+| smoke2sf | s45 | +42.060 | +41.180 | **-0.880** |
+| smoke2sf | s46 | +42.060 | +40.580 | **-1.480** |
+| smoke2sf | s47 | +42.670 | +41.470 | **-1.200** |
+| smoke2sf | s48 | +42.660 | +40.410 | **-2.250** |
+| smoke2sf | s49 | +42.470 | +41.170 | **-1.300** |
+| smoke2sf | s50 | +42.130 | +40.820 | **-1.310** |
+| smoke2sf | s51 | +41.860 | +41.230 | **-0.630** |
+| shwd2sf | s42 | +43.510 | +41.810 | **-1.700** |
+| shwd2sf | s43 | +42.770 | +42.680 | **-0.090** |
+| shwd2sf | s44 | +43.530 | +42.660 | **-0.870** |
+| shwd2sf | s45 | +42.870 | +42.580 | **-0.290** |
+| shwd2sf | s46 | +42.830 | +42.140 | **-0.690** |
+| shwd2sf | s47 | +43.140 | +42.770 | **-0.370** |
+| shwd2sf | s48 | +43.600 | +42.400 | **-1.200** |
+| shwd2sf | s49 | +43.180 | +42.950 | **-0.230** |
+| shwd2sf | s50 | +43.550 | +43.020 | **-0.530** |
+| shwd2sf | s51 | +43.690 | +42.670 | **-1.020** |
+
+* **smoke2sf**: n = 10, sign **0+/10−**, mean **-1.135 pp**, SD **0.510**, sign-flip permutation **p = 0.001953**; the axis moves the absolute endpoint by SD **0.664** (range 2.260); second-axis Δgap mean **+0.035 pp** (SD 0.521, 6+/4−, permutation p = 0.8242); archive anchor mean |Δ| **0.362**, max **0.810 pp**.
+* **shwd2sf**: n = 10, sign **0+/10−**, mean **-0.699 pp**, SD **0.503**, sign-flip permutation **p = 0.001953**; the axis moves the absolute endpoint by SD **0.501** (range 1.880); second-axis Δgap mean **-0.520 pp** (SD 0.677, 2+/8−, permutation p = 0.0293); archive anchor mean |Δ| **0.442**, max **1.110 pp**.
+### Table S41 — the `p_vistod15` clean re-run, and what it does to the memory-pressure bound
+
+**Table S41.** *10 (defect 10)* — the cell defect 10 flags, re-run on one machine with ample VRAM (one training lane per GPU), with the **archived script and the recorded configuration**: four `(arm, seed)` pairs, each **twice** (the clean re-run `clean1` and an independent replicate `clean2`). Test endpoints are mAP50-95 (pp). `|archive − clean1|` is the quantity the article’s bound is about; `|clean2 − clean1|` is what an identical configuration reproduces at, on the same machine, the same day. Source: `work/G2_jitter_20260930.py`; per-run logs screened for the two defect-10 fingerprints (`work/g2_screen_20260930.py`) — **no hits**.
+
+| arm | seed | archive | clean1 | clean2 | \|archive − clean1\| | **\|clean2 − clean1\|** |
+|---|---|---|---|---|---|---|
+| base100 | s42 | 11.450 | 11.450 | 11.450 | +0.000 | **+0.000** |
+| base100 | s43 | 11.680 | 11.700 | 11.700 | +0.020 | **+0.000** |
+| lr005_100ep | s42 | 15.190 | 15.040 | 15.040 | +0.150 | **+0.000** |
+| lr005_100ep | s43 | 15.280 | 15.280 | 15.280 | +0.000 | **+0.000** |
 ### Table S24 — moved from *§9: the registered replication (the criterion is not met — the third row is the one that passes)*
 
 **Table S24.** *§9: the registered replication (the criterion is not met — the third row is the one that passes)* — columns: Registered pair, n, Δ (pp), 95 % CI, paired t, permutation p, same sign, Δ ≥ +0.30, p < 0.01, ≥ 8/10, unit criterion.
@@ -2012,19 +2091,25 @@ rather than signal" is an interpretation we do not test here.
 > **Table S19** → Supplementary §S8.
 
 
-**Reading (favourable to this paper):** on the same unit, **initialization (0.146 pp) fluctuates less than
-data order (0.515 pp)** — **the component we excluded is not the dominant one** — so "the reported power is
-an optimistic upper bound" tightens to "the excluded initialization component is smaller than the dominant
-seed component".
+**Reading (favourable to this paper, at three initializations):** on the same unit, **initialization
+(0.146 pp) fluctuated less than data order (0.515 pp)** when this was written — **the component we excluded
+was not the dominant one** — so "the reported power is an optimistic upper bound" tightened to "the
+excluded initialization component is smaller than the dominant seed component". **The five-initialization
+extension (2026-09-30) removes that reading**: the gain SD becomes **0.439 pp** with a bootstrap interval
+**[0.058, 0.580]** that overlaps the data-order component, so the ranking is retained only as a **sample
+statement at n = 3**, not as an established ordering.
 
-**Two limitations must be stated with it**: ① only 3 initializations, so the SD estimate is very
-uncertain (with 2 degrees of freedom the 95 % interval for σ is roughly [0.5σ̂, 6σ̂]); we may write
-"consistent with", **not** "established". ② That experiment ran on machine A with A-side third-party YAMLs,
+**Two limitations must be stated with it**: ① **three** initializations stood behind the original reading
+and **five** behind the 2026-09-30 extension, so the SD estimate stays uncertain (the 95 % interval for σ
+is roughly [0.5σ̂, 6σ̂] at 2 degrees of freedom and [0.6σ̂, 2.9σ̂] at 4); the extension's interval overlaps
+the data-order component, so we write "consistent with", **not** "established" — and the same now applies
+to the **ranking** itself. ② That experiment ran on machine A with A-side third-party YAMLs,
 the n = 10 cells on machine B under the same protocol; cross-machine comparability must be noted.
 
 ### 8.5 Why "same-pipeline pairing" is a necessity, not a habit
 Three initializations move the **absolute endpoint** of one configuration by 43.250–43.630 (range
-0.38 pp, SD 0.209 pp), comparable to seed noise. **Absolute endpoints are not comparable across source
+0.38 pp, SD 0.209 pp), comparable to seed noise; **five** (the 2026-09-30 extension) move it by
+**43.070–43.630** (range **0.56 pp**, SD **0.253 pp**). **Absolute endpoints are not comparable across source
 endpoints; only paired differences within one source endpoint are stable.**
 
 ### 5.6 Why Δgap's sign varies by corpus — measurement detail
@@ -2428,9 +2513,12 @@ it says.
   for the four `*2sf` arm-cells (880 evaluations, five-epoch grid), so a mAP75 realization rate exists for
   those cells (arm-cell median **+26.8 %**, run-weighted **+22.3 %**, **1 of 4** negative); what remains
   without a denominator is the **`aitod20` baseline cell**, its other nine runs' weights not being in this
-  archive. ④ **Initialization** is not an axis
-  here — what varies across these replicates is the training **file order** (`--shuffle-seed`) — so an
-  across-initialization realization rate is **not recorded** in this archive.
+  archive. ④ **Initialization** is not the axis these replicates vary, so the across-initialization
+  realization rate was **not recorded** in this archive; **it is now recorded** (2026-09-30, five
+  source-side initializations, 10 arm-runs, `work/G3_init_rc_20260930.py`): **18.5 % run-weighted**
+  (Σ`prem_test`/Σ`prem_val` = 2.269/12.250), **median 19.2 %**, positive in **8/10** arm-runs — the same
+  order as the five-arm-cell headline of §8.6, with two negative cases (`src1` strategy 44.200 → 44.258,
+  `src4` strategy 44.030 → 44.116).
 
 **Provenance, and the positive controls that bind this section to the printed record.** The four batch-2
 cluster values are recomputed from `x1_tier2_20260918/runs/` and `teval.csv`; the two batch-3 values from
@@ -2519,6 +2607,8 @@ where it sampled.
 > **Memory pressure silently changes the training path**: under GPU memory pressure Ultralytics switches implementation without changing the recorded configuration — (a) `CUDA out of memory with batch=32. Reducing to batch=16` (a **configuration-level** change), or (b) `OutOfMemoryError in TaskAlignedAssigner, using CPU` (same batch, but label assignment re-runs on CPU, where a boundary argmax can differ and the trajectory forks). Case (a) is **invisible in the standard artifacts** — `args.yaml` still records `batch: 32`, and the only fingerprint is the log’s per-iteration denominator (32 → `0/9` / `0/41`; 16 → `0/18` / `0/81`).
 >
 > **Disposition.** **Disclosed, not retracted; we do not call the affected batches “clean”.** Configuration-level hits: **2** places — §3.1’s E = 50 clean batch, **1** run (Δpremium **+0.308 pp** against the same-machine re-run), and §5.1 Table 2’s `p_vistod15` cell, **3** runs — so the whole clean four-budget series was re-run on one machine. Assigner fallback occurs in **every** batch, **1–4** times per run (≈**1** per 1000 iterations). **We bound it rather than estimate it**: on the clean E = 50 batch **7 of 10** same-config pairs are bit-identical, so **≤0.05 pp** applies *there* and is **not extrapolated**; in the `p_vistod15` and `aitod20` cells the treated runs’ A→B differences (Δpremium **≤0.35 pp**) fall **inside the spread of the zero-event controls** (up to **+0.704 pp**), so at this scale the effect is **not separable from machine/run variation** and we give a bound, not a point estimate; the one clear case is the configuration-level run (ΔVmax **+0.769 pp**). This sits against the paper’s own realization-rate 95 % CI **[8.4 %, 37.4 %]**.
+>
+> **The clean re-run, and what it can and cannot test (2026-09-30).** That cell was re-run twice over — four `(arm, seed)` pairs, each **twice** — on one machine with ample VRAM. Reading the **test** endpoint: the two fresh replicates of the *same* configuration are **bit-identical in all four pairs** (`|Δ| = 0.000 pp`; the recorded `args.yaml` carries `deterministic: true`), which is the strongest reading the `≤0.05 pp` bound above can ask for; the **archive** differs from the clean run by up to **0.150 pp** (`0.000 / 0.020 / 0.150 / 0.000`, mean 0.043), and `args.yaml` is **identical field for field** (only `name` and `save_dir` differ), so that difference is not a recorded configuration change and, with a deterministic pipeline, not run-to-run noise either. **A same-configuration control that had no such event is itself not reproducible across dates**: re-running the archived `iv_src1/base100` configuration today gives **43.190 against the archived 43.630 — a 0.440 pp drift** (its per-epoch `val` curves move by up to 3.198 pp), i.e. **larger than the whole difference on the cell defect 10 flags** (up to 0.150 pp). ⇒ **the bound stays `≤0.05 pp`, read as an archive-internal statement about same-configuration pairs; cross-date comparisons cannot test it**, because the drift alone is several times the effect the bound is about. Table S41; scripts `work/G2_jitter_20260930.py`, `work/ctrldrift_check_20260930.py`.
 
 ### The five realization arm-cells: what each one pairs, and whether the corpora are public
 
@@ -2999,8 +3089,10 @@ as `xeval_perepoch_20260918/matrix_perepoch.csv` with a SHA-256 list.
   them visible rather than absorbing them into a headline**: the 19-row audit is **single-rater** (no
   second coder, so no inter-rater statistic exists and we do not claim one); the third-party log sample is
   a **convenience sample** found by repository search, so it corroborates that the component exists
-  elsewhere and is not a rate; the GPU memory-pressure effect is **bounded, not estimated** (**≤0.05 pp**
-  where same-config pairs can be compared, inside the zero-event-control spread elsewhere, §10 defect 10);
+  elsewhere and is not a rate; the GPU memory-pressure effect is **bounded, not estimated**
+  (**≤0.05 pp** where same-config pairs can be compared — fresh replicates are bit-identical — while a same-config control that had no such event is itself not
+  reproducible across dates (a 0.440 pp drift), so cross-date comparisons cannot test the
+  bound; inside the zero-event-control spread elsewhere, §10 defect 10 and Table S41);
   and the §8.3 replicates vary the **training file order**, not independent training seeds.
   **None of the four has an interval that could be folded into §8.6's rate** — the first two have no
   numeric bound at all without a second coder — so they are stated here as scope, not as error bars.
