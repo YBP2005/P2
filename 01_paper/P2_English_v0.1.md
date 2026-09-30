@@ -297,7 +297,7 @@ than contrary, since its mechanism is holdout **reuse** and ours needs none.
 | p_aitovis | 10 | **−1.226** | 1.3×10⁻⁸ | [−1.370, −1.081] | `val` **overstates** |
 | p_vistod15 | 10 | **−3.315** | 6.5×10⁻⁹ | [−3.676, −2.953] | `val` **overstates** |
 
-> **The split of Δgap is recorded for two of the four cells**: difficulty **+0.759** / selection **+0.020** (`shwd2sf`), and difficulty **+1.041** / selection **−0.580** (`smoke2sf`) — in the second the selection term is **opposite in sign to Δgap**, so the sign does not carry it, and **both intervals include zero** (**Supplementary S12**, Fig. S1). The two `p_` cells have no recorded `prem_test`: **not recorded**, not imputed.
+> **The split of Δgap is recorded for two of the four cells**: difficulty **+0.759** / selection **+0.020** (`shwd2sf`), and difficulty **+1.041** / selection **−0.580** (`smoke2sf`) — in the second the selection term is **opposite in sign to Δgap**, so the sign does not carry it, and **both intervals include zero** (**Supplementary S12**, Fig. S1). The two `p_` cells' `prem_test` was **not recorded at that time**: their per-epoch `test` curves — and with them `prem_test` and WC — were evaluated on 2026-09-30, so nothing is imputed and the cell-level values are now recorded (**Supplementary S12**, Table S38).
 >
 > **The four rows below are an escalated base, not a sample**: the two `p_` cells reached n = 10 because their n = 3 Δgap had been flagged, so the 2/2 balance is a property of the escalation rule; the other nine cells are **descriptive** (**Supplementary S12**). This cell is also the one where **3 runs** changed training path silently under GPU memory pressure, and why we do not call it clean is in **§10, defect 10**.
 
@@ -337,8 +337,10 @@ under the pairing assumption stated in **§S11**. The argument and the recomputa
 ### 5.5 The same component in third-party public logs
 **The same quantity appears in other people's logs**: 20 logs from 6 sources, median **+1.04 pp**, max **+5.65 pp**, 18/20 positive — a sample, not a field-level rate. Found by repository **search** (Kaggle and public repositories); the queries, the rest of the frame and the reason public logs **cannot establish aliasing** at the configuration level are in **Supplementary S12**.
 **Five limitations**: ① the two cells escalated in §5.1 reach n = 10 with **local** runs and test-side
-evaluations, but the remaining 9 cells' runs are **not local**; ② `prem_test` uses only **best and
-last**, not a per-epoch curve; ③ `last.pt`'s val recomputation differs from the final `results.csv`
+evaluations, and the remaining 9 cells' `test` side was closed on 2026-09-30 on one machine
+(**Supplementary S12**, Table S38), but their runs are still **not local** to the headline cells' host;
+② `prem_test` is reported as **best − last**: the per-epoch `test` curve now exists for **all thirteen**
+corpora, but it is not what this rate uses; ③ `last.pt`'s val recomputation differs from the final `results.csv`
 row by ~0.02 pp; ④ this section does **not** touch §6's 19-benchmark census; ⑤ the aggregate is a **ratio of small means** — `prem_val` across the five arm-cells spans **+0.605 to +1.469 pp** (Table S20) — so a change of a few hundredths of a point in the numerator moves the rate by tens of points, and the aggregate summarizes a wide spread rather than a typical run's outcome.
 
 ### 5.6 Why Δgap's sign varies by corpus: three of five candidate mechanisms are refuted by the data

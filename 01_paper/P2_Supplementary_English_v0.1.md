@@ -1012,6 +1012,50 @@ The strength of every statement in the main text is distinguished accordingly.
 > (+1.678 / +0.886 / +0.404 / +0.860 and +0.702 / +1.092 / +0.875 / +1.062) are unchanged and remain
 > correct for those four epochs. Script: `work/x3b_perepoch_corrected_20260918.py`.
 
+### Table S38 — the selection term, cell by cell: `prem_test` and WC for all thirteen scanned corpora
+
+**Table S38.** *5.6 / 8.6* — the selection contribution proper, `prem_val − prem_test` = WC, formed here for **every** scanned corpus and both arms. The five arm-cells printed in Table S20 are repeated with that table's values; the other twenty-one were closed on **2026-09-30** by scoring **every archived 5-epoch checkpoint** on each run's own held-out `test` split: **1,568 checkpoints over 140 runs** (1,848 evaluations including each run's `best`/`last` endpoints), on one machine, with the pipeline's registered call (`YOLO(w)` → `val(split="test", batch=32, imgsz=640, plots=False, save_json=False)`, no loss re-import), the data YAML read from each run's own `args.yaml` and asserted to be three-way with a `test:` split. `n` is the number of seeds carrying a `test` curve for that arm (3 where the scan ran at n = 3, 10 where the cell was later escalated, and 10 for the five arm-cells of Table S20); `prem_val` and `prem_test` are means over those seeds, in pp, with `prem_test = T_best − T_final`; realization rate = `prem_test / prem_val`. **The same run reproduces the values printed earlier in this supplement**: over the 21 arm-cells carrying both readings, the val maximum, `prem_val` and the archived `T_best` agree to **max |Δ| = 0.005 pp**, which is the printed rounding (`work/g6_repro_vs_printed_20260930.py`); the coverage audit reports **140/140 runs, 1,848 rows, 0 anomalies** (`g6_coverage.txt`). Per-run readings and the curves themselves: release files `g6_prem_per_run.csv` and `g6_perepoch_test_curves.csv`.
+
+| Cell | Arm | n | `prem_val` | `prem_test` | WC | realization rate |
+|---|---|---|---|---|---|---|
+| shwd2sf | baseline | 10 | +1.469 | **+0.736** | +0.733 | **50 %** |
+| shwd2sf | strategy | 10 | +0.865 | **+0.152** | +0.713 | **18 %** |
+| smoke2sf | baseline | 10 | +0.691 | **+0.509** | +0.182 | **74 %** |
+| smoke2sf | strategy | 10 | +0.605 | **−0.157** | +0.762 | **−26 %** |
+| aitod20 | baseline | 10 | +0.766 | **−0.218** | +0.984 | **−28 %** |
+| aitod20 | strategy | 10 | +1.111 | **−0.543** | +1.654 | **−49 %** |
+| d15d15 | baseline | 10 | +1.963 | **+0.332** | +1.631 | **17 %** |
+| d15d15 | strategy | 10 | +0.270 | **−0.294** | +0.564 | **−109 %** |
+| dota | baseline | 10 | +1.271 | **+0.334** | +0.937 | **26 %** |
+| dota | strategy | 10 | +0.547 | **−0.811** | +1.357 | **−148 %** |
+| fire | baseline | 3 | +10.953 | **+2.820** | +8.133 | **26 %** |
+| fire | strategy | 3 | +8.869 | **−0.264** | +9.134 | **−3 %** |
+| mask20 | baseline | 3 | +16.071 | **+0.325** | +15.746 | **2 %** |
+| mask20 | strategy | 3 | +29.172 | **+0.445** | +28.727 | **2 %** |
+| mende20 | baseline | 3 | +4.828 | **+3.277** | +1.551 | **68 %** |
+| mende20 | strategy | 3 | +5.682 | **+1.512** | +4.170 | **27 %** |
+| p_aitovis | baseline | 10 | +0.438 | **+0.357** | +0.080 | **82 %** |
+| p_aitovis | strategy | 10 | +0.268 | **+0.278** | −0.010 | **104 %** |
+| p_d15toai | baseline | 3 | +0.488 | **−0.154** | +0.642 | **−32 %** |
+| p_d15toai | strategy | 3 | +0.392 | **−0.170** | +0.561 | **−43 %** |
+| p_masktomende | baseline | 3 | +2.335 | **+2.022** | +0.313 | **87 %** |
+| p_masktomende | strategy | 3 | +1.342 | **−0.144** | +1.486 | **−11 %** |
+| p_vistod15 | baseline | 10 | +1.080 | **+0.601** | +0.478 | **56 %** |
+| p_vistod15 | strategy | 10 | +0.972 | **+0.280** | +0.692 | **29 %** |
+| vis | baseline | 10 | +0.484 | **+0.358** | +0.126 | **74 %** |
+| vis | strategy | 10 | +0.180 | **−0.107** | +0.287 | **−59 %** |
+
+> **What this table does, and what it does not do.** It closes a **verifiability** gap: the ten corpora
+> and the `aitod20` strategy arm previously carried no `test` curve at all, so `prem_test`, and hence
+> WC, could not be formed for them — any reader can now recompute every WC above from the released
+> per-run file. It does **not** upgrade a claim: five of these arm-cells sit at n = 3, and §7.1's power
+> argument is unchanged. Read descriptively, the asymmetry the five arm-cells of §8.6 show is the
+> general case here: **WC > 0 in 25 of the 26 arm-cells**, the **arm-cell median realization rate is
+> 17.2 %** (mean 8.9 %, ten of the 26 negative), and the realized premium is **negative in 8 of the 13
+> strategy arms** (and in 2 of the 13 baseline arms). Scripts: `work/g6_prem_analyze_20260930.py`,
+> `work/g6_repro_vs_printed_20260930.py`; the evaluation itself: `work/g6_perepoch_eval.py`,
+> `work/g6_coverage_audit.py`.
+
 ### Table S24 — moved from *§9: the registered replication (the criterion is not met — the third row is the one that passes)*
 
 **Table S24.** *§9: the registered replication (the criterion is not met — the third row is the one that passes)* — columns: Registered pair, n, Δ (pp), 95 % CI, paired t, permutation p, same sign, Δ ≥ +0.30, p < 0.01, ≥ 8/10, unit criterion.
@@ -1584,7 +1628,9 @@ tested it, and it is **not established**:
 paired test +0.278 pp, t = 3.678, p = 7.1×10⁻⁴, positive in 26 of 40 runs). The *mechanism* is
 **consistent but not significant on four cells**, so we report it as a candidate and not as a result.
 Settling it needs more corpus cells with per-epoch `test` readouts — the direction of the effect is
-already pinned down by the four we have, but four points cannot carry a significance claim.
+already pinned down by the four we have, but four points cannot carry a significance claim. The
+`test` side of the remaining corpora has since been closed (Table S38), so the extension can be run
+on the release; we do not read it here rather than report it as settled.
 
 ### 13.2 §3.2: the per-comparison reasoning, moved from the article
 
@@ -2098,7 +2144,10 @@ At n = 10: `p_aitovis` **−1.226 pp** (95 % CI **[−1.370, −1.081]**, t = **
 targets**.
 
 **The raw gap and the marginal cells.** The raw quantity `M_val(ê) − M_test(ê)` ranges from
-**−33.0 to +21.2 pp** and cannot be separated without per-epoch test evaluation. Four of 13 cells cross
+**−33.0 to +21.2 pp** and cannot be separated into its difficulty and selection parts without per-epoch
+test evaluation — which has since been run for **all thirteen** corpora, so the separation is now
+available cell by cell (**Table S38**); it does not change the p-values, the confirmatory family or
+anything reported in this subsection. Four of 13 cells cross
 the uncorrected line; the three marginal ones are `aitod20` **+1.481** (p = **0.054**), `fire`
 **+13.658** (p = **0.061**) and `mende20` **+2.472** (p = **0.099**). The declared confirmatory family
 is this 13-cell scan, with raw and BH-adjusted p-values side by side (**Table S8**), BH at q = 0.05 and
@@ -2125,11 +2174,11 @@ direction statement rests on. The cell-by-cell values and the raw and BH-adjuste
 side by side are above in this subsection and in Table S8; the 0 → 3 move after the escalation
 is descriptive.
 
-**The selection term, cell by cell.** Table 2's caption names the selection contribution proper as the difference `Δprem_val − Δprem_test`; per arm-cell that term is `prem_val − prem_test`, the winner's-curse quantity WC of §3.1 read on the archive. **Verified against the archive, and not complete**: the scan record carries `prem_test` for **three of the thirteen** corpora and no `test` curve at all for the other ten, because separating the two sides needs per-epoch test evaluation — the limitation stated above. We therefore list what is recorded and mark the rest **not recorded in the archive**; nothing is imputed.
+**The selection term, cell by cell.** Table 2's caption names the selection contribution proper as the difference `Δprem_val − Δprem_test`; per arm-cell that term is `prem_val − prem_test`, the winner's-curse quantity WC of §3.1 read on the archive. **Verified against the archive, and complete as of 2026-09-30**: the scan record originally carried `prem_test` for **three of the thirteen** corpora, because separating the two sides needs per-epoch test evaluation. That evaluation has now been run — every archived 5-epoch checkpoint of the ten remaining corpora and of the `aitod20` strategy arm, **1,568 checkpoints over 140 runs** (1,848 evaluations including each run's `best`/`last`), on one machine, with the pipeline's registered call and the data YAML read from each run's own `args.yaml` — and the new `test` side **reproduces the archive's own readings**: over the 21 arm-cells carrying both, the val maximum, `prem_val` and the archived `T_best` agree to **max |Δ| = 0.005 pp**, which is the printed rounding; the coverage audit reports 140/140 runs, 1,848 rows, 0 anomalies. `prem_test`, and hence WC, is therefore formable for **all thirteen** corpora and both arms (**Table S38**). Nothing is imputed.
 
 What is recorded for **all thirteen** scanned cells is the val-side selection gain `prem_val = V_max − V_final`, per arm, at the cell's scanned n — baseline → strategy, pp: `shwd2sf` (n = 10) **+1.47 → +0.87**; `smoke2sf` (n = 10) **+0.69 → +0.61**; `p_aitovis` (n = 3) +0.45 → +0.26; `p_vistod15` (n = 3) +1.11 → +0.88; `aitod20` (n = 3) +0.70 → +0.26; `d15d15` (n = 3) +2.13 → +0.67; `dota` (n = 3) +1.20 → +0.67; `fire` (n = 3) +10.95 → +8.87; `mask20` (n = 3) +16.07 → +29.17; `mende20` (n = 3) +4.83 → +5.68; `p_d15toai` (n = 3) +0.49 → +0.39; `p_masktomende` (n = 3) +2.33 → +1.34; `vis` (n = 3) +0.44 → +0.22. Source: `gap_mechanism_20260916.txt`, the same record §5.6 and Table S8 use. The two cells escalated in §5.1 (`p_aitovis`, `p_vistod15`) carry n = 10 after the escalation, which is the four-cell base the article's Table 2 prints.
 
-**The selection term `prem_val − prem_test` where the archive carries it** is the five realization arm-cells of §8.6, read off Table S20's printed values (**the printed `+0.736` / `+0.509` supersede the verbatim S4 dump's third decimal, `0.735` / `0.507`**): `shwd2sf` baseline **+1.469 − 0.736 = +0.733** and strategy **+0.865 − 0.152 = +0.713**; `smoke2sf` baseline **+0.691 − 0.509 = +0.182** and strategy **+0.605 − (−0.157) = +0.762**; `aitod20` baseline (n = 10) **+0.766 − (−0.218) = +0.984**. The other ten scanned corpora and the `aitod20` strategy arm: **not recorded** — no per-epoch `test` curve exists for them, so `prem_test`, and hence WC, cannot be formed at all. **In arm-difference form** the term is recorded for exactly two cells, from the clean-protocol batch: `shwd2sf` **+0.020** and `smoke2sf` **−0.580**, against Δgap of **+0.779** and **+0.461**. In `smoke2sf` the selection term is therefore **opposite in sign to the Δgap** the article's Tier 2 prints — which is why the direction sentence rests on the four-cell base and **not** on Δgap's sign.
+**The selection term `prem_val − prem_test` where the archive carries it** is the five realization arm-cells of §8.6, read off Table S20's printed values (**the printed `+0.736` / `+0.509` supersede the verbatim S4 dump's third decimal, `0.735` / `0.507`**): `shwd2sf` baseline **+1.469 − 0.736 = +0.733** and strategy **+0.865 − 0.152 = +0.713**; `smoke2sf` baseline **+0.691 − 0.509 = +0.182** and strategy **+0.605 − (−0.157) = +0.762**; `aitod20` baseline (n = 10) **+0.766 − (−0.218) = +0.984**. The other ten scanned corpora and the `aitod20` strategy arm were closed on 2026-09-30 as described immediately above; their cell-by-cell `prem_val`, `prem_test` and WC are in **Table S38**, and read descriptively they carry the same asymmetry — WC positive in 25 of the 26 arm-cells, arm-cell median realization rate 17.2 %, and the realized premium negative in 8 of the 13 strategy arms. These are cell-level readings at each cell's recorded *n*, not an upgrade of any claim. **In arm-difference form** the term is recorded for exactly two cells, from the clean-protocol batch: `shwd2sf` **+0.020** and `smoke2sf` **−0.580**, against Δgap of **+0.779** and **+0.461**. In `smoke2sf` the selection term is therefore **opposite in sign to the Δgap** the article's Tier 2 prints — which is why the direction sentence rests on the four-cell base and **not** on Δgap's sign.
 
 **The sharpest single fact.** In the shwd2sf cell the arms differ on **val** by
 60.669 − 60.397 = **+0.272 pp** (baseline better) and on **test** by 43.559 − 44.066 = **−0.507 pp**
@@ -2365,9 +2414,15 @@ it says.
   **0/4** negative and run-weighted **20.5 %**; it is outside the reviewer's set because that set is the
   **n = 10** clusters, and adding it would make **fifteen**.
 * **No denominator, recorded as such rather than imputed.** ① The **`aitod20` strategy arm**: batch 1
-  could have been six clusters and is five, because that arm's `prem_test` is **not recorded** — it has no
-  per-epoch `test` curve. ② **Ten of the thirteen scanned corpora** of §5.1: `prem_test` exists for three
-  corpora only, so for the other ten neither `prem_test` nor a rate can be formed. ③ The **mAP75 `val`
+  could have been six clusters and is five, because that arm's `prem_test` **was** not recorded when this
+  ledger was written — it had no per-epoch `test` curve. That curve has since been evaluated (Table S38:
+  n = 10, `prem_val` **+1.111** → `prem_test` **−0.543**, WC **+1.654**), so the arm now carries a rate;
+  we leave batch 1's registered composition at five clusters and record the addition here rather than
+  re-cutting the set after seeing it. ② **Ten of the thirteen scanned corpora** of §5.1: for those ten
+  neither `prem_test` nor a rate could be formed when this ledger was written. They are now formed for
+  **all thirteen** corpora and both arms (Table S38), at each cell's recorded *n* — five of them at
+  n = 3, which is why the new rates are reported there as cell-level descriptives and not as a
+  significance claim. ③ The **mAP75 `val`
   half**: the per-epoch `val` curve at IoU 0.75 is still **not recorded** as a reading (the 55 metric files
   carry `mAP50` and `mAP50-95` only), but it has now been **re-measured** from the in-register checkpoints
   for the four `*2sf` arm-cells (880 evaluations, five-epoch grid), so a mAP75 realization rate exists for
