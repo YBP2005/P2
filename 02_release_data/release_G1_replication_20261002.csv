@@ -1,0 +1,11 @@
+run,seed,arm,prem_val_pp,prem_test_pp,realization_rate_pct,source_run
+g1_aitod20_lr005_30ep_3way_s42n,42,strategy,1.0540,-0.4229,-40.1233,B machine: /workspace/runs/g1_aitod20_lr005_30ep_3way_s42n
+g1_aitod20_lr005_30ep_3way_s43n,43,strategy,0.6410,-1.3233,-206.4431,B machine: /workspace/runs/g1_aitod20_lr005_30ep_3way_s43n
+g1_aitod20_lr005_30ep_3way_s44n,44,strategy,2.6710,-0.7693,-28.8019,B machine: /workspace/runs/g1_aitod20_lr005_30ep_3way_s44n
+g1_aitod20_lr005_30ep_3way_s45n,45,strategy,1.4370,-0.9116,-63.4377,B machine: /workspace/runs/g1_aitod20_lr005_30ep_3way_s45n
+g1_aitod20_lr005_30ep_3way_s46n,46,strategy,0.4500,-1.2161,-270.2444,B machine: /workspace/runs/g1_aitod20_lr005_30ep_3way_s46n
+g1_aitod20_lr005_30ep_3way_s47n,47,strategy,2.2190,-0.5747,-25.8991,B machine: /workspace/runs/g1_aitod20_lr005_30ep_3way_s47n
+g1_aitod20_lr005_30ep_3way_s48n,48,strategy,0.9290,-1.8667,-200.9365,B machine: /workspace/runs/g1_aitod20_lr005_30ep_3way_s48n
+g1_aitod20_lr005_30ep_3way_s49n,49,strategy,3.0790,-0.8734,-28.3664,B machine: /workspace/runs/g1_aitod20_lr005_30ep_3way_s49n
+g1_aitod20_lr005_30ep_3way_s50n,50,strategy,1.0340,-0.7594,-73.4429,B machine: /workspace/runs/g1_aitod20_lr005_30ep_3way_s50n
+g1_aitod20_lr005_30ep_3way_s51n,51,strategy,0.4990,-1.4513,-290.8417,B machine: /workspace/runs/g1_aitod20_lr005_30ep_3way_s51n

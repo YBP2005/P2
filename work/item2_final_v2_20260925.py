@@ -17,10 +17,12 @@ import sys
 from collections import defaultdict
 
 sys.stdout.reconfigure(encoding='utf-8')
-REL = r'E:\workplace\_release_github\02_release_data'
-XEV = r'E:\workplace\xeval_20260916'
-AIN = r'E:\workplace\aitod20_n10_20260924'
-X4F = r'E:\workplace\x4fill_20260925\x4fill_20260925.csv'
+import os as _os
+_ROOT = _os.environ.get('P2_ROOT') or _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+REL = _os.path.join(_ROOT, '02_release_data')
+XEV = _os.path.join(REL, 'xeval_20260916')
+AIN = _os.path.join(REL, 'aitod20_n10_20260924')
+X4F = _os.path.join(REL, 'x4fill_20260925', 'x4fill_20260925.csv')
 NBOOT = 20000
 
 rd = lambda p: list(csv.DictReader(io.open(p, encoding='utf-8', errors='replace')))

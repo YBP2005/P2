@@ -14,7 +14,7 @@ This directory holds everything behind the supplementary's section *"An independ
 
 ## The returns (verbatim, one file per coder)
 
-`G8_coding_<identifier>_20260929.md` — eight language models from vendors distinct from the first six, each
+`G8_coding_<identifier>_20260929.md` — eight language models (three of them from vendors already used in the first two rounds, five from vendors not used there), each
 coding the same 19 x 4 = 76 cells blind, in a fresh session, under the **clarified** rules, answering **in
 chat** (the coordinator transcribed each answer verbatim, so no coder could see another's output or any
 file). Each file carries the coder's own blind-status declaration (network use: no; other coders' material
@@ -31,8 +31,10 @@ read: no) and its ambiguity report.
 
 | file | what it is |
 |---|---|
-| `kappa_g8_20260929.txt` | the eight-coder round: per-coder kappa against the printed coding (overall and per unit), the 28 pairwise values, Fleiss' kappa for the eight, the printed-vs-coders confusion tables, and the recomputation of the headline count. |
-| `kappa_g8_20260929.py` | the script that produced it (also runs a `--sens` variant that re-reads the two genuinely ambiguous vocabulary items the other way, and `probe_g8_matrix_20260929.py` prints the per-row matrix). |
+| `kappa_g8_primary_20261001.txt` | the **primary** mapping of the eight-coder round (v1 returns): per-coder kappa against the printed coding (overall and per unit), the 28 pairwise values, Fleiss' kappa, the confusion tables and the headline recomputation. **This is the vintage the supplement's printed range 0.105-0.325 (median 0.308) comes from.** |
+| `kappa_g8_20260929.txt` | **the `--sens` sensitivity variant of the same round** (its own first line says so: the two genuinely ambiguous vocabulary items read as `unknown`): same statistics, range 0.063-0.278, median 0.260. It is **not** the vintage the supplement prints; both are shipped so the choice can be checked. |
+| `kappa_g8_20260929.py` | the script that produced both reports (also runs a `--sens` variant that re-reads the two genuinely ambiguous vocabulary items the other way, and `probe_g8_matrix_20260929.py` prints the per-row matrix). |
+| `g8_primary_run_20261001.py` | re-runs that script on the v1 returns for the **primary** mapping and re-runs the `--sens` variant, checking it against the shipped sensitivity file. |
 
 **The mapping used, stated because it is a convention:** the printed 12-mark vocabulary was collapsed to
 the coders' three-way scale per unit — `independent_test, clean -> yes`; `alias, train_val_alias -> no`;

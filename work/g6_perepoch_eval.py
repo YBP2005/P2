@@ -110,6 +110,12 @@ def main():
     ap.add_argument('--batch', type=int, default=32)
     ap.add_argument('--workers', type=int, default=8, help='val 的 dataloader worker 数（多片并发时按核数摊）')
     ap.add_argument('--plan-only', action='store_true', help='只做体检并打印计划，不评')
+    ap.add_argument('--allow-non-carve', action='store_true',
+                    help='2026-10-02 增：默认行为与冻结版一致（硬要求 yaml 含 carve_ 三方标记）；'
+                         '显式开此开关时，把"三方断言"降级为"yaml 存在且含 test:"。'
+                         '用途：§13.1 那批 run 用的是两方/标准切分 yaml（visdrone_20p / dota15_20p / '
+                         'mende_20p / g2_val_*），本就没有 carve_ 标记，但都有 test: 切分。'
+                         '开着跑必须用阳性对照（已印 test 端点）验收，不得当成三方协议。）')
     a = ap.parse_args()
 
     os.makedirs(a.dir, exist_ok=True)
@@ -144,7 +150,7 @@ def main():
             per_run[run] = 0
             continue
         body = io.open(dy, encoding='utf-8', errors='replace').read()
-        if 'carve_' not in body:
+        if 'carve_' not in body and not a.allow_non_carve:
             problems.append('NOT three-way yaml for %s: %s' % (run, dy))
             continue
         if 'test:' not in body:

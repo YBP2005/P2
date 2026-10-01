@@ -1,0 +1,3 @@
+train/20_percent/images 2413
+carve_sfchd20/images 1000
+test/images 6033

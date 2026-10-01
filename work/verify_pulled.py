@@ -7,10 +7,21 @@
 import hashlib, io, os, sys
 
 sys.stdout.reconfigure(encoding='utf-8')
-d = sys.argv[1] if len(sys.argv) > 1 else r'E:\workplace\xeval_20260916'
+# r154：不再把作者机路径当默认。根解析：P2_ROOT -> 包根（含 01_paper/ 的那一层）-> 作者树；
+# 默认再指向包内随件 02_release_data/xeval_20260916（论文 §S7 入口① 用的那份）。
+_PKG = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_AUTHOR = r'E:\workplace'
+_ROOT = os.environ.get('P2_ROOT') or (_PKG if os.path.isdir(os.path.join(_PKG, '01_paper')) else _AUTHOR)
+_DEF = os.path.join(_ROOT, '02_release_data', 'xeval_20260916')
+d = sys.argv[1] if len(sys.argv) > 1 else (_DEF if os.path.isdir(_DEF) else os.path.join(_AUTHOR, 'xeval_20260916'))
 sp = os.path.join(d, 'SHA256SUMS.txt')
 if not os.path.exists(sp):
-    sys.exit(f'!! 找不到 {sp}')
+    print('!! 找不到 %s' % sp)
+    print('   本入口校验**从远端拉回的产物目录**里的 SHA256SUMS.txt；')
+    print('   论文 §S7 入口① 用的 xeval_20260916/ 随包发布在 02_release_data/xeval_20260916/，')
+    print('   入口④ 的 _xframe/ 属**未放行的作者侧输入**（远端机中间目录），从本包单跑时不会存在。')
+    print('   用法：python work/verify_pulled.py <拉回的目录>')
+    sys.exit(2)
 
 n = bad = 0
 miss = []

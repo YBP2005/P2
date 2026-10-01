@@ -21,15 +21,70 @@ import io
 import os
 import re
 import sys
+import tempfile
 
 sys.stdout.reconfigure(encoding='utf-8')
-W = r'E:\workplace'
-SUP = os.path.join(W, 'P2_Supplementary_English_v0.1.md')
-RET = os.path.join(W, '盲审归档', '编码_G8_20260929', 'returns')
-OUT = os.path.join(W, 'work', 'kappa_g8_20260929.txt')
+
+# ── r163（D32）：路径改为**包根解析 + 环境变量覆盖**，好让这份脚本从发布包里也能跑 ─────────────
+#   `P2_ROOT` > 本脚本上一级 > 上两级 > 作者树（带 `01_paper/` 的才算包根）。
+#   三个输入输出各有专用环境变量（`G8_SUP` / `G8_RET` / `G8_OUT`），由
+#   `g8_primary_run_20261001.py` 用来在 v1 回执上重跑 primary 与 --sens。
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def _root():
+    for c in (os.environ.get('P2_ROOT'), os.path.dirname(HERE), os.path.dirname(os.path.dirname(HERE)),
+              r'E:\workplace'):
+        if c and os.path.isdir(os.path.join(c, '01_paper')):
+            return c
+    return r'E:\workplace'
+
+
+W = _root()
+
+
+def _pick(*rels):
+    for rel in rels:                      # 包内布局优先：与本脚本同目录
+        p = os.path.join(HERE, rel)
+        if os.path.exists(p):
+            return p
+    for rel in rels:                      # 否则按作者树布局
+        p = os.path.join(W, rel)
+        if os.path.exists(p):
+            return p
+    return os.path.join(W, rels[-1])
+
+
+SUP = os.environ.get('G8_SUP') or _pick(
+    os.path.join('01_paper', 'P2_Supplementary_English_v0.1.md'),
+    'P2_Supplementary_English_v0.1.md')
+
+
+def _ret_dir():
+    """第 3 轮（v1 三值刻度）的 8 份回执。包内布局里它们以 `v1_` 前缀平铺，作者树里在 `returns_v1/`。
+    **排除 `_v2_`**：那是第 4 轮修好仪器后的五值刻度，用本脚本的映射读它会读错。"""
+    for d in (os.path.join(HERE, 'returns_v1'), HERE, os.path.join(HERE, 'returns'),
+              os.path.join(W, '盲审归档', '编码_G8_20260929', 'returns_v1'),
+              os.path.join(W, '盲审归档', '编码_G8_20260929', 'returns')):
+        if not os.path.isdir(d):
+            continue
+        fs = sorted(f for f in os.listdir(d)
+                    if 'G8_coding_' in f and f.endswith('_20260929.md') and '_v2_' not in f)
+        if fs:
+            return d, fs
+    sys.exit('!! 找不到第 3 轮（v1）回执目录：试过 returns_v1 / 本目录 / returns（作者树同）')
+
+
+RET, RET_FILES = (os.environ.get('G8_RET'), None) if os.environ.get('G8_RET') else _ret_dir()
 UNITS = ['release', 'protocol', 'yolo_dist', 'reported']
 SCALE = ['yes', 'no', 'unknown']
 SENS = '--sens' in sys.argv
+# r163：默认输出名按变体区分（历史件 `kappa_g8_20260929.txt` 就是 `--sens` 那份，别再被默认跑覆盖）
+OUT = os.environ.get('G8_OUT') or (
+    os.path.join(HERE, 'kappa_g8_20260929.txt' if SENS else 'kappa_g8_primary_20261001.txt')
+    if os.path.basename(HERE) == 'work'
+    else os.path.join(tempfile.gettempdir(),
+                      'kappa_g8_%s.txt' % ('sens' if SENS else 'primary')))
 
 MAP = {
     'release': {'independent_test': 'yes', 'test_gated': 'yes',
@@ -140,10 +195,13 @@ def fmt(kci):
 def main():
     printed_raw = parse_printed()
     printed = printed_scale(printed_raw)
-    files = sorted(f for f in os.listdir(RET) if f.startswith('G8_coding_') and f.endswith('.md'))
+    files = RET_FILES if RET_FILES else sorted(
+        f for f in os.listdir(RET)
+        if 'G8_coding_' in f and f.endswith('_20260929.md') and '_v2_' not in f)
     coders = {}
     for f in files:
-        name = f[len('G8_coding_'):-len('_20260929.md')]
+        base = f[len('v1_'):] if f.startswith('v1_') else f    # 包内 v1 回执带 `v1_` 前缀
+        name = base[len('G8_coding_'):-len('_20260929.md')]
         rows = parse_coder(os.path.join(RET, f))
         miss = [n for n in range(1, 20) if n not in rows]
         bad = [(n, u) for n, d in rows.items() for u in UNITS if d[u] == 'MISSING']

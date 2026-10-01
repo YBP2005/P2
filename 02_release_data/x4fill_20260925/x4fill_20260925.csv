@@ -1,0 +1,5 @@
+run,ckpt,split,map50_95,map50,mp,mr,secs,md5
+r10_aitod20_base30_3way_s43n,best,test,10.4130,26.0085,60.0501,26.7304,223.6,6e9468894d4c
+r10_aitod20_base30_3way_s44n,best,test,10.5689,25.9160,60.4544,27.0503,11.2,df3f436a8f72
+r10_aitod20_base30_3way_s43n,last,test,10.6534,26.2971,37.8898,26.6787,11.2,774bcbd58619
+r10_aitod20_base30_3way_s44n,last,test,10.7652,26.4349,47.5591,27.5674,11.5,1531e3b28d6a

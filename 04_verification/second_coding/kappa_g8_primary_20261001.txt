@@ -1,0 +1,57 @@
+============================================================================================================
+G8 多模型盲式第二编码 · 一致性分析
+============================================================================================================
+编码者 8 位：DeepSeek-V4.1-Flash、GLM-5.2、Hy4-preview、Kimi-K3-1、deepseek-v4-pro、gemini-3.8-flash、grok-4.7、qwen3.8-max
+比较基数：已印标记 19 行 × 4 单元 = 76 格；映射见脚本头（预先写死）。
+
+【已印标记折成 yes/no/unknown 后的分布】
+  release   yes  8 / no  1 / unknown 10
+  protocol  yes  6 / no  4 / unknown  9
+  yolo_dist yes  5 / no  4 / unknown 10
+  reported  yes  3 / no 12 / unknown  4
+
+【逐位编码者对已印标记的一致性（Cohen's κ）】
+编码者                      overall（76 格）                逐单元 κ（release/protocol/yolo_dist/reported）
+DeepSeek-V4.1-Flash      κ=0.105 (95% CI -0.062–0.272)  p0=0.408 pe=0.338 n=76 0.059 / 0.031 / 0.087 / 0.234
+GLM-5.2                  κ=0.231 (95% CI 0.054–0.409)  p0=0.513 pe=0.367 n=76 0.332 / 0.290 / 0.000 / 0.222
+Hy4-preview              κ=0.309 (95% CI 0.136–0.481)  p0=0.553 pe=0.353 n=76 0.332 / 0.457 / 0.244 / 0.224
+Kimi-K3-1                κ=0.284 (95% CI 0.110–0.458)  p0=0.539 pe=0.357 n=76 0.421 / 0.453 / 0.265 / 0.040
+deepseek-v4-pro          κ=0.297 (95% CI 0.126–0.468)  p0=0.539 pe=0.345 n=76 0.421 / 0.537 / 0.190 / 0.107
+gemini-3.8-flash         κ=0.308 (95% CI 0.139–0.476)  p0=0.539 pe=0.335 n=76 0.452 / 0.319 / 0.228 / 0.168
+grok-4.7                 κ=0.325 (95% CI 0.152–0.499)  p0=0.566 pe=0.356 n=76 0.421 / 0.385 / 0.421 / 0.160
+qwen3.8-max              κ=0.318 (95% CI 0.138–0.498)  p0=0.579 pe=0.383 n=76 0.503 / 0.393 / 0.196 / 0.106
+  ⇒ overall κ：中位 0.308，范围 0.105–0.325（n = 8 位）
+
+【两两一致性（新编码者之间，overall 76 格）】
+  28 对：中位 0.504，范围 0.046–0.824
+  明细：0.05  0.19  0.20  0.21  0.27  0.27  0.28  0.29  0.33  0.35  0.43  0.45  0.48  0.49  0.50  0.50  0.51  0.56  0.57  0.58  0.61  0.62  0.63  0.66  0.71  0.74  0.76  0.82
+
+【Fleiss' κ（8 位编码者同时评；逐单元 + overall）】
+  overall   κ=0.455  P̄=0.666  Pe=0.386  (n_items=76, raters=8)
+  release   κ=0.271  P̄=0.585  Pe=0.430  (n_items=19, raters=8)
+  protocol  κ=0.468  P̄=0.759  Pe=0.548  (n_items=19, raters=8)
+  yolo_dist κ=0.429  P̄=0.626  Pe=0.345  (n_items=19, raters=8)
+  reported  κ=0.254  P̄=0.694  Pe=0.589  (n_items=19, raters=8)
+
+【与已印标记的混淆：每一列（已印）→ 编码者们都答了什么（8 位合计，76 格按单元拆）】
+  release：
+     已印=yes     （ 8 行 ×8 位）→ yes  61 / no   0 / unknown   3
+     已印=no      （ 1 行 ×8 位）→ yes   1 / no   1 / unknown   6
+     已印=unknown （10 行 ×8 位）→ yes  41 / no   3 / unknown  36
+  protocol：
+     已印=yes     （ 6 行 ×8 位）→ yes  19 / no  23 / unknown   6
+     已印=no      （ 4 行 ×8 位）→ yes   8 / no  23 / unknown   1
+     已印=unknown （ 9 行 ×8 位）→ yes  12 / no  16 / unknown  44
+  yolo_dist：
+     已印=yes     （ 5 行 ×8 位）→ yes  15 / no   3 / unknown  22
+     已印=no      （ 4 行 ×8 位）→ yes   2 / no   5 / unknown  25
+     已印=unknown （10 行 ×8 位）→ yes   9 / no   5 / unknown  66
+  reported：
+     已印=yes     （ 3 行 ×8 位）→ yes  20 / no   3 / unknown   1
+     已印=no      （12 行 ×8 位）→ yes  40 / no   9 / unknown  47
+     已印=unknown （ 4 行 ×8 位）→ yes   9 / no   0 / unknown  23
+
+【headline 重算：每位编码者会数出多少个"reported 非独立"（= reported=no 的行数）】
+  已印标记给出的数：12/19
+  DeepSeek-V4.1-Flash 5  GLM-5.2 0  Hy4-preview 0  Kimi-K3-1 0  deepseek-v4-pro 0  gemini-3.8-flash 3  grok-4.7 0  qwen3.8-max 4
+  ⇒ 编码者区间 0–5（中位 0）；已印数 12 **落在区间外**

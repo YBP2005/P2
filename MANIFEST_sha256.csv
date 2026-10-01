@@ -1,13 +1,16 @@
 path,sha256,bytes,description
-01_paper/P2_English_submission_blind_v1.md,c5b1e3adbf6b46dcd34557f8d1f9794a1c2a7a416dbe5f3c1ee076b494aaeb31,79157,"article (anonymised submission form)"
-01_paper/P2_English_v0.1.md,a3b3b984ff5f48d0f8cc0270e9dbac4ab57de1bece2958967172c3871272b905,80387,"article (working form)"
-01_paper/P2_English_v0.1.pdf,702556939f96372227e86641e333063a293082261ab296462ea062d82cb2d185,899426,"article PDF as built"
-01_paper/P2_Supplementary_English_v0.1.md,26f2b7b124aa9e94f1be2c10564e3412bb8bf771414a991dbb9e8548714a5730,270104,"supplementary material (English, authoritative artefact)"
-01_paper/P2_Supplementary_English_v0.1.pdf,b60942c28c648676d2a1eef2ee2cb385164ca3acfb8a40cb9636dfd073c902c4,5809821,"supplementary PDF as built"
+01_paper/P2_English_submission_blind_v1.md,28462d1197f275b3265cf8c1123aa619dcc8c195da668d1a0570e45911b6a5a8,79967,"article (anonymised submission form)"
+01_paper/P2_English_v0.1.md,a402d92078d6933e2afd34d50abed0e7a9c0c9a18e701326c459ab675fae4543,81197,"article (working form)"
+01_paper/P2_English_v0.1.pdf,78466139d4f13b2564d906641aadb5825fca9322916e8661da1715d08e35ba6e,890401,"article PDF as built"
+01_paper/P2_Supplementary_English_v0.1.md,7e3ef0d9436f7b58b6265f80dbed4d30b65dcf4330b4cefd2bc841880c6d28e0,291372,"supplementary material (English, authoritative artefact)"
+01_paper/P2_Supplementary_English_v0.1.pdf,d02d3d736d432960658c9c729620d58e3a4851680d5b9c87e9f61ad6c3213a65,5862473,"supplementary PDF as built"
+01_paper/P2_投稿前件_v0.1.md,cc1e5baadd18ec2e9299cde540b50fe3cec9dc8330b31a55b442b35a2ddceed8,33867,"submission front matter (author names still placeholders): the anchor audit reads its Highlights and Cover Letter sections (X47/X48) so that the 289-anchor claim holds inside the package"
 01_paper/P2_补充材料.md,c4ebb7d01f852038b96d02c0fab9bc517ec3c5581e526162e35d3971a0fedd02,51805,"supplementary material (Chinese source record)"
+01_paper/PR形式要求_核实_20260917.md,1910d8527859894be61c7aacf4822f70c20aaac5e59bea50d8948da433fdafc8,5035,"the journal-forms verification record: the anchor audit reads its source correction (X45/X46)"
+01_paper/figures/fig6_graphical_abstract.png,3abca737e5802a6cc658dbdd5ab665fc48674a0652064df264fcf3e43da4e2d3,111922,"the graphical abstract, for the size anchor X49 (>=1328x531 px)"
 01_paper/评测有效性稿_正文_v0.1.md,9a242279401b81a1ec38b3a39346c092d2aaf76dc7cb0e0fd28c4d314a83b515,94916,"governing Chinese draft"
 02_release_data/FIGURES.md,b7b66597db46e73a1413aa6a46be354d3966cb86e8e405936cf6e160c9f6bad7,1229,"named in the article/supplement: figures/FIGURES.md"
-02_release_data/P2_T1_registered-replication_long.csv,fe562cee544751fd5f98b0255171ec89d2570f0c71e9590970aa400f3d376e41,50119,"the 90-run registered replication, long form (§9)"
+02_release_data/P2_T1_registered-replication_long.csv,d5abe4766389e62f2c902eb27bbac2a95b0b12c98dab9163dd0eca7f347a0c0d,52105,"the 90-run registered replication, long form (§9)"
 02_release_data/P2_X3_perepoch_test-sweep_806-evals.csv,b75c534509d8a62e004baa00b5d7ef587eace34a0bf4a5e48c8fe13dc58a9c99,140886,"the 806-checkpoint per-epoch sweep (§8.7)"
 02_release_data/SHA256SUMS.txt,b27c0d0bd9b3fae91d02e0a0e18392413d68fea3d740f95c0073e926def72a2f,10643,"named in the article/supplement: SHA256SUMS.txt"
 02_release_data/_clean_series_b_20260925.txt,b9518e6ea7d897d6c6294057899c1e6fbba98ef6d809e03185b4158b4200bce6,6516,"named in the article/supplement: work/_clean_series_b_20260925.txt"
@@ -23,23 +26,25 @@ path,sha256,bytes,description
 02_release_data/g2_test.csv,c5f082aaad5d94058f8b088cbc60f679a2429a6f230c82cc2daae2027eb0d61b,3406,"named in the article/supplement: g2t_g1p_20260919/g2_test.csv"
 02_release_data/g3ext_verdict_20260919.txt,60c209f2562862db333b7034c386e2083c82368e594fb6ddd6be109d3d94d5c3,949,"E = 50/400 extension verdicts (§13.1)"
 02_release_data/g4_mende3way_20260919_g4_test.csv,239a502a2ce13d9358c48ef4ae0f12169851fc79062a024df06657054d1caba7,2355,"named in the article/supplement: g4_mende3way_20260919_g4_test.csv"
-02_release_data/g6_coverage.txt,a69a2a289a554bf2890e2e00979de15f8c014be52d710c476a844e968b16142e,97,"named in the article/supplement: g6_coverage.txt"
 02_release_data/g6_perepoch_test_curves.csv,4bf8512a6c53cb8e3c03cd8ebf0fd75a57ec7101a23f53f2736781448f8ae025,291912,"named in the article/supplement: g6_perepoch_test_curves.csv"
 02_release_data/g6_prem_per_run.csv,964c576e404f6550fdb1854560b1eede8c91b2a8845626b346947551fb3f0f52,26941,"named in the article/supplement: g6_prem_per_run.csv"
 02_release_data/gap_mechanism_20260916.txt,197022c93465d3e32f6485188d3742a1bddec396b9e3731738b9fdad494b43f7,7486,"named in the article/supplement: gap_mechanism_20260916.txt"
 02_release_data/kappa_computed_20260927.txt,073bb3eb39e9f348e145cfa5785a664bf74912a8ddc8f4e3c448f797c6296c9f,4139,"named in the article/supplement: work/kappa_computed_20260927.txt"
+02_release_data/kappa_g8_20260929.txt,469947e417f99c582a4850fd06bec0ddfdbbfeda5b6932555d78d52424d0e1cc,4051,"named in the article/supplement: kappa_g8_20260929.txt"
+02_release_data/kappa_g8_primary_20261001.txt,66fc4504de405405f6deda5c06a661f49d5034349d0a0edbf5073e5f9f5d6448,3979,"named in the article/supplement: kappa_g8_primary_20261001.txt"
 02_release_data/kappa_summary_20260927.md,fbc1ba8ae0df25f45dc837c00c3977aea0f0c0513cb411dd0f69c32fe239093e,10246,"named in the article/supplement: work/kappa_summary_20260927.md"
 02_release_data/matrix.csv,77970d01a3b860aee107d1bcd75c88dd16ab1bd7271ff63f8ac0eedc3fd8ba34,13074,"the 2x2 evaluation matrix per arm-cell (§8.6, Table 4)"
 02_release_data/matrix_perepoch.csv,a1765d1467431e98062a640a8cb7240e5a0afc411801ff44605c757edf71a070,65637,"per-epoch (val,test) matrix; the 806 rows of §8.7"
 02_release_data/perepoch_file_list.txt,c1ef78e2f0fc6de872cc892ee7d8d33784e520c8b295dd47ac9794e74887e23b,86,"SHA-256 list of the per-epoch (806-checkpoint) evaluation"
+02_release_data/release_G1_replication_20261002.csv,c2c3477dc096b10b039cf0219b53e00a07a097ee639cc7be4eec386c33d8c712,1355,"G1: second-machine pre-registered replication of the aitod20 strategy arm (2026-10-02)"
 02_release_data/release_G1p_AB-half-level-match.csv,c85c99fb889db736cff30169d11d9caf0cb734e5e7e7999585f3bb48cf2c650e,3934,"named in the article/supplement: release_G1p_AB-half-level-match.csv"
 02_release_data/release_G1pp_thirds_levels.csv,f42e811f986dd01234090b93128811ac807dce30b3afc6e08ca0ad2962267671,265,"named in the article/supplement: release_G1pp_thirds_levels.csv"
 02_release_data/release_G2_selection-split-size_summary.csv,7ea387e65d8511526dc6ae03b5e931bec35e8055d0c33779711551c7ce9b5d92,1044,"named in the article/supplement: release_G2_selection-split-size_summary.csv"
 02_release_data/release_G3_epoch-budget_summary.csv,88d0444b89043048d0e660a1e3cb2b7a185af6e36ddd7f643522493d86c87b1c,550,"named in the article/supplement: release_G3_epoch-budget_summary.csv"
 02_release_data/release_G3ext_E50-400_perrun.csv,ff9e0ba7dea2928b0667e7845d27dd7dd35d6831d6c4047e95ca049a8aa546ae,2539,"named in the article/supplement: release_G3ext_E50-400_perrun.csv"
 02_release_data/release_G4_mende20_3way_perseed.csv,75dd8d53b8e767a87a05decab1fe02cc8d7039623b2d581dfe320989939e53bc,4967,"named in the article/supplement: release_G4_mende20_3way_perseed.csv"
-02_release_data/release_T1_registered-replication_summary.csv,6ba92edafb75f5fe29f823d0aa0ff5c0fb7c55f7a237ccd009a053c4a9d9ba8b,2641,"named in the article/supplement: release_T1_registered-replication_summary.csv"
-02_release_data/release_T2_saturated-control_summary.csv,7b03e299671e0f9fe5f62640656dfe87924e0bd93e15913f864daf0de2bffdff,544,"named in the article/supplement: release_T2_saturated-control_summary.csv"
+02_release_data/release_T1_registered-replication_summary.csv,cb52bc69824988b21999913ae0bd67a15b49570a28964ea37bf6d6508ce68032,2639,"named in the article/supplement: release_T1_registered-replication_summary.csv"
+02_release_data/release_T2_saturated-control_summary.csv,42082a4f58a192674e4705324e81fb5d7e5dfde3ed402178781b3897bef55a2e,543,"named in the article/supplement: release_T2_saturated-control_summary.csv"
 02_release_data/release_X1_tier2_best-last_summary.csv,c8299ac8f4eda33fd63d76bd6ffa1232b4c801963e94fa21fbb9884b08335b8f,425,"named in the article/supplement: release_X1_tier2_best-last_summary.csv"
 02_release_data/release_selection-transfer_perseed.csv,fd2875fb29ebbd034f32895bc3ef49d4bfd164108ba4b72e25d08b327d014fbe,5403,"named in the article/supplement: release_selection-transfer_perseed.csv"
 02_release_data/release_selection-transfer_shape-share.csv,c3d741929a1d8376646f42c5e709b940e702d15b3e54bf1ecc3ef56f0696eb94,259,"named in the article/supplement: release_selection-transfer_shape-share.csv"
@@ -58,22 +63,24 @@ path,sha256,bytes,description
 02_release_data/verify_two_critiques_20260916.txt,06bff6f01a3a21757edf51b3015c154026524fb4b5c625bab0e957370ec52c31,7986,"the two external critiques of §5.4, one refuted and one judged non-identifiable"
 02_release_data/x10_alias_audit.txt,d8cd1552f22dee46c818ebdf85fd644aaf84824549671440b5dc0d57f2d134ca,3302,"val-side alias bias, per cell (§9)"
 02_release_data/x1_aux_20260918.txt,db4ced8df4d5b431fc6e4702d017ff6aa1f942d57c9ff87fc3f5d387c819edd5,2376,"named in the article/supplement: work/x1_aux_20260918.txt"
+02_release_data/x1_tier2_20260918/teval.csv,b3a76873ea163772200aaa8bd51f532509acc487e44fc6682a328be2fe883c00,6576,"Table S29 source: the eighty test evaluations (the 40 per-run records stay author-side, file list shipped)"
 02_release_data/x1_tier2_file_list.txt,384e4175f3021d8d0a701321c48a29957ecfb3d93b32bd08f5d06bc13f666c9c,10943,"SHA-256 list of the escalated Tier-2 cell evaluations (§5.1)"
 02_release_data/x3b_tableS22_20260918.csv,e73a4e470ecf1670b2c1feb622af35118282093d6226efe00a7215c7b29adcac,178,"named in the article/supplement: x3b_tableS22_20260918.csv"
 02_release_data/x3b_tableS23_20260918.csv,07e070a29c2a5282cb18a0bb3f0c3ea444456548d1aaf2764a715b72267fedad,1655,"named in the article/supplement: x3b_tableS23_20260918.csv"
 02_release_data/xeval_analysis_20260916.txt,b105b128cb85b80b1f260c0887240215fa5ff6a52da959423cd1640295dc284e,8534,"2x2 evaluation matrix × archive (§8.6)"
 02_release_data/xframe_evidence_20260916.txt,ab49d8dc1a792f5e468e1913e1796e3487487b658ad3fcdaf481f09f972a2231,13361,"named in the article/supplement: xframe_evidence_20260916.txt"
+03_framework_audit/PINNED_COMMITS.txt,71844a36ee850b4fb97a3582c6956a419c0fc2ba3d8e2afb6badfbfb98711157,447,"the pinned commits behind the cross-framework audit (named in the supplement)"
 03_framework_audit/_xframe_SHA256SUMS.txt,79e907d25c6c4ee9ae7a924afc0eaddb3913ef0dd202813b221d830b3e8b8ef9,6109,"pinned-commit framework configuration files: hashes"
 03_framework_audit/xeval_curve_analysis_20260916.txt,722b55b9aa1aba11b2a2b15a3b5388f6aeb9d8c47d0497244438890185902dff,4147,"curve analysis (κ, transfer)"
 04_verification/audit_anchor_scope_20260917.py,d9a5a943dcdaf56dea348d5236622e14094ea5b28a2c504ded32f7c337246f5c,4585,"anchor scope audit"
-04_verification/audit_anchors_fupaper.py,3f2ecb0b0d99c848f09a05cf4c037013431e8143c5e4bbc424ab7079b43244d9,55726,"the 291 audit anchors"
+04_verification/audit_anchors_fupaper.py,de74ad5cf11e64e18c68dc47c20f3bd57d600ecf11965b2678c31eb6d7c277f6,59744,"the 289 audit anchors"
 04_verification/audit_panel_integrity_20260917.py,328df5f9f02257459e282db24117ee80902970b80cc0dbc3aab6dd2d9f8d601e,8334,"panel-integrity audit"
 04_verification/gen_round_stages_20260917.py,18fe4c30d2ed385cf5afbd5dac12f88657d7cb41dcf5ddd8a1fcdc2a0291fe2c,6822,"builds the change-attribution record"
-04_verification/measure_pages_pr_official_20260920.py,64f8ecb0497eae7e517042f7018a31df4b2e755a7a6a5219d34153b1e6fded8b,7731,"page count in the venue geometry"
-04_verification/measurement_official.json,e9d920b5fe46dbfe3fda76c23c29abe2bb59f60b18b42d6d29a72bcd22cf84e8,1656,"page measurement + positive control"
+04_verification/measure_pages_pr_official_20260920.py,5ed6428af07af4841745a6cd5366474ffedfe57677a953a8b8be0825b2ef35a2,7786,"page count in the venue geometry"
+04_verification/measurement_official.json,244a020312cc46b5de30feba72f270b6d8a2e522e75c2c13c274b20367ddffc5,1656,"page measurement + positive control"
 04_verification/prelaunch_cite_guard_20260920.py,e60ad9ab62daaf1a53b83eeed39ea7a5f428d3e26d043784fd76227161b97283,2931,"first-mention citation guard"
 04_verification/remeasure_official_20260920.py,f7e186c7d24b5d2bb0c93f4eefa4f11d2519f893f4ac7962be2b3f7dd4133084,6050,"page count with its positive control"
-04_verification/round_stages_20260917.json,13526fbd39df6f01c2f5a699e5af0ee48300de99c34b75c9e4fd052bba9d4488,257927,"the recorded per-round attribution of every numeric change"
+04_verification/round_stages_20260917.json,c169779d69d8b98f47ea093e1cc54349780594f87762c235f2a66cdd3db6e5b2,282134,"the recorded per-round attribution of every numeric change"
 04_verification/run_sweep_20260919.py,bac56e9a566e6222fe7cdf7f49e9f0f5e0112a329822fc998ecdf87f8d64318e,5462,"runs the whole verification sweep"
 04_verification/second_coding/G8_coding_DeepSeek-V4.1-Flash_v2_20260929.md,61e12723a401ed6cd2381534b3a63c217a5374cc906467e0cc04e7e04b4133ce,9307,"blind coder return, round v2 (five-valued repaired scale), transcribed verbatim"
 04_verification/second_coding/G8_coding_GLM-5.2_v2_20260929.md,fc9a60020ee17997cffba12579a261876e155cad1aba921b5d7538007816bed0,9495,"blind coder return, round v2 (five-valued repaired scale), transcribed verbatim"
@@ -83,12 +90,14 @@ path,sha256,bytes,description
 04_verification/second_coding/G8_coding_grok-4.7_v2_20260929.md,0aa8568e220a13feb79c0514453343f652b674c2cdf465b17252e0fca4707930,7309,"blind coder return, round v2 (five-valued repaired scale), transcribed verbatim"
 04_verification/second_coding/G8_coding_hy4-preview_v2_20260929.md,fb8a3d0018e54d27452fb3e98d802d69d94ad0d77a8f67399e809183214dc077,10464,"blind coder return, round v2 (five-valued repaired scale), transcribed verbatim"
 04_verification/second_coding/G8_coding_qwen3.8-max_v2_20260929.md,5e019b0da7862fd9ec737924db2187c1936bb6f9b934f2833613edb712d7ef98,13044,"blind coder return, round v2 (five-valued repaired scale), transcribed verbatim"
-04_verification/second_coding/README_second_coding.md,57f11824382bda7911ce6262671e5ada93792ddd038872967c6424d9afae2e03,2921,"what each second-coding artefact is, and the mapping convention"
+04_verification/second_coding/README_second_coding.md,e5997c9529dbc312727ea24647369172076d2cefd230b1c67629a0cdf62d5bea,3596,"what each second-coding artefact is, and the mapping convention"
 04_verification/second_coding/blank_table_v1.md,2dca1944f967d07427ffce399af46bab20cba4974311b888a78e4bef0f165c46,1779,"optional blank answer table handed out with taska"
 04_verification/second_coding/coding_manual_19x4_20260927.md,028a1b90d33f198c4376c328c6c794f2a9326c3fcd41966cc9eae7c6c7c6b080,10844,"coding manual for the 19x4 table (rules only, non-blind pass)"
+04_verification/second_coding/g8_primary_run_20261001.py,febd34c28d38eaf9e819db4126573fbeaef095b07abdf041e18599bfb062c0b6,5468,"re-runs the round-3 script on the shipped v1 returns and checks the --sens variant (D32)"
 04_verification/second_coding/kappa_computed_20260927.txt,073bb3eb39e9f348e145cfa5785a664bf74912a8ddc8f4e3c448f797c6296c9f,4139,"agreement statistics of the non-blind pass"
-04_verification/second_coding/kappa_g8_20260929.py,393399c7cd56b0190db7c709505ed43bf894e9ef5e7ae391350b2c0cae688256,10135,"the script behind the above (with its --sens variant)"
+04_verification/second_coding/kappa_g8_20260929.py,5796fa11e58e3b574984e6e78e0dbf266e3320df0d313056f4420107711869ca,12784,"the script behind the above (with its --sens variant)"
 04_verification/second_coding/kappa_g8_20260929.txt,469947e417f99c582a4850fd06bec0ddfdbbfeda5b6932555d78d52424d0e1cc,4051,"eight-coder blind round: per-coder, pairwise and Fleiss kappa; confusion tables; headline recomputation"
+04_verification/second_coding/kappa_g8_primary_20261001.txt,66fc4504de405405f6deda5c06a661f49d5034349d0a0edbf5073e5f9f5d6448,3979,"the eight-coder round under the PRIMARY mapping -- the vintage the supplement prints (D32)"
 04_verification/second_coding/kappa_g8v2_20260929.py,52b15ab5fd568431950eb1e86174f5b672d291584828e97af11913d02352d625,9191,"analysis script for the v2 round"
 04_verification/second_coding/kappa_g8v2_20260929.txt,baff094fd1b291d7f2b4027deceb0fac64a9e64c0384c544424d814c332866bb,4995,"v2 round: per-coder, pairwise and Fleiss kappa; confusion tables; headline recomputation"
 04_verification/second_coding/probe_g8_matrix_20260929.py,9b3920b6e50657b350c0a0ef29bf5027560221e87ea982054e9efc952c6289af,3166,"per-row printed-vs-coders matrix used to diagnose the frame difference"
@@ -103,18 +112,17 @@ path,sha256,bytes,description
 04_verification/second_coding/v1_G8_coding_gemini-3.8-flash_20260929.md,e51c915e1929f75ab0eee95189af0908b7a2aab61100d9ed343ab9a697b636db,7683,"blind coder return, round v1 (three-valued scale), transcribed verbatim"
 04_verification/second_coding/v1_G8_coding_grok-4.7_20260929.md,b37f58413b3496bd5ff6d15ab25fe5349c15337938f217da874f8ff36865b600,6636,"blind coder return, round v1 (three-valued scale), transcribed verbatim"
 04_verification/second_coding/v1_G8_coding_qwen3.8-max_20260929.md,e623f4e64a8ec5a3e4aa8cc83829c0af1aed0d3022785ca11846aa0dffc3ac16,16210,"blind coder return, round v1 (three-valued scale), transcribed verbatim"
-04_verification/verify_compression_20260917.py,5c3fbe67a43597a56ee9d8a03f8204f5aca27bb6a097893bb904138fc4ad7a0c,270771,"compression-attribution guard"
+04_verification/verify_compression_20260917.py,e9e34783da3031ad9dd8292c7241b7896148d2c0cda0e3ca121d8f259804fb6b,348337,"compression-attribution guard"
 04_verification/verify_consistency_guards_20260917.py,e67c80fea9b1f804b32de1e0ada15a140ac7e61b17986e79a8ec099344ab594a,16584,"consistency guards"
 04_verification/verify_no_number_lost_20260917.py,fbf5149a7caf79e34a13ad45c70e98232953d7e1304385b7c00af5ff38c39e19,18839,"no-number-lost guard"
 04_verification/verify_pr_forms_20260917.py,fed99a4a54f73898b980437210a8355e057bb06c9f6a5e2f5d4fefb0f7412b2f,7954,"venue form requirements"
 04_verification/verify_split_claims_20260917.py,3b61bc07720a35e0d50a6579862e743f45709407abf5ccf925f45ce3a3ee552f,5433,"split-claim guard"
-04_verification/verify_submission_pack_20260917.py,9d9451e23764babe46a3b8617bd2c74e74d27f054cd6f86fe842287a9fa82117,9607,"submission-pack check"
+04_verification/verify_submission_pack_20260917.py,ba91107d2a28247c9ad72d518b24ad732067f4db5284e71517492a3bb1b6993c,12337,"submission-pack check"
 04_verification/write_x10_into_paper_20260918.py,f9583fd9e9fac5b6554c4123770682c25169809231e804f72786e30b3ef049fc,8499,"how the §9 alias-bias numbers were written in"
 04_verification/x10_alias_audit_20260918.py,e332fa530aa21b7bcf2c70ce8a91e188171ba4082a64a4fb0f3b741ecff91ed7,7444,"the alias-bias audit script (reads every per-run results.csv)"
 04_verification/x2b_kappa_arms_20260918.py,5c517f24b6e19295bfcbde1cb947506e139160c312679cb294794d7f531737d2,8238,"κ per arm + run-level bootstrap (§8.6/§8.7)"
 04_verification/x3b_perepoch_corrected_20260918.py,69c8a5ced19bf111b34d6a31a311fe10e466263ff645435531fd66b336ec58e1,16543,"the complete per-epoch κ (806 points)"
 LICENSE,730bc07487fb0ea3045ab439dc421c02134720d6cfad26db05adcda9febf3df5,2007,"licence (CC BY 4.0 with third-party dataset/log exceptions)"
-README.md,955a45106bddb7b8ea19d7532ebb2fa183eb86c4c6a1524a6984dd660c0351ba,5465,"generated with the package"
 figures/fig1_dgap_decomposition.png,e012d64097a582456f0ef38c5530340205467b69770095578d3bee875b584778,115911,"named in the article/supplement: fig1_dgap_decomposition.png"
 figures/fig2_realization_rate.png,fdc9aa857b33c2ae5c3e7a5c9c98da27f24487a8eddf4c141e03825a96b8658a,129366,"named in the article/supplement: fig2_realization_rate.png"
 figures/fig3_four_units.png,eb70538f7683c0809f2702c7b7800eba5541615cbe5991b3fbfb2d40e927a40a,93171,"named in the article/supplement: fig3_four_units.png"
@@ -135,20 +143,21 @@ work/b55_val.py,0baba56d90119f32380becf456959527110cc4856122fdbde2aaa51c978cedc9
 work/b55v_control.py,b7213a85ec1c51344b75594eb28a3465120aadc0b1cc149edacc6608d14fb876,13838,"named in the article/supplement: work/b55v_control.py"
 work/b55v_metric_compare_20260928.py,3ef7bf602bafef5b3d3471e87d1afa7308c354c599bf835da824130b65cd7af0,5034,"named in the article/supplement: work/b55v_metric_compare_20260928.py"
 work/b55v_pair.py,ac25a407ea20b095a421668a687b02ceb2de47733bba2b2d443dd0635b4518c5,5798,"named in the article/supplement: work/b55v_pair.py"
+work/c23_eval_ceiling_20261001.py,ef070ed2f507937ff7f640331bc336963b1df7f9347b13f10160c8522367ee33,3462,"named in the article/supplement: work/c23_eval_ceiling_20261001.py"
 work/check_crosscite.py,71906063f4bc8033aa9dc410ed940ec873e5d377ab120291b3cda98779fe3448,10434,"named in the article/supplement: check_crosscite.py"
 work/check_seed_convention_20260918.py,c8cef08fb87c7868d1263f508d3dac4731a4076df1a1eb271afa8ddc2ba11bc7,3658,"named in the article/supplement: work/check_seed_convention_20260918.py"
 work/clean_series_b_20260925.py,c834c4cb6a8fc869aadfa077a5b5498729b8a7c762ad4de9f0bffeff2d9f0bc7,5361,"named in the article/supplement: work/clean_series_b_20260925.py"
 work/ctrldrift_check_20260930.py,bab67837d637625843cdd8e371dc80bc9ceb9f83869249be613933d08025c5e6,4319,"named in the article/supplement: work/ctrldrift_check_20260930.py"
 work/g1p_verdict_20260919.py,7642947ba6e13b22687b6d60e65137e6f019d80decdb48a78a3008a9f57ff96a,5869,"named in the article/supplement: work/g1p_verdict_20260919.py"
 work/g2_screen_20260930.py,58789f06944de25726518ff5cb7aaff352d6059293849e96f93f79fff1be71f5,4923,"named in the article/supplement: work/g2_screen_20260930.py"
-work/g6_coverage_audit.py,91d46c1af4246866db76e62b0d6635f19230f28dbf35683fa4aabf54591569eb,4648,"named in the article/supplement: work/g6_coverage_audit.py"
-work/g6_perepoch_eval.py,1a4b5f71436a10022cd00895c3af0498c7975ac31f4abcb224a738e1d6e102cb,10693,"named in the article/supplement: work/g6_perepoch_eval.py"
-work/g6_prem_analyze_20260930.py,de5b05ad5f327613d615b7c24bcb88df0b93295bb11311ef3ddc8d3122c075f4,9233,"named in the article/supplement: work/g6_prem_analyze_20260930.py"
+work/g6_coverage_audit.py,168fe5fa12c95076af340bf12a60d0ff8bd8d8bf3023eb6c2f2db92a47a2a282,5037,"named in the article/supplement: work/g6_coverage_audit.py"
+work/g6_perepoch_eval.py,ff8785eeebeff5b7e8fbfe56427925692f7781567a1094bc8c03f127193b49b5,11358,"named in the article/supplement: work/g6_perepoch_eval.py"
+work/g6_prem_analyze_20260930.py,482746f9d662aaa6561f38f4905509912d1a487e00383b54d976b1f3309ed05d,9915,"named in the article/supplement: work/g6_prem_analyze_20260930.py"
 work/g6_repro_vs_printed_20260930.py,3b02aa00cbd43c06ac470b6f213bc3d3a6ad02fda432ad9b84490805148d2972,6651,"named in the article/supplement: work/g6_repro_vs_printed_20260930.py"
-work/gap_mechanism_20260916.py,71e6a6e051ec0250d9c739e82112c3bdc7751b8fd0cdd678f3b17fa8a562ebc4,12875,"named in the article/supplement: gap_mechanism_20260916.py"
+work/gap_mechanism_20260916.py,36ef1df5b9f3994bd4e783bce09c0f2f04837b5a3652b5fc0b7b858b49ec1e3d,13267,"named in the article/supplement: gap_mechanism_20260916.py"
 work/gen_supplementary_20260916.py,a61cfd22f73c0b36a7ca0b588e16cf09b1a453758e794aa0fd3362c0abf2539b,9813,"named in the article/supplement: work\gen_supplementary_20260916.py"
-work/item2_final_v2_20260925.py,d5744cd63d3e119399776d194cf1939ea364d48c6b70c11b3d24d85b0b41e745,7725,"named in the article/supplement: work/item2_final_v2_20260925.py"
 work/kappa_second_coding_20260927.py,63a29d597c31ae058fbfbf21fdf237bdacf9eb61d6dcdba8e00d5930956d0d55,8902,"named in the article/supplement: work/kappa_second_coding_20260927.py"
+work/p2_t1d_val_n10_20261002.py,d204eae7c40d86549329c4fccf1c1ea09662e0eda3ca8e41363aa71d9d5baf6b,9197,"named in the article/supplement: work/p2_t1d_val_n10_20261002.py"
 work/partial_predictor_final_20260922.py,c91e84bf1bce72947255c8381d4ae419a2a36f1a10476492679e9b17887ea2f3,6715,"named in the article/supplement: work/partial_predictor_final_20260922.py"
 work/preregister_E_ext_20260919.py,576a24bd5cdb0dd33f7484b60af57bca1b9de1b5f1197a1b72768928a02367c2,6037,"named in the article/supplement: work/preregister_E_ext_20260919.py"
 work/probe_evalpeak_convention_20260922.py,3060f16be2802186677f141819cdd769183d11484e5b6e862d1e65591b3d9220,4486,"named in the article/supplement: work/probe_evalpeak_convention_20260922.py"
@@ -164,7 +173,7 @@ work/sigma_decomposition_20260926.py,80aefbba613c3682c1bb1f29b59856426dee553a39c
 work/t9_ap50_sensitivity_20260924.py,eb15c3e86682bf11c5d1f8ba98cadd4fb68af250517cc88cc2bd81eeeb4a03d9,6966,"named in the article/supplement: work/t9_ap50_sensitivity_20260924.py"
 work/theory_meta_and_tests_20260919.py,c81cabf000445b5f27160c72ddbdef194c268ce7874538f5181161c4ca327633,8588,"named in the article/supplement: work/theory_meta_and_tests_20260919.py"
 work/theory_p4_test_20260919.py,74f11a8b19db0243f6c768365ce7614471a878cfe7e5af0bcb0ecdb0c3a06a07,7812,"named in the article/supplement: work/theory_p4_test_20260919.py"
-work/verify_pulled.py,2eb6d2835f1534c06d50fb7fb3ec342ebf01588bca818c59dac8ef708cfc1cb7,1451,"named in the article/supplement: verify_pulled.py"
+work/verify_pulled.py,07a2055d4b71acb8b1f1744387141c3c8eb0fd81e60c26e471091534de7de19c,2410,"named in the article/supplement: verify_pulled.py"
 work/verify_split_defs_20260916.py,adbadfeaa1fc4ea7f8cf71bc8c00df257b738b63aea898db81d65bdb7a3b117a,4805,"named in the article/supplement: work/verify_split_defs_20260916.py"
 work/verify_text_hashes_20260917.py,7d800665cea90c55c87c1a7c240891e552b9bf5d50330b00aa4f77f08edc3708,18537,"named in the article/supplement: work/verify_text_hashes_20260917.py"
 work/x1_aux_20260918.py,db8f14145aae516b6cac7177a9b60f2a37e4680e44643698063265dd0a6fbffd,6411,"named in the article/supplement: work/x1_aux_20260918.py"
@@ -174,3 +183,151 @@ work/x8_dota15_analysis_20260918.py,0b076ecda55fdae5a3ca449efbd53f0108018dd97c67
 work/x8_oom_counts_20260918.py,b8a1d5d215a7fb94478482406c938d68ea8659957142745c8b25cf38f4cee197,3325,"named in the article/supplement: work/x8_oom_counts_20260918.py"
 work/x8_oom_sensitivity_20260918.py,4c6109e58faddccf825ef59ea2bf75f5f18cd70cdd1e63689420ebc1630ed0c1,4271,"named in the article/supplement: work/x8_oom_sensitivity_20260918.py"
 work/xeval_analyze_20260916.py,e2ab5a25821c62b7c33818cd35bc666ee724bf64066281dc760b3a4ed57a3a94,10356,"named in the article/supplement: work/xeval_analyze_20260916.py"
+work/_clean_series_b_20260925.txt,b9518e6ea7d897d6c6294057899c1e6fbba98ef6d809e03185b4158b4200bce6,6516,the manuscript names this path under work/ (see README)
+work/audit_anchors_fupaper.py,de74ad5cf11e64e18c68dc47c20f3bd57d600ecf11965b2678c31eb6d7c277f6,59744,the manuscript names this path under work/ (see README)
+work/coding_manual_19x4_20260927.md,028a1b90d33f198c4376c328c6c794f2a9326c3fcd41966cc9eae7c6c7c6b080,10844,the manuscript names this path under work/ (see README)
+work/g1pp_g3_g4_verdicts_20260919.txt,e6a8c19279144402c50ce5ed40f75098f74d0aab131d110fd17e9db9ceeac75c,3607,the manuscript names this path under work/ (see README)
+work/g2_and_g1p_verdict_20260919.txt,078c870550e59068acbe8b47517568c4f35bda747a56e2817feb308deb3208cb,6644,the manuscript names this path under work/ (see README)
+work/kappa_computed_20260927.txt,073bb3eb39e9f348e145cfa5785a664bf74912a8ddc8f4e3c448f797c6296c9f,4139,the manuscript names this path under work/ (see README)
+work/kappa_summary_20260927.md,fbc1ba8ae0df25f45dc837c00c3977aea0f0c0513cb411dd0f69c32fe239093e,10246,the manuscript names this path under work/ (see README)
+work/second_coding_20260927.csv,8f236b70a506fba5008526b97fedef7fe844893dfa6bfab784ff624e6bd10e0a,8205,the manuscript names this path under work/ (see README)
+work/theory_p3a_correct_20260919.txt,c9690e325d4cdc74777ccdc58a5af78b9f44832e9fa4e1324a5bb84070f0a779,2482,the manuscript names this path under work/ (see README)
+work/verify_two_critiques_20260916.py,91e35c9327ef5633e7902a9b2df8a88ed346a8bea68cf2a979c5e25a4c179c8d,10063,the manuscript names this path under work/ (see README)
+work/x10_alias_audit_20260918.py,e332fa530aa21b7bcf2c70ce8a91e188171ba4082a64a4fb0f3b741ecff91ed7,7444,the manuscript names this path under work/ (see README)
+work/x1_aux_20260918.txt,db4ced8df4d5b431fc6e4702d017ff6aa1f942d57c9ff87fc3f5d387c819edd5,2376,the manuscript names this path under work/ (see README)
+work/x2b_kappa_arms_20260918.py,5c517f24b6e19295bfcbde1cb947506e139160c312679cb294794d7f531737d2,8238,the manuscript names this path under work/ (see README)
+work/x3b_perepoch_corrected_20260918.py,69c8a5ced19bf111b34d6a31a311fe10e466263ff645435531fd66b336ec58e1,16543,the manuscript names this path under work/ (see README)
+02_release_data/xeval_20260916/curve.csv,c81ef91d20ed73fc7c8b2677610ba301fe44e47cf5fe23115c8f0ffc6eb0adb6,14844,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/matrix.csv,77970d01a3b860aee107d1bcd75c88dd16ab1bd7271ff63f8ac0eedc3fd8ba34,13074,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/SHA256SUMS.txt,b27c0d0bd9b3fae91d02e0a0e18392413d68fea3d740f95c0073e926def72a2f,10643,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/sio_b_results_pod.csv,9bb4f3b2f695a1eca25ebbda947682aba0ce8e7dd8d724f1795352fea8ae8c7c,29832,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_aitod20_base30_3way_s42n_args.yaml,36a63206d4a80117199548c4ef0bf63a56c5a096071936c4a1c52c93a98002ce,1771,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_aitod20_base30_3way_s42n_results.csv,6a54ae555d1fe9388bbdf82ed942106e9627bc4b3acb1455bb9077040e557661,3692,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s42n_args.yaml,a485cf167f8cefbb72fdbc4257f418a38676b92c52273c31b492fd129856fbdf,1779,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s42n_results.csv,5253cf6befd5f7618235e55250a56e8dfc85e116e1d3108f9a7dfddd1dc0cc7c,12112,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s43n_args.yaml,7b803eaa1e88cdd8076cab2685f7d76f6af0ebe2b89dc5b2699cc2218c2e2bfa,1779,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s43n_results.csv,16f662a0c1385cbbbab80bd7334be5b0acfd40a7263c94b1305008264f5cac25,12124,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s44n_args.yaml,ce4de305e380a9ed489e8e0d03a06660b0ac26706c5bb2f2ab38cf8997bb2d95,1779,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s44n_results.csv,ac464a5bd75806e7b1d022523491977e21713baf7b6426c187dc1daa9d716e64,12117,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s45n_args.yaml,2e1f46c726d3a90ebdb8c7338f51cb7f152cef0db8fc4236eea8a5ddd3bbafcb,1779,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s45n_results.csv,b822ece82521ccaeb82e9a7b0490d151a7ea645a05c2460d2c538ce108a76701,12112,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s46n_args.yaml,0975323904557e6b0ee7fc3f41beea6e055a7156277bd88fd8e709dee9642101,1779,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s46n_results.csv,e304d88f7bcd605a1e218f70811afc2c3caf6e602fe56dccff1a152d6f2c53f5,12122,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s47n_args.yaml,baff58e36e811ea2965e9f8eca9ff745208f58b5883d8588db4eeb73dd36c84a,1779,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s47n_results.csv,de4d3097287434d9fd2c19cd43787056f20e443057b7edbadbbabe21bf106c00,12109,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s48n_args.yaml,39a66acee7c113fb0f027000acf0802899cabb31cce82df7c47947160dec05d7,1779,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s48n_results.csv,5cc2ae80dd6809359d594485591798565ae4403b8507c7841efc2e5fa19466e0,12126,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s49n_args.yaml,bcfc21bacd04001a6311a6a29d9dc29330debcc6a22b3c02c19662e8487bf8f6,1779,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s49n_results.csv,79fdf05ac8bb66ca0f944243df257531b24565ffbee31d3950875eb395c52222,12127,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s50n_args.yaml,399b01c2a6de59b82d1ced3607857a6bc3cc6713631ddfc8e3ca488d9aa886b2,1779,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s50n_results.csv,efc3b8c5f0ebd4db46d9e88ae0f3327e38dab73e39515b076c3b740e792eaebf,12121,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s51n_args.yaml,e5bdbe4d8b469e4480913dd6f8ec2be344dbe80914be7763458403c774a3af91,1779,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_base100_3way_s51n_results.csv,bbfae5c13d1f9571bb8f484d11cde9a6359b3937357d2a7b6ec9a316f7638d54,12132,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s42n_args.yaml,4800633c581d5ad157a5058dff0365a89909d253041f109c3ee18b36e8311cba,1787,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s42n_results.csv,3c150d4157c70a309d27a7b318018d2fca8ae8a55e7a75ac09c4a8a908b7dd8d,12005,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s43n_args.yaml,f4f70773baf9910675b27904c343513187f5573a60afc0cdb8e66652593a55b5,1787,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s43n_results.csv,fd84e6ed795d2c4986ed5e6b2ec1f76c3649a9906c8d3885c641377563ee2308,11981,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s44n_args.yaml,19d3e3f0bef7abd3cdedd89f9476ac7fe0d10c1f0be75c85fce16fbd4ad83067,1787,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s44n_results.csv,3fba03d22240f2463f4b6c03a9ca19d247d2858952eab223693557ed6a581e45,12006,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s45n_args.yaml,a3a9b869b45aa7356b2094de0f9461ea9a0264feb1de1d8255c40c7c148ec0e2,1787,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s45n_results.csv,155150c0389070f9c95416f9851e52d24353f9d0bea289bcd47739a79f0aa740,12011,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s46n_args.yaml,d731fcf3f76fbfe4fd3a3ca85b33329604a63ab5ebabcc6d7f720724ed071680,1787,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s46n_results.csv,f93085f78e09813dd7b2b84a44b1a9daa7c20838452ffddbf1a8b4f6df213920,11997,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s47n_args.yaml,ef29a8888b0cde1044987106c904ea6f79cc27bb5a2f4eaee34509d53b299f2d,1787,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s47n_results.csv,d9c6aca6a126c5d8cb976f31d2db67fa759456a094cf7fbadc7546bb107e2a84,12003,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s48n_args.yaml,61f04c83c36e0d02d461b4c3d825816d279249686d392d9a0288aba9879e0173,1787,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s48n_results.csv,886d5786696cc27609152323c77cc150dec06838f65402be58ea7634ab1d3f0e,12005,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s49n_args.yaml,1a45af100fb70b1655bac441e81b615a63976680e4137fe5d420ac80247291e5,1787,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s49n_results.csv,8b4908302ca86a832630b1d07be5a11f3ce34a6507fd9f317c8195689621abd6,12016,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s50n_args.yaml,89d2d2cfe6421d680b4031963482a7a7386825b6246fabdab77ad910f95bba7c,1787,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s50n_results.csv,3911ea74294e68a68b5e3472ff54fc71027b8acaa6832bf1b72688447cb07732,12001,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s51n_args.yaml,3db519d991ac9f0422b0c66cb01ee4a210b994826c0cd0473d6d600371390f7c,1787,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_shwd2sf_lr005_100ep_3way_s51n_results.csv,a1eca7de51bbe424582749a609e81fd64a945dbcf7d668a65015ee81d25d0af5,12007,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s42n_args.yaml,e96dd350ae4d7c4bdd39c9d6c4be7f653c3d68f38cfd5f773d33f6dfeb15f4a1,1783,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s42n_results.csv,506394930319af436c5a8ccaf1dfd31ffdd8e43179a3550b0d0021259b37c569,12141,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s43n_args.yaml,867986bb44fe269912c21c99bb827e155e01b51f11be52dc71a5dfedb2b2a02a,1783,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s43n_results.csv,661fc7ce6bef39f568a840caa07c5fa142e78010695b7731c6bcb67af3db3206,12114,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s44n_args.yaml,013ccc7936ab929d2cbfdf5ed8b878fe39ce76d233ccfa1dd2a15c7d4912f5bd,1783,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s44n_results.csv,6c530b34a8d075261ec0fd91b46aeee5a6167eaf3efb31495ebb164ca2336786,12119,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s45n_args.yaml,9cb38edcd1a3be26e96704504f778f82602158d363c01e683b716d4822014ed1,1783,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s45n_results.csv,eb9df06c99a6106a30fafc5b13770f470d85900930c57545ee01be9577e4a8bf,12113,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s46n_args.yaml,b91d34dbb8b53d2d810fe52f5afff328dd0b838393a9b47fa355b57857322d22,1783,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s46n_results.csv,aa46807948a13140ad8fa1192fec4d38198813fedfa498c49f5be07c199f67f4,12120,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s47n_args.yaml,f3eefce53d24727f9b034ed19dc81f78068fcda84204ba3a3e6b2e37cac37fb1,1783,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s47n_results.csv,c3400c689c4e693e13f6ef4342aba5010a9ad4a6d56910df126676d9b37788db,12134,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s48n_args.yaml,29ae4fde6055c8a9a165c5d6e5734adb231086fdd71c4edb204cf384271d6f39,1783,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s48n_results.csv,1e98371829e6f6164b0b2c92e3df5e0b9d7c7468155e35cef93a87f7f5c1a760,12107,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s49n_args.yaml,d165784992b25c17fd1cba305770a1514cbbb98463899686f186968b3267adb6,1783,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s49n_results.csv,1df5c3b9cbb8b32d05c7be85e08590c0d482100d0dbd1cd98918e324b9fe6394,12113,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s50n_args.yaml,cf14884ac3a2afded3c94298510307d72846fd5d79aeb0aa2f8a9ab23e97ad94,1783,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s50n_results.csv,94593f5f0cf04507ec69661358a49e616dabc8b215a42a058c0d9cfbcd4d1db8,12099,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s51n_args.yaml,b92feb6f1d2ce5eeb5295d1a31191c8498a4fa94e46c810dec41a517a8421989,1783,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_base100_3way_s51n_results.csv,bbcdaf3627d85e98bf54e39f7692fc77ebcca518a15ba77d8dbdff83588f53e6,12117,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s42n_args.yaml,3ed8d1cf056a8d21de10c3c9096b2cf04566aa04df294e141749e6f4f877981d,1791,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s42n_results.csv,fe763a9d509a0ad327d9c0be5a1daa8b09758c83d5146590670ad58b401ae7c5,11990,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s43n_args.yaml,cd28c6856371d551dc80536c3478c55631bc2e624e70d4f5e40b95e393a781d2,1791,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s43n_results.csv,af11b2d4acf4b149cf390c12bc0981cbf5c6ddbce2b9360066dcaebdd3cd84e9,11993,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s44n_args.yaml,1eaf027d78a5f547fbbac699223561d5f268edb16ab38d97f181d1ebc7305f1c,1791,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s44n_results.csv,af34557933ff8f9cd9eae33c504b7c1209a63a1dfa7ed3e2193860e87c117a61,12006,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s45n_args.yaml,34a81d1c9492f43074fd725e837d20e01a4527c8548fba3e2b9eedddeae7b12e,1791,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s45n_results.csv,72e9f0ef70add5c3ffc972aa8a0d6fa647020e2c34cc18956fd922629976f392,12011,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s46n_args.yaml,9e0e46c4c72fc376040be702d125724a5c16e09e4c5270d504a19426fb77eaf4,1791,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s46n_results.csv,7417448047b404381ccfc11a8a5b61eefcab84e759d79a9ae78973875f7da714,12020,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s47n_args.yaml,0d1da5467ee6ba66e5932514ab7ccaee277cc7fbf95d148888a8559146c22c4e,1791,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s47n_results.csv,c1e95052c1d8656dbc11a7760e97d8829b6c31f706e443d34fd1aeebaf05bded,12019,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s48n_args.yaml,4704be050f74701e93b818890a228bdc7590fd2fd44101791732453f560444f9,1791,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s48n_results.csv,2eed7025f46945cbfce660e1d3e076fc9c1dc1a4860dd1b9b1095c3785310446,12016,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s49n_args.yaml,83a6c434ff75a856ef22f6b7abd62c41e8ba43071488ec438ee328506d1ccb21,1791,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s49n_results.csv,666557822a63f083fc701ed7b85efbf3f77edb65928a8396b1bda49664d954af,12019,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s50n_args.yaml,da745cae8ec4d21f57954590d6546317bd2862b8a4e804374557bbf29761091e,1791,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s50n_results.csv,a6d4692609613560e1c18ff35a0037705230d7fb00489717ffecbbefa78b2867,11986,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s51n_args.yaml,497f133ca70fa87ea5fedf9b6145de3dc87ac330fc5b60f384db7df5f5fbc1e8,1791,Table 4 recompute-chain input (C01)
+02_release_data/xeval_20260916/runs/r10_smoke2sf_lr005_100ep_3way_s51n_results.csv,1be9605449c02130c7ec12eb1d96aa63b871a9a0db9912171819613fb50a7f6b,12009,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/aitod20_3way.yaml,c0d95d7d21cff6b9f4331718178ab24c6c43414a4cf9725e27cedb13e23080a1,417,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s42n__args.yaml,36a63206d4a80117199548c4ef0bf63a56c5a096071936c4a1c52c93a98002ce,1771,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s42n__results.csv,3c4572ca5a4dd999b4186f17d2cbb97346ccbdb714a028b232a7b492c18fe857,3698,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s43n__args.yaml,bf09a403cfb7c71118add265bbbbc1f8eeac7cd901aae071dd952ad0aaf3346b,1771,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s43n__results.csv,b4390e0fa294329cf6c259d02ef8c7817567395477f6b9040c29400b3661ef5b,3699,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s44n__args.yaml,e792b330fd25a73ed48dc9be3969bc1c147c70bb764c46185695f00ea8d3a676,1771,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s44n__results.csv,94da29b5ccf866f9bd4ac3d8b4f96829ec4f5e90b6cc5b48ff8bf54cd2dbec6c,3688,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s45n__args.yaml,5ec99ca9cea2baf69aaf34f2524252096722ebd63dab06772a1662f7c05299bb,1771,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s45n__results.csv,3cdf4176f739ef39f44430b119e1f38f650be76ed4769f7d35d434ab9e67694b,3696,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s46n__args.yaml,8711337007aec3c59d5249dc6d7254abc8dbb84ffaa8c4b43e9dc87768ced881,1771,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s46n__results.csv,d950bd7dca0425d3a3e13601dee79f8d3ff61e65c7505dfdd60a62289e2b2a96,3697,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s47n__args.yaml,d6cb6ef24088ca06a0189f42fd65e14ef6c943a4d1a630d1fb3b58552be09aad,1771,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s47n__results.csv,956a226f939d5581141c979684650c3ccc9f8f13d22d01c90eb22b5baa9ffb7b,3696,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s48n__args.yaml,e954bc41b06bfe8d044196aafaeac034a708f30c66c87c3b991bfe674139808f,1771,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s48n__results.csv,6616005b550a3e087e3b86f72266b4401b78e6420915a0d9ee7b5d4aeb9cbb38,3697,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s49n__args.yaml,293dc288265d94130dff80ebf7a2538b29eaa3d4c953f333654281063323183c,1771,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s49n__results.csv,ff658161da46d2bd0bf621bf2041f2f852c8781f1e77d4447c07bce17d00b67e,3679,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s50n__args.yaml,1d8457c4d2c53f703a346c5afec8bfc3b7745cac1ec67a73f6d9a622152ae763,1771,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s50n__results.csv,3e3b59f4a162521e32d5c07d1b210b96125cb61a9b6acde7cb7daf2d5c0a1bc9,3704,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s51n__args.yaml,5395bec6634dfe931054d8a77840b7d8bbe52320f2bcd2545d1689a4a0538320,1771,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/r10_aitod20_base30_3way_s51n__results.csv,82c13d99bd162bc292fa0bbaf792779e11fe8f0acb1677676043196012e5fe54,3698,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/R15_manifest.csv,f3f57648d179d1d4c6f131d78e7cf05fbb5038841cdb95c198e502d63e2fba07,5508,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/sio_b_results.csv,898928a8689651da7799bdb6aea3b7f7a8e829e0e29f45664da7ede036a99442,26865,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/x2_teval.csv,645f0ff843d1991fc66f0d3bcd998fb396cd57298e74f62056da7fac02e9fbc4,12496,Table 4 recompute-chain input (C01)
+02_release_data/aitod20_n10_20260924/x4_teval.csv,05a794c938a82a81b4567712448a363e531e50c6b1eb8d7a9a499c94f018b87f,10206,Table 4 recompute-chain input (C01)
+02_release_data/x4fill_20260925/x4fill.log,dfb44544e0dfccacb0a3f92b3182ff89982496dfee2e3daf16a5b88ae00da742,47655,Table 4 recompute-chain input (C01)
+02_release_data/x4fill_20260925/x4fill_20260925.csv,5236640e97fd8b51c118a68827541cec4e498177560b7bb49ae700f6c201e4fc,402,Table 4 recompute-chain input (C01)
+02_release_data/x4fill_20260925/x4fill_20260925.SHA256,fb30d159e463476c35b2f32c204e7eb9af09bd6b861727497b6c69cae91b1c4a,86,Table 4 recompute-chain input (C01)
+02_release_data/release_extra_20261001/审计文档更正与裁定_20260916.md,5809964a93ed6e17c1806caa796b9386fc6074899734c1e20f97434b02f08b52,24638,Table 4 recompute-chain input (C01)
+02_release_data/split_defs_20260916/carve_sfchd20_images.txt,682f1a2005acfd9836cc5453030c63e5b8ddee23299d697f75234ab451d9f0ea,30360,Table 4 recompute-chain input (C01)
+02_release_data/split_defs_20260916/sfchd20_3way.yaml,8b0309cfdb66f35e19fb01c14bf94a1a25ee2df49b5a4b97b2d29250f6df1f47,342,Table 4 recompute-chain input (C01)
+02_release_data/split_defs_20260916/SHA256SUMS.txt,3304610121ababbf5f03861d83cfcdac8c59404dfe7de22ecd63857f6b2881e4,985,Table 4 recompute-chain input (C01)
+02_release_data/split_defs_20260916/sizes,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,0,Table 4 recompute-chain input (C01)
+02_release_data/split_defs_20260916/sizes__counts.txt,5041c961fb26aa1306098408c541ac23e8be1d4ece316a4c8323cec24b769669,72,Table 4 recompute-chain input (C01)
+02_release_data/split_defs_20260916/test_images.txt,ae82ccb40cdc347720b23194622641b2800ab72134b0b8cf690d8c4505a76c06,174449,Table 4 recompute-chain input (C01)
+02_release_data/split_defs_20260916/train_10_percent.txt,8d43b9c3d5daeefc3818e3359295ac6d3462c051154be6b628b4589378828145,30167,Table 4 recompute-chain input (C01)
+02_release_data/split_defs_20260916/train_20_percent.txt,851a61bca545fbc433dc8d42784f8d929ff515ac07677b5ae6ffa040783c0dd1,60219,Table 4 recompute-chain input (C01)
+02_release_data/split_defs_20260916/train_20_percent_images.txt,584be19b17f184330feb13b5f9447c973673dd2aa1d4140edd1292bff330e08f,69871,Table 4 recompute-chain input (C01)
+02_release_data/split_defs_20260916/train_30_percent.txt,ae7d03c91c68c3ab0f5110b048984323ccb9d873ba69e63bf9418c454b0d053b,90425,Table 4 recompute-chain input (C01)
+02_release_data/split_defs_20260916/train_50_percent.txt,204f25dd79a1e23b5e45f79cbea8d296acd16579c9eef4eb2633f6d6e939b596,150889,Table 4 recompute-chain input (C01)
+02_release_data/split_defs_20260916/val_split55.txt,f914081a34ba8f5d00ab5499d79f614fdd210b2d45cbd42acb051f5148a79e6e,15178,Table 4 recompute-chain input (C01)
+02_release_data/split_defs_20260916/VERIFY_INTERSECTIONS.md,d05c3b0906c8d84792b2c3e21c8106de839d3e0ac4f75a6f9e8de91c604cd403,2288,Table 4 recompute-chain input (C01)
+02_release_data/xeval_perepoch_20260918/matrix_perepoch.csv,a1765d1467431e98062a640a8cb7240e5a0afc411801ff44605c757edf71a070,65637,Table 4 recompute-chain input (C01)
+02_release_data/xeval_perepoch_20260918/SHA256SUMS_pod.txt,c1ef78e2f0fc6de872cc892ee7d8d33784e520c8b295dd47ac9794e74887e23b,86,Table 4 recompute-chain input (C01)
+02_release_data/xeval_perepoch_20260918/x3.DONE,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,0,Table 4 recompute-chain input (C01)
+02_release_data/xeval_perepoch_20260918/xeval_perepoch.log,79c436ce050e2fc72723d19618a6c67c6ea84cd5696a91f147cb73aa98a2482b,1942061,Table 4 recompute-chain input (C01)
+work/item2_final_v2_20260925.py,9edcf49a53565c8d9a0dc6d84d77c7cca0ba9103ec21423da013b5e7cced208f,7856,Table 4 rate: root-relative paths (C01/C05)
+README.md,8c7e53d6c5f7832967aa88a0eb70fc33e80e90fda17452c63fbe97c83a56e83c,8352,hand-written package documentation

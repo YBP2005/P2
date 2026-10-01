@@ -1,0 +1,8 @@
+# three-way protocol: train = same label subset as the published runs; val = carve-out from the pool
+# minus that subset (seed 42); test = the corpus's own held-out split. Built 2026-09-14T07:37:27Z.
+path: /workspace/datasets/split_5_5
+train: train/20_percent/images
+val: carve_sfchd20/images
+test: test/images
+nc: 2
+names: ['hat', 'person']

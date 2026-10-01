@@ -1,0 +1,8 @@
+# three-way protocol: train = same label subset as the published runs; val = carve-out from the pool
+# minus that subset (seed 42); test = the corpus's own held-out split. Built 2026-09-14T07:37:35Z.
+path: /root/datasets/AI-TOD_yolo
+train: images/train_aitod_20p
+val: carve_aitod20/images
+test: images/val
+nc: 8
+names: ['airplane', 'bridge', 'person', 'ship', 'storage-tank', 'swimming-pool', 'vehicle', 'wind-mill']
