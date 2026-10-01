@@ -19,7 +19,10 @@ ROOTS = [r'D:\deepseek\4090Bruns\runs',
          r'D:\deepseek\analysis\B_results_20260915\workspace\runs']
 SIO = {'A': r'D:\deepseek\analysis\A_results_20260915\workspace\sio_b_results.csv',
        'B': r'D:\deepseek\analysis\B_results_20260915\workspace\sio_b_results.csv'}
-OUT = r'E:\workplace\gap_mechanism_20260916.txt'
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'gap_mechanism_20260916.txt')
+# r169：不再写作者机绝对路径 `E:\workplace\...`（包 README 承诺"没有 checker 硬编码作者机路径"）。
+#   注意：本脚本的**输入**是作者树上的 D 盘归档（不在包内），所以它属**作者侧**；发布包里那份
+#   `02_release_data/gap_mechanism_20260916.txt` 就是它的产物，逐字节可核。
 
 buf = []
 def emit(s=''):

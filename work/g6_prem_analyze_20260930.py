@@ -29,11 +29,23 @@ import sys
 from collections import defaultdict
 
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
-ARMS = ('lr005_100ep', 'lr005_30ep', 'base100', 'base30')
+ARMS = ('lr005_100ep', 'lr005_30ep', 'base100', 'base30', 'base', 'lr005')
 
 
 def parse_name(run):
     m = re.match(r'^r\d+_(.+?)_s(\d+)n$', run)
+    if m:
+        mid, seed = m.group(1), int(m.group(2))
+        mid = re.sub(r'_(3way|20p)$', '', mid)
+        for arm in ARMS:
+            if mid.endswith('_' + arm):
+                return (mid[:-(len(arm) + 1)], arm, seed)
+        return (mid, '', seed)
+    # 2026-10-02 回退分支：§13.1 这批 run 名不带 `r\d+_` 前缀
+    # （如 t1b_aitodtovis_base100_s42n / g3_e200_base_s42n / g3ext_e50_lr005_s42n）。
+    # 切法与上面**同一套规则**；加 'base'/'lr005' 到 ARMS 只为认这两种后缀，
+    # 因为排在 base100/base30/lr005_*ep 之后，对原有前缀分支的行为**无影响**。
+    m = re.match(r'^(.+?)_s(\d+)n$', run)
     if not m:
         return ('', '', '')
     mid, seed = m.group(1), int(m.group(2))

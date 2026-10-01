@@ -227,7 +227,7 @@ T1-d,dota->dota15,t1d_dotatod15_lr005_100ep_s48n,48,lr005_100ep,premium_val_minu
 T1-d,dota->dota15,t1d_dotatod15_lr005_100ep_s49n,49,lr005_100ep,test_map50_95_pp,17.0800,E:\workplace\_stage_p2pack_20260920\B_runs\t1d_dotatod15_lr005_100ep_s49n\results.csv,D:\deepseek\analysis\A_results_20260916_t1d\sio_b_results.csv
 T1-d,dota->dota15,t1d_dotatod15_lr005_100ep_s50n,50,lr005_100ep,test_map50_95_pp,16.9800,E:\workplace\_stage_p2pack_20260920\B_runs\t1d_dotatod15_lr005_100ep_s50n\results.csv,D:\deepseek\analysis\A_results_20260916_t1d\sio_b_results.csv
 T1-d,dota->dota15,t1d_dotatod15_lr005_100ep_s51n,51,lr005_100ep,test_map50_95_pp,17.1600,E:\workplace\_stage_p2pack_20260920\B_runs\t1d_dotatod15_lr005_100ep_s51n\results.csv,D:\deepseek\analysis\A_results_20260916_t1d\sio_b_results.csv
-T2,mask->mendeley,t2_mask2mende_base100_s42n,42,base100,test_map50_95_pp,67.1200,,D:\deepseek\analysis\A_results_20260916_t1d\sio_b_results.csv
+T2,mask->mendeley,t2_mask2mende_base100_s42n,42,base100,test_map50_95_pp,70.0603,"B machine re-evaluation 2026-10-02 (work/g6_perepoch_eval.py, G6 convention)",D:\deepseek\analysis\A_results_20260916_t1d\sio_b_results.csv
 T2,mask->mendeley,t2_mask2mende_base100_s43n,43,base100,test_map50_95_pp,70.4800,,E:\workplace\xeval_20260916\sio_b_results_pod.csv
 T2,mask->mendeley,t2_mask2mende_base100_s44n,44,base100,test_map50_95_pp,71.3100,,E:\workplace\xeval_20260916\sio_b_results_pod.csv
 T2,mask->mendeley,t2_mask2mende_base100_s45n,45,base100,test_map50_95_pp,69.8200,,E:\workplace\xeval_20260916\sio_b_results_pod.csv
@@ -237,3 +237,15 @@ T2,mask->mendeley,t2_mask2mende_lr005_100ep_s43n,43,lr005_100ep,test_map50_95_pp
 T2,mask->mendeley,t2_mask2mende_lr005_100ep_s44n,44,lr005_100ep,test_map50_95_pp,68.4100,,E:\workplace\xeval_20260916\sio_b_results_pod.csv
 T2,mask->mendeley,t2_mask2mende_lr005_100ep_s45n,45,lr005_100ep,test_map50_95_pp,68.5800,,E:\workplace\xeval_20260916\sio_b_results_pod.csv
 T2,mask->mendeley,t2_mask2mende_lr005_100ep_s46n,46,lr005_100ep,test_map50_95_pp,68.8900,,E:\workplace\xeval_20260916\sio_b_results_pod.csv
+T1-d,dota->dota15,t1d_dotatod15_base100_s49n,49,base100,premium_val_pp,0.7610,E:\workplace\t1d_valext_20261002\runs,
+T1-d,dota->dota15,t1d_dotatod15_base100_s49n,49,base100,premium_val_minus_test_pp,-15.5490,E:\workplace\t1d_valext_20261002\runs,D:\deepseek\analysis\A_results_20260916_t1d\sio_b_results.csv
+T1-d,dota->dota15,t1d_dotatod15_base100_s50n,50,base100,premium_val_pp,0.9800,E:\workplace\t1d_valext_20261002\runs,
+T1-d,dota->dota15,t1d_dotatod15_base100_s50n,50,base100,premium_val_minus_test_pp,-15.4700,E:\workplace\t1d_valext_20261002\runs,D:\deepseek\analysis\A_results_20260916_t1d\sio_b_results.csv
+T1-d,dota->dota15,t1d_dotatod15_base100_s51n,51,base100,premium_val_pp,0.8950,E:\workplace\t1d_valext_20261002\runs,
+T1-d,dota->dota15,t1d_dotatod15_base100_s51n,51,base100,premium_val_minus_test_pp,-15.4450,E:\workplace\t1d_valext_20261002\runs,D:\deepseek\analysis\A_results_20260916_t1d\sio_b_results.csv
+T1-d,dota->dota15,t1d_dotatod15_lr005_100ep_s49n,49,lr005_100ep,premium_val_pp,0.3890,E:\workplace\t1d_valext_20261002\runs,
+T1-d,dota->dota15,t1d_dotatod15_lr005_100ep_s49n,49,lr005_100ep,premium_val_minus_test_pp,-16.6910,E:\workplace\t1d_valext_20261002\runs,D:\deepseek\analysis\A_results_20260916_t1d\sio_b_results.csv
+T1-d,dota->dota15,t1d_dotatod15_lr005_100ep_s50n,50,lr005_100ep,premium_val_pp,0.4520,E:\workplace\t1d_valext_20261002\runs,
+T1-d,dota->dota15,t1d_dotatod15_lr005_100ep_s50n,50,lr005_100ep,premium_val_minus_test_pp,-16.5280,E:\workplace\t1d_valext_20261002\runs,D:\deepseek\analysis\A_results_20260916_t1d\sio_b_results.csv
+T1-d,dota->dota15,t1d_dotatod15_lr005_100ep_s51n,51,lr005_100ep,premium_val_pp,0.5690,E:\workplace\t1d_valext_20261002\runs,
+T1-d,dota->dota15,t1d_dotatod15_lr005_100ep_s51n,51,lr005_100ep,premium_val_minus_test_pp,-16.5910,E:\workplace\t1d_valext_20261002\runs,D:\deepseek\analysis\A_results_20260916_t1d\sio_b_results.csv

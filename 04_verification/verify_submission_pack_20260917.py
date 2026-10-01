@@ -11,7 +11,12 @@ import struct
 import sys
 
 sys.stdout.reconfigure(encoding='utf-8')
-W = r'E:\workplace'
+# r143：不再硬编码作者机路径——包根优先（含 01_paper/ 的那一层），可用 P2_ROOT 覆盖，
+# 两者都不成立时才回落到作者工作树。评审（C05）指出六个 checker 硬编码作者路径。
+import os as _os
+_AUTHOR = r'E:\workplace'
+_PKG = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+W = _os.environ.get('P2_ROOT') or (_PKG if _os.path.isdir(_os.path.join(_PKG, '01_paper')) else _AUTHOR)
 POST = os.path.join(W, 'P2_投稿前件_v0.1.md')
 ENG = os.path.join(W, 'P2_English_v0.1.md')
 REFS = os.path.join(W, 'P2_参考文献_v0.1.md')
@@ -32,6 +37,23 @@ def load(p):
 
 
 post, eng, refs, forms = load(POST), load(ENG), load(REFS), load(FORMS)
+
+# r169：**作者侧前置门**必须"停下来说清楚"，而不是抛 AttributeError。
+#   实测（本轮包内入口审计）：从复现包里直接跑会崩在 `post.find(...)`，
+#   而包 README 承诺的是"以可读错误停下"。这里把缺件说清并给退出码 2。
+_missing = [p for p, v in ((POST, post), (ENG, eng), (REFS, refs), (FORMS, forms)) if v is None]
+if _missing:
+    print('=' * 74)
+    print('投稿前件机械校验 —— **无法运行：缺作者侧输入**')
+    print('=' * 74)
+    for p in _missing:
+        print('  缺：%s' % p)
+    print('\n这个 checker 是**作者侧前置门**（它要投稿前件、参考文献表与形式要求核实件，这三件都随作者树走、')
+    print('不进复现包）。从复现包里跑只能到这里 —— 这是**设计如此**，不是稿件有问题。')
+    print('包内**独立**可运行的 checker 只有一个：`work/verify_pulled.py`（见包 README 的 “Which of the six '
+      'checkers run from this package” 一节）。**投稿前件与形式要求核实件已随包**（在 `01_paper/`），'
+      '这里真正缺的是参考文献表 `P2_参考文献_v0.1.md`。')
+    sys.exit(2)
 
 print('=' * 74)
 print('投稿前件机械校验')
@@ -57,7 +79,8 @@ rep(worst <= 85, '最长 Highlight <=85 字符', 'max=%d' % worst)
 #      （多了一句"协议归伴生篇"的归属说明），于是匹配失败、`wc` 静默为 0，
 #      报出"摘要 <=150 词 0 words"这种**假失败**。⇒ 改为"**取到 Keywords 之前**"的稳健切法，
 #      并把空匹配**当失败报出**（不再静默 0）。
-print('\n[2] Abstract：<=250 词（官方 L310/L583；两处必须一致）')
+print('\n[2] Abstract：<=250 词（官方 L310/L583；**两处必须逐字相同**）')
+_abs = {}
 for name, doc in (('投稿前件', post), ('英文稿', eng)):
     i = doc.find('## 3. Abstract') if name == '投稿前件' else doc.find('## Abstract')
     if name == '投稿前件':
@@ -68,8 +91,20 @@ for name, doc in (('投稿前件', post), ('英文稿', eng)):
     body = seg.split('\n', 1)[1] if '\n' in seg else ''
     # 去掉标题行与"Provenance/Positioning 之类"的前置说明：只留以 We/Object-detection 起头的正文
     m = re.search(r'(Object-detection papers report.*)', body, re.S)
-    wc = len(re.sub(r'[*`]', '', m.group(1)).split()) if m else 0
+    # r169：投稿前件的摘要段以 "---" 结尾，正则到段尾会把分隔线一起吃掉（多算一个 token、
+    #   于是"逐字相同"这条新断言假失败）。这里先剥掉段末的水平线再比较。
+    _txt = re.sub(r'\s*-{3,}\s*$', '', re.sub(r'[*`]', '', m.group(1)).strip()) if m else ''
+    _abs[name] = re.sub(r'\s+', ' ', _txt).strip()
+    wc = len(_abs[name].split())
     rep(0 < wc <= 250, '%s 摘要 <=250 词' % name, '%d words' % wc)
+# r169 加强（不是放宽）：本节的标题一直写着"两处必须一致"，但此前只校验了**词数上限** ——
+#   于是投稿前件挂着一版 149 词的旧摘要（内容与英文稿不同：旧版把 "intersection is exactly zero"
+#   与 "12/19" 当定论印着）而守卫照样 ALL PASS。本轮审计发现后已把投稿前件换成逐字同文，
+#   并把"逐字相同"写成断言。
+rep(_abs.get('投稿前件') == _abs.get('英文稿') and bool(_abs.get('英文稿')),
+    '投稿前件摘要 == 英文稿摘要（逐字）',
+    'identical=%s len=%d/%d' % (_abs.get('投稿前件') == _abs.get('英文稿'),
+                                len(_abs.get('投稿前件', '')), len(_abs.get('英文稿', ''))))
 
 # ---------------------------------------------------------------- references
 # r54w: 三条事实更正，都来自本轮实测：

@@ -119,7 +119,7 @@ def build(out_path, body_pt=10.0, spacing=1.5, m=(4.3, 4.8, 4.3, 4.8)):
             path = t[t.index('](') + 2:t.rindex(')')]
             full = os.path.join(W, path)
             if os.path.exists(full):
-                doc.add_picture(full, width=Cm(9.5))     # r129：与 md_to_docx 的 Inches(3.543) 同步（此前 r118 起为 9.5）     # r118：必须与 md_to_docx 的实际图宽一致
+                doc.add_picture(full, width=Cm(8.6))     # r164：与 md_to_docx_20260916.py 的 Inches(3.346) 同步（= 8.50 cm）；两处必须一致，r117 实测 8.5/9.0/9.5 三档都曾是 35 页，本轮 r164 只有 8.5 档在 35 页内
             i += 1
             continue
         if t.startswith('#'):

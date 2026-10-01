@@ -3,7 +3,7 @@
 """g6_coverage_audit.py — G6 评测的**覆盖面验收**（不信任评测脚本自己的 .DONE）。
 
 判据（三条都要过）：
-  (1) 清单里每个 run 的 `weights/epoch*.pt` 实盘个数 == 声明 `epochs//5`；
+  (1) 清单里每个 run 的 `weights/epoch*.pt` 实盘个数 == **ceil(epochs/5)**（2026-10-02 修正，原写 epochs//5）；
   (2) 每个 (run, ckpt) 在 `g6_perepoch.csv` 里**恰有一行**；
   (3) 每行的 `ckpt_epoch` 与文件名吻合（`epoch{N}.pt` → N+1）、`split` 全为 `test`、
       `map50_95` 落在 [0,100]、`data_yaml` 含 `carve_` 且含 `test:`。
@@ -71,7 +71,10 @@ def main():
         disk = sorted((int(m.group(1)) for m in
                        (re.match(r'^epoch(\d+)\.pt$', n) for n in os.listdir(wd))
                        if m)) if os.path.isdir(wd) else []
-        exp_n = ep // 5
+        # 2026-10-02 修正：应为 ceil(ep/5)。原式 ep//5 对"提前停在非 5 倍数轮"的 run 会少 1：
+        #   实测 E=388 -> 78、318 -> 64、362 -> 73（都是 ceil），而 E 为 5 的倍数时两式相同
+        #   （100 -> 20、200 -> 40、400 -> 80）=> 对原本就通过的 run 行为不变，只消除假阳性。
+        exp_n = -(-ep // 5)
         got = [c for c in per_run.get(run, []) if re.match(r'^epoch\d+$', c)]
         dup = len(got) - len(set(got))
         st = 'OK'

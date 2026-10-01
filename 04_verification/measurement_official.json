@@ -1,14 +1,14 @@
 {
- "measured_at": "2026-10-01T06:49:41",
+ "measured_at": "2026-10-02T01:05:04",
  "inputs": {
-  "blind_md5": "02018ae5f633a18219ca9a2ea973a903",
-  "sup_md5": "a9d82d678cb7498f257ae7db28983c0c",
-  "blind_words": 11911
+  "blind_md5": "7cd8c86d0e0f9bdcc7026ec9dbe94e68",
+  "sup_md5": "e8a8da695809fc0b3ab7356e5dd2b551",
+  "blind_words": 12027
  },
  "variants": {
   "official_10pt_1.5": {
    "pages": 35,
-   "words": 11581,
+   "words": 11686,
    "body_pt": 10.0,
    "spacing": 1.5,
    "margins_cm": [
@@ -19,8 +19,8 @@
    ]
   },
   "variant_12pt_1.5": {
-   "pages": 48,
-   "words": 11582,
+   "pages": 49,
+   "words": 11688,
    "body_pt": 12.0,
    "spacing": 1.5,
    "margins_cm": [
@@ -32,7 +32,7 @@
   },
   "variant_10pt_2.0": {
    "pages": 45,
-   "words": 11581,
+   "words": 11686,
    "body_pt": 10.0,
    "spacing": 2.0,
    "margins_cm": [

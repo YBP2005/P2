@@ -7,21 +7,21 @@
 
 Object-detection papers report a number from a split they call held out. We audit that premise, with three results.
 
-**1. The convention is broken in our own corpora.** **6 of 14** YOLO configurations we produced give the reported number no independent held-out split: the reported checkpoint was selected on that split.
-Training and evaluation do not overlap at the image level (intersection zero, SHWD excepted): not
-contamination but **checkpoint selection**.
+**1. The convention is broken in our own corpora.** **6 of 14** corpora we hold give the reported number no independent held-out split: the checkpoint was selected there.
+Training and evaluation do not overlap at the image level (intersection zero, SHWD excepted): **checkpoint selection**, not
+contamination.
 
-**2. The direction varies by corpus.** The selection premium is **positive in all four cells** (§5.1, an escalated four-cell base),
-the baseline arm gaining more, while the paired contrast changes sign by corpus; a declared
+**2. The direction varies by corpus.** The premium is **positive in all four cells** (§5.1, an escalated four-cell base; **near-definitional**)
+the baseline arm gaining more, the paired contrast changing sign by corpus; a declared
 13-cell family leaves **3** cells after Benjamini–Hochberg; in 19 public benchmarks the reported number
-can come from a non-independent split (§6.1 — **one rater's judgement, not a rate**), yet each counting unit yields a defensible count. **Changing the metric keeps the mean direction, but one cell loses
+can come from a non-independent split (§6.1 — **one rater's judgement, not a rate**), yet every unit yields a defensible count. **Changing the metric keeps the mean direction; one cell loses
 significance and sign unanimity** (`smoke2sf` **+0.063 pp**, p = 0.54, **6+/5−**).
 
-**3. Partial realization on a disjoint split.** Separating the selection set from the reported set, that
+**3. Partial realization on a disjoint split.** Separating the selection set from the reported set, the
 premium survives at an **arm-cell median 17.6 %**, span **−28.5 % to +73.7 %** (**102.2** pp),
-**2/5 negative**; run-weighted **23.3 %**, at the claim's level **[−17.3 %, 53.2 %]** (P = 0.118; **zero inside**),
+**2/5 negative**; run-weighted **23.3 %** (mAP50 **31.5 %**, **1/5** negative; direction robust, magnitude not), claim-level **[−17.3 %, 53.2 %]** (P = 0.118; **zero inside**),
 run-level [8.4 %, 37.4 %] (P = 0.002); leave-one-out **9.77 %–34.16 %**.
-Data-order replication lowers the mean **9 %–29 %** (§8); no prospective power analysis was registered, so the
+Data-order replication lowers the mean **9 %–29 %** (§8); no power analysis was pre-registered, so the
 nine `n = 3` cells stay descriptive.
 
 **Keywords:** evaluation validity; dataset splits; checkpoint selection; object detection; benchmark audit;
@@ -38,7 +38,7 @@ there, keeps the best-scoring checkpoint and reports its score: a **maximum**, n
 field's unit of comparison; this paper audits the reporting convention producing it.
 
 That premise is audited in three places, in increasing distance from our own work: **our own corpora**,
-where we count how many of the YOLO configurations we produced alias the two keys; **19 public
+where we count how many of our corpora alias the two keys (19 YAML files, counting by file); **19 public
 benchmarks**, audited row by row for which split the reported number comes from; and **20 published
 third-party training logs**, where we measure the premium directly, in data we did not produce.
 
@@ -52,9 +52,8 @@ then report that it misses its criterion — a registration **also reported in t
 ### 1.1 Why the unit matters
 
 Ask "how many of these benchmarks have a split problem?" and, unless a unit is declared, every answer is
-defensible and they disagree by a factor of six: 2/19 (the release artifact binds both keys to one path),
-10/19 (no independent held-out test), 13/19 (the official protocol does not let you evaluate an independent
-test locally), **12–14 of the 19** (**a single rater's judgement, re-coded by models, not blind humans**; the reported number comes from a non-independent split). These are defensible answers, not the four counting units (§6.1: 10/19, 13/19, 4/19, 12/19). Declaring the unit is
+defensible and they disagree by a factor of six: 2/19 (**structural**: one path bound to both keys),
+10/19 (**`release` unit**: no independent held-out test), 13/19 (**`protocol` unit**: local independent testing gated), **12–14 of the 19** (**`reported` unit**; a single rater's judgement, re-coded by models at per-coder κ **0.11–0.44**, weakest here, not blind humans; the reported number's split is non-independent). These are defensible answers, not the four counting units (§6.1: 10/19, 13/19, 4/19, 12/19). Declaring the unit is
 therefore a methodological premise, not a caveat (§3, §6).
 
 ### 1.2 What we do not claim
@@ -114,10 +113,10 @@ gap, mixing two splits' difficulty, **not identifiable**, whereas our **paired d
 difficulty and still shows a residual shift. Reference [1] is not competing: cited only
 as evidence that the genre has a venue.
 
-**That separation is the paper's own contribution:** the literature above measures how much of the choice survives as a level [15] rather than predicting that in these
-curves the premium is **dominated by the peak's position, not by run noise** (§8.6) — so its remedies are
-not interchangeable with ours, and **a `val`-side difference stays uninterpretable as a generalisation
-difference even after selection is removed**.
+**That separation is the paper's own contribution.** The literature above measures how much of the choice
+survives as a level [15]; it does not predict that in these curves the premium is **dominated by the peak's
+position, not by run noise** (§8.6). Its remedies are therefore not interchangeable with ours, and **a
+`val`-side difference stays uninterpretable as a generalisation difference even after selection is removed**.
 
 ### 2.2 Contributions
 
@@ -126,10 +125,10 @@ of the `val`/`test` convention and its selection premium (§4–5); and the **me
 premium on a disjoint split with the reporting conventions it depends on (§8.6–8.7, §11, §3.1).
 
 1. **We quantify the magnitude and direction of configuration-level aliasing.** The selection premium
-   (best − last) is **positive in all four cells, the baseline arm gaining more** (four paired 95 % CIs
+   (best − last) is **positive in all four cells, the baseline arm gaining more** (**near-definitional; §5.1**; four paired 95 % CIs
    excluding zero, §5.1 Tier 1) — **consistent with the selection-bias literature** [9], not new in
    kind. **All four cells meet the stated-n criterion (n = 10–11)** — the fourth, `dota15`, entered at n = 3
-   and was escalated to n = 10 under a criterion fixed in advance (Supplementary S6, §5.1) — so the convention
+   and was escalated to n = 10 under a criterion fixed in advance (**Table S28's note**) — so the convention
    systematically shifts **arm-to-arm comparisons**; its direction
    varies by corpus: three-way paired differencing gives 2 cells where `val` understates, 2 where it
    overstates and 9 not significant — the **no-systematic-direction** [14] reports, measured here on
@@ -143,21 +142,21 @@ component exists elsewhere, **not independent evidence** and not a field-level r
    five arm-cells measured here the `val`-selected premium is realized on the disjoint split at
    **23.3 %** with all five arm-cells at n = 10, and it is **not a constant**: the rate falls with the
    validation noise of the criterion used to select (§8.6–§8.7). The identity tying it to the
-   winner's-curse share is one we **adopt** [16], not one we claim; the closest concurrent work [15, 17] reaches the same **direction** with a different quantity, and neither reports a **ratio of difference premiums** — `(T_best − T_final)/(V_max − V_final)`, on disjoint splits, in detection, on our own arm-cells, with measured `val` noise as moderator. A same-estimand ratio does exist elsewhere: in genomics the relative bias is written `1 − pG-TS/pG-ES` and measured at 10–60 % (**Würschum & Kraft**, *Heredity* 112:463, 2014). The replicate axis is **data order** (§8.4) — the **seed-budget discipline
+   winner's-curse share we **adopt** [16], not claim; the closest concurrent work [15, 17] reaches the same **direction** with a different quantity, and neither reports a **ratio of difference premiums** — `(T_best − T_final)/(V_max − V_final)`, on disjoint splits, in detection, on our own arm-cells, with measured `val` noise as moderator. A same-estimand ratio does exist elsewhere: in genomics the relative bias is written `1 − pG-TS/pG-ES` and measured at 10–60 % (**Würschum & Kraft**, *Heredity* 112:463, 2014). The replicate axis is **data order** (§8.4) — the **seed-budget discipline
    reproduced inside this setting** rather than a new one.
-3. **We disclose our own defects** rather than removing them: our analysis' first version had
-   non-reproducible items — scripts depending on a rented pod, a citation to a file not containing the
-   quoted numbers, no written endpoint convention. §10, not deleted.
+3. **We disclose our own defects, and the corrections that followed** rather than removing them:
+   our analysis' first version had non-reproducible items — pod-dependent scripts, a citation to a file
+   not holding the quoted numbers, no written endpoint convention. §10, not deleted.
 
 ### 2.3 What we explicitly do **not** claim (shared tooling)
 
-The companion and this paper share project-internal process protocols — a multi-model review checklist and a local/cloud scripting discipline — and neither claims originality for them: **Supplementary S12**, *Shared process protocols*.
+The companion and this paper share project-internal process protocols — a multi-model review checklist and a local/cloud scripting discipline — and neither claims originality for them: **Supplementary S6**, *Shared process protocols*.
 
 ---
 
 ## 3. Units: the methodological premise
 
-"Have a split problem" is a property of a **(benchmark, counting unit)** pair, not of a benchmark. We use four units, defined by **who controls the split**:
+"Have a split problem" is a property of a **(benchmark, counting unit)** pair, not of a benchmark. **[18] varies the definition on one file; we vary who controls the split and measure a different quantity: the share of `val`-selected premium that survives a disjoint split.** We use four units, defined by **who controls the split**:
 
 - **`release`** — the split the benchmark's **own published release** ships: the `train:` / `val:` /
   `test:` entries and paths in the distributed archive. *Example*: an archive whose `data.yaml` binds
@@ -181,12 +180,12 @@ different operational definitions* has been stated independently, for molecular 
 preprint whose abstract closes "different defensible definitions return different answers from the same
 file" [18]. **The observation is the cited literature's; the instantiation, and the four named units, are ours.** Our contribution is therefore **not the observation but its instantiation in detection
 evaluation**: naming the four units by *who controls the split*, and backing them with the 19-row, four-unit
-evidence table. The decomposition is orthogonal to [17], which separates leakage by **type**; we
+evidence table, and the premium on **five arm-cells**. The decomposition is orthogonal to [17], which separates leakage by **type**; we
 separate the **counting subject**, so one leakage type can still be counted under four units (§6.1).
 
 > **Table S2** → Supplementary §S8.
 
-**The `reported` unit is read from the release documentation and from the dataset's own paper**: we did not sample papers per benchmark and make no claim about prevalence; a stated-frame sample is future work (§11). For each of 19 benchmarks we record all four units, an evidence class and a confidence level, and recompute every percentage from the row markers under a per-unit subtotal check — the full 19 × 4
+**The `reported` unit is read from the release documentation and from the dataset's own paper**: we did not sample papers per benchmark and make no claim about prevalence; a stated-frame sample is future work (§11). For each of 19 benchmarks we record all four units, an evidence class and a confidence level, and recompute every percentage from the row markers under a per-unit subtotal check **and one stated `n_a` rule** (**Supplementary S12**) — the full 19 × 4
 table and the cross-check against the original audit are **Supplementary S1**, the derived counts §6.1 and its
 table.
 
@@ -199,13 +198,13 @@ under it.
 
 ### 3.1 Formalisation: what the four quantities are, and what they can and cannot identify
 
-**Setup.** Training is a randomised map (seed ω, recipe θ, checkpoint e) ↦ weights; evaluation a fixed functional M_S on a labelled split S, with V(e) = M_{S_val}(W(e)), T(e) = M_{S_test}(W(e)), ê = argmax_e V(e). Sections 5–9 measure four quantities: the selection premium, Δgap, κ, the realization rate.
+**Setup.** Training is a randomised map from (seed ω, recipe θ, checkpoint e) to weights, and evaluation a fixed functional on a labelled split; write V(e) and T(e) for a checkpoint’s `val` and `test` readings and ê for the `val` argmax. Sections 5–9 measure four quantities: the selection premium, Δgap, κ, the realization rate (**notation and formal statements: Supplementary S11**).
 
 **Definition — the raw gap is not identifiable from the pair alone.** G = V(ê) − T(ê) = δ + o mixes a split-difficulty term with a selection-optimism term; the decomposition, **and the reading that a single-model endpoint pair is unable to separate its two terms, are [20]'s**, while its **strong form** — that *any* δ′ fits the observation equally well — is **stated here as a formalisation rather than attributed to that literature**. **The pairing assumption is what makes Δgap meaningful**, failing by construction under aliasing so that §9 cannot be read as a clean-protocol result; the identity holds value by value on all 13 scanned cells and both escalated cells at n = 10 (§5.6).
 
-**Adopted identity, not a claim of this paper.** With V(e) = v(e) + ε_e and T(e) = v(e) + τ + η_e, **E[premium_test] = E[premium_val] − WC**, WC := E[ε_ê − ε_e_f] ≥ 0, so the realization rate is **1 − WC / E[premium_val] ≤ 1**, with equality only if selection is driven by signal alone [16] **(the per-run check reads the observed `prem_val − prem_test`, so it corroborates that consequence, **not** the latent `E[ε_ê − ε_e_f] ≥ 0`, which no archive settles without the identifying assumption)** — the optimizer's curse in this paper's notation, the frame for §8.6–§8.7. **Two consequences are testable on the archive** — the per-run inequality, and monotonicity in the `val` noise (**Supplementary S11**). A third form, that the premium scales as σ√(2 ln E), was **tested and withdrawn** (**Supplementary S11**); contemporaneous work measures **≈5×** on the same σ√(2 ln K) bound [21].
+**Adopted identity, not a claim of this paper.** With V(e) = v(e) + ε_e and T(e) = v(e) + τ + η_e, **E[premium_test] = E[premium_val] − WC**, WC := E[ε_ê − ε_e_f] ≥ 0, so the realization rate is **1 − WC / E[premium_val] ≤ 1**, with equality only if selection is driven by signal alone [16] (**Supplementary S11** states which part of that the archive can and cannot settle) — the optimizer's curse in this paper's notation, the frame for §8.6–§8.7. **Two consequences are testable on the archive** — the per-run inequality, and monotonicity in the `val` noise (**Supplementary S11**). A third form, that the premium scales as σ√(2 ln E), was **tested and withdrawn** (**Supplementary S11**); contemporaneous work measures **≈5×** on the same σ√(2 ln K) bound [21].
 
-**Corollary (the premium is mostly shape, and the peak is the worst place to stand).** `premium_r = shape(E) + ν_r` holds **exactly**, `shape(E)` being the mean curve's peak-to-final gap, so `shape` is independent of σ and `E[ν_r] ≥ 0`. On our 40-run four-budget series **the monotone criterion is met on the clean re-run** while the σ√(2 ln E) form is **outside** its pre-declared band — so that scaling **stays withdrawn** — and the pre-declared shape control passes on the mean it specifies but fails per arm; **both readings are reported, the with-early-stopping series carrying the pre-declared verdict. We therefore do not claim an `E` effect**, and the checkpoint rule is stated as a **reporting rule, not a candidate** (the top-5 mean beats the argmax on the same 40 runs), with **three limits** — an empirical capture rate, a `val`-side cost the argmax does not carry, and a two-split, five-epoch-grid scope. **Every per-run value, both readings, the regression and the limits are in Supplementary S11.**
+**Corollary (the premium is mostly shape, and the peak is the worst place to stand).** `premium_r = shape(E) + ν_r` holds **exactly**, `shape(E)` being the mean curve's peak-to-final gap, so `shape` is a functional of the mean curve alone — **not** an independent check on σ — and `E[ν_r] ≥ 0`. On our 40-run four-budget series **the monotone criterion is met on the clean re-run** while the σ√(2 ln E) form is **outside** its pre-declared band — so that scaling **stays withdrawn** — and the pre-declared shape control passes on the mean it specifies but fails per arm; **both readings are reported, the with-early-stopping series carrying the pre-declared verdict. We therefore do not claim an `E` effect**, and the checkpoint rule is stated as a **reporting rule, not a candidate** (the top-5 mean beats the argmax on the same 40 runs), with **three limits** — an empirical capture rate, a `val`-side cost the argmax does not carry, and a two-split, five-epoch-grid scope.
 
 **What is ours, and what is not.** Of the statements that follow, the raw gap's definition [20], the impossibility result for endpoint-pair estimators [22] and the family-dependence procedure [23] are **machinery rather than results of ours**, and the identity is **adopted** from the selection-bias literature; **the corollary alone carries measurements of this paper**. Full statements and proofs are in **Supplementary S11**, and the detail displaced from here in **Supplementary S12**.
 
@@ -213,10 +212,9 @@ under it.
 
 The propositions of §S11 are testable, so we ran them on rented GPUs with the **criterion fixed before the runs**; **Supplementary Table S37** gives, for each of the six experiments, the criterion it was judged against. Counts below are over **experiments**, not criteria.
 
-**The two negative outcomes and the redone design are stated as such in Supplementary Table S37** (G1 is void, and **two of the five judged experiments are negative — G1′ and G2**); the values behind every verdict are in **Supplementary S31–S33** (the G1 family in **S12**).
-The reading below is stated more weakly in **Supplementary S11, section 13.3**.
+**The two negative outcomes and the redone design are stated as such in Supplementary Table S37** (G1 is void; **two of the five judged experiments are negative — G1′ and G2**; the values behind every verdict are in **S31–S33**, the G1 family in **S12**; the reading below is stated more weakly in **Supplementary S11, section 13.3**.
 
-**We then ran the clean test** of G3's epoch-budget series on **one machine with early stopping disabled**, all four budgets present: C1 is **met**, C2 falls **outside** its band, and C3 **passes** on the mean ê/E it specifies but not per arm — see §3.1 and **Table S34b**. **The pre-declared verdict stays with the with-early-stopping series; the clean re-run is the reading used here.** The judged criteria carry one message: **the selection bias moves with the absolute amount of selection noise and with the number of selection opportunities, but not with whether the two splits are the same file.** Two consequences do not follow: the configuration-level fact of §4 stands — the reported number *is* the selected number — while the stronger reading, that aliasing *adds* a measurable amount on top of it, does not.
+**We then ran the clean test** of G3's epoch-budget series on **one machine with early stopping disabled**, all four budgets present: C1 is **met**, C2 falls **outside** its band, and C3 **passes** on the mean ê/E it specifies but not per arm — see §3.1 and **Table S34b**; **the pre-declared verdict stays with the with-early-stopping series**. The judged criteria carry one message: **the selection bias moves with the absolute amount of selection noise and with the number of selection opportunities, but not with whether the two splits are the same file.** Two consequences do not follow: §4's configuration-level fact stands, while the stronger reading — that aliasing *adds* a measurable amount on top — does not.
 
 On the shared 5-epoch grid the `val` and `test` peaks agree in only **17.5 %** of runs, and conditioning on that single observable splits the 40 runs: where they agree the **median Δgap is lower** (mean **+0.13 pp**, median **−0.20 pp**, n = 7; **post-hoc**), where they differ it is **systematically not** (mean **+0.91 pp**, n = 33; permutation p = **0.009**, **post-hoc**; the median reading is **p = 0.0011**). **This is a partial predictor, not an explanation of the sign**; its limits — including the four of seven agreement runs whose gap is non-positive — and the per-run table and test are in **Supplementary S11**.
 
@@ -254,7 +252,7 @@ convention.
 **Tier 1: the selection premium is positive in all four cells and the baseline arm gains more**,
 consistent with the selection-bias literature, not new in kind; **on the monitored split that positivity is near-definitional** (`best` is that curve's own argmax), and **the finding we report is the paired arm difference and its test side (§8.6)**. Pairing brings **no** variance benefit:
 the paired t of 5.74 and the unpaired Welch t [28] of **5.68** agree — at ρ = 0, **standard arithmetic
-rather than an empirical finding of ours** [27]. **Permutation checks.** A sign-flip test on the same paired differences agrees with the t-tests at each cell’s attainable floor (**Supplementary S12**).
+rather than an empirical finding of ours** [27]. **Permutation checks** agree with the t-tests at each cell’s attainable floor (**Supplementary S12**).
 
 **Meta-analyses of published results have long quantified this optimism**: development-set early stopping
 is measured to *overestimate realistic model performance*, by as much as **18.0 %** accuracy [29]; and a
@@ -268,14 +266,14 @@ than contrary, since its mechanism is holdout **reuse** and ours needs none.
 
 **Table 1.** Tier 1 — each arm's **peak−final gap** and the **paired difference** between arms, by cell; the gap is a within-run maximum (§5.1), so the finding is the paired difference. `n` counts paired units (ten seeded, one unseeded — Supplementary S12); at n = 10 the two differences hold (**+0.272**, **+0.449** pp). **A different run set from the transfer measurement in §8.6**: these are the 569-run local archive under the published (aliased) protocol, while that measurement’s premiums come from the clean three-way runs — the two tables’ premiums are different quantities, not two readings of one. Source: `verify_two_critiques_20260916.txt`; the `dota15` row's n = 10 escalation is in Table S28.
 
-| Cell | n (paired units) | peak−final gap, base | peak−final gap, strat | **paired diff** | sd | t | p | 95 % CI |
-|---|---|---|---|---|---|---|---|---|
-| smoke2sf (strong) | 11 | +0.799 | +0.382 | **+0.416** | 0.240 | 5.74 | 1.9×10⁻⁴ | [+0.255, +0.578] |
-| shwd2sf (corroborating) | 11 | +1.038 | +0.512 | **+0.526** | 0.207 | 8.41 | 7.6×10⁻⁶ | [+0.386, +0.665] |
-| a2d15 (directional probe) | 10 | +0.534 | +0.262 | **+0.272** | 0.183 | 4.69 | 1.1×10⁻³ | [+0.141, +0.403] |
-| dota15 (within-domain) | 10 | +0.941 | +0.492 | **+0.449** | 0.196 | 7.23 | 4.9×10⁻⁵ | [+0.309, +0.589] |
+| Cell | n (paired units) | peak−final gap, base | peak−final gap, strat | **paired diff** | sd | t | p | perm. *p* (floor 2/2ⁿ) | 95 % CI |
+|---|---|---|---|---|---|---|---|---|---|
+| smoke2sf (strong) | 11 | +0.799 | +0.382 | **+0.416** | 0.240 | 5.74 | 1.9×10⁻⁴ | 0.00098 | [+0.255, +0.578] |
+| shwd2sf (corroborating) | 11 | +1.038 | +0.512 | **+0.526** | 0.207 | 8.41 | 7.6×10⁻⁶ | 0.00098 | [+0.386, +0.665] |
+| a2d15 (directional probe) | 10 | +0.534 | +0.262 | **+0.272** | 0.183 | 4.69 | 1.1×10⁻³ | 0.00391 | [+0.141, +0.403] |
+| dota15 (within-domain) | 10 | +0.941 | +0.492 | **+0.449** | 0.196 | 7.23 | 4.9×10⁻⁵ | 0.00195 | [+0.309, +0.589] |
 
-**Table 2.** Tier 2 — the paired difference Δgap by corpus. Δgap > 0 means `val` understates the strategy arm’s effect. **Δgap is a split-dependent arm contrast, not an isolated selection effect**: it decomposes into a difficulty gap and a selection term, and **Δgap’s sign is not the selection term’s sign** — on the two headline cells the difficulty term dominates while the selection term is small or opposite-signed (**Fig. S1**). That the two arms see equal split difficulty is an **assumption we state**, not something this design demonstrates; the selection contribution proper is `Δprem_val − Δprem_test`. Source: `xeval_analysis_20260916.txt`.
+**Table 2.** Tier 2 — the paired difference Δgap by corpus. Δgap > 0 means `val` understates the strategy arm’s effect. **Δgap is the split-gap arm difference** — a split-dependent arm contrast, not an isolated selection effect: it decomposes into a difficulty gap and a selection term, and **Δgap’s sign is not the selection term’s sign** — on the two headline cells the difficulty term dominates while the selection term is small or opposite-signed (**Fig. S1**). Equal split difficulty across arms is an **assumption we state**, not demonstrated here; the selection contribution proper is the **selection-action contrast** `Δprem_val − Δprem_test`. Source: `xeval_analysis_20260916.txt`.
 
 | Corpus | n | Δgap (pp) | p | 95 % CI | Reading |
 |---|---|---|---|---|---|
@@ -284,14 +282,14 @@ than contrary, since its mechanism is holdout **reuse** and ours needs none.
 | p_aitovis | 10 | **−1.226** | 1.3×10⁻⁸ | [−1.370, −1.081] | `val` **overstates** |
 | p_vistod15 | 10 | **−3.315** | 6.5×10⁻⁹ | [−3.676, −2.953] | `val` **overstates** |
 
-> **The split of Δgap is recorded for two of the four cells**: difficulty **+0.759** / selection **+0.020** (`shwd2sf`), and difficulty **+1.041** / selection **−0.580** (`smoke2sf`) — in the second the selection term is **opposite in sign to Δgap**, so the sign does not carry it, and **both intervals include zero** (**Supplementary S12**, Fig. S1). The two `p_` cells' `prem_test` was **not recorded at that time**: their per-epoch `test` curves were evaluated on 2026-09-30, so nothing is imputed and the values are now recorded (**Supplementary S12**, Table S38).
+> **The split of Δgap is recorded for two of the four cells**: difficulty **+0.759** / selection **+0.020** (`shwd2sf`), and difficulty **+1.041** / selection **−0.580** (`smoke2sf`) — in the second the selection term is **opposite in sign to Δgap**, so the sign does not carry it, and **both intervals include zero** (**Supplementary S9**, Fig. S1). The two `p_` cells' `prem_test` was **not recorded at that time**: their per-epoch `test` curves were evaluated on 2026-09-30, so nothing is imputed and the values are now recorded (**Supplementary S12**, Table S38).
 >
 > **The four rows below are an escalated base, not a sample**: the two `p_` cells reached n = 10 because their n = 3 Δgap had been flagged, so the 2/2 balance is a property of the escalation rule; the other nine cells are **descriptive** (**Supplementary S12**). This cell is also the one where **3 runs** changed training path silently under GPU memory pressure, and why we do not call it clean is in **§10, defect 10**.
 
 *(Third §5 table, S5 → Supplementary §S8.)*
 
 **Tier 2: on the same three-way corpora the paired difference Δgap varies in sign.** The raw
-`M_val(ê) − M_test(ê)` is **not identifiable**; the paired difference cancels difficulty —
+`M_val(ê) − M_test(ê)` is **not identifiable**; the paired difference removes the difficulty term **under the equal-difficulty assumption** (Table 2) —
 **Δgap > 0 ⇒ `val` understates**. **Its effective base is four cells, not thirteen**, and an **escalated base** rather than a random sample, for the reason **Table 2's note** gives; **“2 understate / 2 overstate” is therefore a statement about these four cells, not a rate for the family**. **No prospective power analysis was registered**; the scan is in **Supplementary S12**.
 
 **Both escalations met the criteria fixed in advance.** `dota15` **+0.449 pp** (**10+/0−**);
@@ -348,7 +346,7 @@ measure, but neither audits a release's configuration binding.
 
 ![Fig. 1](figures/fig3_four_units.png)
 
-**Table 3.** The four counting units over the 19 audited benchmarks. **A count is meaningless without its unit** (§3). Source: `split_units_19rows_20260916.md`. **Rows marked `n_a` enter the denominator, not the numerator, and are not undecidable**; the other readings are **12/19** for `release` and **10/15 ≈ 67 %** for `yolo_dist` (six rows enter that denominator only), and **12/15** is the 19 rows less the four `n_a` rows; under the COCO-`val` reading the `reported` unit is **13/19**.
+**Table 3.** The four counting units over the 19 audited benchmarks. **A count is meaningless without its unit** (§3). Source: `split_units_19rows_20260916.md`. **Rows marked `n_a` enter the denominator, not the numerator, and are not undecidable**; **alternative readings of the same rows** (not the cells this table prints) are **12/19** for `release`, and **12/15** is the 19 rows less the four left **undecidable** (`n_a` is two rows; **Supplementary S12**); under the COCO-`val` reading the `reported` unit is **13/19**. **The range spans two readings, not an interval**; it rests on a **single rater's** judgement (per-coder κ **0.11–0.44**; `reported` is the weakest unit in the round that used the three-valued instrument — **Supplementary S12**).
 
 | Unit | non-independent | of decidable rows | undecidable |
 |---|---|---|---|
@@ -364,7 +362,7 @@ measure, but neither audits a release's configuration binding.
 > rate estimated from independent coding. A "yes" under any
 > unit means the reported number is **not a sample from an independent split**; it does **not** mean
 > the benchmark is broken or the experiment dishonest, and it does not license a generalization claim.
-**These 19 rows were coded by one rater** — hand-written, 28 literal judgements (**§10**, defect 5) — and **eleven blind language-model coders across four rounds** reached only **fair-to-moderate** agreement with them (per-coder κ **0.11–0.44**, weakest on `reported` throughout); a **non-blind, model-assisted** pass agrees at κ **0.874** (**Supplementary S12**) and **moves two rows**. `reported` means **the number the literature prints, not the official leaderboard's**, so it is printed as a range, **12–14 of the 19 ≈ 63–74 %** (the **80 %** column is over the **12/15** decidable rows); rows marked `n_a` enter the **19** but not the numerator (**Supplementary S12**).
+**These 19 rows were coded by one rater** — 28 literal judgements (**§10**, defect 5) — with **eleven blind language-model coders** (**3**, then **8**) **across four rounds** as its only cross-check; a **non-blind, model-assisted** pass agrees at κ **0.874** (**Supplementary S12**) and **moves two rows**. `reported` means **the number the literature prints**: it is printed as a range, **12–14 of the 19 ≈ 63–74 %**, with the **80 %** column the lower end over the **12/15** decidable rows, and `n_a` rows counted in the **19** but not the numerator (**Supplementary S12**).
 
 **Five clauses move to Supplementary S12** (the self-check's column and subtotal equalities to
 **S1**): the COCO row's judged number, the `yolo_dist` first-version correction (**4/19**), the
@@ -388,12 +386,11 @@ same three-way split, at **six seeds**, is **positive in all six runs, with a 95
 
 ### 7.1 With n = 3 a permutation test **cannot** reject in principle
 
-**A power note for the cells that remain at n = 3, with its derivation.** Recovering each Tier-2 cell's sd from its own printed 95 % CI (`sd = half-width ÷ (t_{9,0.975}/√10)`) gives **0.20–0.67 pp** across the four escalated cells; a paired comparison at n = 3 then needs `(t_{2,0.975} + t_{2,0.80})·sd/√3 = 3.10·sd`, i.e. **0.6–2.1 pp**, for 80 % power at a two-sided α = 0.05 — **at or above every Tier-1 effect this paper reports** (+0.27 to +0.53 pp); **at n = 10 the same derivation gives an MDE of `0.99·sd`, i.e. 0.2–0.7 pp**, the scale at which the four escalated cells are judged. The nine cells left at n = 3 are therefore not merely unlucky: **at this design they cannot carry an inference**, and they are reported descriptively only.
+**A power note for the cells that remain at n = 3.** Recovering each Tier-2 cell's sd from its own printed 95 % CI gives **0.20–0.67 pp** across the four escalated cells; at n = 3 the required effect is **0.7–2.4 pp** for 80 % power at a two-sided α = 0.05 — **at or above every Tier-1 effect this paper reports** (+0.27 to +0.53 pp) — and at n = 10 it is 0.2–0.7 pp, the scale at which the four escalated cells are judged. The nine cells left at n = 3 are therefore not merely unlucky: **at this design they cannot carry an inference**, and they are reported descriptively only. **The derivation, including the correction of the earlier `3.10·sd`, is in Supplementary S12.**
 
 **For a sign-flip permutation test on n pairs the smallest attainable two-sided p is 2/2ⁿ**: at
-n = 3 that is **0.25**, so such a cell has **no resolution at this n**, and **after §5.1's escalations
-no headline cell (Tables 1–2) is n = 3**. **The derivation, the floor at every n and the reading each n
-licenses are in Supplementary S12.**
+n = 3 that is **0.25**, so such a cell has **no resolution at this n**; **after §5.1's escalations no
+headline cell (Tables 1–2) is n = 3** (**the derivation and each n's floor: Supplementary S12**).
 
 ### 7.2 Both conventions become significant only at n ≥ 6
 **Both conventions become significant only at n ≥ 6** — below that a permutation test has no resolution (§7.1). The clean-protocol seed extension that reaches n = 10, and the per-cell numbers, are in **Supplementary S12** and Table S15.
@@ -405,7 +402,7 @@ licenses are in Supplementary S12.**
 > named to the editor while it carries no identifier — is in **Supplementary S12**.
 
 ### 7.3 A cross-archive endpoint conflict on the same run (investigated — and itself a disclosure)
-**One run is recorded with two different endpoints in two archives** — which checkpoint is recorded was never specified: **Supplementary S12**, Table S16. taking the final-epoch row (67.12) gives Δ = **−1.490**, p = **0.0141**; taking the best-epoch row (70.06) gives Δ = **−0.902**, p = **0.2931**. **The headline tables of this article report the `best` reading** — the frozen endpoint convention of §5 — so that cell is **not** significant as printed; the `final` reading appears only where §7.2–§7.3 compare the two conventions. The affected run, named with both archived endpoints in **Supplementary S12**, appears in the article only in the `sio_b` cross-check and §10's defect table; the ambiguity therefore **does not move a number printed here**.
+**One run is recorded with two different endpoints in two archives** — which checkpoint is recorded was never specified: **Supplementary S12**, Table S16. taking the final-epoch row (67.12) gives Δ = **−1.490**, p = **0.0141**; taking the best-epoch row (70.06) gives Δ = **−0.902**, p = **0.2931**. **The headline tables of this article report the `best` reading** — the frozen endpoint convention of §5 — so that cell is **not** significant as printed; the `final` reading appears only in §7.2–§7.3 and in Table S25 (now endpoint-labelled). The affected run, named with both archived endpoints in **Supplementary S12**, appears in the article only in the `sio_b` cross-check and §10's defect table; the ambiguity therefore **does not move a number printed here**.
 
 ## 8. Finding 5: how far the selection premium transfers to an independent split
 
@@ -416,8 +413,8 @@ reports that **the effect reproduces in direction while its magnitude falls** �
 it** rather than presenting the replication. **In this paper's own terms it is three
 things**: a `val` carved from the pool so that training never sees it; the target corpus's own held-out
 `test`, with a filename-level check that its images do not intersect training; and an endpoint **defined in
-writing before any run**. The registration text and its **FROZEN-HASH** stamp are reprinted in
-**§9**, Tables S24–S27 and the frozen glossary. What this paper measures
+writing before any run**. The registration text and its **FROZEN-HASH** stamp are in **§9** and in the author-side
+registration record; **Tables S24–S27** carry the registered cells' readings. What this paper measures
 **under** that protocol is the quantity §3.1 formalises: **how much of the `val`-selected premium survives
 on a split no selection rule can touch**, and that measurement is this paper's.
 
@@ -427,11 +424,11 @@ The protocol's results on the companion's corpora are the companion's first repo
 
 ### 8.3 A direct measurement of selection inflation
 **A direct measurement of data-order replication — reproduced inside this setting**: adding replicates that permute the training file order lowers the mean by **9 %–29 %**, each figure taken **against that cell's own n = 6 mean** and not against the pooled
-headline effect, the **seed-budget discipline** measured rather than assumed (the setting in which [52] locates the first-order component, §8.4). **What these replicates are, and what the bound is a bound on.** The per-run randomness the ten runs install is a **deterministic permutation of the training file order** (`--shuffle-seed`, the number in the run's own name), **not** the framework's `seed` argument: the Ultralytics data pipeline does not draw from `args.seed`, and on two of these corpora different `--seed` values produced **identical** epoch-by-epoch replays (**Supplementary S12**, section 9.3). The quantity is therefore **data-order replication**, not seed variance: the 9 %–29 % it bounds is the **file-order** component of the reported mean, and is **not** an estimate of the variance between independent training seeds. That best-of-K selection inflates a reported score is **not new** — §8.6 positions the closest concurrent work, which measures the **dose–response** over 2,047 datasets — so **what is measured here is the magnitude under a protocol that selects cells for significance first and expands seeds afterwards**; design and the check against recomputed means: **Supplementary S12**, Table S18. **The title is deliberately the weaker, sample-scoped claim**: with three initializations the interval is wide, and extending to five does not narrow it (the gain SD reaches the data-order component's order), so the components are **consistent with, not established by**, these initializations.
+headline effect, the **seed-budget discipline** measured rather than assumed ([52]'s setting, §8.4). **What these replicates are, and what the bound is a bound on.** The per-run randomness the ten runs install is a **deterministic permutation of the training file order** (`--shuffle-seed`, the number in the run's own name), **not** the framework's `seed` argument (**Supplementary S12**, section 9.3, with the two corpora whose replays are identical across `--seed` values). The quantity is therefore **data-order replication**, not seed variance: the 9 %–29 % it bounds is the **file-order** component of the reported mean, and is **not** an estimate of the variance between independent training seeds. That best-of-K selection inflates a reported score is **not new** — §8.6 positions the closest concurrent work, which measures the **dose–response** over 2,047 datasets — so **what is measured here is the magnitude under a protocol that selects cells for significance first and expands seeds afterwards**; design and the check against recomputed means: **Supplementary S12**, Table S18. **The title is deliberately the weaker, sample-scoped claim**: with three initializations the interval is wide, and extending to five does not narrow it (the gain SD reaches the data-order component's order), so the components are **consistent with, not established by**, these initializations.
 ### 8.4 The three variance components: the excluded one is the smaller in this sample
-**The three variance components, and the excluded one is the smaller in this sample**: the single-run data-order component is **0.515 pp**, against initialization and seed components of the same order — the **same ranking** as the shuffle-order result of [52] and consistent with the run-to-run variance literature [26]; we therefore **reproduce the ordering inside this setting** rather than discover it. What was held fixed, and why this is a sample statement, is in **Supplementary S12** and Table S19: the ordering is **sample-scoped**, and at five initializations the two components are of the same order rather than one clearly smaller.
+**The three variance components, and the excluded one is the smaller in this sample**: the single-run data-order component is **0.515 pp**, against initialization and seed components of the same order — the **same ranking** as the shuffle-order result of [52] (**Supplementary S12**), so we **reproduce the ordering inside this setting** rather than discover it. What was held fixed, and why this is sample-scoped — at five initializations the two components are of the same order rather than one clearly smaller — is in **Supplementary S12** and Table S19.
 ### 8.5 Why "same-pipeline pairing" is a necessity, not a habit
-Mixing two pipelines' `val`/`test` conventions would confound the split convention with the framework. The reasoning and the counterexample are in **Supplementary S12**. **Pairing is not neutrality, however**: the paired design used here covers the **budget and data** axes only, and **not** the optimiser's.
+**Pairing is not neutrality**: the paired design covers the **budget and data** axes only, and **not** the optimiser’s (why, and the counterexample: **Supplementary S12**).
 ### 8.6 The premium's realization rate: arm-cell median **17.6 %** (five arm-cells, n = 10; run-weighted **23.3 %**)
 
 ![Fig. 2](figures/fig2_realization_rate.png)
@@ -459,24 +456,24 @@ revision's two batches (`x4_teval.csv` on A, `x4fill_20260925.csv` on B, for `pr
 where `prem_val = V_max − V_final` (**selecting on val**) and
 `prem_test = T_best − T_final` (**realized on test**).
 
-**Aggregate (runs weighted equally, n = 50; the `aitod20` cell completed from **1** run to **10**): `prem_val` +0.879 pp → `prem_test` +0.205 pp — arm-cell median **17.6 %**, span **−28.5 % to +73.7 %** (**102.2** pp), **2/5** negative; run-weighted, a realization rate of **23.3 %**, reported with the **cell-level interval as the primary one: [−17.3 %, 53.2 %]** (five clusters, P(rate ≤ 0) = **0.118**), the run-level bootstrap giving [8.4 %, 37.4 %] (P(rate ≤ 0) = 0.002) as the narrower sensitivity (script `work/item2_final_v2_20260925.py`).** **On a difference scale the eleven clusters give `prem_test − prem_val` = −1.367 pp, 95 % CI [−1.59, −1.15]** (not a new experiment; **Supplementary S12**), on a denominator that spans **+0.605 to +1.469 pp** across the five arm-cells. The same re-aggregation’s arm-cell-equal rate is **36.9 %**, 95 % CI **[19.3 %, 60.4 %]** — the interval’s sign depends on the base. **Completing the cell, not the weighting, removes the spread** they showed on the previous 41-run sample. **Leave-one-out 9.77 % to 34.16 %**: *partial realization* is a **descriptive five-cell statement**, **not significant** at claim level; in two arm-cells the selection action **costs** rather than failing to pay off — the `smoke2sf` strategy arm and the `aitod20` baseline. Closest concurrent work (**82 % / 104 %** and **56 % / 29 %**, pooled **55 %**), the winner's-curse check, the withdrawn σ√(2 ln E) form, and each arm-cell's corpus pair and public status: **Supplementary S12**.
+**Aggregate (runs weighted equally, n = 50; the `aitod20` cell completed from **1** run to **10**): `prem_val` +0.879 pp → `prem_test` +0.205 pp — arm-cell median **17.6 %**, span **−28.5 % to +73.7 %** (**102.2** pp; **−28.4 %** and **102.1** pp from the unrounded cells, §S12), **2/5** negative; run-weighted, a realization rate of **23.3 %**, reported with the **cell-level interval as the primary one: [−17.3 %, 53.2 %]** (five clusters, P(rate ≤ 0) = **0.118**), the run-level bootstrap giving [8.4 %, 37.4 %] (P(rate ≤ 0) = 0.002) as the narrower sensitivity (script `work/item2_final_v2_20260925.py`).** **On a difference scale the eleven clusters give `prem_test − prem_val` = −1.367 pp, 95 % CI [−1.59, −1.15]** (not a new experiment; **Supplementary S12**) (the five cells' denominators span **+0.605 to +1.469 pp**; **Supplementary S12**). The same re-aggregation’s **run-weighted** rate is **36.9 %** and its **arm-cell-equal** one **39.3 %**, whose 95 % CI is **[19.3 %, 60.4 %]** — the interval’s sign depends on the base. **Completing the cell, not the weighting, removes the spread** they showed on the previous 41-run sample. **Leave-one-out 9.77 % to 34.16 %**: *partial realization* is a **descriptive five-cell statement**, **not significant** at claim level; in two arm-cells the selection action **costs** rather than failing to pay off — the `smoke2sf` strategy arm and the `aitod20` baseline. **The escalated cells reach 82 % / 104 % and 56 % / 29 %, pooled 55 %** (§5.1); the closest concurrent work, the winner's-curse check, the withdrawn σ√(2 ln E) form, and each arm-cell's corpus pair and public status: **Supplementary S12**.
 
 (the `best.pt`-versus-argmax residual, our withdrawn attribution and why the remainder is **unidentified**: **Supplementary S12**.)
 
-The monotonicity is a correlation, not a causal claim, and at the arm-cell unit the nine-cluster reading is ρ = **−0.433** (p = 0.244) — see **Fig. 4** and **Supplementary S12**: the n = 80 are the 81 runs with a measured
+The monotonicity is a correlation, not a causal claim, and at the arm-cell unit the nine-cluster reading is ρ = **−0.433** (p = 0.244) — see **Fig. 3** and **Supplementary S12**: the n = 80 are the 81 runs with a measured
 `test` side less the one whose `prem_val` is 0. It has a named precedent: [53] gives validation
 overfitting (VO) its name and bounds the expected best observed loss by
 E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of selection queries Nq.
 
 **Recomputation status.** The readings were originally **not locally recomputable** (the archive lacks 6 of 7 corpora; **§10, defect 5**); a GPU **2 × 2 evaluation** on **41** three-way runs of **YOLOv12n [54]** × {`best`, `last`} × {`val`, `test`} makes them so, **retraining not**, reproducing the archived `best × test` values to within **0.0047 pp** (median **0.0021 pp**) — the endpoint rule's positive control (**Supplementary S12**).
 
-**Three limitations**: ① in the **41-run epoch sweep** only the two headline cells reach n = 10; `aitod20` contributes one run of 30 epochs and 6 checkpoints where others contribute **20** (hence 806, not 820), its Table 4 arm-cell a separate n = 10 batch; ② **closed: every retained checkpoint is now evaluated**, the *stability* reading is narrower than the grid; ③ κ is relative to each run's own final epoch, not causal. The 806-row evaluation is archived as `xeval_perepoch_20260918/matrix_perepoch.csv` with a SHA-256 list.
+**Three limitations**: ① in the **41-run epoch sweep** only the two headline cells reach n = 10; `aitod20` contributes one run of 30 epochs and 6 checkpoints where others contribute **20** (hence 806, not 820), its Table 4 arm-cell a separate n = 10 batch; ② **closed: every retained checkpoint is now evaluated**, the *stability* reading is narrower than the grid; ③ κ is relative to each run's own final epoch, not causal. The 806-row evaluation is archived (`xeval_perepoch_20260918/`, with a SHA-256 list).
 
-![Fig. 4](figures/fig6_sigma_vs_rate.png)
+![Fig. 3](figures/fig6_sigma_vs_rate.png)
 
 ### 8.7 The per-epoch view: the realization rate is not a constant
 
-![Fig. 3](figures/fig5_epoch_curve.png)
+![Fig. 4](figures/fig5_epoch_curve.png)
 
 **One metric self-correction first.** Our first version used `r(e) = ΔT(e)/ΔV(e)`, producing values such as **−860 % and +1031 %**: at late epochs `V(e) ≈ V(final)`, the **denominator vanishing** — **an ill-conditioned metric, not a finding.** We report only the non-dividing `ΔV(e) = V(e) − V(final)` and `ΔT(e) = T(e) − T(final)`, summarized by the through-origin slope κ of ΔT on ΔV.
 
@@ -485,7 +482,7 @@ E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of s
 **Slope κ** (how much of the movement on `val` transfers to `test`). On the **complete curve** —
 **n = 765 (seed, epoch) points over the 41 runs** — **κ = 0.708, R² 0.937**, with a run-clustered
 (sandwich) 95 % CI **[0.671, 0.745]**; the within-run estimator gives **0.698**. Across the curve `ΔV` reaches
-**−8.1 pp** and about **73 %** transfers: **early-training progress is real progress.** §8.6's realized
+**−8.1 pp** and about **71 %** transfers: **early-training progress is real progress.** §8.6's realized
 share measures the **selection-relevant sliver** near the peak, where `ΔV` is of order **±0.2 pp** — so
 **"most of the movement on `val` transfers" and "the little extra gained by selecting near the peak does
 not" are both true**, and the premium is the residual of the transfer rate. **And κ is not constant
@@ -507,7 +504,7 @@ This paper does not restate its numbers **as claims of this paper**: the registe
 
 The pre-registered multi-target replication is **reported in the companion paper**, where it is a **first report**: its frozen registration (**2026-09-13 01:37:27 UTC**, FROZEN-HASH md5 `6a7eee7b3e34b15ce5adcba14cf7ea36`, **zero runs existing at freeze time**) and its verdict (**"criterion not met"**, deliberately **not** "hypothesis refuted"). This section states the protocol points a reader needs in order to read that registration from inside this paper; the endpoint table above is reprinted as the companion's, and none of its results is a claim of this paper.
 
-**Data.** Three registered target corpora, each taken from the public pools this paper audits and each carrying its own `train` / `val` / `test` configuration; the `test` half is the corpus's own held-out split and no selection rule sees it. Every run is a directory whose name carries its corpus, its arm and its `--shuffle-seed`; the per-seed table for **all 90 runs** is deposited with the registration.
+**Data.** Three registered target corpora, each taken from the public pools this paper audits and each carrying its own `train` / `val` / `test` configuration; **the corpora ship a held-out `test` half, but the configuration in force at registration points `val` at it** — four of the five registered configs, T1-b's YAML being the exception (**Table S27's note**). The per-seed table for **all 90 runs** is deposited with the registration, keyed by the run directories (naming in **Table S27's note**).
 
 **Splits and the two arms.** The registered pairs ran under the protocol in force at registration, which is the corpus's own `train` / `val` / `test` configuration — and there the **`val` side aliases the `test` half**, the alias whose bias term Table S27's note quantifies (`Δ ≈ Δ_reported + d̄`). The three-way carve, with the carve taken **out of the pool** and all three pairwise intersections **verified zero by filename**, is the protocol §8.1's own clean batches use; the two are not the same design. The **baseline** arm is the published convention — the checkpoint the pipeline's own fitness rule keeps (`best.pt`) at the peak learning rate **0.001**. The **strategy** arm is the registered intervention: the shape-aware IoU (`shapeiou`) at **0.005**, everything else held fixed (batch 32, imgsz 640, SGD, YOLOv12n). Both arms run the same code on the same data, and the endpoint definition is frozen in writing as §8.1 states.
 
@@ -526,7 +523,7 @@ The pre-registered multi-target replication is **reported in the companion paper
 | 7 | The audit document has **internal inconsistencies** (nine items, found by our own census) | Each adjudicated: **3 misreadings by the inventory, 4 real defects, 1 convention risk, 1 classification correction (§6.4)** |
 | 8 | Our own corpora contain `val == test` | **That is this paper's argument**, not an embarrassment to be hidden |
 | 9 | **Our first per-epoch report claimed curve-wide stability from a four-point sample**; the complete curve overturned it for one of the two cells (§8.7) | **Corrected in place, with the retracted sentence quoted**: the claim is **narrowed**, not deleted, and the grid's apparent uniformity is named as partly an artefact of where it sampled. Detail: §S12 |
-| 10 | **Memory pressure silently changes the training path**: under GPU memory pressure Ultralytics switches implementation **without changing the recorded configuration** — a batch reduction, or a fallback of label assignment to CPU that can fork the trajectory — and case (a) is **invisible in the standard artifacts**. | **Disclosed, not retracted; we do not call the affected batches “clean”.** Configuration-level hits: **2** places, **4** runs. **We bound it rather than estimate it**: **≤0.05 pp** where same-config pairs can be checked — fresh replicates are **bit-identical** (**0.000 pp**, four pairs) — while a control with **no** such event is **not reproducible across dates** (**0.440 pp**), so cross-date comparisons cannot test the bound; elsewhere it sits inside the zero-event-control spread and is **not separable from machine/run variation**. The one clear case is ΔVmax **+0.769 pp**. Event counts, per-run consequences and the log fingerprints are in **Supplementary S12 (defect 10)**. |
+| 10 | **Memory pressure silently changes the training path**: under GPU memory pressure Ultralytics switches implementation **without changing the recorded configuration** — a batch reduction, or a fallback of label assignment to CPU that can fork the trajectory — and case (a) is **invisible in the standard artifacts**. | **Disclosed, not retracted; we do not call the affected batches “clean”.** Configuration-level hits: **2** places, **4** runs. **A reproducibility residual, not an event size**: same-config repeats are **bit-identical** (**0.000 pp**, four pairs, same machine and day), while the quantity a bound would be about — archived run against clean re-run — is **0.000 / 0.020 / 0.150 / 0.000 pp** (**Table S41**), so **≤0.05 pp** holds only inside the clean E = 50 batch and is **not extrapolated**; without a no-event control the event effect is **unidentified** (such a control is itself **not reproducible across dates**, **0.440 pp**), and elsewhere it sits inside the zero-event-control spread. The one clear case is ΔVmax **+0.769 pp**. Event counts, per-run consequences and the log fingerprints are in **Supplementary S12 (defect 10)**. |
 
 ---
 
@@ -540,7 +537,7 @@ permutation test has no resolution; print the `2/2ⁿ` floor beside every p. ④
 behind every count, as Table 3's header does.
 
 ⑤ **A plateau is a post-hoc candidate, not a rule we validate.** Weight averaging is established [55];
-   what is *measured here* averages the top-5 `val` epochs' **metric values**, capturing **70 %** of the
+   what is *measured here* averages the top-5 `val` epochs, capturing **70 %** of the
    realizable gain against the argmax's **30 %**, at the cost of **0.73 pp** below the peak — a post-hoc
    reading of our own 40 runs, untested as an intervention. The per-rule table and the
    candidate mechanism are in **Supplementary S11**, Measurement 3.
@@ -552,12 +549,13 @@ behind every count, as Table 3's header does.
 - The audit reads **split definitions** (YAML, README, paper text), **no datasets downloaded**.
 - For several benchmarks the "generic YOLO copy" is **per-project**, not canonical.
 - Under the `reported` unit, **4 rows (AI-TOD, DIOR, Mendeley, D-Fire) are evidence-insufficient**; we do
-  not guess.
+  not guess. Counts are **row-equal over the 19**, and the grading enters the **error bar, not the
+  count** (**Table 3's second column**).
 - Two evidentiary differences (pod versus local) are listed side by side.
 - The census is a **literature/release survey**, weaker than our **self-measurement** (§3).
 - The decomposition (§5.6) covers **2 of 13 cells**; the others' runs are not on the
   machine used — a scope we state rather than extrapolate.
-- The intervention axis the headline comparisons use is **`lr0` (`0.001 → 0.005`)**; two further orthogonal axes were run, one reproducing, as on `lr0`, the **corpus-dependent character** of the shift (**Supplementary S12**, Tables S39–S40); the cross-lineage probe is
+- The intervention axis the headline comparisons use is **`lr0` (`0.001 → 0.005`)**; two further orthogonal axes were run, one reproducing, as on `lr0`, the **corpus-dependent character** of the shift (**Supplementary S8**, **Table S40b**); the cross-lineage probe is
    **one detector, one corpus, six seeds**.
 - **Four disclosed uncertainties** bound our claims: the 19-row audit is **single-rater**; the log sample is a **convenience sample**; the GPU memory-pressure effect is **bounded, not estimated** (**≤0.05 pp** where same-config pairs can be compared, fresh replicates being bit-identical; cross-date comparisons carry a **0.440 pp** drift); and the §8.3 replicates vary the **training file order**, not independent seeds; no interval folds into §8.6's rate. **Supplementary S12**.
 
@@ -565,21 +563,23 @@ behind every count, as Table 3's header does.
 
 ## 13. Conclusions
 
-This paper's subject is a reporting convention, not a detector: a count is meaningless until its **unit** is named, and the same nineteen benchmarks answer differently under each declared unit (Fig. 1) — a second reading of one row moves a headline number between **12/19** and **13/19**. Three findings stand. **The most robust number here is the transfer slope κ (§8.7): early `val` movement does transfer to `test`, and the premium is only its residual.** The selection premium is positive in all four cells, the baseline arm gaining more; the paired Δgap **varies in sign** by corpus, so "the convention understates the effect" is not a claim this paper makes. On five arm-cells at n = 10 the `val`-selected premium is realized on a disjoint split at **23.3 %**, a run-level statistic whose cell-level interval includes zero. Two things do **not** hold: the σ√(2 ln E) scaling was tested and **withdrawn**, and no prospective power analysis was registered, so the nine `n = 3` cells remain descriptive. What we ask of a detection paper is narrow: declare the counting unit, freeze in writing which checkpoint is the reported number, and state the interval at the level of the claim. The remediation protocol's first report is the companion's; the measurement under it, and the accounting for where the effect goes, are this paper's.
+This paper's subject is a reporting convention, not a detector: a count is meaningless until its **unit** is named, and the same nineteen benchmarks answer differently under each declared unit (Fig. 1) — the same rows give **10/19** under `release`, **13/19** under `protocol` and **4/19** under `yolo_dist`, while a second reading of one row moves the `reported` count across **12–14 of the 19** (its COCO-`val` reading: **13/19**). Three findings stand. **The most robust number here is the transfer slope κ (§8.7): early `val` movement does transfer to `test`, and the premium is only its residual.** The selection premium is positive in all four cells, the baseline arm gaining more (**near-definitional on the monitored split**); the paired Δgap **varies in sign** by corpus, so "the convention understates the effect" is not claimed here. On five arm-cells at n = 10 the `val`-selected premium is realized on a disjoint split at **23.3 %**, a run-level statistic whose cell-level interval includes zero. Two things do **not** hold: the σ√(2 ln E) scaling was tested and **withdrawn**, and no prospective power analysis was registered, so the nine `n = 3` cells remain descriptive. What we ask of a detection paper is narrow: declare the counting unit, freeze in writing which checkpoint is the reported number, and state the interval at the level of the claim. The remediation protocol's first report is the companion's; the measurement under it is this paper's.
 
 ## Declarations
 
 - **Data availability.** Claims are backed by the artifacts in the Supplementary Material; the third-party training logs are **not redistributed** (hashes and source pointers only) and 5 of their sources state no licence. The reproduction package itself — data files, per-epoch matrix, verdict files, checkers, with their SHA-256 list in `MANIFEST_sha256.csv` — is deposited and openly available at **https://github.com/YBP2005/P2.git** (accessed 2026-09-29).
 - **Recomputability boundary.** Every reported number is recomputable from the released per-run artifacts
-  **without retraining**, each with its script; only three are not, and they are named: the unredistributable
-  corpora (§10 defect 6), T1-d's val side (**n = 7**), and the two conflicting-endpoint archives (§7.3).
+  **without retraining**, each with its script; only two are not, and they are named: the unredistributable
+  corpora (§10 defect 6) and the two conflicting-endpoint archives (§7.3).
 - **Competing interests.** None declared.
 - **One quantity, two spellings.** The n = 10 attainable floor is **exactly 2/2¹⁰ = 0.001953**; the tables
   use the exact value, the abstract writes **0.002**. Same floor, spelling only.
 - **Reproducibility.** Every number carries a pointer to a local artifact; **289 audit anchors** mechanically
-  guard the claims, and six checkers (`audit_anchors_fupaper.py`, `check_crosscite.py`, `verify_pulled.py`,
-  `gap_mechanism_20260916.py`, `verify_pr_forms_20260917.py`, `verify_submission_pack_20260917.py`) are
-  runnable by any holder of the archive. The archive is the one deposited above (**Data availability**).
+  guard the claims, and six checkers
+  (`audit_anchors_fupaper.py`, `check_crosscite.py`, `verify_pulled.py`, `gap_mechanism_20260916.py`,
+  `verify_pr_forms_20260917.py`, `verify_submission_pack_20260917.py`) ship with the archive: **one is
+  runnable by a holder of the archive unaided, the anchor audit checks 270 of its 289 anchors there, and
+  four are author-side gates** (**the package README says which**). The archive is the one deposited above (**Data availability**).
 
 ## References
 
@@ -600,7 +600,7 @@ This paper's subject is a reporting convention, not a detector: a count is meani
 [7] S. Kapoor, A. Narayanan. "Leakage and the reproducibility crisis in machine-learning-based science." *Patterns* 4(9):100804 (2023). DOI 10.1016/j.patter.2023.100804
 [8] B. Barz, J. Denzler. "Do We Train on Test Data? Purging CIFAR of Near-Duplicates." *Journal of Imaging* 6(6):41 (2020).
 [9] G.C. Cawley, N.L.C. Talbot. "On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation." *Journal of Machine Learning Research* 11(70):2079–2107 (2010).
-[10] A. Apicella, F. Isgrò, A. Pollastro, R. Prevete. "Don't stop me now: Rethinking Validation Criteria for Model Parameter Selection." arXiv:2602.22107 (2026).
+[10] A. Apicella, F. Isgrò, A. Pollastro, R. Prevete. "Don't stop me now: How Validation Criteria Affect Checkpoint Selection and Early Stopping." arXiv:2602.22107v2 (2026).
 [11] J. Dodge, S. Gururangan, D. Card, R. Schwartz, N.A. Smith. "Show Your Work: Improved Reporting of Experimental Results." *Proceedings of EMNLP-IJCNLP 2019*, pp. 2185–2194. https://aclanthology.org/D19-1224/
 [12] K. Gorman, S. Bedrick. "We Need to Talk about Standard Splits." *Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics* (ACL):2786–2791 (2019). DOI 10.18653/v1/P19-1267
 [13] R. Reveles-Martínez, S. Burciaga-Sosa, J.M. Celaya-Padilla, S. Castro-Tapia, H. Luna-García, H. Morales-Magallanes, M.N. Regalado-Pérez, C. Landeros-Soriano, et al.. "Sequence-Aware Dataset Auditing for Leakage-Free Benchmarking of YOLO Detectors for Bottle Detection." *Technologies* 14(9):531 (2026).

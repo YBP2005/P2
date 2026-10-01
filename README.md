@@ -5,27 +5,36 @@ checked rather than taken on trust. It accompanies the manuscript and its Supple
 
 ## Version and snapshot
 
-This snapshot carries the submission text of **2026-09-29** (editing rounds r121 and r122 of the authors' own log). The manuscript copies under `01_paper/` are **byte-identical** to the submitted files: `P2_English_v0.1.md` md5 `9fb37ef302d8b1f76a2da04f9c761ef0`, `P2_English_submission_blind_v1.md` md5 `02018ae5f633a18219ca9a2ea973a903`, `P2_Supplementary_English_v0.1.md` md5 `a9d82d678cb7498f257ae7db28983c0c`. The Data availability statement in the article names this repository with the access date **2026-09-29**, the date of the commit that carries this snapshot; the commit hash is the one this file is served from.
+This snapshot carries the submission text of **2026-10-01** (editing rounds r134-r176 of the authors' own log: the eighth review round's remediations, the presentation pass, and the method-detail relocation). The manuscript copies under `01_paper/` are **byte-identical** to the submitted files: `P2_English_v0.1.md` md5 `98ba37fa4655e03536452be95bfbc324`, `P2_English_submission_blind_v1.md` md5 `7cd8c86d0e0f9bdcc7026ec9dbe94e68`, `P2_Supplementary_English_v0.1.md` md5 `e8a8da695809fc0b3ab7356e5dd2b551`. The Data availability statement in the article names this repository with the access date **2026-09-29** (the deposit date; the text was refreshed on 2026-10-01), and the commit hash is the one this file is served from.
 
 ## Licence
 
 See `LICENSE` in the repository root. The authors' own material is CC BY 4.0; the third-party datasets and training logs are **not** redistributed and are **not** covered by that licence.
 
-## What is deliberately not here
+## Which of the six checkers run from this package (measured, 2026-10-01)
 
-* the third-party training logs (hashes and source pointers only);
-* the original training-run archives (tens of gigabytes) and `x1.log`;
-* six of the seven detection corpora -- the archive that produced the paper does not hold them;
-* anything the article itself marks as `local`: those are named in the text with the word local and are reproduced from the author-side tree rather than from this package.
+The article names six checkers. Every entry point was run from an unpacked copy of this tree with `P2_ROOT` pointed at the copy and `P2_NO_AUTHOR_FALLBACK=1` (so the authors' working tree cannot quietly supply what the package lacks); the results are in the authors' log, round r169.
+
+| checker | runs from this package alone | what it additionally needs |
+|---|---|---|
+| `work/verify_pulled.py` | **yes** -- no arguments: 85 records, 0 mismatches | -- |
+| `04_verification/audit_anchors_fupaper.py` | **partly: 13 of its 18 inputs, i.e. 270 of the 289 anchors**, measured with `P2_NO_AUTHOR_FALLBACK=1` on a machine without the authors' `D:\` drive; it reports the root it used, the inputs it resolved and the ones it could not, and exits 3 under that flag instead of printing a PASS. The 19 anchors it cannot check there -- X05-X07, X09, X15-X17, X19-X28, X37, X41 -- read four working-tree documents plus one `D:\` file | those four documents (the audit correction and adjudication record, the two-critiques check, the internal track/gap record and the reference list) and the author-machine file `split_audit_integration_20260915.md`; `figures/FIGURES.md` and `verify_two_critiques_20260916.txt` **are** shipped, as are the graphical abstract, the submission front matter and the forms record |
+| `04_verification/verify_pr_forms_20260917.py` | no -- **author-side generator** | the archived publisher-guideline evidence on the authors' `D:\` drive; it writes the forms-verification record into the working tree |
+| `work/check_crosscite.py` | no -- **author-side gate** | the companion paper's governing drafts and the working-tree Chinese draft; two of its items cannot be satisfied here |
+| `04_verification/verify_submission_pack_20260917.py` | no -- **author-side gate** | the submission front matter, the reference list and the forms record; run here it stops with a readable "missing author-side input" message and exit code 2 |
+| `work/gap_mechanism_20260916.py` | no -- **author-side gate** | the working-tree run archives; its artefact, `02_release_data/gap_mechanism_20260916.txt`, is shipped and byte-checkable |
+
+Two claims made in an earlier version of this file were **wrong and are withdrawn**: that `audit_anchors_fupaper.py` "runs from this package alone and passes" (it passed on the authors' machine because the working tree was present) and that "no checker hardcodes an author-machine path" (the anchor checker did; it now resolves `P2_ROOT` -> package root -> authors' tree, and the author-side generators point at the working tree by design, as the table says).
+
 
 ## Layout
 
 | Directory | What is in it |
 |---|---|
 | `01_paper/` | the article (working and anonymised forms, Markdown and PDF), the Supplementary Material in English (authoritative artefact) and its Chinese source record, and the governing Chinese draft |
-| `02_release_data/` | the released readings the article cites: the 806-checkpoint per-epoch sweep, the 90-run registered replication in long form, the 2×2 evaluation matrix × archive, the 569-run selection-premium reading, and the verdict files of §13.1 (G1, G1′, G1″, G2, G3, G4) |
+| `02_release_data/` | the released readings the article cites: the 806-checkpoint per-epoch sweep, the 90-run registered replication in long form, the 2×2 evaluation matrix × archive, the 569-run selection-premium reading, and the verdict files of §13.1 (G1 is void in the article; G1′, G1″, G2, G3, G4) |
 | `03_framework_audit/` | the pinned-commit cross-framework configuration census (hashes of the official configuration files) and the curve analysis |
-| `04_verification/` | the checkers. `run_sweep_20260919.py` runs the whole suite; `audit_anchors_fupaper.py` is the 289-anchor audit; `remeasure_official_20260920.py` reproduces the page count **together with its positive control**; `prelaunch_cite_guard_20260920.py` checks that every named entity carries a citation where it first appears; `round_stages_20260917.json` records, per round, which numeric changes each editing pass made. |
+| `04_verification/` | the checkers. `audit_anchors_fupaper.py` is the 289-anchor audit; `remeasure_official_20260920.py` reproduces the page count **together with its positive control**; `prelaunch_cite_guard_20260920.py` checks that every named entity carries a citation where it first appears; `round_stages_20260917.json` records, per round, which numeric changes each editing pass made. |
 
 ## How to check the claims
 
@@ -46,8 +55,8 @@ See `LICENSE` in the repository root. The authors' own material is CC BY 4.0; th
 
 ## What is deliberately not here
 
-* **Third-party training logs.** The public-log sample of §5.5 is described by source pointer and
-  hash only: those logs are other people's data, five of their sources state no licence, and this
+* **Third-party training logs.** The public-log sample of §5.5 is described by source pointer; its own hash list is
+  **author-side** and is named as such in the supplement: those logs are other people's data, five of their sources state no licence, and this
   package does not redistribute them.
 * **Training run archives.** The raw per-run archives (tens of GB, plus a large run tarball) are not
   included; the released CSVs and the per-epoch matrix in `02_release_data/` carry the numbers the
@@ -69,3 +78,7 @@ The article, its Supplementary Material and the authors' own data files in `02_r
 released for verification of the published claims. Third-party configuration files referenced in
 `03_framework_audit/` remain under their own upstream licences; their pinned commits are recorded so
 that the same files can be obtained from their own repositories.
+
+## The headline realization rate: recompute inputs (C01)
+
+`work/item2_final_v2_20260925.py` reproduces Table 4's realization rate. Its inputs are shipped here under `02_release_data/`: `xeval_20260916/` (per-run `*_results.csv` with the epoch curves), `aitod20_n10_20260924/` (that cell's `x4_teval.csv`) and `x4fill_20260925/` — the three inputs an earlier release did not carry, which is what the review round flagged. The script resolves its paths from the package root, so it can be run from an unpacked copy.
