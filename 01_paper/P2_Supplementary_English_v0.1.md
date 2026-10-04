@@ -679,7 +679,7 @@ The strength of every statement in the main text is distinguished accordingly.
 | **Table S24** | 9 (the registered replication): the **criterion is not met** (the third row is the one that passes) | Registered pair, n, Δ (pp), 95 % CI, paired t, permutation p, same sign, Δ ≥ +0.30, p < 0.01, ≥ 8/10, unit criterion | 3 |
 | **Table S25** | 9 (the registered replication): the **criterion is not met** (the third row is the one that passes) | Question the frozen criterion asks, Measured | 3 |
 | **Table S26** | 9 (the near-matched control C): the gain does **not** depend on a label-space change | n, Δ (pp), 95 % CI, paired t, permutation p, same sign | 1 |
-| **Table S27** | 9. The registered multi-target replication: transferred to the companion paper |
+| **Table S27** | 9. The registered multi-target replication: transferred to the companion paper | Registered pair, data YAML, `val`, `test`, Split | 5 |
 
 *The tables in this section are printed in the order they were added rather than by number: S23, then the S38–S41 group, then S24–S29, then S37, then S31–S33; **S30 is unused** and that gap is disclosed rather than filled. The §S8 index above lists them by number, so the two orders differ.* Registered pair, data YAML, `val`, `test`, Split | 5 |
 
@@ -1692,7 +1692,7 @@ same for the realized premiums.
 **Proof.** Apply Proposition 1 to each arm and subtract; the split-difficulty terms do not cancel but
 combine into Δδ_f, and the bracket terms are Δprem_val − Δprem_test. ∎
 
-**Verification.** The identity holds to the printed digit on all 13 scanned cells (Table S10) and on
+**Verification.** The identity holds to the printed digit on all 13 scanned cells (Table S10 prints seven of them; the other six cells' components are in `work/gap_mechanism_20260916.txt`) and on
 both escalated cells at n = 10: −1.226 = (−1.583) + (+0.090) + (+0.267) and
 −3.315 = (−7.072) + (−0.213) + (+3.971) (`work/x1_aux_20260918.txt`); the three components sum to **−3.314** at full
 > precision, so the printed −3.315 differs from the component sum by **0.001 pp** — rounding, not a residual.
@@ -2426,7 +2426,7 @@ What is recorded for **all thirteen** scanned cells is the val-side selection ga
 pipeline's own fitness rule kept (`best.pt`), read on the disjoint split. Handing a "selected
 checkpoint" to a split therefore always resolves to one of these two endpoints, and no other convention
 is used anywhere in this paper. The four paired differences and their intervals are in Table 1; the
-13-cell Δgap values and readings are in Table 2.
+Δgap values and readings for the **four printed cells** are in Table 2; the other nine cells of the 13-cell scan are in §5.6 and **Table S10** (seven rows) with the remaining components in `work/gap_mechanism_20260916.txt`.
 
 **Sign-flip permutation tests on the four Tier-1 paired differences.** Table 1 of the article reports a
 paired *t* test per cell. Its non-parametric counterpart needs no distributional assumption and is exact

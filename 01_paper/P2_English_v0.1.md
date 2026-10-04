@@ -63,7 +63,7 @@ then report that it misses its criterion — a registration **also reported in t
 
 Ask "how many of these benchmarks have a split problem?" and, unless a unit is declared, every answer is
 defensible and they disagree by a factor of six: 2/19 (**structural**: one path bound to both keys),
-10/19 (**`release` unit**: no independent held-out test), 13/19 (**`protocol` unit**: local independent testing gated), **12–14 of the 19** (**`reported` unit**; a single rater's judgement, re-coded by models at per-coder κ **0.11–0.44**, weakest here, not blind humans; the reported number's split is non-independent). These are defensible answers, not the four counting units (§6.1: 10/19, 13/19, 4/19, 12/19). Declaring the unit is
+10/19 (**`release` unit**: no independent held-out test), 13/19 (**`protocol` unit**: local independent testing gated), **12–14 of the 19** (**`reported` unit** — the range's **two ends are not the same instrument**: **12** is the single rater's printed coding, **14** the same rater's rows after a **model-assisted, non-blind recoding** moved two of them; per-coder κ **0.11–0.44**, weakest here, not blind humans; the reported number's split is non-independent). These are defensible answers, not the four counting units (§6.1: 10/19, 13/19, 4/19, 12/19). Declaring the unit is
 therefore a methodological premise, not a caveat (§3, §6).
 
 ### 1.2 What we do not claim
@@ -222,7 +222,7 @@ under it.
 
 The propositions of §S11 are testable, so we ran them on rented GPUs with the **criterion fixed before the runs**; **Supplementary Table S37** gives, for each of the six experiments, the criterion it was judged against. Counts below are over **experiments**, not criteria.
 
-**The two negative outcomes and the redone design are stated as such in Supplementary Table S37** (G1 is void; **two of the five judged experiments are negative — G1′ and G2**; the values behind every verdict are in **S31–S33**, the G1 family in **S12**; the reading below is stated more weakly in **Supplementary S11, section 13.3**.
+**The two negative outcomes and the redone design are stated as such in Supplementary Table S37** (G1 is void; **two of the five judged experiments are negative — G1′ and G2**; the values behind every verdict are in **S31–S33**, the G1 family in **S12**; the reading below is stated more weakly in **Supplementary S11, section 13.3**).
 
 **We then ran the clean test** of G3's epoch-budget series on **one machine with early stopping disabled**, all four budgets present: C1 is **met**, C2 falls **outside** its band, and C3 **passes** on the mean ê/E it specifies but not per arm — see §3.1 and **Table S34b**; **the pre-declared verdict stays with the with-early-stopping series**. The judged criteria carry one message: **the selection bias moves with the absolute amount of selection noise and with the number of selection opportunities, but not with whether the two splits are the same file.** Two consequences do not follow: §4's configuration-level fact stands, while the stronger reading — that aliasing *adds* a measurable amount on top — does not.
 
@@ -283,7 +283,7 @@ than contrary, since its mechanism is holdout **reuse** and ours needs none.
 | a2d15 (directional probe) | 10 | +0.534 | +0.262 | **+0.272** | 0.183 | 4.69 | 1.1×10⁻³ | 0.00391 | [+0.141, +0.403] |
 | dota15 (within-domain) | 10 | +0.941 | +0.492 | **+0.449** | 0.196 | 7.23 | 4.9×10⁻⁵ | 0.00195 | [+0.309, +0.589] |
 
-**Table 2.** Tier 2 — the paired difference Δgap by corpus. Δgap > 0 means `val` understates the strategy arm’s effect. **Δgap is the split-gap arm difference** — a split-dependent arm contrast, not an isolated selection effect: it decomposes into a difficulty gap and a selection term, and **Δgap’s sign is not the selection term’s sign** — on the two headline cells the difficulty term dominates while the selection term is small or opposite-signed (**Fig. S1**). Equal split difficulty across arms is an **assumption we state**, not demonstrated here; the selection contribution proper is the **selection-action contrast** `Δprem_val − Δprem_test`. Source: `xeval_analysis_20260916.txt`.
+**Table 2.** Tier 2 — the paired difference Δgap by corpus. Δgap > 0 means `val` understates the strategy arm’s effect. **Δgap is the split-gap arm difference** — a split-dependent arm contrast, not an isolated selection effect: it decomposes into a difficulty gap and a selection term, and **Δgap’s sign is not the selection term’s sign** — on the two headline cells the difficulty term dominates while the selection term is small or opposite-signed (**Fig. S1**). Equal split difficulty across arms is an **assumption we state**, not demonstrated here; the selection contribution proper is the **selection-action contrast** `Δprem_val − Δprem_test`. Sources: `xeval_analysis_20260916.txt` (the two `val`-understating cells) and `x1_tier*` / `teval.csv` (the two `val`-overstating cells).
 
 | Corpus | n | Δgap (pp) | p | 95 % CI | Reading |
 |---|---|---|---|---|---|
@@ -439,7 +439,7 @@ headline effect, the **seed-budget discipline** measured rather than assumed ([5
 **The three variance components, and the excluded one is the smaller in this sample**: the single-run data-order component is **0.515 pp**, against initialization and seed components of the same order — the **same ranking** as the shuffle-order result of [52] (**Supplementary S12**), so we **reproduce the ordering inside this setting** rather than discover it. What was held fixed, and why this is **sample-scoped** — at five initializations the gain SD moves **0.146 → 0.439 pp** and its interval **overlaps** the data-order magnitude, so the two are of the same order rather than one clearly smaller — is in **Supplementary S12** and Table S19.
 ### 8.5 Why "same-pipeline pairing" is a necessity, not a habit
 **Pairing is not neutrality**: the paired design covers the **budget and data** axes only, and **not** the optimiser’s (why, and the counterexample: **Supplementary S12**).
-### 8.6 The premium's realization rate: **not significant at claim level**; arm-cell median **17.6 %** (five arm-cells, n = 10; run-weighted **23.3 %**)
+### 8.6 The premium's realization rate: **not significant at claim level** (the claim-level interval includes zero); arm-cell median **17.6 %** (five arm-cells, n = 10; run-weighted **23.3 %**)
 
 ![Fig. 2](figures/fig2_realization_rate.png)
 
@@ -483,6 +483,9 @@ E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of s
 **Three limitations**: ① in the **41-run epoch sweep** only the two headline cells reach n = 10; `aitod20` contributes one run of 30 epochs and 6 checkpoints where others contribute **20** (hence 806, not 820), its Table 4 arm-cell a separate n = 10 batch; ② **closed: every retained checkpoint is now evaluated**, the *stability* reading is narrower than the grid; ③ κ is relative to each run's own final epoch, not causal. The 806-row evaluation is archived (`xeval_perepoch_20260918/`, with a SHA-256 list).
 
 ![Fig. 3](figures/fig6_sigma_vs_rate.png)
+
+
+**Pool composition (a stated sensitivity, not a headline).** Table 4 prints **six** measured arm-cells; the five-cell pool above is the one the headline uses. Adding the sixth (`aitod20` **strategy**, `prem_val` +1.111 / `prem_test` −0.543) moves the run-weighted rate **23.3 % → 8.7 %** and the arm-cell median **+17.6 % → −4.2 %** — that cell is the only one that puts the median back on the positive side, and **its exclusion was decided after the readings were in** (Table 4's note). Both readings are reported; neither is withdrawn.
 
 ### 8.7 The per-epoch view: the realization rate is not a constant
 
@@ -590,12 +593,12 @@ This paper's subject is a reporting convention, not a detector: a count is meani
 
 > **Note on preprint citations.** Seventeen of the 55 entries give an arXiv edition. **Three** of them also name a
 > peer-reviewed venue (Dodge et al., EMNLP-IJCNLP 2019; Yu et al., IEEE TIM 2024; Pintelas & Livieris,
-> IEEE TNNLS 2026). **The other fourteen** have no peer-reviewed version; within those, four are cited at a
-> benchmark's or dataset's canonical release (COCO, xView, DIOR, CrowdHuman) and two are methodological
-> (Smith & Winkler; Roth), leaving the **eight** closest concurrent and tooling works — Guedes de Souza
-> & Panisson; Apicella et al.; Ruangsang & Pramkeaw; Suo et al.; Roktim; Zhang & Zhao; Sweeney;
-> Tian et al.; Ajroldi et al. — of which **two are from 2025 and six from 2026**. They are the
-> closest concurrent and tooling work, cited **for positioning only**: no quantitative claim here rests
+> IEEE TNNLS 2026). **The other fourteen have no peer-reviewed version**, and they are not one kind of
+> thing: four are cited at a benchmark's or dataset's canonical release (COCO; xView; DIOR; CrowdHuman),
+> two are methodological (Smith & Winkler; Roth), and the **remaining eight** are the closest concurrent
+> and tooling works — **Guedes de Souza & Panisson; Apicella et al.; Suo et al.; Zhang & Zhao;
+> Bouthillier et al.; Sweeney; Tian et al.; Ajroldi et al.**, of which **two are from 2025 and six from
+> 2026**. All of the fourteen are cited **for positioning only**
 > on them, every number being measured on our own corpora or on the third-party logs of §5.5.
 
 [1] Z. Zou, K. Chen, Z. Shi, Y. Guo, J. Ye. "Object Detection in 20 Years: A Survey." *Proceedings of the IEEE* 111(3):257-276 (2023). DOI 10.1109/JPROC.2023.3238524
