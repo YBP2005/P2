@@ -18,7 +18,11 @@ _AUTHOR = r'E:\workplace'
 _PKG = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
 W = _os.environ.get('P2_ROOT') or (_PKG if _os.path.isdir(_os.path.join(_PKG, '01_paper')) else _AUTHOR)
 POST = os.path.join(W, 'P2_投稿前件_v0.1.md')
-ENG = os.path.join(W, 'P2_English_v0.1.md')
+ENG = os.path.join(W, 'P2_English_submission_blind_v1.md')
+# ★ 修正（2026-10-04）：原先把 **工作形态** `P2_English_v0.1.md` 当作"英文稿"来比摘要。
+#   但真正进入投稿包与复现仓库的是**匿名投稿形态** `…_blind_v1.md`；工作形态另带署名头块、
+#   是另一件受控件，自 2026-10-02 起未再同步 ⇒ 两处摘要"逐字相同"**假失败**（1517 vs 1527 字符）。
+#   提交物的检查必须指向**被提交的那一件**。
 REFS = os.path.join(W, 'P2_参考文献_v0.1.md')
 FORMS = os.path.join(W, 'PR形式要求_核实_20260917.md')
 GA = os.path.join(W, 'figures', 'fig6_graphical_abstract.png')
@@ -90,7 +94,11 @@ for name, doc in (('投稿前件', post), ('英文稿', eng)):
     seg = doc[i:j] if (i >= 0 and j > i) else ''
     body = seg.split('\n', 1)[1] if '\n' in seg else ''
     # 去掉标题行与"Provenance/Positioning 之类"的前置说明：只留以 We/Object-detection 起头的正文
-    m = re.search(r'(Object-detection papers report.*)', body, re.S)
+    # ★ 修正（2026-10-04）：原式 `.*` 配 `re.S` 是**贪婪**的，会一路吃到文件末尾 ——
+    #   而投前件的模板/说明段里还有别处的 `---`，于是把说明文字也吞进摘要
+    #   （投稿前件摘要被算成 2,294 token ⇒ "逐字相同"**假失败**）。
+    #   摘要段以**水平线**收尾，故用非贪婪到第一个 `---`。
+    m = re.search(r'(Object-detection papers report.*?)(?:\n-{3,}\n|\Z)', body, re.S)
     # r169：投稿前件的摘要段以 "---" 结尾，正则到段尾会把分隔线一起吃掉（多算一个 token、
     #   于是"逐字相同"这条新断言假失败）。这里先剥掉段末的水平线再比较。
     _txt = re.sub(r'\s*-{3,}\s*$', '', re.sub(r'[*`]', '', m.group(1)).strip()) if m else ''

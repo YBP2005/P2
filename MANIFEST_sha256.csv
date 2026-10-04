@@ -117,7 +117,7 @@ path,sha256,bytes,description
 04_verification/verify_no_number_lost_20260917.py,fbf5149a7caf79e34a13ad45c70e98232953d7e1304385b7c00af5ff38c39e19,18839,no-number-lost guard
 04_verification/verify_pr_forms_20260917.py,fed99a4a54f73898b980437210a8355e057bb06c9f6a5e2f5d4fefb0f7412b2f,7954,venue form requirements
 04_verification/verify_split_claims_20260917.py,3b61bc07720a35e0d50a6579862e743f45709407abf5ccf925f45ce3a3ee552f,5433,split-claim guard
-04_verification/verify_submission_pack_20260917.py,ba91107d2a28247c9ad72d518b24ad732067f4db5284e71517492a3bb1b6993c,12337,submission-pack check
+04_verification/verify_submission_pack_20260917.py,f4eb11f9dcc45ea14bb67bbf833a0d5a0ca811fb49a984b8a92306cd9973bb72,13184,submission-pack check
 04_verification/write_x10_into_paper_20260918.py,f9583fd9e9fac5b6554c4123770682c25169809231e804f72786e30b3ef049fc,8499,how the §9 alias-bias numbers were written in
 04_verification/x10_alias_audit_20260918.py,e332fa530aa21b7bcf2c70ce8a91e188171ba4082a64a4fb0f3b741ecff91ed7,7444,the alias-bias audit script (reads every per-run results.csv)
 04_verification/x2b_kappa_arms_20260918.py,5c517f24b6e19295bfcbde1cb947506e139160c312679cb294794d7f531737d2,8238,κ per arm + run-level bootstrap (§8.6/§8.7)
@@ -330,7 +330,7 @@ work/x3b_perepoch_corrected_20260918.py,69c8a5ced19bf111b34d6a31a311fe10e466263f
 02_release_data/xeval_perepoch_20260918/x3.DONE,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,0,Table 4 recompute-chain input (C01)
 02_release_data/xeval_perepoch_20260918/xeval_perepoch.log,79c436ce050e2fc72723d19618a6c67c6ea84cd5696a91f147cb73aa98a2482b,1942061,Table 4 recompute-chain input (C01)
 work/item2_final_v2_20260925.py,9edcf49a53565c8d9a0dc6d84d77c7cca0ba9103ec21423da013b5e7cced208f,7856,Table 4 rate: root-relative paths (C01/C05)
-README.md,090436410a25944a5353f5c09123ad85f566c7d4be54d5bd602d9522696343ed,9994,hand-written package documentation
+README.md,ef4fd09a36ac8515e743af69626059298c1d39b644db90f5a84803ea3257de83,10160,hand-written package documentation
 02_release_data/t1d_valext_20261002/README.md,6ce17006a2d536273695ea6100fc52c5388aae331ddc1372ce3b3929513e9992,1603,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
 02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s42n/results.csv,b499828a720c9a67e3f1f431fbe9a9ec18836157caf53a9a387de3de10b048b3,12118,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
 02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s42n/results_A.csv,b499828a720c9a67e3f1f431fbe9a9ec18836157caf53a9a387de3de10b048b3,12118,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
