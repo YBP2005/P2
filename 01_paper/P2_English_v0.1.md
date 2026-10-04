@@ -234,7 +234,7 @@ On the shared 5-epoch grid the `val` and `test` peaks agree in only **17.5 %** o
 
 ### 4.1 How common the aliasing is
 
-In **our own** experimental corpora, **6 of 14** give the reported number no independent held-out split — **AI-TOD, DOTA v1, DOTA v1.5, Mendeley face-mask, SFCHD and SHWD**; five of the six bind `val:` and `test:` to one directory, and **SHWD is the sixth, where it is `train` and `val` that share one** (**Supplementary S1**, row 13); in **4** of the remaining 8 the two keys are genuinely distinct, and the last **4** have no `test:` key at all (a different failure mode), so the three groups account for all 14 — **a count over the corpora we happen to hold, not a prevalence**. Counting by file, not by corpus, **19 YAML files** alias the two keys, in five locations; on the archived manifest subset, which covers only part of these corpora, the ratio is **8 of 28 archived configs**. **One corpus aliases a different pair**: SHWD binds `train` and `val`, its release shipping no YAML, so the binding is read from the mirrored community configuration (**Supplementary S1**, row 13; class A, medium confidence).
+In **our own packaged configurations** — the YAMLs we train from, a different object from a benchmark's own release — **6 of 14** give the reported number no independent held-out split: **AI-TOD, DOTA v1, DOTA v1.5, Mendeley face-mask, SFCHD** (five binding `val:` to `test:`) and **SHWD** (which binds `train` to `val`; **S1** row 13). Of the remaining 8, **4** keep the keys genuinely distinct and **4** have no `test:` key at all — the three groups account for all 14, and this is **a count over the configurations we hold, not a prevalence, nor the benchmarks' own releases** (audited separately, §6.1). Counting by file, **19 YAML files** alias the two keys, in five locations; on the archived manifest subset the ratio is **8 of 28**.
 
 **For the corpora whose `val` and `test` are the same directory this is not contamination**: their image-level intersection with training is **exactly zero**, so the aliasing changes not *what* was evaluated but *which checkpoint* was reported, turning "selection contamination" from an ethical question into a **measurement** question. **SHWD is the exception and is not folded into that statement**: with `train` and `val` on one directory, its training and evaluation images are the same files. **It still counts among the six, for the reason the list is about: its `val` is not an independent held-out split either.**
 
@@ -311,7 +311,7 @@ reproduces the archived `sio_b_results.csv` to **0.0046 pp**.
 cells, CIs excluding zero); **the direction of that shift varies by corpus** (Tier 2: 2 understate /
 2 overstate on the four-cell base) — **neither "a general understatement" nor "no systematic direction"**.
 BH at q = 0.05 **now leaves three cells significant** — `p_vistod15`, `p_aitovis`, `shwd2sf` [28], **reversing what we reported before the
-escalation**. **The two families are not the same test**: the **13-cell scan is descriptive**, the **confirmatory family is the four escalated cells** (declared before their runs, §3.2), so the direction statement rests on those four.
+escalation**. **The two families are not the same test**: the **13-cell scan is descriptive**, the **confirmatory family is the four escalated cells** (declared before their runs, §3.2) — the direction statement rests on those four.
 
 **Scope (cross-framework boundary).** The convention this paper audits belongs to the **YOLO lineage —
 Ultralytics YOLO [16] and YOLOX [29]**: at pinned commits, Detectron2 (`TEST.EVAL_PERIOD = 0`) [30],
@@ -330,7 +330,7 @@ external check **corrects this to** the paired-difference form, which cancels th
 under the pairing assumption stated in **§S11**. The argument and the recomputation are in
 **Supplementary S12**.
 ### 5.5 The same component in third-party public logs
-**The same quantity appears in other people's logs** — **a sample, not a field-level rate**: 20 logs from 6 sources found by repository **search**, median **+1.04 pp**, max **+5.65 pp**, 18/20 positive (**sign test p ≈ 0.0004**). The queries, the rest of the frame and the reason public logs **cannot establish aliasing** are in **Supplementary S12**.
+**The same quantity appears in other people's logs** — **a sample, not a field-level rate**: 20 logs from 6 sources found by repository **search**, median **+1.04 pp**, max **+5.65 pp**, 18/20 positive. The queries, the rest of the frame and the reason public logs **cannot establish aliasing** are in **Supplementary S12**.
 **Five limitations**: ① the two cells escalated in §5.1 reach n = 10 with **local** runs and test-side
 evaluations, and the remaining 9 cells' `test` side was closed on 2026-09-30 on one machine;
 ② `prem_test` is **best − last**, while the per-epoch `test` curve now exists for **all thirteen**
@@ -356,7 +356,8 @@ measure, but neither audits a release's configuration binding.
 
 ![Fig. 1](figures/fig3_four_units.png)
 
-**Table 3.** The four counting units over the 19 audited benchmarks. **A count is meaningless without its unit** (§3). Source: `split_units_19rows_20260916.md`. **Rows marked `n_a` enter the denominator, not the numerator, and are not undecidable**; **alternative readings of the same rows** (not the cells this table prints) are **12/19** for `release`, and **12/15** is the 19 rows less the four left **undecidable** (`n_a` is two rows; **Supplementary S12**); under the COCO-`val` reading the `reported` unit is **13/19**. **The `reported` row's two denominators**: `12–14 of the 19` is over all nineteen rows, `12/15 = 80 %` over the fifteen that are neither `n_a` nor undecidable — **4 rows (AI-TOD, DIOR, Mendeley, D-Fire) are evidence-insufficient**. **The range spans two readings, not an interval**; it rests on a **single rater's** judgement (per-coder κ **0.11–0.44**; `reported` is the weakest unit in the round that used the three-valued instrument). A **model-assisted, non-blind second coding** exists as **reliability evidence** and does **not replace** the printed coding (**Supplementary S12**).
+**Table 3.** The four counting units, with denominators named (§3). Source: `split_units_19rows_20260916.md`. **Rows marked `n_a` enter the denominator, not the numerator**; **alternative readings of the same rows** are **12/19** for `release`, **12/15** the 19 less the four **undecidable** (`n_a` is two rows), and **13/19** for `reported` under the COCO-`val` reading. **The `clean` row is a reading, not a subtraction**: the audit counted **5/19**, the non-blind second pass moved **two**, so this table reads **3/19**. **The `reported` row's two denominators**: `12–14 of the 19` over all nineteen, `12/15 = 80 %` over the fifteen that are neither `n_a` nor undecidable (**4 rows
+(AI-TOD, DIOR, Mendeley, D-Fire) are evidence-insufficient**). **The range spans two readings, not an interval**, on a **single rater's** judgement (per-coder κ **0.11–0.44**, the weakest unit in the three-valued round). A **model-assisted, non-blind second coding** is **reliability evidence, not a replacement** (**Supplementary S12**).
 
 | Unit | non-independent | of decidable rows | undecidable |
 |---|---|---|---|
@@ -365,7 +366,7 @@ measure, but neither audits a release's configuration binding.
 | **yolo_dist** (the generic YOLO distribution package) | **4/19 ≈ 21 %** | **4/15 ≈ 27 %** | 4 rows |
 | **reported** (the layer actually reported) | **12–14 of the 19 ≈ 63–74 %** | **12/15 = 80 %** | 4 rows |
 | ↳ of which **literal two-key same path** (= the 2/19 the original audit reported) | **2/19 ≈ 11 %** | 2/19 | — |
-| **reported − clean** | **3/19 ≈ 16 %** | 3/15 | 4 rows |
+| ↳ of which `reported` is **`clean`** (independent) | **3/19 ≈ 16 %** | 3/15 | 4 rows |
 
 > **What a count here is, and what a "yes" means.** Every row is a **single rater's judgement**
 > (§6.1), so the counts are printed as counts — the percentages beside them are a reading aid, not a
@@ -396,14 +397,14 @@ same three-way split, at **six seeds**, is **positive in all six runs, with a 95
 
 ### 7.1 With n = 3 a permutation test **cannot** reject in principle
 
-**A power note for the cells that remain at n = 3.** Recovering each Tier-2 cell's sd from its own printed 95 % CI gives **0.20–0.67 pp**; at n = 3 the required effect is **0.65–2.19 pp** at α = 0.05, two-sided — **at or above every Tier-1 effect here** (+0.27 to +0.53 pp) — and 0.2–0.7 pp at n = 10. The nine cells at n = 3 are therefore **not testable at this design**, and are reported descriptively only. **A prefix-n table (n = 3…10; both endpoints) and the derivation with the exact non-central-`t` factor (**`3.26·sd`**) are in S12**; the permutation floor **2/2ⁿ** binds at n = 3, not the *t* test.
+**A power note for the cells that remain at n = 3.** Recovering each Tier-2 cell's sd from its own printed 95 % CI gives **0.20–0.67 pp**; at n = 3 the required effect is **0.65–2.19 pp** at α = 0.05, two-sided — **at or above every Tier-1 effect here** (+0.27 to +0.53 pp) — and 0.2–0.7 pp at n = 10. The nine cells at n = 3 are therefore **not testable at this design**, and are reported descriptively only. **A prefix-n table (n = 3…10) and the derivation with the non-central-`t` factor (**`3.26·sd`**) are in S12**; the permutation floor **2/2ⁿ** binds at n = 3, not the *t* test.
 
 **For a sign-flip permutation test on n pairs the smallest attainable two-sided p is 2/2ⁿ**: at
 n = 3 that is **0.25**, so such a cell has **no resolution at this n**; **after §5.1's escalations no
 headline cell (Tables 1–2) is n = 3** (**the derivation and each n's floor: Supplementary S12**).
 
 ### 7.2 Significance first appears at n = 6
-**Both conventions first reach significance at n = 6** (the weaker endpoint's *t* test is **p = 0.0164** there); below that the exact permutation is bounded by **2/2ⁿ** (**0.25** at n = 3). The clean-protocol seed extension that reaches n = 10, and the per-cell numbers, are in **Supplementary S12** and Table S15.
+**Both conventions first reach significance at n = 6** (weaker endpoint *t* **p = 0.0164**); below that the exact permutation is bounded by **2/2ⁿ** (**0.25** at n = 3). The clean-protocol seed extension that reaches n = 10, and the per-cell numbers, are in **Supplementary S12** and Table S15.
 > **First-report attribution (a convention we hold to).** Three things here belong to the companion
 > paper and are cited, not claimed: the two Δ values (**+1.434 / +0.507 pp**), the three-way remediation
 > protocol itself, and the pre-registered multi-target replication (§9). What this paper reports first is
@@ -469,7 +470,7 @@ revision's two batches (`x4_teval.csv` on A, `x4fill_20260925.csv` on B, for `pr
 where `prem_val = V_max − V_final` (**selecting on val**) and
 `prem_test = T_best − T_final` (**realized on test**).
 
-**The three bases**: run-level `[8.4 %, 37.4 %]`, `P = 0.002`; five-cell `[−17.3 %, 53.2 %]`, `P = 0.118` (the claim-level one, **zero inside**); eleven-cluster `[19.3 %, 60.4 %]`, `P = 0.000`.
+**The three bases**: run-level `[8.4 %, 37.4 %]`, `P = 0.002`; five-cell `[−17.3 %, 53.2 %]`, `P = 0.118` (claim-level, **zero inside**); eleven-cluster `[19.3 %, 60.4 %]`, `P = 0.000`.
 
 **Aggregate (runs weighted equally, n = 50; the `aitod20` cell completed from **1** run to **10**): `prem_val` +0.879 pp → `prem_test` +0.205 pp. **At the claim level this is not significant**: the **claim-level interval is the cell-level, five-cluster one, [−17.3 %, 53.2 %], P(rate ≤ 0) = 0.118, zero inside**. Descriptively, arm-cell median **17.6 %** (span **−28.5 % to +73.7 %**, **2/5** negative) and run-weighted **23.3 %** (script `work/item2_final_v2_20260925.py`).** **On a difference scale the eleven clusters give `prem_test − prem_val` = −1.367 pp, 95 % CI [−1.59, −1.15]** (not a new experiment; the five cells' denominators span **+0.605 to +1.469 pp**). The same re-aggregation: **run-weighted 36.9 %**, **arm-cell-equal 39.3 %**, 95 % CI **[19.3 %, 60.4 %]** — the interval's sign depends on the base. **Completing the cell, not the weighting, is what moves this estimate**: with every cell at n = 10 the three weightings agree, so **the fragile axis is pool composition**, not the weight. **Leave-one-out 9.77 % to 34.16 %**: *partial realization* is a **descriptive five-cell statement**; in two arm-cells the selection action **costs** rather than failing to pay off (the `smoke2sf` strategy arm and the `aitod20` baseline). **The escalated cells reach 82 % / 104 % and 56 % / 29 %, pooled 55 %** (§5.1); the closest concurrent work, the winner's-curse check, the withdrawn σ√(2 ln E) form, and each arm-cell's corpus pair: **Supplementary S12**.
 
@@ -487,7 +488,7 @@ E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of s
 ![Fig. 3](figures/fig6_sigma_vs_rate.png)
 
 
-**Pool composition (a stated sensitivity, not a headline).** Table 4 prints **six** measured arm-cells; adding the sixth (`aitod20` **strategy**) moves the run-weighted rate **23.3 % → 8.7 %** and the median **+17.6 % → −4.2 %**, and its exclusion was **decided after the readings were in**. Declared **after the fact**: five cells primary, six the sensitivity, **both cluster intervals printed** — six-cell **[−4.9 %, +21.3 %]** (B = 20,000) **still covers zero**, so the reading is **unchanged**.
+**Pool composition (a stated sensitivity, not a headline).** Table 4 prints **six** measured arm-cells; adding the sixth (`aitod20` **strategy**) moves the run-weighted rate **23.3 % → 8.7 %** and the median **+17.6 % → −4.2 %**, and its exclusion was **decided after the readings were in**. Declared **after the fact**: five cells primary, six the sensitivity, **both intervals printed** — six-cell **[−4.9 %, +21.3 %]** **still covers zero**, so the reading is **unchanged**.
 
 ### 8.7 The per-epoch view: the realization rate is not a constant
 
@@ -499,7 +500,7 @@ E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of s
 
 **Slope κ** (how much of the movement on `val` transfers to `test`). On the **complete curve** —
 **n = 765 (seed, epoch) points over the 41 runs** — **κ = 0.708, R² 0.937**, with a run-clustered
-(sandwich) 95 % CI **[0.671, 0.745]**; the within-run estimator gives **0.698**. **Two controls (Table S43)**: a per-run κ distribution and a free-intercept fit whose **intercept is indistinct from zero** — the through-origin constraint is **supported, not assumed**. Across the curve `ΔV` reaches
+(sandwich) 95 % CI **[0.671, 0.745]**; the within-run estimator gives **0.698**. **Two controls (Table S43)**: a per-run κ distribution, and a free-intercept fit whose **intercept is indistinct from zero** — so the through-origin constraint is **supported, not assumed**. Across the curve `ΔV` reaches
 **−8.1 pp** and about **71 %** transfers: **early-training progress is real progress.** §8.6's realized
 share measures the **selection-relevant sliver** near the peak, where `ΔV` is of order **±0.2 pp** — so
 **"most of the movement on `val` transfers" and "the little extra gained by selecting near the peak does
@@ -563,7 +564,7 @@ behind every count, as Table 3's header does.
   count** (**Table 3's second column**).
 - Two evidentiary differences (pod versus local) are listed side by side.
 - The census is a **literature/release survey**, weaker than our **self-measurement** (§3).
-- The **difficulty/selection decomposition** (§5.6) is recorded for **2 of the 13 cells** (the headline two) — the others' runs are not on that machine — while the **identity** behind it is checked on **all 13** (`work/gap_mechanism_20260916.txt`). What is scoped is the decomposition, not the identity.
+- The **difficulty/selection decomposition** (§5.6) covers **2 of the 13 cells** (the headline two); the **identity** behind it is checked on **all 13** (`work/gap_mechanism_20260916.txt`) — what is scoped is the decomposition, not the identity.
 - The intervention axis the headline comparisons use is **`lr0` (`0.001 → 0.005`)**; two further orthogonal axes were run, one reproducing, as on `lr0`, the **corpus-dependent character** of the shift (**Supplementary S8**, **Table S40b**); the cross-lineage probe is
    **one detector, two corpora, and incomparable magnitudes**.
 - **Four disclosed uncertainties** bound our claims: the 19-row audit is **single-rater**; the log sample is a **convenience sample**; the GPU memory-pressure effect is **bounded, not estimated** (**≤0.05 pp** where same-config pairs can be compared, fresh replicates being bit-identical; cross-date comparisons carry a **0.440 pp** drift); and the §8.3 replicates vary the **training file order**, not independent seeds. **And, not as an uncertainty**: **no interval here folds into §8.6's rate**. **Supplementary S12**.
@@ -577,9 +578,9 @@ A count is meaningless until its **unit** is named: the same nineteen benchmarks
 ## Declarations
 
 - **Data availability.** Claims are backed by the artifacts in the Supplementary Material; the third-party training logs are **not redistributed** (hashes and source pointers only) and 5 of their sources state no licence. The reproduction package itself — data files, per-epoch matrix, verdict files, checkers, with their SHA-256 list in `MANIFEST_sha256.csv` — is deposited and openly available at **https://github.com/YBP2005/P2.git** (accessed 2026-09-29).
-- **Recomputability boundary.** Every reported number is recomputable from the released per-run artifacts
-  **without retraining**, each with its script; **three are not, and they are named**: the unredistributable
-  corpora (§10 defect 6), the conflicting-endpoint archives (§7.3), and the `aitod20` completion to n = 10 (after the release cut).
+- **Recomputability boundary.** Every reported number is recomputable from the released per-run artifacts **without
+  retraining**, each with its script; **three are not, and they are named**: the unredistributable corpora
+  (§10 defect 6), the conflicting-endpoint archives (§7.3), and the `aitod20` completion to n = 10.
 - **Competing interests.** None declared.
 - **One quantity, two spellings.** The n = 10 attainable floor is **exactly 2/2¹⁰ = 0.001953**; the tables
   use the exact value, the abstract writes **0.002**. Same floor, spelling only.

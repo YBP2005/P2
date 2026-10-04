@@ -5,7 +5,7 @@ checked rather than taken on trust. It accompanies the manuscript and its Supple
 
 ## Version and snapshot
 
-This snapshot carries the submission text of **2026-10-01** (editing rounds r134-r176 of the authors' own log: the eighth review round's remediations, the presentation pass, and the method-detail relocation). The manuscript copies under `01_paper/` are **byte-identical** to the submitted files: `P2_English_v0.1.md` md5 `4061ce60202fdfd3a9eb12888243b94a`, `P2_English_submission_blind_v1.md` md5 `8e740c8d45e44367af20ad3a2a192945`, `P2_Supplementary_English_v0.1.md` md5 `2928003d8f3c81af36685f7c7e92114e`. The Data availability statement in the article names this repository with the access date **2026-09-29** (the deposit date; the text was refreshed on 2026-10-01; the released-data correction of 2026-10-02 is recorded below), and the commit hash is the one this file is served from.
+This snapshot carries the submission text of **2026-10-01** (editing rounds r134-r176 of the authors' own log: the eighth review round's remediations, the presentation pass, and the method-detail relocation). The manuscript copies under `01_paper/` are **byte-identical** to the submitted files: `P2_English_v0.1.md` md5 `03450f6730272670309fa086ca4deb3f`, `P2_English_submission_blind_v1.md` md5 `2186910fb8791de45f3755e79417d22f`, `P2_Supplementary_English_v0.1.md` md5 `240e1d97bf6b4db40d8f3af58e447acc`. The Data availability statement in the article names this repository with the access date **2026-09-29** (the deposit date; the text was refreshed on 2026-10-01; the released-data correction of 2026-10-02 is recorded below), and the commit hash is the one this file is served from.
 
 ## Licence
 

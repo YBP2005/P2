@@ -850,7 +850,7 @@ The strength of every statement in the main text is distinguished accordingly.
 | **yolo_dist** (the generic YOLO distribution package) | **4/19 ≈ 21 %** | **4/15 ≈ 27 %** | 4 rows |
 | **reported** (the layer actually reported) | **12/19 ≈ 63 %** | **12/15 = 80 %** | 4 rows |
 | ↳ of which **literal two-key same path** (= the 2/19 the original audit reported) | **2/19 ≈ 11 %** | 2/19 | — |
-| **reported − clean** | **3/19 ≈ 16 %** | 3/15 | 4 rows |
+| ↳ of which `reported` is **`clean`** (independent) | **3/19 ≈ 16 %** | 3/15 | 4 rows |
 
 ### Table S12 — moved from *6.2 "Same directory" has four levels, and the audit reported only the narrowest*
 
@@ -988,7 +988,7 @@ The strength of every statement in the main text is distinguished accordingly.
 
 ### Table S20b — the `aitod20` **baseline** arm-cell (Table 4's fifth row) **per run**, so its rate can be re-derived
 
-**Table S20b.** *8.6 (Table 4's **fifth** row, the `aitod20` **baseline**)* — the per-run readings behind that cell; its companion for the **sixth** row is **Table S20c** below. Source: `item2_aitod20_n10_最终_20260925.csv` (the completed n = 10 measurement); the n = 1 predecessor is left standing verbatim in §S4.
+**Table S20b.** *8.6 (Table 4's **fifth** row, the `aitod20` **baseline**)* — the per-run readings behind that cell; its companion for the **sixth** row is **Table S20c** below. Source: `02_release_data/aitod20_n10_20260924/item2_aitod20_n10_20260925.csv` (the completed n = 10 measurement, released); the n = 1 predecessor is left standing verbatim in §S4.
 
 | run | seed | `prem_val` | `prem_test` | per-run realization rate |
 |---|---|---:|---:|---:|
@@ -1003,18 +1003,18 @@ The strength of every statement in the main text is distinguished accordingly.
 | `r10_aitod20_base30_3way_s50n` | 50 | +1.3660 | -0.1808 | -13.2 % |
 | `r10_aitod20_base30_3way_s51n` | 51 | +0.2690 | +0.0552 | +20.5 % |
 
-> **Reproduction.** These ten rows give `prem_val` **+0.7670 pp** and `prem_test` **-0.2175 pp**, i.e. the cell as **Table 4** prints it (**+0.766 / -0.218**) to **0.001 pp**; the run-weighted rate is **-28.36 %** (the printed **−28 %** is that ratio rounded). **8 of the 10 runs are negative** and the per-run rate spans **-100.3 % to +20.5 %** — this cell is the reason the article calls the rate *not a constant*, and the reason it is **outside the frozen five-cell headline pool** whose median and run-weighted rate §8.6 reports.
+> **Reproduction.** These ten rows give **per-run means** `prem_val` **+0.7670 pp** and `prem_test` **-0.2175 pp**, i.e. the cell as **Table 4** prints it (**+0.766 / -0.218**) to **0.001 pp**; the run-weighted rate is **-28.36 %** (the printed **−28 %** is that ratio rounded). **8 of the 10 runs are negative** and the per-run rate spans **-100.3 % to +20.5 %** — this cell is the reason the article calls the rate *not a constant*, and the reason it is **outside the five-cell headline pool** (whose exclusion §8.6 states as post-hoc) whose median and run-weighted rate §8.6 reports.
 
 
 ### Table S20c — the sixth arm-cell (`aitod20` **strategy**) per run
 
-**Table S20c.** *8.6* — the per-run readings behind the **sixth** row of Table 4 (the `aitod20` **strategy** arm), the cell whose pool membership is discussed in §8.6. Source: `g6_prem_per_run.csv` (the released 140-run per-run file, `prem_test` = `T_best − T_final` as Table 4 defines it). Rows are the ten seeds 42–51.
+**Table S20c.** *8.6* — the per-run readings behind the **sixth** row of Table 4 (the `aitod20` **strategy** arm), the cell whose pool membership is discussed in §8.6. Source: `02_release_data/g6_prem_per_run.csv` (the released 140-run per-run file, `prem_test` = `T_best − T_final` as Table 4 defines it). Rows are the ten seeds 42–51.
 
 | run | seed | `prem_val` | `prem_test` | per-run realization rate |
 |---|---|---:|---:|---:|
 | `r10_aitod20_lr005_30ep_3way_s42n` | 42 | +0.4500 | -0.8953 | -199.0 % |
 | `r10_aitod20_lr005_30ep_3way_s43n` | 43 | +0.3410 | -0.4488 | -131.6 % |
-| `r10_aitod20_lr005_30ep_3way_s44n` | 44 | +0.0000 | +0.0000 | +nan % |
+| `r10_aitod20_lr005_30ep_3way_s44n` | 44 | +0.0000 | +0.0000 | — † |
 | `r10_aitod20_lr005_30ep_3way_s45n` | 45 | +0.3760 | -1.2383 | -329.3 % |
 | `r10_aitod20_lr005_30ep_3way_s46n` | 46 | +1.9340 | +0.2805 | +14.5 % |
 | `r10_aitod20_lr005_30ep_3way_s47n` | 47 | +1.4560 | -0.8829 | -60.6 % |
@@ -1023,7 +1023,7 @@ The strength of every statement in the main text is distinguished accordingly.
 | `r10_aitod20_lr005_30ep_3way_s50n` | 50 | +3.1230 | -0.5097 | -16.3 % |
 | `r10_aitod20_lr005_30ep_3way_s51n` | 51 | +1.3560 | -0.8301 | -61.2 % |
 
-> **Reproduction.** These ten rows give `prem_val` **+11.1090 pp** and `prem_test` **-5.4323 pp** ⇒ run-weighted rate **-48.90 %** (the **−49 %** of Table 4 is that ratio rounded). Adding this cell to the five-cell pool is the **stated sensitivity** of §8.6 (run-weighted **23.3 % → 8.7 %**, median **+17.6 % → −4.2 %**), and the six-cell cluster interval **[−4.9 %, +21.3 %]** still covers zero.
+> **Reproduction.** These ten rows give per-run means `prem_val` **+1.1109 pp** and `prem_test` **-0.5432 pp** ⇒ run-weighted rate **-48.90 %** (the **−49 %** of Table 4 is that ratio rounded). † **Zero-denominator rule**: seed 44 has `prem_val = 0` exactly, so its per-run rate is **undefined** and it is **excluded from the per-run rates but kept in the run-weighted ratio** — that is the rule for every cell, stated here once. Adding this cell to the five-cell pool is the **stated sensitivity** of §8.6 (run-weighted **23.3 % → 8.7 %**, median **+17.6 % → −4.2 %**), and the six-cell cluster interval **[−4.9 %, +21.3 %]** still covers zero.
 
 
 ### Table S21 — moved from *8.7 The per-epoch view: the realization rate is not a constant*

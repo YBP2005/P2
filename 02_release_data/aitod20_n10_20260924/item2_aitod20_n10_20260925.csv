@@ -1,0 +1,11 @@
+﻿run,seed,prem_val_A,ep_A,prem_val_B,ep_B,prem_val_matrix,test_best,test_last,prem_test,val_src,test_src
+r10_aitod20_base30_3way_s42n,42,0.786,2,0.786,2,0.7952,10.2107,10.5869,-0.3762,matrix,matrix
+r10_aitod20_base30_3way_s43n,43,0.424,2,0.424,2,,10.413,10.6534,-0.2404,results.csv,x4fill(B)
+r10_aitod20_base30_3way_s44n,44,0.88,2,0.88,2,,10.5689,10.7652,-0.1963,results.csv,x4fill(B)
+r10_aitod20_base30_3way_s45n,45,0.38,1,0.38,1,,10.4301,10.6964,-0.2663,results.csv,x4(A)
+r10_aitod20_base30_3way_s46n,46,0.575,1,0.575,1,,10.3432,10.5657,-0.2225,results.csv,x4(A)
+r10_aitod20_base30_3way_s47n,47,1.478,1,1.478,1,,10.5364,10.6444,-0.108,results.csv,x4(A)
+r10_aitod20_base30_3way_s48n,48,0.723,2,0.723,2,,10.564,10.4216,0.1424,results.csv,x4(A)
+r10_aitod20_base30_3way_s49n,49,0.78,7,0.68,1,,9.8177,10.5998,-0.7821,results.csv,x4(A)
+r10_aitod20_base30_3way_s50n,50,1.366,2,1.366,2,,10.6247,10.8055,-0.1808,results.csv,x4(A)
+r10_aitod20_base30_3way_s51n,51,0.269,24,0.197,2,,10.7375,10.6823,0.0552,results.csv,x4(A)
