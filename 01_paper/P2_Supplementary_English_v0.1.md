@@ -3399,3 +3399,111 @@ listed here once for the two that lie inside it:
 
 The rule this follows is the package's own: a name is either shipped or labelled author-side, never left
 looking shipped when it is not.
+
+### Table S42 — the prefix-n view of the two clean-protocol cells (n = 3…10; paired *t* and exact sign-flip permutation; both endpoints)
+
+**Table S42.** *7.2* — requested in review: the two registered cells at every prefix n, under **both endpoint conventions**. Source: `release_selection-transfer_perseed.csv` (**40 runs** = 2 cells × 2 arms × 10 seeds, seeds 42–51). The permutation p is **exact** (all 2ⁿ sign flips enumerated, no sampling), so it has a **floor of 2/2ⁿ** — at n = 3 that is **0.25**, which is why the permutation column, not the *t* column, is the binding constraint for the n = 3 cells.
+
+**shwd2sf · endpoint = `oracle`**
+
+| n | seeds | mean Δgap (pp) | SD | paired *t* | *t* p | exact sign-flip p |
+|---|---|---:|---:|---:|---:|---:|
+| 3 | 42..44 | -0.7146 | 0.3364 | -3.6796 | 0.06657 | **0.25** |
+| 4 | 42..45 | -0.6632 | 0.2932 | -4.5231 | 0.02021 | **0.125** |
+| 5 | 42..46 | -0.6517 | 0.2553 | -5.7086 | 0.004656 | **0.0625** |
+| 6 | 42..47 | -0.6158 | 0.2446 | -6.1673 | 0.001632 | **0.03125** |
+| 7 | 42..48 | -0.6556 | 0.2468 | -7.0270 | 0.0004147 | **0.01562** |
+| 8 | 42..49 | -0.7197 | 0.2917 | -6.9783 | 0.0002157 | **0.007812** |
+| 9 | 42..50 | -0.7456 | 0.2837 | -7.8845 | 4.848e-05 | **0.003906** |
+| 10 | 42..51 | -0.7025 | 0.3001 | -7.4030 | 4.09e-05 | **0.001953** |
+
+**shwd2sf · endpoint = `selected`**
+
+| n | seeds | mean Δgap (pp) | SD | paired *t* | *t* p | exact sign-flip p |
+|---|---|---:|---:|---:|---:|---:|
+| 3 | 42..44 | -0.3933 | 0.4456 | -1.5287 | 0.2659 | **0.25** |
+| 4 | 42..45 | -0.4000 | 0.3641 | -2.1973 | 0.1155 | **0.125** |
+| 5 | 42..46 | -0.5194 | 0.4132 | -2.8109 | 0.04827 | **0.0625** |
+| 6 | 42..47 | -0.5410 | 0.3733 | -3.5494 | 0.0164 | **0.03125** |
+| 7 | 42..48 | -0.6185 | 0.3978 | -4.1136 | 0.006261 | **0.01562** |
+| 8 | 42..49 | -0.7589 | 0.5416 | -3.9635 | 0.005437 | **0.007812** |
+| 9 | 42..50 | -0.7796 | 0.5104 | -4.5825 | 0.001796 | **0.003906** |
+| 10 | 42..51 | -0.6993 | 0.5441 | -4.0645 | 0.002823 | **0.005859** |
+
+**smoke2sf · endpoint = `oracle`**
+
+| n | seeds | mean Δgap (pp) | SD | paired *t* | *t* p | exact sign-flip p |
+|---|---|---:|---:|---:|---:|---:|
+| 3 | 42..44 | -0.7938 | 0.1080 | -12.7284 | 0.006116 | **0.25** |
+| 4 | 42..45 | -0.8020 | 0.0897 | -17.8789 | 0.0003816 | **0.125** |
+| 5 | 42..46 | -0.7702 | 0.1054 | -16.3356 | 8.219e-05 | **0.0625** |
+| 6 | 42..47 | -0.8390 | 0.1933 | -10.6340 | 0.0001272 | **0.03125** |
+| 7 | 42..48 | -0.8622 | 0.1867 | -12.2149 | 1.832e-05 | **0.01562** |
+| 8 | 42..49 | -0.8187 | 0.2122 | -10.9147 | 1.198e-05 | **0.007812** |
+| 9 | 42..50 | -0.7417 | 0.3046 | -7.3035 | 8.36e-05 | **0.003906** |
+| 10 | 42..51 | -0.6934 | 0.3252 | -6.7419 | 8.442e-05 | **0.001953** |
+
+**smoke2sf · endpoint = `selected`**
+
+| n | seeds | mean Δgap (pp) | SD | paired *t* | *t* p | exact sign-flip p |
+|---|---|---:|---:|---:|---:|---:|
+| 3 | 42..44 | -0.5631 | 1.3339 | -0.7311 | 0.5408 | **0.5** |
+| 4 | 42..45 | -0.5253 | 1.0917 | -0.9623 | 0.4069 | **0.375** |
+| 5 | 42..46 | -0.7462 | 1.0668 | -1.5641 | 0.1928 | **0.1875** |
+| 6 | 42..47 | -0.9124 | 1.0374 | -2.1544 | 0.08377 | **0.09375** |
+| 7 | 42..48 | -0.9372 | 0.9493 | -2.6122 | 0.04 | **0.04688** |
+| 8 | 42..49 | -1.0691 | 0.9547 | -3.1672 | 0.01577 | **0.02344** |
+| 9 | 42..50 | -0.9684 | 0.9427 | -3.0818 | 0.01508 | **0.01953** |
+| 10 | 42..51 | -0.8716 | 0.9401 | -2.9318 | 0.01671 | **0.01953** |
+
+### Table S43 — the transfer slope κ: per-run distribution and the free-intercept control
+
+**Table S43.** *8.7* — requested in review (a free-intercept control was asked for explicitly; a per-run distribution was asked for as "the cheapest statistical gain"). Definition follows §8.7: `ΔV(e) = V(e) − V(final)`, `ΔT(e) = T(e) − T(final)` **within a run**. Source: `val` per epoch from `xeval_20260916/runs/*_results.csv` (41 runs) intersected with `test` per epoch from `xeval_perepoch_20260918/matrix_perepoch.csv` ⇒ **765 (run, epoch) points over 41 runs**, matching the printed count. **Units**: κ is a **ratio** (pp per pp), i.e. the printed scale; the raw pp slope is 100× these figures.
+
+**Pooled, through-origin (the printed estimator):** κ = **0.710**, R² = **0.907** over **765** points. **Free-intercept control:** κ_free = **0.701**, intercept = **-0.121 pp**, R² = **0.908** — the intercept is indistinguishable from zero, so the through-origin constraint is **supported rather than assumed**.
+
+**Per-run κ (n = 41 runs):** mean **0.737**, SD **0.152**, 95 % CI **[0.691, 0.784]** (printed run-clustered CI: **[0.671, 0.745]**).
+
+| run | cell | seed | epochs | κ (through-origin) | R² | κ_free | intercept (pp) | R² free |
+|---|---|---|---:|---:|---:|---:|---:|---:|
+| `r10_aitod20_base30_3way_s42n` | aitod20 | 42 | 5 | 0.3434 | -2.7039 | 0.1931 | -0.3899 | 0.2061 |
+| `r10_shwd2sf_base100_3way_s42n` | shwd2sf | 42 | 19 | 1.1134 | 0.8930 | 1.1139 | +0.0674 | 0.8944 |
+| `r10_shwd2sf_base100_3way_s43n` | shwd2sf | 43 | 19 | 0.9228 | 0.8196 | 0.8964 | -0.2405 | 0.8402 |
+| `r10_shwd2sf_base100_3way_s44n` | shwd2sf | 44 | 19 | 0.7246 | 0.8056 | 0.7341 | -0.2303 | 0.8331 |
+| `r10_shwd2sf_base100_3way_s45n` | shwd2sf | 45 | 19 | 0.9372 | 0.6505 | 0.9823 | -0.7060 | 0.8721 |
+| `r10_shwd2sf_base100_3way_s46n` | shwd2sf | 46 | 19 | 0.8737 | 0.8239 | 0.9080 | +0.1965 | 0.8413 |
+| `r10_shwd2sf_base100_3way_s47n` | shwd2sf | 47 | 19 | 0.8536 | 0.9136 | 0.8484 | -0.0363 | 0.9141 |
+| `r10_shwd2sf_base100_3way_s48n` | shwd2sf | 48 | 19 | 0.6966 | 0.7079 | 0.7664 | +0.2717 | 0.7378 |
+| `r10_shwd2sf_base100_3way_s49n` | shwd2sf | 49 | 19 | 0.7909 | 0.7933 | 0.7992 | +0.0550 | 0.7943 |
+| `r10_shwd2sf_base100_3way_s50n` | shwd2sf | 50 | 19 | 0.5934 | 0.7627 | 0.7282 | +0.5591 | 0.8900 |
+| `r10_shwd2sf_base100_3way_s51n` | shwd2sf | 51 | 19 | 0.7496 | 0.5743 | 0.7303 | -0.4978 | 0.6801 |
+| `r10_shwd2sf_lr005_100ep_3way_s42n` | shwd2sf | 42 | 19 | 0.7500 | 0.9357 | 0.7349 | -0.1391 | 0.9368 |
+| `r10_shwd2sf_lr005_100ep_3way_s43n` | shwd2sf | 43 | 19 | 0.8455 | 0.9263 | 0.8026 | -0.3947 | 0.9340 |
+| `r10_shwd2sf_lr005_100ep_3way_s44n` | shwd2sf | 44 | 19 | 0.7187 | 0.9509 | 0.6683 | -0.6333 | 0.9711 |
+| `r10_shwd2sf_lr005_100ep_3way_s45n` | shwd2sf | 45 | 19 | 0.6678 | 0.9009 | 0.6297 | -0.4109 | 0.9094 |
+| `r10_shwd2sf_lr005_100ep_3way_s46n` | shwd2sf | 46 | 19 | 0.7130 | 0.9046 | 0.6822 | -0.4077 | 0.9114 |
+| `r10_shwd2sf_lr005_100ep_3way_s47n` | shwd2sf | 47 | 19 | 0.8395 | 0.9066 | 0.8990 | +0.6152 | 0.9164 |
+| `r10_shwd2sf_lr005_100ep_3way_s48n` | shwd2sf | 48 | 19 | 0.8945 | 0.9078 | 0.8258 | -0.6919 | 0.9309 |
+| `r10_shwd2sf_lr005_100ep_3way_s49n` | shwd2sf | 49 | 19 | 0.9957 | 0.9330 | 1.0069 | +0.0963 | 0.9333 |
+| `r10_shwd2sf_lr005_100ep_3way_s50n` | shwd2sf | 50 | 19 | 0.7463 | 0.9387 | 0.7087 | -0.4379 | 0.9454 |
+| `r10_shwd2sf_lr005_100ep_3way_s51n` | shwd2sf | 51 | 19 | 0.6879 | 0.8819 | 0.6732 | -0.1553 | 0.8829 |
+| `r10_smoke2sf_base100_3way_s42n` | smoke2sf | 42 | 19 | 0.5818 | 0.9719 | 0.6044 | +0.3868 | 0.9803 |
+| `r10_smoke2sf_base100_3way_s43n` | smoke2sf | 43 | 19 | 0.5687 | 0.9604 | 0.6100 | +0.6370 | 0.9815 |
+| `r10_smoke2sf_base100_3way_s44n` | smoke2sf | 44 | 19 | 0.5281 | 0.9478 | 0.5804 | +0.7729 | 0.9816 |
+| `r10_smoke2sf_base100_3way_s45n` | smoke2sf | 45 | 19 | 0.5648 | 0.9747 | 0.5737 | +0.1676 | 0.9766 |
+| `r10_smoke2sf_base100_3way_s46n` | smoke2sf | 46 | 19 | 0.5925 | 0.9610 | 0.6373 | +0.6979 | 0.9854 |
+| `r10_smoke2sf_base100_3way_s47n` | smoke2sf | 47 | 19 | 0.5396 | 0.9755 | 0.5530 | +0.2268 | 0.9785 |
+| `r10_smoke2sf_base100_3way_s48n` | smoke2sf | 48 | 19 | 0.6218 | 0.9726 | 0.6336 | +0.1949 | 0.9745 |
+| `r10_smoke2sf_base100_3way_s49n` | smoke2sf | 49 | 19 | 0.6058 | 0.9916 | 0.6125 | +0.1022 | 0.9922 |
+| `r10_smoke2sf_base100_3way_s50n` | smoke2sf | 50 | 19 | 0.6809 | 0.9700 | 0.6613 | -0.3543 | 0.9761 |
+| `r10_smoke2sf_base100_3way_s51n` | smoke2sf | 51 | 19 | 0.5687 | 0.9653 | 0.5766 | +0.1240 | 0.9662 |
+| `r10_smoke2sf_lr005_100ep_3way_s42n` | smoke2sf | 42 | 19 | 0.9221 | 0.9659 | 0.9509 | +0.2995 | 0.9681 |
+| `r10_smoke2sf_lr005_100ep_3way_s43n` | smoke2sf | 43 | 19 | 0.7409 | 0.9571 | 0.7070 | -0.4638 | 0.9653 |
+| `r10_smoke2sf_lr005_100ep_3way_s44n` | smoke2sf | 44 | 19 | 0.6991 | 0.9650 | 0.7230 | +0.3015 | 0.9675 |
+| `r10_smoke2sf_lr005_100ep_3way_s45n` | smoke2sf | 45 | 19 | 0.6550 | 0.9511 | 0.6641 | +0.1134 | 0.9516 |
+| `r10_smoke2sf_lr005_100ep_3way_s46n` | smoke2sf | 46 | 19 | 0.7587 | 0.9698 | 0.7444 | -0.1891 | 0.9710 |
+| `r10_smoke2sf_lr005_100ep_3way_s47n` | smoke2sf | 47 | 19 | 0.8400 | 0.9383 | 0.7919 | -0.6652 | 0.9501 |
+| `r10_smoke2sf_lr005_100ep_3way_s48n` | smoke2sf | 48 | 19 | 0.8700 | 0.8408 | 0.7776 | -1.0714 | 0.8787 |
+| `r10_smoke2sf_lr005_100ep_3way_s49n` | smoke2sf | 49 | 19 | 0.7606 | 0.9388 | 0.7348 | -0.3334 | 0.9421 |
+| `r10_smoke2sf_lr005_100ep_3way_s50n` | smoke2sf | 50 | 19 | 0.9632 | 0.9385 | 0.9141 | -0.4909 | 0.9471 |
+| `r10_smoke2sf_lr005_100ep_3way_s51n` | smoke2sf | 51 | 19 | 0.7075 | 0.9376 | 0.7358 | +0.3178 | 0.9407 |
