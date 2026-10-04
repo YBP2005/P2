@@ -178,7 +178,7 @@ Item C: extraction of cross-framework "split and checkpoint-selection" evidence 
   repo	default_branch	commit_sha
   mmdetection	open-mmlab/mmdetection	main	cfd5d3a985b0249de009b67d04f37263e11cdf3d
   detectron2	facebookresearch/detectron2	main	a2f4a8771ab77e8411c26b27f24f9489a28a2453
-  yolox	Megvii-BaseDetection/YOLOX	main	6ddff4824372896469a7fae2dc3206c7aa4bbaee
+  yolox	Megvii-BaseDetection/YOLOX	main	6ddff4824372906469a7fae2dc3206c7aa4bbaee
   paddledetection	PaddlePaddle/PaddleDetection	release/2.9	b25522a0f4bde8c80603f3ba5e3472059972e3b5
   detr	facebookresearch/detr	main	29901c51d7fe8712168b8d0d64351170bc0f83e0
 
