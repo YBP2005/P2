@@ -983,6 +983,26 @@ The strength of every statement in the main text is distinguished accordingly.
 > `work/theory_meta_and_tests_20260919.py`.
 
 
+
+### Table S20b — the sixth arm-cell (`aitod20` baseline) **per run**, so its rate can be re-derived
+
+**Table S20b.** *8.6 (the sixth row of Table 4)* — the per-run readings behind the `aitod20` baseline cell, printed because the article now carries that row. Source: `item2_aitod20_n10_最终_20260925.csv` (the completed n = 10 measurement); the n = 1 predecessor is left standing verbatim in §S4.
+
+| run | seed | `prem_val` | `prem_test` | per-run realization rate |
+|---|---|---:|---:|---:|
+| `r10_aitod20_base30_3way_s42n` | 42 | +0.7952 | -0.3762 | -47.3 % |
+| `r10_aitod20_base30_3way_s43n` | 43 | +0.4240 | -0.2404 | -56.7 % |
+| `r10_aitod20_base30_3way_s44n` | 44 | +0.8800 | -0.1963 | -22.3 % |
+| `r10_aitod20_base30_3way_s45n` | 45 | +0.3800 | -0.2663 | -70.1 % |
+| `r10_aitod20_base30_3way_s46n` | 46 | +0.5750 | -0.2225 | -38.7 % |
+| `r10_aitod20_base30_3way_s47n` | 47 | +1.4780 | -0.1080 | -7.3 % |
+| `r10_aitod20_base30_3way_s48n` | 48 | +0.7230 | +0.1424 | +19.7 % |
+| `r10_aitod20_base30_3way_s49n` | 49 | +0.7800 | -0.7821 | -100.3 % |
+| `r10_aitod20_base30_3way_s50n` | 50 | +1.3660 | -0.1808 | -13.2 % |
+| `r10_aitod20_base30_3way_s51n` | 51 | +0.2690 | +0.0552 | +20.5 % |
+
+> **Reproduction.** These ten rows give `prem_val` **+0.7670 pp** and `prem_test` **-0.2175 pp**, i.e. the cell as **Table 4** prints it (**+0.766 / -0.218**) to **0.001 pp**; the run-weighted rate is **-28.36 %** (the printed **−28 %** is that ratio rounded). **8 of the 10 runs are negative** and the per-run rate spans **-100.3 % to +20.5 %** — this cell is the reason the article calls the rate *not a constant*, and the reason it is **outside the frozen five-cell headline pool** whose median and run-weighted rate §8.6 reports.
+
 ### Table S21 — moved from *8.7 The per-epoch view: the realization rate is not a constant*
 
 **Table S21.** *8.7 The per-epoch view: the realization rate is not a constant* — columns: Cell · arm, epoch, V(e), T(e), ΔV(e), ΔT(e).
@@ -2673,7 +2693,11 @@ it says.
 > `-0.9020` becomes **`-1.4901`** pp (sd 0.8002, paired t -4.164, p = 0.0141, 0+/5-), which is what the row reads
 > once every run contributes the quantity the column names. **Every number printed in this article and this
 > supplement is unchanged**: the figure quoted for this control above is the `last`-epoch row, which was already
-> correct. A systematic check of all released per-run `test` values against fresh re-evaluations found this to be
+> correct, and the **`best`**-epoch reading of the same cell is **−1.490 pp, p = 0.0141** — i.e. under the
+> article's frozen `best` convention this control is **significant**, not non-significant; the article's §7.3 and
+> Table S16 now say exactly that, and Table S25 is endpoint-independent (all three of its questions answer the
+> same way under either reading). What is *unchanged* is every number the article prints from the **archive-A**
+> row. A systematic check of all released per-run `test` values against fresh re-evaluations found this to be
 > the **only** row that mixed the two quantities; seven further rows (`t1d_dotatod15_*`) differ from the fresh
 > re-evaluation by 0.012-0.164 pp in the direction of `best`, i.e. within the cross-machine band this submission
 > measured, and are not corrected.

@@ -21,6 +21,8 @@ run-weighted **23.3 %** (mAP50 **31.5 %**, **1/5** negative), run-level [8.4 %, 
 Data-order replication lowers the mean **9 %–29 %** (§8); no power analysis was pre-registered, so the
 nine `n = 3` cells stay descriptive.
 
+---
+
 **Keywords:** evaluation validity; dataset splits; checkpoint selection; object detection; benchmark audit;
 reproducibility
 
@@ -343,7 +345,7 @@ measure, but neither audits a release's configuration binding.
 
 ![Fig. 1](figures/fig3_four_units.png)
 
-**Table 3.** The four counting units over the 19 audited benchmarks. **A count is meaningless without its unit** (§3). Source: `split_units_19rows_20260916.md`. **Rows marked `n_a` enter the denominator, not the numerator, and are not undecidable**; **alternative readings of the same rows** (not the cells this table prints) are **12/19** for `release`, and **12/15** is the 19 rows less the four left **undecidable** (`n_a` is two rows; **Supplementary S12**); under the COCO-`val` reading the `reported` unit is **13/19**. **The range spans two readings, not an interval**; it rests on a **single rater's** judgement (per-coder κ **0.11–0.44**; `reported` is the weakest unit in the round that used the three-valued instrument — **Supplementary S12**).
+**Table 3.** The four counting units over the 19 audited benchmarks. **A count is meaningless without its unit** (§3). Source: `split_units_19rows_20260916.md`. **Rows marked `n_a` enter the denominator, not the numerator, and are not undecidable**; **alternative readings of the same rows** (not the cells this table prints) are **12/19** for `release`, and **12/15** is the 19 rows less the four left **undecidable** (`n_a` is two rows; **Supplementary S12**); under the COCO-`val` reading the `reported` unit is **13/19**. **The range spans two readings, not an interval**; it rests on a **single rater's** judgement (per-coder κ **0.11–0.44**; `reported` is the weakest unit in the round that used the three-valued instrument). A **model-assisted, non-blind second coding** exists as **reliability evidence** and does **not replace** the printed coding (**Supplementary S12**).
 
 | Unit | non-independent | of decidable rows | undecidable |
 |---|---|---|---|
@@ -440,7 +442,7 @@ a quarter survives" is what we measured.
 **How much of the gain selected on `val` survives on `test`?**
 
 **Table 4.** The premium selected on `val` versus what that same selection action realizes on the disjoint `test` split, per arm-cell (**an unbalanced pool** — two corpora contribute both arms, `aitod20` only its baseline — so the arm-cell is the unit). Source: the **per-epoch `val` curves** (`results.csv`, for `prem_val`), `xeval_20260916/matrix.csv`, and this
-revision's two batches (`x4_teval.csv` on A, `x4fill_20260925.csv` on B, for `prem_test`). **The §10 memory-pressure bound (defect 10) does not arise in this table**: its hits are in §3.1's clean batch and §5.1's `p_vistod15`, none of the five arm-cells below.
+revision's two batches (`x4_teval.csv` on A, `x4fill_20260925.csv` on B, for `prem_test`). **The §10 memory-pressure bound (defect 10) does not arise here**: its hits are in §3.1's clean batch and §5.1's `p_vistod15`.
 
 | Cell | Arm | n | `prem_val` | **`prem_test`** | **realization rate** |
 |---|---|---|---|---|---|
@@ -449,6 +451,9 @@ revision's two batches (`x4_teval.csv` on A, `x4fill_20260925.csv` on B, for `pr
 | smoke2sf | baseline | 10 | +0.691 | **+0.509** | **74 %** |
 | smoke2sf | strategy | 10 | +0.605 | **−0.157** | **−26 %** |
 | aitod20 | baseline | **10** | **+0.766** | **−0.218** | **−28 %** |
+| aitod20 | **strategy** | **10** | **+1.111** | **−0.543** | **−49 %** |
+
+> The `aitod20` **strategy** row is in the data but outside the frozen five-cell pool.
 
 where `prem_val = V_max − V_final` (**selecting on val**) and
 `prem_test = T_best − T_final` (**realized on test**).
@@ -497,15 +502,7 @@ negative) and is **narrowed here**; per-checkpoint values: **Supplementary S11**
 
 ## 9. The registered multi-target replication: **transferred to the companion paper**
 
-This paper does not restate its numbers **as claims of this paper**: the registered endpoint table is reprinted as the **companion's** in **Supplementary S24–S26**, and this section gives only what a reader needs here to follow the argument.
-
-The pre-registered multi-target replication is **reported in the companion paper**, where it is a **first report**: its frozen registration (**2026-09-13 01:37:27 UTC**, FROZEN-HASH md5 `6a7eee7b3e34b15ce5adcba14cf7ea36`, **zero runs existing at freeze time**) and its verdict (**"criterion not met"**, deliberately **not** "hypothesis refuted"). This section states the protocol points a reader needs in order to read that registration from inside this paper; the endpoint table above is reprinted as the companion's, and none of its results is a claim of this paper.
-
-**Data.** Three registered target corpora, each taken from the public pools this paper audits and each carrying its own `train` / `val` / `test` configuration; **the corpora ship a held-out `test` half, but the configuration in force at registration points `val` at it** — four of the five registered configs, T1-b's YAML being the exception (**Table S27's note**). The per-seed table for **all 90 runs** is deposited with the registration, keyed by the run directories (naming in **Table S27's note**).
-
-**Splits and the two arms.** The registered pairs ran under the protocol in force at registration, which is the corpus's own `train` / `val` / `test` configuration — and there the **`val` side aliases the `test` half**, the alias whose bias term Table S27's note quantifies (`Δ ≈ Δ_reported + d̄`). The three-way carve, with the carve taken **out of the pool** and all three pairwise intersections **verified zero by filename**, is the protocol §8.1's own clean batches use; the two are not the same design. The **baseline** arm is the published convention — the checkpoint the pipeline's own fitness rule keeps (`best.pt`) at the peak learning rate **0.001**. The **strategy** arm is the registered intervention: the shape-aware IoU (`shapeiou`) at **0.005**, everything else held fixed (batch 32, imgsz 640, SGD, YOLOv12n). Both arms run the same code on the same data, and the endpoint definition is frozen in writing as §8.1 states.
-
-**Criterion status.** The criterion was fixed **before any run existed**: the intervention had to move the designated cell in the registered direction, at the registered significance and with the registered sign split, and a **saturated control** was registered alongside it. The verdict entered is **"criterion not met"** — a statement about the criterion, not a refutation of the hypothesis. What this paper keeps from that batch is the one thing it cannot obtain elsewhere: **a registered cell read under the protocol in force at registration time**, which §7 uses as an instance of "the reported split is not independent" landing on a concrete conclusion.
+The pre-registered multi-target replication is **reported in the companion paper, where it is a first report**; **no result below is a claim of this paper**. Its registration was frozen before any run existed (**2026-09-13 01:37:27 UTC**, FROZEN-HASH md5 `6a7eee7b3e34b15ce5adcba14cf7ea36`) and its verdict entered is **"criterion not met"** — a statement about the criterion, deliberately not "hypothesis refuted". The registration ran under the protocol then in force, in which the **`val` side aliases the `test` half**; that is the one fact §7 takes from it. Endpoint table, splits, arms, criterion and the 90-run per-seed record: **Supplementary S24–S27**, reprinted as the companion's.
 
 ## 10. Our own defects (disclosed, not hidden)
 
@@ -534,7 +531,7 @@ permutation test has no resolution; print the `2/2ⁿ` floor beside every p. ④
 behind every count, as Table 3's header does.
 
 ⑤ **A plateau is a post-hoc candidate, not a rule we validate.** Weight averaging is established [55];
-   what is *measured here* averages the top-5 `val` epochs, capturing **70 %** of the
+   what is *measured here* takes the **mean of the ranked top-5 `val` epochs' readings** (a reading average, not a weight average), capturing **70 %** of the
    realizable gain against the argmax's **30 %**, at the cost of **0.73 pp** below the peak — a post-hoc
    reading of our own 40 runs, untested as an intervention. The per-rule table and the
    candidate mechanism are in **Supplementary S11**, Measurement 3.
