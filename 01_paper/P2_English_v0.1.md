@@ -23,9 +23,7 @@ Object-detection papers report a number from a split they call held out. We audi
 **1. The convention is broken in our own corpora.** **6 of 14** corpora we hold give the reported number no independent held-out split: the checkpoint was selected there.
 Training and evaluation do not overlap: **checkpoint selection**, not contamination.
 
-**2. The direction varies by corpus.** The premium is **positive in all four cells** (§5.1, an escalated four-cell base; **near-definitional**)
-the baseline arm gaining more, the paired contrast changing sign by corpus; a declared 13-cell family leaves **3** after Benjamini–Hochberg; in 19 public benchmarks the reported number
-can come from a non-independent split (§6.1 — **one rater's judgement, not a rate**), yet every unit yields a defensible count. **Changing the metric keeps the mean direction; one cell loses
+**2. The direction varies by corpus.** The premium is **positive in all four cells** (§5.1, an escalated four-cell base; **near-definitional**), the baseline arm gaining more, the **paired Δgap** changing sign by corpus — and **that sign is not the selection term's sign** (Table 2); a declared 13-cell family leaves **3** after BH; in 19 public benchmarks the reported number comes from a non-independent split (§6.1; **one rater's judgement**). **Changing the metric keeps the mean direction; one cell loses
 significance and sign unanimity** (`smoke2sf` **+0.063 pp**, p = 0.54, **6+/5−**).
 
 **3. Partial realization on a disjoint split.** Separating the selection set from the reported set, the
@@ -84,7 +82,7 @@ recorded as narrowed (§5.4).
 
 **Scope.** All quantitative claims about selection behaviour come from **YOLO-lineage pipelines**, the only
 family among the six frameworks we checked (five pinned repositories plus the Ultralytics release) selecting the checkpoint by the validation metric by default
-(§6.5) — stated at the claim, not only in a limitations section.
+(§6.5) — stated at the claim, not only in a limitations section. **The registered multi-target replication is reported in the companion paper, and its first report, criterion and verdict stay there** (§9): this paper cites it for readability and **claims none of its results**.
 
 ---
 
@@ -154,7 +152,7 @@ component exists elsewhere, **not independent evidence** and not a field-level r
    five arm-cells measured here the `val`-selected premium is realized on the disjoint split at
    **23.3 %** with all five arm-cells at n = 10, and it is **not a constant**: the rate falls with the
    validation noise of the criterion used to select (§8.6–§8.7). The identity tying it to the
-   winner's-curse share we **adopt** [13], not claim; the closest concurrent work [12, 14] reaches the same **direction** with a different quantity, and neither reports a **ratio of difference premiums** — `(T_best − T_final)/(V_max − V_final)`, on disjoint splits, in detection, on our own arm-cells, with measured `val` noise as moderator. A same-estimand ratio does exist elsewhere: in genomics the relative bias is written `1 − pG-TS/pG-ES` and measured at 10–60 % (**Würschum & Kraft**, *Heredity* 112:463, 2014). The replicate axis is **data order** (§8.4) — the **seed-budget discipline
+   winner's-curse share we **adopt** [13], not claim; the closest concurrent work [12, 14] reaches the same **direction** with a different quantity, and neither reports a **ratio of difference premiums** — `(T_best − T_final)/(V_max − V_final)`, on disjoint splits, in detection, on our own arm-cells, with measured `val` noise as moderator. A same-estimand ratio does exist elsewhere — in genomics, where it is written as a relative bias and measured at 10–60 % (**Supplementary S12** carries the full citation). The replicate axis is **data order** (§8.4) — the **seed-budget discipline
    reproduced inside this setting** rather than a new one.
 3. **We disclose our own defects, and the corrections that followed** rather than removing them:
    our analysis' first version had non-reproducible items — pod-dependent scripts, a citation to a file
@@ -168,7 +166,7 @@ The companion and this paper share project-internal process protocols — a mult
 
 ## 3. Units: the methodological premise
 
-"Have a split problem" is a property of a **(benchmark, counting unit)** pair, not of a benchmark. **[15] varies the definition on one file; we vary who controls the split and measure a different quantity: the share of `val`-selected premium that survives a disjoint split.** We use four units, defined by **who controls the split**:
+"Have a split problem" is a property of a **(benchmark, counting unit)** pair, not of a benchmark. **[14] varies the definition on one file; we vary who controls the split and measure a different quantity: the share of `val`-selected premium that survives a disjoint split.** We use four units, defined by **who controls the split**:
 
 - **`release`** — the split the benchmark's **own published release** ships: the `train:` / `val:` /
   `test:` entries and paths in the distributed archive. *Example*: an archive whose `data.yaml` binds
@@ -192,7 +190,7 @@ different operational definitions* has been stated independently, for molecular 
 preprint whose abstract closes "different defensible definitions return different answers from the same
 file" [15]. **The observation is the cited literature's; the instantiation, and the four named units, are ours.** Our contribution is therefore **not the observation but its instantiation in detection
 evaluation**: naming the four units by *who controls the split*, and backing them with the 19-row, four-unit
-evidence table, and the premium on **five arm-cells**. The decomposition is orthogonal to [14], which separates leakage by **type**; we
+evidence table, and the premium on **five arm-cells**. The decomposition is orthogonal to [15], which separates leakage by **type**; we
 separate the **counting subject**, so one leakage type can still be counted under four units (§6.1).
 
 > **Table S2** → Supplementary §S8.
@@ -358,7 +356,7 @@ measure, but neither audits a release's configuration binding.
 
 ![Fig. 1](figures/fig3_four_units.png)
 
-**Table 3.** The four counting units over the 19 audited benchmarks. **A count is meaningless without its unit** (§3). Source: `split_units_19rows_20260916.md`. **Rows marked `n_a` enter the denominator, not the numerator, and are not undecidable**; **alternative readings of the same rows** (not the cells this table prints) are **12/19** for `release`, and **12/15** is the 19 rows less the four left **undecidable** (`n_a` is two rows; **Supplementary S12**); under the COCO-`val` reading the `reported` unit is **13/19**. **The range spans two readings, not an interval**; it rests on a **single rater's** judgement (per-coder κ **0.11–0.44**; `reported` is the weakest unit in the round that used the three-valued instrument — **Supplementary S12**).
+**Table 3.** The four counting units over the 19 audited benchmarks. **A count is meaningless without its unit** (§3). Source: `split_units_19rows_20260916.md`. **Rows marked `n_a` enter the denominator, not the numerator, and are not undecidable**; **alternative readings of the same rows** (not the cells this table prints) are **12/19** for `release`, and **12/15** is the 19 rows less the four left **undecidable** (`n_a` is two rows; **Supplementary S12**); under the COCO-`val` reading the `reported` unit is **13/19**. **The range spans two readings, not an interval**; it rests on a **single rater's** judgement (per-coder κ **0.11–0.44**; `reported` is the weakest unit in the round that used the three-valued instrument). A **model-assisted, non-blind second coding** exists as **reliability evidence** and does **not replace** the printed coding (**Supplementary S12**).
 
 | Unit | non-independent | of decidable rows | undecidable |
 |---|---|---|---|
@@ -466,7 +464,7 @@ revision's two batches (`x4_teval.csv` on A, `x4fill_20260925.csv` on B, for `pr
 | aitod20 | baseline | **10** | **+0.766** | **−0.218** | **−28 %** |
 | aitod20 | **strategy** | **10** | **+1.111** | **−0.543** | **−49 %** |
 
-> The `aitod20` **strategy** row is in the data but outside the frozen five-cell pool.
+> The `aitod20` **strategy** row is in the data but outside the five-cell pool: that pool is the one the analysis behind Table S20 used, and **its exclusion of this cell was decided after the readings were in, not by a pre-registered rule** (the article's only pre-registered criterion is the companion's, §9).
 
 where `prem_val = V_max − V_final` (**selecting on val**) and
 `prem_test = T_best − T_final` (**realized on test**).
@@ -513,17 +511,9 @@ negative) and is **narrowed here**; per-checkpoint values: **Supplementary S11**
 
 ---
 
-## 9. The registered multi-target replication: **transferred to the companion paper**
+## 9. The registered multi-target replication: **reported in the companion paper**
 
-This paper does not restate its numbers **as claims of this paper**: the registered endpoint table is reprinted as the **companion's** in **Supplementary S24–S26**, and this section gives only what a reader needs here to follow the argument.
-
-The pre-registered multi-target replication is **reported in the companion paper**, where it is a **first report**: its frozen registration (**2026-09-13 01:37:27 UTC**, FROZEN-HASH md5 `6a7eee7b3e34b15ce5adcba14cf7ea36`, **zero runs existing at freeze time**) and its verdict (**"criterion not met"**, deliberately **not** "hypothesis refuted"). This section states the protocol points a reader needs in order to read that registration from inside this paper; the endpoint table above is reprinted as the companion's, and none of its results is a claim of this paper.
-
-**Data.** Three registered target corpora, each taken from the public pools this paper audits and each carrying its own `train` / `val` / `test` configuration; **the corpora ship a held-out `test` half, but the configuration in force at registration points `val` at it** — four of the five registered configs, T1-b's YAML being the exception (**Table S27's note**). The per-seed table for **all 90 runs** is deposited with the registration, keyed by the run directories (naming in **Table S27's note**).
-
-**Splits and the two arms.** The registered pairs ran under the protocol in force at registration, which is the corpus's own `train` / `val` / `test` configuration — and there the **`val` side aliases the `test` half**, the alias whose bias term Table S27's note quantifies (`Δ ≈ Δ_reported + d̄`). The three-way carve, with the carve taken **out of the pool** and all three pairwise intersections **verified zero by filename**, is the protocol §8.1's own clean batches use; the two are not the same design. The **baseline** arm is the published convention — the checkpoint the pipeline's own fitness rule keeps (`best.pt`) at the peak learning rate **0.001**. The **strategy** arm is the registered intervention: the shape-aware IoU (`shapeiou`) at **0.005**, everything else held fixed (batch 32, imgsz 640, SGD, YOLOv12n). Both arms run the same code on the same data, and the endpoint definition is frozen in writing as §8.1 states.
-
-**Criterion status.** The criterion was fixed **before any run existed**: the intervention had to move the designated cell in the registered direction, at the registered significance and with the registered sign split, and a **saturated control** was registered alongside it. The verdict entered is **"criterion not met"** — a statement about the criterion, not a refutation of the hypothesis. What this paper keeps from that batch is the one thing it cannot obtain elsewhere: **a registered cell read under the protocol in force at registration time**, which §7 uses as an instance of "the reported split is not independent" landing on a concrete conclusion.
+**First report, criterion and verdict stay with the companion paper; nothing here is a claim of this paper.** To read its registered table: ① it is a **three-way split** (train / selection / report); ② it ran under the protocol then in force, where the **`val` side aliases the `test` half** — the one fact §7 takes; ③ its criterion was frozen **before any run existed** (FROZEN-HASH `6a7eee7b3e34b15ce5adcba14cf7ea36`) and its verdict entered is **"criterion not met"**, deliberately **not** "hypothesis refuted" — the companion reads the outcome as **"direction replicates, size does not"**. Record: **Supplementary S24–S27** (source of truth: the companion's archive).
 
 ## 10. Our own defects (disclosed, not hidden)
 
@@ -607,9 +597,6 @@ This paper's subject is a reporting convention, not a detector: a count is meani
 > closest concurrent and tooling work, cited **for positioning only**: no quantitative claim here rests
 > on them, every number being measured on our own corpora or on the third-party logs of §5.5.
 
-normatively: Ultralytics Academy, "Splits that Tell the Truth,"
-https://academy.ultralytics.com/courses/computer-vision-foundations/splits-that-tell-the-truth
-(accessed 2026-09-26). [verified: software release tagged v8.4.120 as used in this study]
 [1] Z. Zou, K. Chen, Z. Shi, Y. Guo, J. Ye. "Object Detection in 20 Years: A Survey." *Proceedings of the IEEE* 111(3):257-276 (2023). DOI 10.1109/JPROC.2023.3238524
 [2] R. Guedes de Souza, A.R. Panisson. "Who Thinks Best Depends on How Long You Let Them: Budget-Dependent Rankings in LLM Evaluation." arXiv:2608.12150 (2026).
 [3] S. Kapoor, A. Narayanan. "Leakage and the reproducibility crisis in machine-learning-based science." *Patterns* 4(9):100804 (2023). DOI 10.1016/j.patter.2023.100804
@@ -623,9 +610,9 @@ https://academy.ultralytics.com/courses/computer-vision-foundations/splits-that-
 [11] Y.K. Adimoolam, C. Poullis, M. Averkiou. "Data Leakage Detection and De-duplication in Large Scale Geospatial Image Datasets." *CVPR* 2026 (Oral). https://openaccess.thecvf.com/content/CVPR2026/html/Adimoolam_Data_Leakage_Detection_and_De-duplication_in_Large_Scale_Geospatial_Image_CVPR_2026_paper.html
 [12] H. Suo, H. Wang, Y. Li. "Checkpoint Selection and Evaluation in EEG Emotion Recognition." arXiv:2607.27655 (2026).
 [13] Smith JE, Winkler RL. The optimizer's curse: skepticism and postdecision surprise in decision analysis. *Management Science* **52**(3):311–322, 2006. doi:10.1287/mnsc.1050.0451.
-[14] S. Roth. "Which Leakage Types Matter? A Quantitative Landscape Across 2,047 Benchmark Datasets." arXiv:2604.04199 (2026).
-[15] M. R. R. Roktim. "When Is a Molecule a Duplicate? Identity Policy Determines What a Benchmark Audit Finds." *ChemRxiv* preprint (2026). DOI 10.26434/chemrxiv.15009099/v1
-[16] G. Jocher, A. Chaurasia, J. Qiu. *Ultralytics YOLO* (v8.4.120) [computer software] (2023; pinned release 2026). https://github.com/ultralytics/ultralytics (accessed 2026-09-12); the same project's official course states the split-independence rule
+[14] M. R. R. Roktim. "When Is a Molecule a Duplicate? Identity Policy Determines What a Benchmark Audit Finds." *ChemRxiv* preprint (2026). DOI 10.26434/chemrxiv.15009099/v1
+[15] S. Roth. "Which Leakage Types Matter? A Quantitative Landscape Across 2,047 Benchmark Datasets." arXiv:2604.04199 (2026).
+[16] G. Jocher, A. Chaurasia, J. Qiu. *Ultralytics YOLO* (v8.4.120) [computer software] (2023; pinned release 2026). https://github.com/ultralytics/ultralytics (accessed 2026-09-12); the same project's official course states the split-independence rule normatively: Ultralytics Academy, "Splits that Tell the Truth," https://academy.ultralytics.com/courses/computer-vision-foundations/splits-that-tell-the-truth (accessed 2026-09-26). [verified: software release tagged v8.4.120 as used in this study]
 [17] B. Recht, R. Roelofs, L. Schmidt, V. Shankar. "Do ImageNet Classifiers Generalize to ImageNet?" *Proceedings of the 36th International Conference on Machine Learning*, PMLR **97**:5389–5400 (2019).
 [18] G. Zhang, K. Zhao. "Winning by Peeking: Unenforced Budgets and Test-Set Selection Inflate Short-Budget AutoML Comparisons." arXiv:2608.07303 (2026).
 [19] Taylor J, Tibshirani RJ. Statistical learning and selective inference. *Proceedings of the National Academy of Sciences* **112**(25):7629–7634, 2015. doi:10.1073/pnas.1507583112.
