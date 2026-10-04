@@ -43,6 +43,9 @@ def main():
     #   而清单没有，评审在 GitHub 上看不到该目录，也无法判断"它该不该在"。
     #   规范：盘上每个常规文件都必须有清单条目；**有意不入册的**在 EXEMPT 里逐条写明理由。
     EXEMPT = {
+        # ★ 2026-10-04：`__pycache__` 是**运行检查器时生成的构建产物**，不是发布件。
+        #   评审期间不存在、我跑过 verify_release 后才出现 ⇒ 用**目录级**豁免，避免每次跑完都假报。
+        '__pycache__/*': 'byte-code cache produced by running the checkers; not a released artefact',
         'MANIFEST_sha256.csv': 'the manifest itself',
         '.gitattributes': 'git plumbing, not a released artefact',
         '01_paper/P2_English_submission_blind_v1.pdf': 'submitted PDF; its Word source is registered',
@@ -60,7 +63,8 @@ def main():
         dirs[:] = [d for d in dirs if d != '.git']
         for f in files:
             rel = os.path.relpath(os.path.join(root, f), HERE).replace(os.sep, '/')
-            if rel in listed or rel in EXEMPT:
+            _dir_exempt = any(k.endswith('/*') and rel.startswith(k[:-1]) for k in EXEMPT)
+            if rel in listed or rel in EXEMPT or _dir_exempt:
                 continue
             unlisted.append(rel)
     print('unlisted files on disk: %d (declared exemptions: %d)' % (len(unlisted), len(EXEMPT)))

@@ -499,7 +499,7 @@ E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of s
 
 **Slope κ** (how much of the movement on `val` transfers to `test`). On the **complete curve** —
 **n = 765 (seed, epoch) points over the 41 runs** — **κ = 0.708, R² 0.937**, with a run-clustered
-(sandwich) 95 % CI **[0.671, 0.745]**; the within-run estimator gives **0.698**. **Two controls (S12)**: per-run κ **0.737** [0.691, 0.784] and a free-intercept fit (**0.701**, intercept **−0.001 pp**) supporting the through-origin constraint. Across the curve `ΔV` reaches
+(sandwich) 95 % CI **[0.671, 0.745]**; the within-run estimator gives **0.698**. **Two controls (Table S43)**: a per-run κ distribution and a free-intercept fit whose **intercept is indistinct from zero** — the through-origin constraint is **supported, not assumed**. Across the curve `ΔV` reaches
 **−8.1 pp** and about **71 %** transfers: **early-training progress is real progress.** §8.6's realized
 share measures the **selection-relevant sliver** near the peak, where `ΔV` is of order **±0.2 pp** — so
 **"most of the movement on `val` transfers" and "the little extra gained by selecting near the peak does
@@ -563,8 +563,7 @@ behind every count, as Table 3's header does.
   count** (**Table 3's second column**).
 - Two evidentiary differences (pod versus local) are listed side by side.
 - The census is a **literature/release survey**, weaker than our **self-measurement** (§3).
-- The decomposition (§5.6) covers **2 of 13 cells**; the others' runs are not on the
-  machine used — a scope we state rather than extrapolate.
+- The **difficulty/selection decomposition** (§5.6) is recorded for **2 of the 13 cells** (the headline two) — the others' runs are not on that machine — while the **identity** behind it is checked on **all 13** (`work/gap_mechanism_20260916.txt`). What is scoped is the decomposition, not the identity.
 - The intervention axis the headline comparisons use is **`lr0` (`0.001 → 0.005`)**; two further orthogonal axes were run, one reproducing, as on `lr0`, the **corpus-dependent character** of the shift (**Supplementary S8**, **Table S40b**); the cross-lineage probe is
    **one detector, two corpora, and incomparable magnitudes**.
 - **Four disclosed uncertainties** bound our claims: the 19-row audit is **single-rater**; the log sample is a **convenience sample**; the GPU memory-pressure effect is **bounded, not estimated** (**≤0.05 pp** where same-config pairs can be compared, fresh replicates being bit-identical; cross-date comparisons carry a **0.440 pp** drift); and the §8.3 replicates vary the **training file order**, not independent seeds. **And, not as an uncertainty**: **no interval here folds into §8.6's rate**. **Supplementary S12**.
@@ -579,8 +578,8 @@ A count is meaningless until its **unit** is named: the same nineteen benchmarks
 
 - **Data availability.** Claims are backed by the artifacts in the Supplementary Material; the third-party training logs are **not redistributed** (hashes and source pointers only) and 5 of their sources state no licence. The reproduction package itself — data files, per-epoch matrix, verdict files, checkers, with their SHA-256 list in `MANIFEST_sha256.csv` — is deposited and openly available at **https://github.com/YBP2005/P2.git** (accessed 2026-09-29).
 - **Recomputability boundary.** Every reported number is recomputable from the released per-run artifacts
-  **without retraining**, each with its script; only two are not, and they are named: the unredistributable
-  corpora (§10 defect 6) and the two conflicting-endpoint archives (§7.3).
+  **without retraining**, each with its script; **three are not, and they are named**: the unredistributable
+  corpora (§10 defect 6), the conflicting-endpoint archives (§7.3), and the `aitod20` completion to n = 10 (after the release cut).
 - **Competing interests.** None declared.
 - **One quantity, two spellings.** The n = 10 attainable floor is **exactly 2/2¹⁰ = 0.001953**; the tables
   use the exact value, the abstract writes **0.002**. Same floor, spelling only.

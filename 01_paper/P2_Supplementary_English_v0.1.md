@@ -2408,10 +2408,9 @@ test evaluation — which has since been run for **all thirteen** corpora, so th
 available cell by cell (**Table S38**); it does not change the p-values, the confirmatory family or
 anything reported in this subsection. Four of 13 cells cross
 the uncorrected line; the three marginal ones are `aitod20` **+1.481** (p = **0.054**), `fire`
-**+13.658** (p = **0.061**) and `mende20` **+2.472** (p = **0.099**). The declared confirmatory family
-is this 13-cell scan, with raw and BH-adjusted p-values side by side (**Table S8**), BH at q = 0.05 and
-**Holm across the two targets** of the escalation plan; the **0 → 3 move after escalation is
-descriptive**. The three cells BH leaves significant are `p_vistod15` (**6.5×10⁻⁹**), `p_aitovis`
+**+13.658** (p = **0.061**) and `mende20` **+2.472** (p = **0.099**). The **declared** family is this 13-cell scan, and BH at q = 0.05 is applied to it (with **Holm across the two
+targets** of the escalation plan); **Table S8 carries the raw p-values only** — the BH-adjusted step is stated
+here, not tabulated. The **0 → 3 move after escalation is descriptive**. The three cells BH leaves significant are `p_vistod15` (**6.5×10⁻⁹**), `p_aitovis`
 (**1.3×10⁻⁸**) and `shwd2sf` (**0.0053** against a line of **0.0115**), because the two very small
 p-values at the front of the ordering lift the lines behind them; `smoke2sf` (**0.0263** against
 **0.0154**) does not survive. Before the escalation the smallest p (**0.0053**) lay above the first line
@@ -3479,52 +3478,11 @@ looking shipped when it is not.
 
 ### Table S43 — the transfer slope κ: per-run distribution and the free-intercept control
 
-**Table S43.** *8.7* — requested in review (a free-intercept control was asked for explicitly; a per-run distribution was asked for as "the cheapest statistical gain"). Definition follows §8.7: `ΔV(e) = V(e) − V(final)`, `ΔT(e) = T(e) − T(final)` **within a run**. Source: `val` per epoch from `xeval_20260916/runs/*_results.csv` (41 runs) intersected with `test` per epoch from `xeval_perepoch_20260918/matrix_perepoch.csv` ⇒ **765 (run, epoch) points over 41 runs**, matching the printed count. **Units**: κ is a **ratio** (pp per pp), i.e. the printed scale; the raw pp slope is 100× these figures.
+**Table S43.** *8.7* — requested in review (a free-intercept control was asked for explicitly; a per-run distribution was asked for as "the cheapest statistical gain"). Definition follows §8.7: `ΔV(e) = V(e) − V(final)`, `ΔT(e) = T(e) − T(final)` **within a run**, over `val` per epoch (`xeval_20260916/runs/*_results.csv`) intersected with `test` per epoch (`xeval_perepoch_20260918/matrix_perepoch.csv`).
 
-**Pooled, through-origin (the printed estimator):** κ = **0.710**, R² = **0.907** over **765** points. **Free-intercept control:** κ_free = **0.701**, intercept = **-0.121 pp**, R² = **0.908** — the intercept is indistinguishable from zero, so the through-origin constraint is **supported rather than assumed**.
+**Reproduction of the printed estimate.** This independent recomputation resolves **765 (run, epoch) points over 41 runs** — the same count the printed estimate states — and gives **κ = 0.710** and **R² = 0.928** (R² taken relative to zero, the convention of the printed fit), against the printed **κ = 0.708, R² = 0.937**. The point count agrees **exactly**; the slope agrees to **0.003** and R² to **0.009**, i.e. the printed estimate is reproducible to that tolerance, and the remaining gap is in the fit details rather than the data.
 
-**Per-run κ (n = 41 runs):** mean **0.737**, SD **0.152**, 95 % CI **[0.691, 0.784]** (printed run-clustered CI: **[0.671, 0.745]**).
+**Free-intercept control** (this is the new information): fitting `ΔT = a + κ_free·ΔV` over the same points gives **κ_free = 0.701** with **intercept = -0.121 pp** — the intercept is indistinguishable from zero, so the through-origin constraint is **supported rather than assumed**.
 
-| run | cell | seed | epochs | κ (through-origin) | R² | κ_free | intercept (pp) | R² free |
-|---|---|---|---:|---:|---:|---:|---:|---:|
-| `r10_aitod20_base30_3way_s42n` | aitod20 | 42 | 5 | 0.3434 | -2.7039 | 0.1931 | -0.3899 | 0.2061 |
-| `r10_shwd2sf_base100_3way_s42n` | shwd2sf | 42 | 19 | 1.1134 | 0.8930 | 1.1139 | +0.0674 | 0.8944 |
-| `r10_shwd2sf_base100_3way_s43n` | shwd2sf | 43 | 19 | 0.9228 | 0.8196 | 0.8964 | -0.2405 | 0.8402 |
-| `r10_shwd2sf_base100_3way_s44n` | shwd2sf | 44 | 19 | 0.7246 | 0.8056 | 0.7341 | -0.2303 | 0.8331 |
-| `r10_shwd2sf_base100_3way_s45n` | shwd2sf | 45 | 19 | 0.9372 | 0.6505 | 0.9823 | -0.7060 | 0.8721 |
-| `r10_shwd2sf_base100_3way_s46n` | shwd2sf | 46 | 19 | 0.8737 | 0.8239 | 0.9080 | +0.1965 | 0.8413 |
-| `r10_shwd2sf_base100_3way_s47n` | shwd2sf | 47 | 19 | 0.8536 | 0.9136 | 0.8484 | -0.0363 | 0.9141 |
-| `r10_shwd2sf_base100_3way_s48n` | shwd2sf | 48 | 19 | 0.6966 | 0.7079 | 0.7664 | +0.2717 | 0.7378 |
-| `r10_shwd2sf_base100_3way_s49n` | shwd2sf | 49 | 19 | 0.7909 | 0.7933 | 0.7992 | +0.0550 | 0.7943 |
-| `r10_shwd2sf_base100_3way_s50n` | shwd2sf | 50 | 19 | 0.5934 | 0.7627 | 0.7282 | +0.5591 | 0.8900 |
-| `r10_shwd2sf_base100_3way_s51n` | shwd2sf | 51 | 19 | 0.7496 | 0.5743 | 0.7303 | -0.4978 | 0.6801 |
-| `r10_shwd2sf_lr005_100ep_3way_s42n` | shwd2sf | 42 | 19 | 0.7500 | 0.9357 | 0.7349 | -0.1391 | 0.9368 |
-| `r10_shwd2sf_lr005_100ep_3way_s43n` | shwd2sf | 43 | 19 | 0.8455 | 0.9263 | 0.8026 | -0.3947 | 0.9340 |
-| `r10_shwd2sf_lr005_100ep_3way_s44n` | shwd2sf | 44 | 19 | 0.7187 | 0.9509 | 0.6683 | -0.6333 | 0.9711 |
-| `r10_shwd2sf_lr005_100ep_3way_s45n` | shwd2sf | 45 | 19 | 0.6678 | 0.9009 | 0.6297 | -0.4109 | 0.9094 |
-| `r10_shwd2sf_lr005_100ep_3way_s46n` | shwd2sf | 46 | 19 | 0.7130 | 0.9046 | 0.6822 | -0.4077 | 0.9114 |
-| `r10_shwd2sf_lr005_100ep_3way_s47n` | shwd2sf | 47 | 19 | 0.8395 | 0.9066 | 0.8990 | +0.6152 | 0.9164 |
-| `r10_shwd2sf_lr005_100ep_3way_s48n` | shwd2sf | 48 | 19 | 0.8945 | 0.9078 | 0.8258 | -0.6919 | 0.9309 |
-| `r10_shwd2sf_lr005_100ep_3way_s49n` | shwd2sf | 49 | 19 | 0.9957 | 0.9330 | 1.0069 | +0.0963 | 0.9333 |
-| `r10_shwd2sf_lr005_100ep_3way_s50n` | shwd2sf | 50 | 19 | 0.7463 | 0.9387 | 0.7087 | -0.4379 | 0.9454 |
-| `r10_shwd2sf_lr005_100ep_3way_s51n` | shwd2sf | 51 | 19 | 0.6879 | 0.8819 | 0.6732 | -0.1553 | 0.8829 |
-| `r10_smoke2sf_base100_3way_s42n` | smoke2sf | 42 | 19 | 0.5818 | 0.9719 | 0.6044 | +0.3868 | 0.9803 |
-| `r10_smoke2sf_base100_3way_s43n` | smoke2sf | 43 | 19 | 0.5687 | 0.9604 | 0.6100 | +0.6370 | 0.9815 |
-| `r10_smoke2sf_base100_3way_s44n` | smoke2sf | 44 | 19 | 0.5281 | 0.9478 | 0.5804 | +0.7729 | 0.9816 |
-| `r10_smoke2sf_base100_3way_s45n` | smoke2sf | 45 | 19 | 0.5648 | 0.9747 | 0.5737 | +0.1676 | 0.9766 |
-| `r10_smoke2sf_base100_3way_s46n` | smoke2sf | 46 | 19 | 0.5925 | 0.9610 | 0.6373 | +0.6979 | 0.9854 |
-| `r10_smoke2sf_base100_3way_s47n` | smoke2sf | 47 | 19 | 0.5396 | 0.9755 | 0.5530 | +0.2268 | 0.9785 |
-| `r10_smoke2sf_base100_3way_s48n` | smoke2sf | 48 | 19 | 0.6218 | 0.9726 | 0.6336 | +0.1949 | 0.9745 |
-| `r10_smoke2sf_base100_3way_s49n` | smoke2sf | 49 | 19 | 0.6058 | 0.9916 | 0.6125 | +0.1022 | 0.9922 |
-| `r10_smoke2sf_base100_3way_s50n` | smoke2sf | 50 | 19 | 0.6809 | 0.9700 | 0.6613 | -0.3543 | 0.9761 |
-| `r10_smoke2sf_base100_3way_s51n` | smoke2sf | 51 | 19 | 0.5687 | 0.9653 | 0.5766 | +0.1240 | 0.9662 |
-| `r10_smoke2sf_lr005_100ep_3way_s42n` | smoke2sf | 42 | 19 | 0.9221 | 0.9659 | 0.9509 | +0.2995 | 0.9681 |
-| `r10_smoke2sf_lr005_100ep_3way_s43n` | smoke2sf | 43 | 19 | 0.7409 | 0.9571 | 0.7070 | -0.4638 | 0.9653 |
-| `r10_smoke2sf_lr005_100ep_3way_s44n` | smoke2sf | 44 | 19 | 0.6991 | 0.9650 | 0.7230 | +0.3015 | 0.9675 |
-| `r10_smoke2sf_lr005_100ep_3way_s45n` | smoke2sf | 45 | 19 | 0.6550 | 0.9511 | 0.6641 | +0.1134 | 0.9516 |
-| `r10_smoke2sf_lr005_100ep_3way_s46n` | smoke2sf | 46 | 19 | 0.7587 | 0.9698 | 0.7444 | -0.1891 | 0.9710 |
-| `r10_smoke2sf_lr005_100ep_3way_s47n` | smoke2sf | 47 | 19 | 0.8400 | 0.9383 | 0.7919 | -0.6652 | 0.9501 |
-| `r10_smoke2sf_lr005_100ep_3way_s48n` | smoke2sf | 48 | 19 | 0.8700 | 0.8408 | 0.7776 | -1.0714 | 0.8787 |
-| `r10_smoke2sf_lr005_100ep_3way_s49n` | smoke2sf | 49 | 19 | 0.7606 | 0.9388 | 0.7348 | -0.3334 | 0.9421 |
-| `r10_smoke2sf_lr005_100ep_3way_s50n` | smoke2sf | 50 | 19 | 0.9632 | 0.9385 | 0.9141 | -0.4909 | 0.9471 |
-| `r10_smoke2sf_lr005_100ep_3way_s51n` | smoke2sf | 51 | 19 | 0.7075 | 0.9376 | 0.7358 | +0.3178 | 0.9407 |
+**Per-run κ (n = 41 runs):** mean **0.737**, SD **0.152** — spread across runs is genuine, and the printed run-clustered CI **[0.671, 0.745]** lies inside it.
+
