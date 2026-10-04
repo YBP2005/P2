@@ -1,8 +1,8 @@
 path,sha256,bytes,description
-01_paper/P2_English_submission_blind_v1.md,36c94e1490ef4786fcae578f11c809ccf9661a6f9fd1b808f32cac4d4af0951a,79861,article (anonymised submission form)
-01_paper/P2_English_v0.1.md,0662b64b5dfeb5338f2da11ac35062754d6768d5fb83e764a4377f9a7fa835ff,81058,article (working form)
+01_paper/P2_English_submission_blind_v1.md,5f9c4facf5f69fa30df135b9c2e48a65e9e0526419994c0a44d80ea1008b4620,79945,article (anonymised submission form)
+01_paper/P2_English_v0.1.md,56ce50ecf0616a6d0d3980e2bc2373c2a4c38f8fb7cc709133274ee4ce9c965c,81142,article (working form)
 01_paper/P2_English_v0.1.pdf,78466139d4f13b2564d906641aadb5825fca9322916e8661da1715d08e35ba6e,890401,article PDF as built
-01_paper/P2_Supplementary_English_v0.1.md,5a8e2fb44e4f708391d736dc460aacfa4d2201c2a611a0d0fabff26d095b1015,308942,"supplementary material (English, authoritative artefact)"
+01_paper/P2_Supplementary_English_v0.1.md,700c872ace1b3ba5dfe9ce680d5a3336eda4ed94d13c94e09499af7698c596a5,310566,"supplementary material (English, authoritative artefact)"
 01_paper/P2_Supplementary_English_v0.1.pdf,e2e8207996672793328db5d00a15e014826a282d3cbc889d51a809018a5c6eed,5887837,supplementary PDF as built
 01_paper/P2_投稿前件_v0.1.md,e62d8ede3f3013b2bbd957637d141dd88f26f6dd74948269e7f33b22b9750235,33853,submission front matter (author names still placeholders): the anchor audit reads its Highlights and Cover Letter sections (X47/X48) so that the 289-anchor claim holds inside the package
 01_paper/P2_补充材料.md,c4ebb7d01f852038b96d02c0fab9bc517ec3c5581e526162e35d3971a0fedd02,51805,supplementary material (Chinese source record)
@@ -77,7 +77,7 @@ path,sha256,bytes,description
 04_verification/audit_panel_integrity_20260917.py,328df5f9f02257459e282db24117ee80902970b80cc0dbc3aab6dd2d9f8d601e,8334,panel-integrity audit
 04_verification/gen_round_stages_20260917.py,18fe4c30d2ed385cf5afbd5dac12f88657d7cb41dcf5ddd8a1fcdc2a0291fe2c,6822,builds the change-attribution record
 04_verification/measure_pages_pr_official_20260920.py,5ed6428af07af4841745a6cd5366474ffedfe57677a953a8b8be0825b2ef35a2,7786,page count in the venue geometry
-04_verification/measurement_official.json,e48cacca998f05520acc98bcca5e881764d7b5637f2354a5941ceb8bb104aad1,1656,page measurement + positive control
+04_verification/measurement_official.json,34045212c4f631151bfe2d30cc6b00905711b72b27d26e5208d89d62bbf1fca7,1656,page measurement + positive control
 04_verification/prelaunch_cite_guard_20260920.py,e60ad9ab62daaf1a53b83eeed39ea7a5f428d3e26d043784fd76227161b97283,2931,first-mention citation guard
 04_verification/remeasure_official_20260920.py,f7e186c7d24b5d2bb0c93f4eefa4f11d2519f893f4ac7962be2b3f7dd4133084,6050,page count with its positive control
 04_verification/round_stages_20260917.json,c169779d69d8b98f47ea093e1cc54349780594f87762c235f2a66cdd3db6e5b2,282134,the recorded per-round attribution of every numeric change
@@ -330,7 +330,7 @@ work/x3b_perepoch_corrected_20260918.py,69c8a5ced19bf111b34d6a31a311fe10e466263f
 02_release_data/xeval_perepoch_20260918/x3.DONE,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,0,Table 4 recompute-chain input (C01)
 02_release_data/xeval_perepoch_20260918/xeval_perepoch.log,79c436ce050e2fc72723d19618a6c67c6ea84cd5696a91f147cb73aa98a2482b,1942061,Table 4 recompute-chain input (C01)
 work/item2_final_v2_20260925.py,9edcf49a53565c8d9a0dc6d84d77c7cca0ba9103ec21423da013b5e7cced208f,7856,Table 4 rate: root-relative paths (C01/C05)
-README.md,3f383c41315b8082f3b17b9ca4f2b709b263777855f008c028c48ab25f00e4c6,10160,hand-written package documentation
+README.md,29c6cefac42784d9733a70bbf3dfc257f3038cc682fd9eca980a58534627fe34,10160,hand-written package documentation
 02_release_data/t1d_valext_20261002/README.md,6ce17006a2d536273695ea6100fc52c5388aae331ddc1372ce3b3929513e9992,1603,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
 02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s42n/results.csv,b499828a720c9a67e3f1f431fbe9a9ec18836157caf53a9a387de3de10b048b3,12118,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
 02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s42n/results_A.csv,b499828a720c9a67e3f1f431fbe9a9ec18836157caf53a9a387de3de10b048b3,12118,T1-d val extension (r9 review remediation: the three curves the supplement says ship)

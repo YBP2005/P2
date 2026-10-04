@@ -667,8 +667,8 @@ The strength of every statement in the main text is distinguished accordingly.
 | **Table S12** | 6.2 "Same directory" has four levels, and the audit reported only the narrowest | Level, Rows, Meaning | 4 |
 | **Table S13** | 6.3 We do **not** reproduce the original audit's two numbers, and we say why | Audit's number, Our recomputation, Reason | 3 |
 | **Table S14** | 6.5 Across frameworks: is the convention specific to YOLO? | Framework (pinned commit), Split the reported metric comes from, Also used for selection?, Status of an independent "test" | 6 |
-| **Table S15** | 7.2 Both conventions become significant only at n ≥ 6 | Cell, n, Δ, paired t p, permutation p (n = 10 floor 0.001953), seeds positive | 2 |
-| **Table S16** | 7.3 A cross-archive endpoint conflict on the same run (investigated — and itself a disclosure) | Reading, Δ, p | 2 |
+| **Table S15** | 7.2 Significance first appears at n = 6 | Cell, n, Δ, paired t p, permutation p (n = 10 floor 0.001953), seeds positive | 2 |
+| **Table S16** | 7.3 A cross-archive endpoint conflict on the same run (investigated — and itself a disclosure) | Reading, Δ, p | 3 |
 | **Table S17** | 8.1 The protocol is the companion's; the measurement under it is this paper's | Cell, clean protocol (n = 10), published (old protocol) | 2 |
 | **Table S18** | 8.3 ⭐ A direct measurement of selection inflation | Cell, n = 6, n = 9, change | 2 |
 | **Table S19** | 8.4 The three variance components: the excluded one is the smaller in this sample | Source, What was varied, Magnitude | 3 |
@@ -888,9 +888,9 @@ The strength of every statement in the main text is distinguished accordingly.
 
 > **Correction (2026-10-04, and a defect of our instrument).** The MMDetection row above was first written as "the base config has **no** test split at all". That is **false**: at the pinned commit, `configs/_base_/datasets/coco_detection.py` lines **65** and **73** read `test_dataloader = val_dataloader` and `test_evaluator = val_evaluator`. The extraction behind this table (`work/analyze_xframe_20260916.py`) searched only for `val_*` keys, so the `test_*` keys were **absent from the evidence file rather than absent from the config**. The corrected reading is **stronger for the article's claim**: the key exists but is bound to the validation object — an **alias, not an independent split**. On the same day the other rows were re-checked against the pinned sources and stand (YOLOX: `test_ann` used only when `testdev=True`, `yolox/exp/yolox_base.py` 301/306/307; PaddleDetection: `if validate and is_snapshot:` in `ppdet/engine/trainer.py` 694 with `status['save_best_model'] = True` at 721).
 
-### Table S15 — moved from *7.2 Both conventions become significant only at n ≥ 6*
+### Table S15 — moved from *7.2 Significance first appears at n = 6*
 
-**Table S15.** *7.2 Both conventions become significant only at n ≥ 6* — columns: Cell, n, Δ, paired t p, permutation p (n = 10 floor 0.001953), seeds positive.
+**Table S15.** *7.2 Significance first appears at n = 6* — columns: Cell, n, Δ, paired t p, permutation p (n = 10 floor 0.001953), seeds positive.
 
 | Cell | n | Δ | paired t p | permutation p (n = 10 floor 0.001953) | seeds positive |
 |---|---|---|---|---|---|
@@ -986,9 +986,9 @@ The strength of every statement in the main text is distinguished accordingly.
 
 
 
-### Table S20b — the sixth arm-cell (`aitod20` baseline) **per run**, so its rate can be re-derived
+### Table S20b — the `aitod20` **baseline** arm-cell (Table 4's fifth row) **per run**, so its rate can be re-derived
 
-**Table S20b.** *8.6 (the sixth row of Table 4)* — the per-run readings behind the `aitod20` baseline cell, printed because the article now carries that row. Source: `item2_aitod20_n10_最终_20260925.csv` (the completed n = 10 measurement); the n = 1 predecessor is left standing verbatim in §S4.
+**Table S20b.** *8.6 (Table 4's **fifth** row, the `aitod20` **baseline**)* — the per-run readings behind that cell; its companion for the **sixth** row is **Table S20c** below. Source: `item2_aitod20_n10_最终_20260925.csv` (the completed n = 10 measurement); the n = 1 predecessor is left standing verbatim in §S4.
 
 | run | seed | `prem_val` | `prem_test` | per-run realization rate |
 |---|---|---:|---:|---:|
@@ -1004,6 +1004,27 @@ The strength of every statement in the main text is distinguished accordingly.
 | `r10_aitod20_base30_3way_s51n` | 51 | +0.2690 | +0.0552 | +20.5 % |
 
 > **Reproduction.** These ten rows give `prem_val` **+0.7670 pp** and `prem_test` **-0.2175 pp**, i.e. the cell as **Table 4** prints it (**+0.766 / -0.218**) to **0.001 pp**; the run-weighted rate is **-28.36 %** (the printed **−28 %** is that ratio rounded). **8 of the 10 runs are negative** and the per-run rate spans **-100.3 % to +20.5 %** — this cell is the reason the article calls the rate *not a constant*, and the reason it is **outside the frozen five-cell headline pool** whose median and run-weighted rate §8.6 reports.
+
+
+### Table S20c — the sixth arm-cell (`aitod20` **strategy**) per run
+
+**Table S20c.** *8.6* — the per-run readings behind the **sixth** row of Table 4 (the `aitod20` **strategy** arm), the cell whose pool membership is discussed in §8.6. Source: `g6_prem_per_run.csv` (the released 140-run per-run file, `prem_test` = `T_best − T_final` as Table 4 defines it). Rows are the ten seeds 42–51.
+
+| run | seed | `prem_val` | `prem_test` | per-run realization rate |
+|---|---|---:|---:|---:|
+| `r10_aitod20_lr005_30ep_3way_s42n` | 42 | +0.4500 | -0.8953 | -199.0 % |
+| `r10_aitod20_lr005_30ep_3way_s43n` | 43 | +0.3410 | -0.4488 | -131.6 % |
+| `r10_aitod20_lr005_30ep_3way_s44n` | 44 | +0.0000 | +0.0000 | +nan % |
+| `r10_aitod20_lr005_30ep_3way_s45n` | 45 | +0.3760 | -1.2383 | -329.3 % |
+| `r10_aitod20_lr005_30ep_3way_s46n` | 46 | +1.9340 | +0.2805 | +14.5 % |
+| `r10_aitod20_lr005_30ep_3way_s47n` | 47 | +1.4560 | -0.8829 | -60.6 % |
+| `r10_aitod20_lr005_30ep_3way_s48n` | 48 | +0.8280 | -0.0041 | -0.5 % |
+| `r10_aitod20_lr005_30ep_3way_s49n` | 49 | +1.2450 | -0.9036 | -72.6 % |
+| `r10_aitod20_lr005_30ep_3way_s50n` | 50 | +3.1230 | -0.5097 | -16.3 % |
+| `r10_aitod20_lr005_30ep_3way_s51n` | 51 | +1.3560 | -0.8301 | -61.2 % |
+
+> **Reproduction.** These ten rows give `prem_val` **+11.1090 pp** and `prem_test` **-5.4323 pp** ⇒ run-weighted rate **-48.90 %** (the **−49 %** of Table 4 is that ratio rounded). Adding this cell to the five-cell pool is the **stated sensitivity** of §8.6 (run-weighted **23.3 % → 8.7 %**, median **+17.6 % → −4.2 %**), and the six-cell cluster interval **[−4.9 %, +21.3 %]** still covers zero.
+
 
 ### Table S21 — moved from *8.7 The per-epoch view: the realization rate is not a constant*
 
@@ -2304,7 +2325,7 @@ the test value of the **selected** checkpoint — supplying it means re-running 
 
 ---
 
-### 7.2 Both conventions become significant only at n ≥ 6 — measurement detail
+### 7.2 Significance first appears at n = 6 — measurement detail
 The clean-protocol seed extension (seeds 42–51) reaches **n = 10**:
 
 > **Table S15** → Supplementary §S8.
@@ -2564,7 +2585,7 @@ P(rate ≤ 0) = **0.002**.
 up to **0.083 pp**: the selection action and the readout action can differ; the earlier attribution to a `best.pt` selection rule other than mAP50-95 is **withdrawn** — in the pinned v8.4.120 `fitness ≡ mAP50-95` on the monitored split — and the residual is recorded as **unidentified**. `last.pt`'s val recomputation differs from the final `results.csv` row
 by **~0.02 pp**.
 
-**The closest concurrent work, moved out of the article.** The article's §8.6 no longer carries this comparison; it is recorded here. **[14]** splits selection leakage into diversity and noise over **2,047** tabular classification datasets (the noise share is reported, the non-tabular case is undone). **[12]** measures checkpoint selection raising a reported score by **6.24 pp** on EEG when the candidate set grows from **5 to 80** — and, in the same table, **−1.24 pp** (95 % interval **−2.67 to 0.26**) on its other pool, so **its own sign does not reproduce across its two pools**. This paper instead uses **our own five arm-cells**, reports a **ratio**, on **detection**, with **measured `val` noise** as moderator (the third-party logs of §5.5 corroborate the same component, but they carry no `test` side and so cannot form this ratio). **No number left the paper when this paragraph moved**: every value above is the article's former wording.
+**The closest concurrent work, moved out of the article.** The article's §8.6 no longer carries this comparison; it is recorded here. **[15]** splits selection leakage into diversity and noise over **2,047** tabular classification datasets (the noise share is reported, the non-tabular case is undone). **[12]** measures checkpoint selection raising a reported score by **6.24 pp** on EEG when the candidate set grows from **5 to 80** — and, in the same table, **−1.24 pp** (95 % interval **−2.67 to 0.26**) on its other pool, so **its own sign does not reproduce across its two pools**. This paper instead uses **our own five arm-cells**, reports a **ratio**, on **detection**, with **measured `val` noise** as moderator (the third-party logs of §5.5 corroborate the same component, but they carry no `test` side and so cannot form this ratio). **No number left the paper when this paragraph moved**: every value above is the article's former wording.
 
 ### 8.6b The eleven arm-cells with both sides measured: a batch-stratified re-aggregation, no new training
 
