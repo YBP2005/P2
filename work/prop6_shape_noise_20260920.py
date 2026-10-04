@@ -14,6 +14,19 @@ import os
 import re
 import sys
 
+# ★ r205 发布卫生修正：**不得在发布件里写明文口令**。
+#   本脚本原先把集群口令硬编码在 `password=` 里；改为从环境变量读取（不存在时给出可执行的报错，
+#   而不是回落到硬编码值）。变量：`P2_GPU_HOST` / `P2_GPU_PORT` / `P2_GPU_USER` / `P2_GPU_PASSWORD`。
+import os as _os
+
+
+def _cluster_creds(default_host, default_port):
+    pw = _os.environ.get('P2_GPU_PASSWORD')
+    if not pw:
+        raise SystemExit('!! 需要口令：请设环境变量 P2_GPU_PASSWORD（发布件不再内置凭据）。')
+    return (_os.environ.get('P2_GPU_HOST', default_host),
+            int(_os.environ.get('P2_GPU_PORT', default_port)),
+            _os.environ.get('P2_GPU_USER', 'root'), pw)
 import numpy as np
 import paramiko
 
@@ -34,8 +47,8 @@ def pull():
     os.makedirs(d, exist_ok=True)
     c = paramiko.SSHClient()
     c.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    c.connect('cpod-1uearmsfxbj2.podtcp.compshare.cn', port=25046, username='root',
-              password='26jA953OMo708IEX', timeout=40)
+    _h, _p, _u, _pw = _cluster_creds('cpod-1uearmsfxbj2.podtcp.compshare.cn', 25046)
+    c.connect(_h, port=_p, username=_u, password=_pw, timeout=40)
     sftp = c.open_sftp()
     runs = [l.strip().split('/')[-1] for l in
             c.exec_command('ls -d /workspace/runs/g3ext_*')[1].read().decode().splitlines()]

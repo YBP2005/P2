@@ -17,6 +17,19 @@ import io
 import os
 import sys
 
+# ★ r205 发布卫生修正：**不得在发布件里写明文口令**。
+#   本脚本原先把集群口令硬编码在 `password=` 里；改为从环境变量读取（不存在时给出可执行的报错，
+#   而不是回落到硬编码值）。变量：`P2_GPU_HOST` / `P2_GPU_PORT` / `P2_GPU_USER` / `P2_GPU_PASSWORD`。
+import os as _os
+
+
+def _cluster_creds(default_host, default_port):
+    pw = _os.environ.get('P2_GPU_PASSWORD')
+    if not pw:
+        raise SystemExit('!! 需要口令：请设环境变量 P2_GPU_PASSWORD（发布件不再内置凭据）。')
+    return (_os.environ.get('P2_GPU_HOST', default_host),
+            int(_os.environ.get('P2_GPU_PORT', default_port)),
+            _os.environ.get('P2_GPU_USER', 'root'), pw)
 import numpy as np
 import paramiko
 from scipy import stats
@@ -24,7 +37,8 @@ from scipy import stats
 sys.stdout.reconfigure(encoding='utf-8')
 W = r'E:\workplace'
 COL = 'metrics/mAP50-95(B)'
-A = dict(h='cpod-1u20pv1vhj4v.podtcp.compshare.cn', p=24581, pw='vW3M9J2V5f78O4H6')
+_h, _p, _u, _pw = _cluster_creds('cpod-1u20pv1vhj4v.podtcp.compshare.cn', 24581)
+A = dict(h=_h, p=_p, pw=_pw)
 OUT = os.path.join(W, 'work', 'g1p_verdict_20260919.txt')
 L = []
 

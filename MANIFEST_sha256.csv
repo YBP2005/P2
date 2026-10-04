@@ -1,87 +1,87 @@
 path,sha256,bytes,description
-01_paper/P2_English_submission_blind_v1.md,28462d1197f275b3265cf8c1123aa619dcc8c195da668d1a0570e45911b6a5a8,79967,"article (anonymised submission form)"
-01_paper/P2_English_v0.1.md,a402d92078d6933e2afd34d50abed0e7a9c0c9a18e701326c459ab675fae4543,81197,"article (working form)"
-01_paper/P2_English_v0.1.pdf,78466139d4f13b2564d906641aadb5825fca9322916e8661da1715d08e35ba6e,890401,"article PDF as built"
-01_paper/P2_Supplementary_English_v0.1.md,7e3ef0d9436f7b58b6265f80dbed4d30b65dcf4330b4cefd2bc841880c6d28e0,291372,"supplementary material (English, authoritative artefact)"
-01_paper/P2_Supplementary_English_v0.1.pdf,d02d3d736d432960658c9c729620d58e3a4851680d5b9c87e9f61ad6c3213a65,5862473,"supplementary PDF as built"
-01_paper/P2_投稿前件_v0.1.md,cc1e5baadd18ec2e9299cde540b50fe3cec9dc8330b31a55b442b35a2ddceed8,33867,"submission front matter (author names still placeholders): the anchor audit reads its Highlights and Cover Letter sections (X47/X48) so that the 289-anchor claim holds inside the package"
-01_paper/P2_补充材料.md,c4ebb7d01f852038b96d02c0fab9bc517ec3c5581e526162e35d3971a0fedd02,51805,"supplementary material (Chinese source record)"
-01_paper/PR形式要求_核实_20260917.md,1910d8527859894be61c7aacf4822f70c20aaac5e59bea50d8948da433fdafc8,5035,"the journal-forms verification record: the anchor audit reads its source correction (X45/X46)"
+01_paper/P2_English_submission_blind_v1.md,c7960cac3d6cb5387a3268080f32022a704b006eff9ea491526cae0e6dbf51d8,79951,article (anonymised submission form)
+01_paper/P2_English_v0.1.md,a402d92078d6933e2afd34d50abed0e7a9c0c9a18e701326c459ab675fae4543,81197,article (working form)
+01_paper/P2_English_v0.1.pdf,78466139d4f13b2564d906641aadb5825fca9322916e8661da1715d08e35ba6e,890401,article PDF as built
+01_paper/P2_Supplementary_English_v0.1.md,1b3267a6a282afacb95d7a720ada2fa89aed3e9fc104674b36fef14e3d49d9fb,296120,"supplementary material (English, authoritative artefact)"
+01_paper/P2_Supplementary_English_v0.1.pdf,e2e8207996672793328db5d00a15e014826a282d3cbc889d51a809018a5c6eed,5887837,supplementary PDF as built
+01_paper/P2_投稿前件_v0.1.md,cc1e5baadd18ec2e9299cde540b50fe3cec9dc8330b31a55b442b35a2ddceed8,33867,submission front matter (author names still placeholders): the anchor audit reads its Highlights and Cover Letter sections (X47/X48) so that the 289-anchor claim holds inside the package
+01_paper/P2_补充材料.md,c4ebb7d01f852038b96d02c0fab9bc517ec3c5581e526162e35d3971a0fedd02,51805,supplementary material (Chinese source record)
+01_paper/PR形式要求_核实_20260917.md,1910d8527859894be61c7aacf4822f70c20aaac5e59bea50d8948da433fdafc8,5035,the journal-forms verification record: the anchor audit reads its source correction (X45/X46)
 01_paper/figures/fig6_graphical_abstract.png,3abca737e5802a6cc658dbdd5ab665fc48674a0652064df264fcf3e43da4e2d3,111922,"the graphical abstract, for the size anchor X49 (>=1328x531 px)"
-01_paper/评测有效性稿_正文_v0.1.md,9a242279401b81a1ec38b3a39346c092d2aaf76dc7cb0e0fd28c4d314a83b515,94916,"governing Chinese draft"
-02_release_data/FIGURES.md,b7b66597db46e73a1413aa6a46be354d3966cb86e8e405936cf6e160c9f6bad7,1229,"named in the article/supplement: figures/FIGURES.md"
+01_paper/评测有效性稿_正文_v0.1.md,9a242279401b81a1ec38b3a39346c092d2aaf76dc7cb0e0fd28c4d314a83b515,94916,governing Chinese draft
+02_release_data/FIGURES.md,b7b66597db46e73a1413aa6a46be354d3966cb86e8e405936cf6e160c9f6bad7,1229,named in the article/supplement: figures/FIGURES.md
 02_release_data/P2_T1_registered-replication_long.csv,d5abe4766389e62f2c902eb27bbac2a95b0b12c98dab9163dd0eca7f347a0c0d,52105,"the 90-run registered replication, long form (§9)"
-02_release_data/P2_X3_perepoch_test-sweep_806-evals.csv,b75c534509d8a62e004baa00b5d7ef587eace34a0bf4a5e48c8fe13dc58a9c99,140886,"the 806-checkpoint per-epoch sweep (§8.7)"
-02_release_data/SHA256SUMS.txt,b27c0d0bd9b3fae91d02e0a0e18392413d68fea3d740f95c0073e926def72a2f,10643,"named in the article/supplement: SHA256SUMS.txt"
-02_release_data/_clean_series_b_20260925.txt,b9518e6ea7d897d6c6294057899c1e6fbba98ef6d809e03185b4158b4200bce6,6516,"named in the article/supplement: work/_clean_series_b_20260925.txt"
-02_release_data/_r10_final_stats.txt,85e7860a6c85ed851335eca4ea14f2bac0affdedc481eb9f6fa654ea877429ca,9088,"r10 final statistics (§9.4)"
-02_release_data/_r10_stats_0403.txt,6de96a823b4134b6fc50266ff8b394af5c618164ef9faf028827f93b5b66ef5c,12556,"r10 three-way statistics (§9.4)"
-02_release_data/benchmark_split_audit.md,12601fc8fd23a54956c4704fa2e048a648a0c1f2fec5b1f552a0efb820d7f533,68635,"named in the article/supplement: benchmark_split_audit.md"
-02_release_data/check_seed_convention.py,c8cef08fb87c7868d1263f508d3dac4731a4076df1a1eb271afa8ddc2ba11bc7,3658,"seed-convention check (§9) — the script that produced the verified claim"
-02_release_data/coding_manual_19x4_20260927.md,028a1b90d33f198c4376c328c6c794f2a9326c3fcd41966cc9eae7c6c7c6b080,10844,"named in the article/supplement: work/coding_manual_19x4_20260927.md"
+02_release_data/P2_X3_perepoch_test-sweep_806-evals.csv,b75c534509d8a62e004baa00b5d7ef587eace34a0bf4a5e48c8fe13dc58a9c99,140886,the 806-checkpoint per-epoch sweep (§8.7)
+02_release_data/SHA256SUMS.txt,b27c0d0bd9b3fae91d02e0a0e18392413d68fea3d740f95c0073e926def72a2f,10643,named in the article/supplement: SHA256SUMS.txt
+02_release_data/_clean_series_b_20260925.txt,b9518e6ea7d897d6c6294057899c1e6fbba98ef6d809e03185b4158b4200bce6,6516,named in the article/supplement: work/_clean_series_b_20260925.txt
+02_release_data/_r10_final_stats.txt,85e7860a6c85ed851335eca4ea14f2bac0affdedc481eb9f6fa654ea877429ca,9088,r10 final statistics (§9.4)
+02_release_data/_r10_stats_0403.txt,6de96a823b4134b6fc50266ff8b394af5c618164ef9faf028827f93b5b66ef5c,12556,r10 three-way statistics (§9.4)
+02_release_data/benchmark_split_audit.md,12601fc8fd23a54956c4704fa2e048a648a0c1f2fec5b1f552a0efb820d7f533,68635,named in the article/supplement: benchmark_split_audit.md
+02_release_data/check_seed_convention.py,c8cef08fb87c7868d1263f508d3dac4731a4076df1a1eb271afa8ddc2ba11bc7,3658,seed-convention check (§9) — the script that produced the verified claim
+02_release_data/coding_manual_19x4_20260927.md,028a1b90d33f198c4376c328c6c794f2a9326c3fcd41966cc9eae7c6c7c6b080,10844,named in the article/supplement: work/coding_manual_19x4_20260927.md
 02_release_data/curve.csv,c81ef91d20ed73fc7c8b2677610ba301fe44e47cf5fe23115c8f0ffc6eb0adb6,14844,"the per-epoch curve (κ, transfer rate)"
-02_release_data/g1p_verdict_20260919.txt,83cd80998c9c6b6fff4919155ced736179317820389138cf137c8b572d0b2d92,1973,"G1' verdict (§13.1)"
+02_release_data/g1p_verdict_20260919.txt,83cd80998c9c6b6fff4919155ced736179317820389138cf137c8b572d0b2d92,1973,G1' verdict (§13.1)
 02_release_data/g1pp_g3_g4_verdicts_20260919.txt,e6a8c19279144402c50ce5ed40f75098f74d0aab131d110fd17e9db9ceeac75c,3607,"G1″, G3, G4 verdicts (§13.1)"
-02_release_data/g2_and_g1p_verdict_20260919.txt,078c870550e59068acbe8b47517568c4f35bda747a56e2817feb308deb3208cb,6644,"G2 + G1-prime verdict (§13.1)"
-02_release_data/g2_test.csv,c5f082aaad5d94058f8b088cbc60f679a2429a6f230c82cc2daae2027eb0d61b,3406,"named in the article/supplement: g2t_g1p_20260919/g2_test.csv"
-02_release_data/g3ext_verdict_20260919.txt,60c209f2562862db333b7034c386e2083c82368e594fb6ddd6be109d3d94d5c3,949,"E = 50/400 extension verdicts (§13.1)"
-02_release_data/g4_mende3way_20260919_g4_test.csv,239a502a2ce13d9358c48ef4ae0f12169851fc79062a024df06657054d1caba7,2355,"named in the article/supplement: g4_mende3way_20260919_g4_test.csv"
-02_release_data/g6_perepoch_test_curves.csv,4bf8512a6c53cb8e3c03cd8ebf0fd75a57ec7101a23f53f2736781448f8ae025,291912,"named in the article/supplement: g6_perepoch_test_curves.csv"
-02_release_data/g6_prem_per_run.csv,964c576e404f6550fdb1854560b1eede8c91b2a8845626b346947551fb3f0f52,26941,"named in the article/supplement: g6_prem_per_run.csv"
-02_release_data/gap_mechanism_20260916.txt,197022c93465d3e32f6485188d3742a1bddec396b9e3731738b9fdad494b43f7,7486,"named in the article/supplement: gap_mechanism_20260916.txt"
-02_release_data/kappa_computed_20260927.txt,073bb3eb39e9f348e145cfa5785a664bf74912a8ddc8f4e3c448f797c6296c9f,4139,"named in the article/supplement: work/kappa_computed_20260927.txt"
-02_release_data/kappa_g8_20260929.txt,469947e417f99c582a4850fd06bec0ddfdbbfeda5b6932555d78d52424d0e1cc,4051,"named in the article/supplement: kappa_g8_20260929.txt"
-02_release_data/kappa_g8_primary_20261001.txt,66fc4504de405405f6deda5c06a661f49d5034349d0a0edbf5073e5f9f5d6448,3979,"named in the article/supplement: kappa_g8_primary_20261001.txt"
-02_release_data/kappa_summary_20260927.md,fbc1ba8ae0df25f45dc837c00c3977aea0f0c0513cb411dd0f69c32fe239093e,10246,"named in the article/supplement: work/kappa_summary_20260927.md"
+02_release_data/g2_and_g1p_verdict_20260919.txt,078c870550e59068acbe8b47517568c4f35bda747a56e2817feb308deb3208cb,6644,G2 + G1-prime verdict (§13.1)
+02_release_data/g2_test.csv,c5f082aaad5d94058f8b088cbc60f679a2429a6f230c82cc2daae2027eb0d61b,3406,named in the article/supplement: g2t_g1p_20260919/g2_test.csv
+02_release_data/g3ext_verdict_20260919.txt,60c209f2562862db333b7034c386e2083c82368e594fb6ddd6be109d3d94d5c3,949,E = 50/400 extension verdicts (§13.1)
+02_release_data/g4_mende3way_20260919_g4_test.csv,239a502a2ce13d9358c48ef4ae0f12169851fc79062a024df06657054d1caba7,2355,named in the article/supplement: g4_mende3way_20260919_g4_test.csv
+02_release_data/g6_perepoch_test_curves.csv,4bf8512a6c53cb8e3c03cd8ebf0fd75a57ec7101a23f53f2736781448f8ae025,291912,named in the article/supplement: g6_perepoch_test_curves.csv
+02_release_data/g6_prem_per_run.csv,964c576e404f6550fdb1854560b1eede8c91b2a8845626b346947551fb3f0f52,26941,named in the article/supplement: g6_prem_per_run.csv
+02_release_data/gap_mechanism_20260916.txt,197022c93465d3e32f6485188d3742a1bddec396b9e3731738b9fdad494b43f7,7486,named in the article/supplement: gap_mechanism_20260916.txt
+02_release_data/kappa_computed_20260927.txt,073bb3eb39e9f348e145cfa5785a664bf74912a8ddc8f4e3c448f797c6296c9f,4139,named in the article/supplement: work/kappa_computed_20260927.txt
+02_release_data/kappa_g8_20260929.txt,469947e417f99c582a4850fd06bec0ddfdbbfeda5b6932555d78d52424d0e1cc,4051,named in the article/supplement: kappa_g8_20260929.txt
+02_release_data/kappa_g8_primary_20261001.txt,66fc4504de405405f6deda5c06a661f49d5034349d0a0edbf5073e5f9f5d6448,3979,named in the article/supplement: kappa_g8_primary_20261001.txt
+02_release_data/kappa_summary_20260927.md,fbc1ba8ae0df25f45dc837c00c3977aea0f0c0513cb411dd0f69c32fe239093e,10246,named in the article/supplement: work/kappa_summary_20260927.md
 02_release_data/matrix.csv,77970d01a3b860aee107d1bcd75c88dd16ab1bd7271ff63f8ac0eedc3fd8ba34,13074,"the 2x2 evaluation matrix per arm-cell (§8.6, Table 4)"
 02_release_data/matrix_perepoch.csv,a1765d1467431e98062a640a8cb7240e5a0afc411801ff44605c757edf71a070,65637,"per-epoch (val,test) matrix; the 806 rows of §8.7"
-02_release_data/perepoch_file_list.txt,c1ef78e2f0fc6de872cc892ee7d8d33784e520c8b295dd47ac9794e74887e23b,86,"SHA-256 list of the per-epoch (806-checkpoint) evaluation"
-02_release_data/release_G1_replication_20261002.csv,c2c3477dc096b10b039cf0219b53e00a07a097ee639cc7be4eec386c33d8c712,1355,"G1: second-machine pre-registered replication of the aitod20 strategy arm (2026-10-02)"
-02_release_data/release_G1p_AB-half-level-match.csv,c85c99fb889db736cff30169d11d9caf0cb734e5e7e7999585f3bb48cf2c650e,3934,"named in the article/supplement: release_G1p_AB-half-level-match.csv"
-02_release_data/release_G1pp_thirds_levels.csv,f42e811f986dd01234090b93128811ac807dce30b3afc6e08ca0ad2962267671,265,"named in the article/supplement: release_G1pp_thirds_levels.csv"
-02_release_data/release_G2_selection-split-size_summary.csv,7ea387e65d8511526dc6ae03b5e931bec35e8055d0c33779711551c7ce9b5d92,1044,"named in the article/supplement: release_G2_selection-split-size_summary.csv"
-02_release_data/release_G3_epoch-budget_summary.csv,88d0444b89043048d0e660a1e3cb2b7a185af6e36ddd7f643522493d86c87b1c,550,"named in the article/supplement: release_G3_epoch-budget_summary.csv"
-02_release_data/release_G3ext_E50-400_perrun.csv,ff9e0ba7dea2928b0667e7845d27dd7dd35d6831d6c4047e95ca049a8aa546ae,2539,"named in the article/supplement: release_G3ext_E50-400_perrun.csv"
-02_release_data/release_G4_mende20_3way_perseed.csv,75dd8d53b8e767a87a05decab1fe02cc8d7039623b2d581dfe320989939e53bc,4967,"named in the article/supplement: release_G4_mende20_3way_perseed.csv"
-02_release_data/release_T1_registered-replication_summary.csv,cb52bc69824988b21999913ae0bd67a15b49570a28964ea37bf6d6508ce68032,2639,"named in the article/supplement: release_T1_registered-replication_summary.csv"
-02_release_data/release_T2_saturated-control_summary.csv,42082a4f58a192674e4705324e81fb5d7e5dfde3ed402178781b3897bef55a2e,543,"named in the article/supplement: release_T2_saturated-control_summary.csv"
-02_release_data/release_X1_tier2_best-last_summary.csv,c8299ac8f4eda33fd63d76bd6ffa1232b4c801963e94fa21fbb9884b08335b8f,425,"named in the article/supplement: release_X1_tier2_best-last_summary.csv"
-02_release_data/release_selection-transfer_perseed.csv,fd2875fb29ebbd034f32895bc3ef49d4bfd164108ba4b72e25d08b327d014fbe,5403,"named in the article/supplement: release_selection-transfer_perseed.csv"
-02_release_data/release_selection-transfer_shape-share.csv,c3d741929a1d8376646f42c5e709b940e702d15b3e54bf1ecc3ef56f0696eb94,259,"named in the article/supplement: release_selection-transfer_shape-share.csv"
-02_release_data/release_shape-noise-by-budget.csv,bc9f7056473e2c18a48f2cdb2e96719553435037edc2e64679df06b58c077475,1974,"named in the article/supplement: release_shape-noise-by-budget.csv"
-02_release_data/second_coding_20260927.csv,8f236b70a506fba5008526b97fedef7fe844893dfa6bfab784ff624e6bd10e0a,8205,"named in the article/supplement: work/second_coding_20260927.csv"
-02_release_data/selection_premium_local.py,d7abdaca97a090d78c375ef7dd524717e945c87377e0aa2cf0b4fa5798513f2f,5549,"the script that produced the 569-run reading"
-02_release_data/selection_premium_local_20260916.txt,89082c23beb83101b61be9ea664a6e4126a0dab5a9e94753a30056255ddc65d7,2470,"the 569 published runs behind §5 (primary evidence of the selection premium)"
-02_release_data/selection_premium_public_20260916.md,c283b1a4652fe64040751a78a139faff782656c68029d837e65052acfbefafcd,9479,"named in the article/supplement: selection_premium_public_20260916.md"
-02_release_data/sio_b_file_list.txt,b27c0d0bd9b3fae91d02e0a0e18392413d68fea3d740f95c0073e926def72a2f,10643,"SHA-256 list of the 84 archived files of §5.6"
-02_release_data/sio_b_results.csv,9bb4f3b2f695a1eca25ebbda947682aba0ce8e7dd8d724f1795352fea8ae8c7c,29832,"the archived sio_b readout that §5.6 reproduces to 0.0046 pp (same md5 as the author-side copy)"
-02_release_data/split_units_19rows_20260916.md,6ba7334d77d1d7b900b65020deeaf5877f336e915f9f04850c7bbdf54ca08fac,5805,"named in the article/supplement: split_units_19rows_20260916.md"
-02_release_data/split_units_recompute_20260916.txt,775bde5dcf9437b64bad76c1c0f209468fc883931211cc4333794f265d145d2f,11383,"named in the article/supplement: analysis/eval_validity/split_units_recompute_20260916.txt"
-02_release_data/theory_p3a_correct_20260919.txt,c9690e325d4cdc74777ccdc58a5af78b9f44832e9fa4e1324a5bb84070f0a779,2482,"perturbation analysis (§13 Prop. 3)"
-02_release_data/theory_p4_test_20260919.txt,9d94a12106a1a8b0276a9cfd8b77a4351ede6dd553c1898e3f9267c7ed01aceb,1808,"the withdrawn σ√(2 ln E) regression (§13 Prop. 4)"
-02_release_data/verify_two_critiques_20260916.py,91e35c9327ef5633e7902a9b2df8a88ed346a8bea68cf2a979c5e25a4c179c8d,10063,"the two-critique verification script"
+02_release_data/perepoch_file_list.txt,c1ef78e2f0fc6de872cc892ee7d8d33784e520c8b295dd47ac9794e74887e23b,86,SHA-256 list of the per-epoch (806-checkpoint) evaluation
+02_release_data/release_G1_replication_20261002.csv,c2c3477dc096b10b039cf0219b53e00a07a097ee639cc7be4eec386c33d8c712,1355,G1: second-machine pre-registered replication of the aitod20 strategy arm (2026-10-02)
+02_release_data/release_G1p_AB-half-level-match.csv,c85c99fb889db736cff30169d11d9caf0cb734e5e7e7999585f3bb48cf2c650e,3934,named in the article/supplement: release_G1p_AB-half-level-match.csv
+02_release_data/release_G1pp_thirds_levels.csv,f42e811f986dd01234090b93128811ac807dce30b3afc6e08ca0ad2962267671,265,named in the article/supplement: release_G1pp_thirds_levels.csv
+02_release_data/release_G2_selection-split-size_summary.csv,7ea387e65d8511526dc6ae03b5e931bec35e8055d0c33779711551c7ce9b5d92,1044,named in the article/supplement: release_G2_selection-split-size_summary.csv
+02_release_data/release_G3_epoch-budget_summary.csv,88d0444b89043048d0e660a1e3cb2b7a185af6e36ddd7f643522493d86c87b1c,550,named in the article/supplement: release_G3_epoch-budget_summary.csv
+02_release_data/release_G3ext_E50-400_perrun.csv,ff9e0ba7dea2928b0667e7845d27dd7dd35d6831d6c4047e95ca049a8aa546ae,2539,named in the article/supplement: release_G3ext_E50-400_perrun.csv
+02_release_data/release_G4_mende20_3way_perseed.csv,75dd8d53b8e767a87a05decab1fe02cc8d7039623b2d581dfe320989939e53bc,4967,named in the article/supplement: release_G4_mende20_3way_perseed.csv
+02_release_data/release_T1_registered-replication_summary.csv,cb52bc69824988b21999913ae0bd67a15b49570a28964ea37bf6d6508ce68032,2639,named in the article/supplement: release_T1_registered-replication_summary.csv
+02_release_data/release_T2_saturated-control_summary.csv,42082a4f58a192674e4705324e81fb5d7e5dfde3ed402178781b3897bef55a2e,543,named in the article/supplement: release_T2_saturated-control_summary.csv
+02_release_data/release_X1_tier2_best-last_summary.csv,c8299ac8f4eda33fd63d76bd6ffa1232b4c801963e94fa21fbb9884b08335b8f,425,named in the article/supplement: release_X1_tier2_best-last_summary.csv
+02_release_data/release_selection-transfer_perseed.csv,fd2875fb29ebbd034f32895bc3ef49d4bfd164108ba4b72e25d08b327d014fbe,5403,named in the article/supplement: release_selection-transfer_perseed.csv
+02_release_data/release_selection-transfer_shape-share.csv,c3d741929a1d8376646f42c5e709b940e702d15b3e54bf1ecc3ef56f0696eb94,259,named in the article/supplement: release_selection-transfer_shape-share.csv
+02_release_data/release_shape-noise-by-budget.csv,bc9f7056473e2c18a48f2cdb2e96719553435037edc2e64679df06b58c077475,1974,named in the article/supplement: release_shape-noise-by-budget.csv
+02_release_data/second_coding_20260927.csv,8f236b70a506fba5008526b97fedef7fe844893dfa6bfab784ff624e6bd10e0a,8205,named in the article/supplement: work/second_coding_20260927.csv
+02_release_data/selection_premium_local.py,d7abdaca97a090d78c375ef7dd524717e945c87377e0aa2cf0b4fa5798513f2f,5549,the script that produced the 569-run reading
+02_release_data/selection_premium_local_20260916.txt,89082c23beb83101b61be9ea664a6e4126a0dab5a9e94753a30056255ddc65d7,2470,the 569 published runs behind §5 (primary evidence of the selection premium)
+02_release_data/selection_premium_public_20260916.md,c283b1a4652fe64040751a78a139faff782656c68029d837e65052acfbefafcd,9479,named in the article/supplement: selection_premium_public_20260916.md
+02_release_data/sio_b_file_list.txt,b27c0d0bd9b3fae91d02e0a0e18392413d68fea3d740f95c0073e926def72a2f,10643,SHA-256 list of the 84 archived files of §5.6
+02_release_data/sio_b_results.csv,9bb4f3b2f695a1eca25ebbda947682aba0ce8e7dd8d724f1795352fea8ae8c7c,29832,the archived sio_b readout that §5.6 reproduces to 0.0046 pp (same md5 as the author-side copy)
+02_release_data/split_units_19rows_20260916.md,6ba7334d77d1d7b900b65020deeaf5877f336e915f9f04850c7bbdf54ca08fac,5805,named in the article/supplement: split_units_19rows_20260916.md
+02_release_data/split_units_recompute_20260916.txt,775bde5dcf9437b64bad76c1c0f209468fc883931211cc4333794f265d145d2f,11383,named in the article/supplement: analysis/eval_validity/split_units_recompute_20260916.txt
+02_release_data/theory_p3a_correct_20260919.txt,c9690e325d4cdc74777ccdc58a5af78b9f44832e9fa4e1324a5bb84070f0a779,2482,perturbation analysis (§13 Prop. 3)
+02_release_data/theory_p4_test_20260919.txt,9d94a12106a1a8b0276a9cfd8b77a4351ede6dd553c1898e3f9267c7ed01aceb,1808,the withdrawn σ√(2 ln E) regression (§13 Prop. 4)
+02_release_data/verify_two_critiques_20260916.py,91e35c9327ef5633e7902a9b2df8a88ed346a8bea68cf2a979c5e25a4c179c8d,10063,the two-critique verification script
 02_release_data/verify_two_critiques_20260916.txt,06bff6f01a3a21757edf51b3015c154026524fb4b5c625bab0e957370ec52c31,7986,"the two external critiques of §5.4, one refuted and one judged non-identifiable"
 02_release_data/x10_alias_audit.txt,d8cd1552f22dee46c818ebdf85fd644aaf84824549671440b5dc0d57f2d134ca,3302,"val-side alias bias, per cell (§9)"
-02_release_data/x1_aux_20260918.txt,db4ced8df4d5b431fc6e4702d017ff6aa1f942d57c9ff87fc3f5d387c819edd5,2376,"named in the article/supplement: work/x1_aux_20260918.txt"
+02_release_data/x1_aux_20260918.txt,db4ced8df4d5b431fc6e4702d017ff6aa1f942d57c9ff87fc3f5d387c819edd5,2376,named in the article/supplement: work/x1_aux_20260918.txt
 02_release_data/x1_tier2_20260918/teval.csv,b3a76873ea163772200aaa8bd51f532509acc487e44fc6682a328be2fe883c00,6576,"Table S29 source: the eighty test evaluations (the 40 per-run records stay author-side, file list shipped)"
-02_release_data/x1_tier2_file_list.txt,384e4175f3021d8d0a701321c48a29957ecfb3d93b32bd08f5d06bc13f666c9c,10943,"SHA-256 list of the escalated Tier-2 cell evaluations (§5.1)"
-02_release_data/x3b_tableS22_20260918.csv,e73a4e470ecf1670b2c1feb622af35118282093d6226efe00a7215c7b29adcac,178,"named in the article/supplement: x3b_tableS22_20260918.csv"
-02_release_data/x3b_tableS23_20260918.csv,07e070a29c2a5282cb18a0bb3f0c3ea444456548d1aaf2764a715b72267fedad,1655,"named in the article/supplement: x3b_tableS23_20260918.csv"
-02_release_data/xeval_analysis_20260916.txt,b105b128cb85b80b1f260c0887240215fa5ff6a52da959423cd1640295dc284e,8534,"2x2 evaluation matrix × archive (§8.6)"
-02_release_data/xframe_evidence_20260916.txt,ab49d8dc1a792f5e468e1913e1796e3487487b658ad3fcdaf481f09f972a2231,13361,"named in the article/supplement: xframe_evidence_20260916.txt"
-03_framework_audit/PINNED_COMMITS.txt,71844a36ee850b4fb97a3582c6956a419c0fc2ba3d8e2afb6badfbfb98711157,447,"the pinned commits behind the cross-framework audit (named in the supplement)"
-03_framework_audit/_xframe_SHA256SUMS.txt,79e907d25c6c4ee9ae7a924afc0eaddb3913ef0dd202813b221d830b3e8b8ef9,6109,"pinned-commit framework configuration files: hashes"
+02_release_data/x1_tier2_file_list.txt,384e4175f3021d8d0a701321c48a29957ecfb3d93b32bd08f5d06bc13f666c9c,10943,SHA-256 list of the escalated Tier-2 cell evaluations (§5.1)
+02_release_data/x3b_tableS22_20260918.csv,e73a4e470ecf1670b2c1feb622af35118282093d6226efe00a7215c7b29adcac,178,named in the article/supplement: x3b_tableS22_20260918.csv
+02_release_data/x3b_tableS23_20260918.csv,07e070a29c2a5282cb18a0bb3f0c3ea444456548d1aaf2764a715b72267fedad,1655,named in the article/supplement: x3b_tableS23_20260918.csv
+02_release_data/xeval_analysis_20260916.txt,b105b128cb85b80b1f260c0887240215fa5ff6a52da959423cd1640295dc284e,8534,2x2 evaluation matrix × archive (§8.6)
+02_release_data/xframe_evidence_20260916.txt,ab49d8dc1a792f5e468e1913e1796e3487487b658ad3fcdaf481f09f972a2231,13361,named in the article/supplement: xframe_evidence_20260916.txt
+03_framework_audit/PINNED_COMMITS.txt,71844a36ee850b4fb97a3582c6956a419c0fc2ba3d8e2afb6badfbfb98711157,447,the pinned commits behind the cross-framework audit (named in the supplement)
+03_framework_audit/_xframe_SHA256SUMS.txt,79e907d25c6c4ee9ae7a924afc0eaddb3913ef0dd202813b221d830b3e8b8ef9,6109,pinned-commit framework configuration files: hashes
 03_framework_audit/xeval_curve_analysis_20260916.txt,722b55b9aa1aba11b2a2b15a3b5388f6aeb9d8c47d0497244438890185902dff,4147,"curve analysis (κ, transfer)"
-04_verification/audit_anchor_scope_20260917.py,d9a5a943dcdaf56dea348d5236622e14094ea5b28a2c504ded32f7c337246f5c,4585,"anchor scope audit"
-04_verification/audit_anchors_fupaper.py,de74ad5cf11e64e18c68dc47c20f3bd57d600ecf11965b2678c31eb6d7c277f6,59744,"the 289 audit anchors"
-04_verification/audit_panel_integrity_20260917.py,328df5f9f02257459e282db24117ee80902970b80cc0dbc3aab6dd2d9f8d601e,8334,"panel-integrity audit"
-04_verification/gen_round_stages_20260917.py,18fe4c30d2ed385cf5afbd5dac12f88657d7cb41dcf5ddd8a1fcdc2a0291fe2c,6822,"builds the change-attribution record"
-04_verification/measure_pages_pr_official_20260920.py,5ed6428af07af4841745a6cd5366474ffedfe57677a953a8b8be0825b2ef35a2,7786,"page count in the venue geometry"
-04_verification/measurement_official.json,244a020312cc46b5de30feba72f270b6d8a2e522e75c2c13c274b20367ddffc5,1656,"page measurement + positive control"
-04_verification/prelaunch_cite_guard_20260920.py,e60ad9ab62daaf1a53b83eeed39ea7a5f428d3e26d043784fd76227161b97283,2931,"first-mention citation guard"
-04_verification/remeasure_official_20260920.py,f7e186c7d24b5d2bb0c93f4eefa4f11d2519f893f4ac7962be2b3f7dd4133084,6050,"page count with its positive control"
-04_verification/round_stages_20260917.json,c169779d69d8b98f47ea093e1cc54349780594f87762c235f2a66cdd3db6e5b2,282134,"the recorded per-round attribution of every numeric change"
-04_verification/run_sweep_20260919.py,bac56e9a566e6222fe7cdf7f49e9f0f5e0112a329822fc998ecdf87f8d64318e,5462,"runs the whole verification sweep"
+04_verification/audit_anchor_scope_20260917.py,d9a5a943dcdaf56dea348d5236622e14094ea5b28a2c504ded32f7c337246f5c,4585,anchor scope audit
+04_verification/audit_anchors_fupaper.py,de74ad5cf11e64e18c68dc47c20f3bd57d600ecf11965b2678c31eb6d7c277f6,59744,the 289 audit anchors
+04_verification/audit_panel_integrity_20260917.py,328df5f9f02257459e282db24117ee80902970b80cc0dbc3aab6dd2d9f8d601e,8334,panel-integrity audit
+04_verification/gen_round_stages_20260917.py,18fe4c30d2ed385cf5afbd5dac12f88657d7cb41dcf5ddd8a1fcdc2a0291fe2c,6822,builds the change-attribution record
+04_verification/measure_pages_pr_official_20260920.py,5ed6428af07af4841745a6cd5366474ffedfe57677a953a8b8be0825b2ef35a2,7786,page count in the venue geometry
+04_verification/measurement_official.json,244a020312cc46b5de30feba72f270b6d8a2e522e75c2c13c274b20367ddffc5,1656,page measurement + positive control
+04_verification/prelaunch_cite_guard_20260920.py,e60ad9ab62daaf1a53b83eeed39ea7a5f428d3e26d043784fd76227161b97283,2931,first-mention citation guard
+04_verification/remeasure_official_20260920.py,f7e186c7d24b5d2bb0c93f4eefa4f11d2519f893f4ac7962be2b3f7dd4133084,6050,page count with its positive control
+04_verification/round_stages_20260917.json,c169779d69d8b98f47ea093e1cc54349780594f87762c235f2a66cdd3db6e5b2,282134,the recorded per-round attribution of every numeric change
+04_verification/run_sweep_20260919.py,bac56e9a566e6222fe7cdf7f49e9f0f5e0112a329822fc998ecdf87f8d64318e,5462,runs the whole verification sweep
 04_verification/second_coding/G8_coding_DeepSeek-V4.1-Flash_v2_20260929.md,61e12723a401ed6cd2381534b3a63c217a5374cc906467e0cc04e7e04b4133ce,9307,"blind coder return, round v2 (five-valued repaired scale), transcribed verbatim"
 04_verification/second_coding/G8_coding_GLM-5.2_v2_20260929.md,fc9a60020ee17997cffba12579a261876e155cad1aba921b5d7538007816bed0,9495,"blind coder return, round v2 (five-valued repaired scale), transcribed verbatim"
 04_verification/second_coding/G8_coding_Kimi-K3_v2_20260929.md,eb065cf46bbd45164f56aaa8e1f6d33db2a03d97237d6c3c052e3b2970410473,9624,"blind coder return, round v2 (five-valued repaired scale), transcribed verbatim"
@@ -91,19 +91,19 @@ path,sha256,bytes,description
 04_verification/second_coding/G8_coding_hy4-preview_v2_20260929.md,fb8a3d0018e54d27452fb3e98d802d69d94ad0d77a8f67399e809183214dc077,10464,"blind coder return, round v2 (five-valued repaired scale), transcribed verbatim"
 04_verification/second_coding/G8_coding_qwen3.8-max_v2_20260929.md,5e019b0da7862fd9ec737924db2187c1936bb6f9b934f2833613edb712d7ef98,13044,"blind coder return, round v2 (five-valued repaired scale), transcribed verbatim"
 04_verification/second_coding/README_second_coding.md,e5997c9529dbc312727ea24647369172076d2cefd230b1c67629a0cdf62d5bea,3596,"what each second-coding artefact is, and the mapping convention"
-04_verification/second_coding/blank_table_v1.md,2dca1944f967d07427ffce399af46bab20cba4974311b888a78e4bef0f165c46,1779,"optional blank answer table handed out with taska"
+04_verification/second_coding/blank_table_v1.md,2dca1944f967d07427ffce399af46bab20cba4974311b888a78e4bef0f165c46,1779,optional blank answer table handed out with taska
 04_verification/second_coding/coding_manual_19x4_20260927.md,028a1b90d33f198c4376c328c6c794f2a9326c3fcd41966cc9eae7c6c7c6b080,10844,"coding manual for the 19x4 table (rules only, non-blind pass)"
-04_verification/second_coding/g8_primary_run_20261001.py,febd34c28d38eaf9e819db4126573fbeaef095b07abdf041e18599bfb062c0b6,5468,"re-runs the round-3 script on the shipped v1 returns and checks the --sens variant (D32)"
-04_verification/second_coding/kappa_computed_20260927.txt,073bb3eb39e9f348e145cfa5785a664bf74912a8ddc8f4e3c448f797c6296c9f,4139,"agreement statistics of the non-blind pass"
-04_verification/second_coding/kappa_g8_20260929.py,5796fa11e58e3b574984e6e78e0dbf266e3320df0d313056f4420107711869ca,12784,"the script behind the above (with its --sens variant)"
+04_verification/second_coding/g8_primary_run_20261001.py,febd34c28d38eaf9e819db4126573fbeaef095b07abdf041e18599bfb062c0b6,5468,re-runs the round-3 script on the shipped v1 returns and checks the --sens variant (D32)
+04_verification/second_coding/kappa_computed_20260927.txt,073bb3eb39e9f348e145cfa5785a664bf74912a8ddc8f4e3c448f797c6296c9f,4139,agreement statistics of the non-blind pass
+04_verification/second_coding/kappa_g8_20260929.py,5796fa11e58e3b574984e6e78e0dbf266e3320df0d313056f4420107711869ca,12784,the script behind the above (with its --sens variant)
 04_verification/second_coding/kappa_g8_20260929.txt,469947e417f99c582a4850fd06bec0ddfdbbfeda5b6932555d78d52424d0e1cc,4051,"eight-coder blind round: per-coder, pairwise and Fleiss kappa; confusion tables; headline recomputation"
-04_verification/second_coding/kappa_g8_primary_20261001.txt,66fc4504de405405f6deda5c06a661f49d5034349d0a0edbf5073e5f9f5d6448,3979,"the eight-coder round under the PRIMARY mapping -- the vintage the supplement prints (D32)"
-04_verification/second_coding/kappa_g8v2_20260929.py,52b15ab5fd568431950eb1e86174f5b672d291584828e97af11913d02352d625,9191,"analysis script for the v2 round"
+04_verification/second_coding/kappa_g8_primary_20261001.txt,66fc4504de405405f6deda5c06a661f49d5034349d0a0edbf5073e5f9f5d6448,3979,the eight-coder round under the PRIMARY mapping -- the vintage the supplement prints (D32)
+04_verification/second_coding/kappa_g8v2_20260929.py,52b15ab5fd568431950eb1e86174f5b672d291584828e97af11913d02352d625,9191,analysis script for the v2 round
 04_verification/second_coding/kappa_g8v2_20260929.txt,baff094fd1b291d7f2b4027deceb0fac64a9e64c0384c544424d814c332866bb,4995,"v2 round: per-coder, pairwise and Fleiss kappa; confusion tables; headline recomputation"
-04_verification/second_coding/probe_g8_matrix_20260929.py,9b3920b6e50657b350c0a0ef29bf5027560221e87ea982054e9efc952c6289af,3166,"per-row printed-vs-coders matrix used to diagnose the frame difference"
+04_verification/second_coding/probe_g8_matrix_20260929.py,9b3920b6e50657b350c0a0ef29bf5027560221e87ea982054e9efc952c6289af,3166,per-row printed-vs-coders matrix used to diagnose the frame difference
 04_verification/second_coding/second_coding_20260927.csv,8f236b70a506fba5008526b97fedef7fe844893dfa6bfab784ff624e6bd10e0a,8205,"non-blind model-assisted second pass, 12-mark vocabulary, per-row notes"
-04_verification/second_coding/taska_19x4_v1.md,652163338021df4f60b704e48eef56f92542bea3235e33d3c9fb7db94aee2639,8164,"blind coding task sheet v1 (yes/no/unknown)"
-04_verification/second_coding/taskb_19x4_v2.md,86534f4834e2b6792d95ad3695a5d8e8d85b98283be217d0aac0aec78d2ebeb6,7672,"blind coding task sheet v2 (five-way scale; not yet run)"
+04_verification/second_coding/taska_19x4_v1.md,652163338021df4f60b704e48eef56f92542bea3235e33d3c9fb7db94aee2639,8164,blind coding task sheet v1 (yes/no/unknown)
+04_verification/second_coding/taskb_19x4_v2.md,86534f4834e2b6792d95ad3695a5d8e8d85b98283be217d0aac0aec78d2ebeb6,7672,blind coding task sheet v2 (five-way scale; not yet run)
 04_verification/second_coding/v1_G8_coding_DeepSeek-V4.1-Flash_20260929.md,979b65d59e87e8a3b101cf6023fa3d7d4ec406e070380c4f0db9980d4182d39b,6469,"blind coder return, round v1 (three-valued scale), transcribed verbatim"
 04_verification/second_coding/v1_G8_coding_GLM-5.2_20260929.md,d344e8d485280620b27c1f9715056c8ac2d0d4917ff3ece6f98393e624fe31c8,9496,"blind coder return, round v1 (three-valued scale), transcribed verbatim"
 04_verification/second_coding/v1_G8_coding_Hy4-preview_20260929.md,b9016185c805916fb8f0516ebc15bd56baaeaed51c852bd81a907484a1de0414,8809,"blind coder return, round v1 (three-valued scale), transcribed verbatim"
@@ -112,77 +112,77 @@ path,sha256,bytes,description
 04_verification/second_coding/v1_G8_coding_gemini-3.8-flash_20260929.md,e51c915e1929f75ab0eee95189af0908b7a2aab61100d9ed343ab9a697b636db,7683,"blind coder return, round v1 (three-valued scale), transcribed verbatim"
 04_verification/second_coding/v1_G8_coding_grok-4.7_20260929.md,b37f58413b3496bd5ff6d15ab25fe5349c15337938f217da874f8ff36865b600,6636,"blind coder return, round v1 (three-valued scale), transcribed verbatim"
 04_verification/second_coding/v1_G8_coding_qwen3.8-max_20260929.md,e623f4e64a8ec5a3e4aa8cc83829c0af1aed0d3022785ca11846aa0dffc3ac16,16210,"blind coder return, round v1 (three-valued scale), transcribed verbatim"
-04_verification/verify_compression_20260917.py,e9e34783da3031ad9dd8292c7241b7896148d2c0cda0e3ca121d8f259804fb6b,348337,"compression-attribution guard"
-04_verification/verify_consistency_guards_20260917.py,e67c80fea9b1f804b32de1e0ada15a140ac7e61b17986e79a8ec099344ab594a,16584,"consistency guards"
-04_verification/verify_no_number_lost_20260917.py,fbf5149a7caf79e34a13ad45c70e98232953d7e1304385b7c00af5ff38c39e19,18839,"no-number-lost guard"
-04_verification/verify_pr_forms_20260917.py,fed99a4a54f73898b980437210a8355e057bb06c9f6a5e2f5d4fefb0f7412b2f,7954,"venue form requirements"
-04_verification/verify_split_claims_20260917.py,3b61bc07720a35e0d50a6579862e743f45709407abf5ccf925f45ce3a3ee552f,5433,"split-claim guard"
-04_verification/verify_submission_pack_20260917.py,ba91107d2a28247c9ad72d518b24ad732067f4db5284e71517492a3bb1b6993c,12337,"submission-pack check"
-04_verification/write_x10_into_paper_20260918.py,f9583fd9e9fac5b6554c4123770682c25169809231e804f72786e30b3ef049fc,8499,"how the §9 alias-bias numbers were written in"
-04_verification/x10_alias_audit_20260918.py,e332fa530aa21b7bcf2c70ce8a91e188171ba4082a64a4fb0f3b741ecff91ed7,7444,"the alias-bias audit script (reads every per-run results.csv)"
-04_verification/x2b_kappa_arms_20260918.py,5c517f24b6e19295bfcbde1cb947506e139160c312679cb294794d7f531737d2,8238,"κ per arm + run-level bootstrap (§8.6/§8.7)"
-04_verification/x3b_perepoch_corrected_20260918.py,69c8a5ced19bf111b34d6a31a311fe10e466263ff645435531fd66b336ec58e1,16543,"the complete per-epoch κ (806 points)"
-LICENSE,730bc07487fb0ea3045ab439dc421c02134720d6cfad26db05adcda9febf3df5,2007,"licence (CC BY 4.0 with third-party dataset/log exceptions)"
-figures/fig1_dgap_decomposition.png,e012d64097a582456f0ef38c5530340205467b69770095578d3bee875b584778,115911,"named in the article/supplement: fig1_dgap_decomposition.png"
-figures/fig2_realization_rate.png,fdc9aa857b33c2ae5c3e7a5c9c98da27f24487a8eddf4c141e03825a96b8658a,129366,"named in the article/supplement: fig2_realization_rate.png"
-figures/fig3_four_units.png,eb70538f7683c0809f2702c7b7800eba5541615cbe5991b3fbfb2d40e927a40a,93171,"named in the article/supplement: fig3_four_units.png"
-figures/fig4_public_logs.png,d2c84d351d02f3ecac0d9d4fe9f8a3363716020cc89d83bb769e1781fa408522,77027,"named in the article/supplement: fig4_public_logs.png"
-figures/fig5_epoch_curve.png,3574d5538c255c39c1bd8a2fb257f92cf672832adf35e4003915ff59f4974580,299035,"named in the article/supplement: fig5_epoch_curve.png"
-figures/fig6_sigma_vs_rate.png,db627a0fb3ab8fd786893068ac2f94d5473e78023974560536974fc04fad7b31,96202,"named in the article/supplement: fig6_sigma_vs_rate.png"
-verify_release.py,c0e38e10437e5ab68d6f03c1a87cd31fd9b6208ef921673231d91ac8262e9ee7,1303,"generated with the package"
-work/G2_jitter_20260930.py,398836af1c1a093f1429f52b3d26d694961afa6928f39681a3e59c394ab51c25,6089,"named in the article/supplement: work/G2_jitter_20260930.py"
-work/G3_init_rc_20260930.py,3fdcc60bc58ad54baa6d1c6d9710a3e783c0c321f76e3d17f8d76055900eaeaf,7751,"named in the article/supplement: work/G3_init_rc_20260930.py"
-work/G3_sigma_n5_20260930.py,0eb46a645f17de566550ea430b9d9ba38a76781025f7e77da8a614c00348cb64,6119,"named in the article/supplement: work/G3_sigma_n5_20260930.py"
-work/aggregate_nonyolo_n6_20260925.py,85847d35f0b6387ee9db7a5190da915fec4dce4f2fba6c442b09a6a353f438a8,5229,"named in the article/supplement: work/aggregate_nonyolo_n6_20260925.py"
-work/analyze_xframe_20260916.py,9b94fd0ba82ea3f23b11a3d71c3df0464c022fb3cf860b1bc71784a6cee8857f,3881,"named in the article/supplement: work/analyze_xframe_20260916.py"
-work/b51_eval.py,841ab190525bc5763bdca8ca70fce3f0cde8bfbab337fdd578a17a6b6048dbf3,14209,"named in the article/supplement: work/b51_eval.py"
-work/b51_summary.py,4e74ccfbc10a804e46d03d4428ea2300196b9294910b717260fa9104d2446259,3456,"named in the article/supplement: work/b51_summary.py"
-work/b55_m75.py,0135d1297a6bbed5bb2257aa81a13a0612bf7f19ff6eda035019694fa12f9951,5162,"named in the article/supplement: work/b55_m75.py"
-work/b55_m75_control.py,1c8b4da75d575f6a9d140e74d964823e387968f6ffc5e4e152695d9f0ea038e4,3883,"named in the article/supplement: work/b55_m75_control.py"
-work/b55_val.py,0baba56d90119f32380becf456959527110cc4856122fdbde2aaa51c978cedc9,12226,"named in the article/supplement: work/b55_val.py"
-work/b55v_control.py,b7213a85ec1c51344b75594eb28a3465120aadc0b1cc149edacc6608d14fb876,13838,"named in the article/supplement: work/b55v_control.py"
-work/b55v_metric_compare_20260928.py,3ef7bf602bafef5b3d3471e87d1afa7308c354c599bf835da824130b65cd7af0,5034,"named in the article/supplement: work/b55v_metric_compare_20260928.py"
-work/b55v_pair.py,ac25a407ea20b095a421668a687b02ceb2de47733bba2b2d443dd0635b4518c5,5798,"named in the article/supplement: work/b55v_pair.py"
-work/c23_eval_ceiling_20261001.py,ef070ed2f507937ff7f640331bc336963b1df7f9347b13f10160c8522367ee33,3462,"named in the article/supplement: work/c23_eval_ceiling_20261001.py"
-work/check_crosscite.py,71906063f4bc8033aa9dc410ed940ec873e5d377ab120291b3cda98779fe3448,10434,"named in the article/supplement: check_crosscite.py"
-work/check_seed_convention_20260918.py,c8cef08fb87c7868d1263f508d3dac4731a4076df1a1eb271afa8ddc2ba11bc7,3658,"named in the article/supplement: work/check_seed_convention_20260918.py"
-work/clean_series_b_20260925.py,c834c4cb6a8fc869aadfa077a5b5498729b8a7c762ad4de9f0bffeff2d9f0bc7,5361,"named in the article/supplement: work/clean_series_b_20260925.py"
-work/ctrldrift_check_20260930.py,bab67837d637625843cdd8e371dc80bc9ceb9f83869249be613933d08025c5e6,4319,"named in the article/supplement: work/ctrldrift_check_20260930.py"
-work/g1p_verdict_20260919.py,7642947ba6e13b22687b6d60e65137e6f019d80decdb48a78a3008a9f57ff96a,5869,"named in the article/supplement: work/g1p_verdict_20260919.py"
-work/g2_screen_20260930.py,58789f06944de25726518ff5cb7aaff352d6059293849e96f93f79fff1be71f5,4923,"named in the article/supplement: work/g2_screen_20260930.py"
-work/g6_coverage_audit.py,168fe5fa12c95076af340bf12a60d0ff8bd8d8bf3023eb6c2f2db92a47a2a282,5037,"named in the article/supplement: work/g6_coverage_audit.py"
-work/g6_perepoch_eval.py,ff8785eeebeff5b7e8fbfe56427925692f7781567a1094bc8c03f127193b49b5,11358,"named in the article/supplement: work/g6_perepoch_eval.py"
-work/g6_prem_analyze_20260930.py,482746f9d662aaa6561f38f4905509912d1a487e00383b54d976b1f3309ed05d,9915,"named in the article/supplement: work/g6_prem_analyze_20260930.py"
-work/g6_repro_vs_printed_20260930.py,3b02aa00cbd43c06ac470b6f213bc3d3a6ad02fda432ad9b84490805148d2972,6651,"named in the article/supplement: work/g6_repro_vs_printed_20260930.py"
-work/gap_mechanism_20260916.py,36ef1df5b9f3994bd4e783bce09c0f2f04837b5a3652b5fc0b7b858b49ec1e3d,13267,"named in the article/supplement: gap_mechanism_20260916.py"
-work/gen_supplementary_20260916.py,a61cfd22f73c0b36a7ca0b588e16cf09b1a453758e794aa0fd3362c0abf2539b,9813,"named in the article/supplement: work\gen_supplementary_20260916.py"
-work/kappa_second_coding_20260927.py,63a29d597c31ae058fbfbf21fdf237bdacf9eb61d6dcdba8e00d5930956d0d55,8902,"named in the article/supplement: work/kappa_second_coding_20260927.py"
-work/p2_t1d_val_n10_20261002.py,d204eae7c40d86549329c4fccf1c1ea09662e0eda3ca8e41363aa71d9d5baf6b,9197,"named in the article/supplement: work/p2_t1d_val_n10_20261002.py"
-work/partial_predictor_final_20260922.py,c91e84bf1bce72947255c8381d4ae419a2a36f1a10476492679e9b17887ea2f3,6715,"named in the article/supplement: work/partial_predictor_final_20260922.py"
-work/preregister_E_ext_20260919.py,576a24bd5cdb0dd33f7484b60af57bca1b9de1b5f1197a1b72768928a02367c2,6037,"named in the article/supplement: work/preregister_E_ext_20260919.py"
-work/probe_evalpeak_convention_20260922.py,3060f16be2802186677f141819cdd769183d11484e5b6e862d1e65591b3d9220,4486,"named in the article/supplement: work/probe_evalpeak_convention_20260922.py"
-work/prop6_clean_b_20260925.py,09bb986213b6b59212926a751cc8b8efc6188fac1756b4d29f2a142e139f5897,10917,"named in the article/supplement: work/prop6_clean_b_20260925.py"
-work/prop6_shape_noise_20260920.py,468b7311d2d5a911dfe6d4b04415477f93a723bf13b2a017a05251413dd04ca6,5415,"named in the article/supplement: work/prop6_shape_noise_20260920.py"
-work/prop6_transfer_20260920.py,bec02b045ce673c682dba033b4d6c44280f590a560ea2f67948dd2ae8612f4cc,5799,"named in the article/supplement: work/prop6_transfer_20260920.py"
-work/pvalue_table_local.py,5578c440c965e1954d0d5db65d314748b9f4f896c2a0278d65454b3a394265db,7160,"named in the article/supplement: pvalue_table_local.py"
-work/r98_median_perm_20260927.py,a92447f3f52fc23391262f2daf9b6c558f07195d6fbb4c128d83a9eb2a9c8d4f,5798,"named in the article/supplement: work/r98_median_perm_20260927.py"
-work/recompute_bh_20260917.py,aa77a8bf582579ac93bc2e8b9f13a50006863e1414d99e7bd5a41f7f56284f5f,3704,"named in the article/supplement: work/recompute_bh_20260917.py"
-work/recompute_split_units_20260916.py,093705e79696175cd1899267c68eed7ea2693991e1dbeb73871cbbdbc724ea62,20055,"named in the article/supplement: work/recompute_split_units_20260916.py"
-work/selection_premium.py,d197ebc37ad31dfa399eb341a74495ca39ba83c5cf237172cc7c05bd6fe60254,5390,"named in the article/supplement: selection_premium.py"
-work/sigma_decomposition_20260926.py,80aefbba613c3682c1bb1f29b59856426dee553a39c7b8c1c3437c251f171a64,6886,"named in the article/supplement: work/sigma_decomposition_20260926.py"
-work/t9_ap50_sensitivity_20260924.py,eb15c3e86682bf11c5d1f8ba98cadd4fb68af250517cc88cc2bd81eeeb4a03d9,6966,"named in the article/supplement: work/t9_ap50_sensitivity_20260924.py"
-work/theory_meta_and_tests_20260919.py,c81cabf000445b5f27160c72ddbdef194c268ce7874538f5181161c4ca327633,8588,"named in the article/supplement: work/theory_meta_and_tests_20260919.py"
-work/theory_p4_test_20260919.py,74f11a8b19db0243f6c768365ce7614471a878cfe7e5af0bcb0ecdb0c3a06a07,7812,"named in the article/supplement: work/theory_p4_test_20260919.py"
-work/verify_pulled.py,07a2055d4b71acb8b1f1744387141c3c8eb0fd81e60c26e471091534de7de19c,2410,"named in the article/supplement: verify_pulled.py"
-work/verify_split_defs_20260916.py,adbadfeaa1fc4ea7f8cf71bc8c00df257b738b63aea898db81d65bdb7a3b117a,4805,"named in the article/supplement: work/verify_split_defs_20260916.py"
-work/verify_text_hashes_20260917.py,7d800665cea90c55c87c1a7c240891e552b9bf5d50330b00aa4f77f08edc3708,18537,"named in the article/supplement: work/verify_text_hashes_20260917.py"
-work/x1_aux_20260918.py,db8f14145aae516b6cac7177a9b60f2a37e4680e44643698063265dd0a6fbffd,6411,"named in the article/supplement: work/x1_aux_20260918.py"
-work/x1_gap_analysis_20260918.py,6c86ca1234a5dd68b1f1d40cb15f17c6f0ee9d7f345d45de23c2e8a3a681efe4,12311,"named in the article/supplement: work/x1_gap_analysis_20260918.py"
-work/x2_kappa_clustered_20260918.py,c6d99f568ff186f869c6fed73dd906753849e764ef639e9b1bd76c794f4d633e,9916,"named in the article/supplement: work/x2_kappa_clustered_20260918.py"
-work/x8_dota15_analysis_20260918.py,0b076ecda55fdae5a3ca449efbd53f0108018dd97c67236f264dac62fd458a8e,5986,"named in the article/supplement: work/x8_dota15_analysis_20260918.py"
-work/x8_oom_counts_20260918.py,b8a1d5d215a7fb94478482406c938d68ea8659957142745c8b25cf38f4cee197,3325,"named in the article/supplement: work/x8_oom_counts_20260918.py"
-work/x8_oom_sensitivity_20260918.py,4c6109e58faddccf825ef59ea2bf75f5f18cd70cdd1e63689420ebc1630ed0c1,4271,"named in the article/supplement: work/x8_oom_sensitivity_20260918.py"
-work/xeval_analyze_20260916.py,e2ab5a25821c62b7c33818cd35bc666ee724bf64066281dc760b3a4ed57a3a94,10356,"named in the article/supplement: work/xeval_analyze_20260916.py"
+04_verification/verify_compression_20260917.py,e9e34783da3031ad9dd8292c7241b7896148d2c0cda0e3ca121d8f259804fb6b,348337,compression-attribution guard
+04_verification/verify_consistency_guards_20260917.py,e67c80fea9b1f804b32de1e0ada15a140ac7e61b17986e79a8ec099344ab594a,16584,consistency guards
+04_verification/verify_no_number_lost_20260917.py,fbf5149a7caf79e34a13ad45c70e98232953d7e1304385b7c00af5ff38c39e19,18839,no-number-lost guard
+04_verification/verify_pr_forms_20260917.py,fed99a4a54f73898b980437210a8355e057bb06c9f6a5e2f5d4fefb0f7412b2f,7954,venue form requirements
+04_verification/verify_split_claims_20260917.py,3b61bc07720a35e0d50a6579862e743f45709407abf5ccf925f45ce3a3ee552f,5433,split-claim guard
+04_verification/verify_submission_pack_20260917.py,ba91107d2a28247c9ad72d518b24ad732067f4db5284e71517492a3bb1b6993c,12337,submission-pack check
+04_verification/write_x10_into_paper_20260918.py,f9583fd9e9fac5b6554c4123770682c25169809231e804f72786e30b3ef049fc,8499,how the §9 alias-bias numbers were written in
+04_verification/x10_alias_audit_20260918.py,e332fa530aa21b7bcf2c70ce8a91e188171ba4082a64a4fb0f3b741ecff91ed7,7444,the alias-bias audit script (reads every per-run results.csv)
+04_verification/x2b_kappa_arms_20260918.py,5c517f24b6e19295bfcbde1cb947506e139160c312679cb294794d7f531737d2,8238,κ per arm + run-level bootstrap (§8.6/§8.7)
+04_verification/x3b_perepoch_corrected_20260918.py,69c8a5ced19bf111b34d6a31a311fe10e466263ff645435531fd66b336ec58e1,16543,the complete per-epoch κ (806 points)
+LICENSE,730bc07487fb0ea3045ab439dc421c02134720d6cfad26db05adcda9febf3df5,2007,licence (CC BY 4.0 with third-party dataset/log exceptions)
+figures/fig1_dgap_decomposition.png,e012d64097a582456f0ef38c5530340205467b69770095578d3bee875b584778,115911,named in the article/supplement: fig1_dgap_decomposition.png
+figures/fig2_realization_rate.png,fdc9aa857b33c2ae5c3e7a5c9c98da27f24487a8eddf4c141e03825a96b8658a,129366,named in the article/supplement: fig2_realization_rate.png
+figures/fig3_four_units.png,eb70538f7683c0809f2702c7b7800eba5541615cbe5991b3fbfb2d40e927a40a,93171,named in the article/supplement: fig3_four_units.png
+figures/fig4_public_logs.png,d2c84d351d02f3ecac0d9d4fe9f8a3363716020cc89d83bb769e1781fa408522,77027,named in the article/supplement: fig4_public_logs.png
+figures/fig5_epoch_curve.png,3574d5538c255c39c1bd8a2fb257f92cf672832adf35e4003915ff59f4974580,299035,named in the article/supplement: fig5_epoch_curve.png
+figures/fig6_sigma_vs_rate.png,db627a0fb3ab8fd786893068ac2f94d5473e78023974560536974fc04fad7b31,96202,named in the article/supplement: fig6_sigma_vs_rate.png
+verify_release.py,c0e38e10437e5ab68d6f03c1a87cd31fd9b6208ef921673231d91ac8262e9ee7,1303,generated with the package
+work/G2_jitter_20260930.py,398836af1c1a093f1429f52b3d26d694961afa6928f39681a3e59c394ab51c25,6089,named in the article/supplement: work/G2_jitter_20260930.py
+work/G3_init_rc_20260930.py,3fdcc60bc58ad54baa6d1c6d9710a3e783c0c321f76e3d17f8d76055900eaeaf,7751,named in the article/supplement: work/G3_init_rc_20260930.py
+work/G3_sigma_n5_20260930.py,0eb46a645f17de566550ea430b9d9ba38a76781025f7e77da8a614c00348cb64,6119,named in the article/supplement: work/G3_sigma_n5_20260930.py
+work/aggregate_nonyolo_n6_20260925.py,85847d35f0b6387ee9db7a5190da915fec4dce4f2fba6c442b09a6a353f438a8,5229,named in the article/supplement: work/aggregate_nonyolo_n6_20260925.py
+work/analyze_xframe_20260916.py,9b94fd0ba82ea3f23b11a3d71c3df0464c022fb3cf860b1bc71784a6cee8857f,3881,named in the article/supplement: work/analyze_xframe_20260916.py
+work/b51_eval.py,841ab190525bc5763bdca8ca70fce3f0cde8bfbab337fdd578a17a6b6048dbf3,14209,named in the article/supplement: work/b51_eval.py
+work/b51_summary.py,4e74ccfbc10a804e46d03d4428ea2300196b9294910b717260fa9104d2446259,3456,named in the article/supplement: work/b51_summary.py
+work/b55_m75.py,0135d1297a6bbed5bb2257aa81a13a0612bf7f19ff6eda035019694fa12f9951,5162,named in the article/supplement: work/b55_m75.py
+work/b55_m75_control.py,1c8b4da75d575f6a9d140e74d964823e387968f6ffc5e4e152695d9f0ea038e4,3883,named in the article/supplement: work/b55_m75_control.py
+work/b55_val.py,0baba56d90119f32380becf456959527110cc4856122fdbde2aaa51c978cedc9,12226,named in the article/supplement: work/b55_val.py
+work/b55v_control.py,b7213a85ec1c51344b75594eb28a3465120aadc0b1cc149edacc6608d14fb876,13838,named in the article/supplement: work/b55v_control.py
+work/b55v_metric_compare_20260928.py,3ef7bf602bafef5b3d3471e87d1afa7308c354c599bf835da824130b65cd7af0,5034,named in the article/supplement: work/b55v_metric_compare_20260928.py
+work/b55v_pair.py,ac25a407ea20b095a421668a687b02ceb2de47733bba2b2d443dd0635b4518c5,5798,named in the article/supplement: work/b55v_pair.py
+work/c23_eval_ceiling_20261001.py,ef070ed2f507937ff7f640331bc336963b1df7f9347b13f10160c8522367ee33,3462,named in the article/supplement: work/c23_eval_ceiling_20261001.py
+work/check_crosscite.py,71906063f4bc8033aa9dc410ed940ec873e5d377ab120291b3cda98779fe3448,10434,named in the article/supplement: check_crosscite.py
+work/check_seed_convention_20260918.py,c8cef08fb87c7868d1263f508d3dac4731a4076df1a1eb271afa8ddc2ba11bc7,3658,named in the article/supplement: work/check_seed_convention_20260918.py
+work/clean_series_b_20260925.py,c834c4cb6a8fc869aadfa077a5b5498729b8a7c762ad4de9f0bffeff2d9f0bc7,5361,named in the article/supplement: work/clean_series_b_20260925.py
+work/ctrldrift_check_20260930.py,bab67837d637625843cdd8e371dc80bc9ceb9f83869249be613933d08025c5e6,4319,named in the article/supplement: work/ctrldrift_check_20260930.py
+work/g1p_verdict_20260919.py,0db4c38a5370322c1278ec0be5171eeea4df459cda8c1a93d3825f2cca585252,6644,named in the article/supplement: work/g1p_verdict_20260919.py
+work/g2_screen_20260930.py,58789f06944de25726518ff5cb7aaff352d6059293849e96f93f79fff1be71f5,4923,named in the article/supplement: work/g2_screen_20260930.py
+work/g6_coverage_audit.py,168fe5fa12c95076af340bf12a60d0ff8bd8d8bf3023eb6c2f2db92a47a2a282,5037,named in the article/supplement: work/g6_coverage_audit.py
+work/g6_perepoch_eval.py,ff8785eeebeff5b7e8fbfe56427925692f7781567a1094bc8c03f127193b49b5,11358,named in the article/supplement: work/g6_perepoch_eval.py
+work/g6_prem_analyze_20260930.py,482746f9d662aaa6561f38f4905509912d1a487e00383b54d976b1f3309ed05d,9915,named in the article/supplement: work/g6_prem_analyze_20260930.py
+work/g6_repro_vs_printed_20260930.py,3b02aa00cbd43c06ac470b6f213bc3d3a6ad02fda432ad9b84490805148d2972,6651,named in the article/supplement: work/g6_repro_vs_printed_20260930.py
+work/gap_mechanism_20260916.py,36ef1df5b9f3994bd4e783bce09c0f2f04837b5a3652b5fc0b7b858b49ec1e3d,13267,named in the article/supplement: gap_mechanism_20260916.py
+work/gen_supplementary_20260916.py,a61cfd22f73c0b36a7ca0b588e16cf09b1a453758e794aa0fd3362c0abf2539b,9813,named in the article/supplement: work\gen_supplementary_20260916.py
+work/kappa_second_coding_20260927.py,63a29d597c31ae058fbfbf21fdf237bdacf9eb61d6dcdba8e00d5930956d0d55,8902,named in the article/supplement: work/kappa_second_coding_20260927.py
+work/p2_t1d_val_n10_20261002.py,d204eae7c40d86549329c4fccf1c1ea09662e0eda3ca8e41363aa71d9d5baf6b,9197,named in the article/supplement: work/p2_t1d_val_n10_20261002.py
+work/partial_predictor_final_20260922.py,c91e84bf1bce72947255c8381d4ae419a2a36f1a10476492679e9b17887ea2f3,6715,named in the article/supplement: work/partial_predictor_final_20260922.py
+work/preregister_E_ext_20260919.py,576a24bd5cdb0dd33f7484b60af57bca1b9de1b5f1197a1b72768928a02367c2,6037,named in the article/supplement: work/preregister_E_ext_20260919.py
+work/probe_evalpeak_convention_20260922.py,3060f16be2802186677f141819cdd769183d11484e5b6e862d1e65591b3d9220,4486,named in the article/supplement: work/probe_evalpeak_convention_20260922.py
+work/prop6_clean_b_20260925.py,09bb986213b6b59212926a751cc8b8efc6188fac1756b4d29f2a142e139f5897,10917,named in the article/supplement: work/prop6_clean_b_20260925.py
+work/prop6_shape_noise_20260920.py,278eea8177eb2fff0972110deec6ccb74501e1eb4cc882faf68bddd37a78ea4b,6176,named in the article/supplement: work/prop6_shape_noise_20260920.py
+work/prop6_transfer_20260920.py,1cb713c80288c533a9c14c8e3eca5c3fe9c205e1699683e766b004ced5c5d499,6560,named in the article/supplement: work/prop6_transfer_20260920.py
+work/pvalue_table_local.py,5578c440c965e1954d0d5db65d314748b9f4f896c2a0278d65454b3a394265db,7160,named in the article/supplement: pvalue_table_local.py
+work/r98_median_perm_20260927.py,a92447f3f52fc23391262f2daf9b6c558f07195d6fbb4c128d83a9eb2a9c8d4f,5798,named in the article/supplement: work/r98_median_perm_20260927.py
+work/recompute_bh_20260917.py,aa77a8bf582579ac93bc2e8b9f13a50006863e1414d99e7bd5a41f7f56284f5f,3704,named in the article/supplement: work/recompute_bh_20260917.py
+work/recompute_split_units_20260916.py,093705e79696175cd1899267c68eed7ea2693991e1dbeb73871cbbdbc724ea62,20055,named in the article/supplement: work/recompute_split_units_20260916.py
+work/selection_premium.py,d197ebc37ad31dfa399eb341a74495ca39ba83c5cf237172cc7c05bd6fe60254,5390,named in the article/supplement: selection_premium.py
+work/sigma_decomposition_20260926.py,80aefbba613c3682c1bb1f29b59856426dee553a39c7b8c1c3437c251f171a64,6886,named in the article/supplement: work/sigma_decomposition_20260926.py
+work/t9_ap50_sensitivity_20260924.py,eb15c3e86682bf11c5d1f8ba98cadd4fb68af250517cc88cc2bd81eeeb4a03d9,6966,named in the article/supplement: work/t9_ap50_sensitivity_20260924.py
+work/theory_meta_and_tests_20260919.py,c81cabf000445b5f27160c72ddbdef194c268ce7874538f5181161c4ca327633,8588,named in the article/supplement: work/theory_meta_and_tests_20260919.py
+work/theory_p4_test_20260919.py,74f11a8b19db0243f6c768365ce7614471a878cfe7e5af0bcb0ecdb0c3a06a07,7812,named in the article/supplement: work/theory_p4_test_20260919.py
+work/verify_pulled.py,07a2055d4b71acb8b1f1744387141c3c8eb0fd81e60c26e471091534de7de19c,2410,named in the article/supplement: verify_pulled.py
+work/verify_split_defs_20260916.py,adbadfeaa1fc4ea7f8cf71bc8c00df257b738b63aea898db81d65bdb7a3b117a,4805,named in the article/supplement: work/verify_split_defs_20260916.py
+work/verify_text_hashes_20260917.py,7d800665cea90c55c87c1a7c240891e552b9bf5d50330b00aa4f77f08edc3708,18537,named in the article/supplement: work/verify_text_hashes_20260917.py
+work/x1_aux_20260918.py,db8f14145aae516b6cac7177a9b60f2a37e4680e44643698063265dd0a6fbffd,6411,named in the article/supplement: work/x1_aux_20260918.py
+work/x1_gap_analysis_20260918.py,6c86ca1234a5dd68b1f1d40cb15f17c6f0ee9d7f345d45de23c2e8a3a681efe4,12311,named in the article/supplement: work/x1_gap_analysis_20260918.py
+work/x2_kappa_clustered_20260918.py,c6d99f568ff186f869c6fed73dd906753849e764ef639e9b1bd76c794f4d633e,9916,named in the article/supplement: work/x2_kappa_clustered_20260918.py
+work/x8_dota15_analysis_20260918.py,0b076ecda55fdae5a3ca449efbd53f0108018dd97c67236f264dac62fd458a8e,5986,named in the article/supplement: work/x8_dota15_analysis_20260918.py
+work/x8_oom_counts_20260918.py,b8a1d5d215a7fb94478482406c938d68ea8659957142745c8b25cf38f4cee197,3325,named in the article/supplement: work/x8_oom_counts_20260918.py
+work/x8_oom_sensitivity_20260918.py,4c6109e58faddccf825ef59ea2bf75f5f18cd70cdd1e63689420ebc1630ed0c1,4271,named in the article/supplement: work/x8_oom_sensitivity_20260918.py
+work/xeval_analyze_20260916.py,e2ab5a25821c62b7c33818cd35bc666ee724bf64066281dc760b3a4ed57a3a94,10356,named in the article/supplement: work/xeval_analyze_20260916.py
 work/_clean_series_b_20260925.txt,b9518e6ea7d897d6c6294057899c1e6fbba98ef6d809e03185b4158b4200bce6,6516,the manuscript names this path under work/ (see README)
 work/audit_anchors_fupaper.py,de74ad5cf11e64e18c68dc47c20f3bd57d600ecf11965b2678c31eb6d7c277f6,59744,the manuscript names this path under work/ (see README)
 work/coding_manual_19x4_20260927.md,028a1b90d33f198c4376c328c6c794f2a9326c3fcd41966cc9eae7c6c7c6b080,10844,the manuscript names this path under work/ (see README)
@@ -330,4 +330,47 @@ work/x3b_perepoch_corrected_20260918.py,69c8a5ced19bf111b34d6a31a311fe10e466263f
 02_release_data/xeval_perepoch_20260918/x3.DONE,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,0,Table 4 recompute-chain input (C01)
 02_release_data/xeval_perepoch_20260918/xeval_perepoch.log,79c436ce050e2fc72723d19618a6c67c6ea84cd5696a91f147cb73aa98a2482b,1942061,Table 4 recompute-chain input (C01)
 work/item2_final_v2_20260925.py,9edcf49a53565c8d9a0dc6d84d77c7cca0ba9103ec21423da013b5e7cced208f,7856,Table 4 rate: root-relative paths (C01/C05)
-README.md,8c7e53d6c5f7832967aa88a0eb70fc33e80e90fda17452c63fbe97c83a56e83c,8352,hand-written package documentation
+README.md,0bfc62389f1d5dce3c509cdd74ea9d254375dbfdade72c377bcfe02ecf72a992,9994,hand-written package documentation
+02_release_data/t1d_valext_20261002/README.md,6ce17006a2d536273695ea6100fc52c5388aae331ddc1372ce3b3929513e9992,1603,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s42n/results.csv,b499828a720c9a67e3f1f431fbe9a9ec18836157caf53a9a387de3de10b048b3,12118,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s42n/results_A.csv,b499828a720c9a67e3f1f431fbe9a9ec18836157caf53a9a387de3de10b048b3,12118,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s43n/results.csv,5f26b3789cdb6eb08d04bb43c0dc348c5e2a9d2d6f4ed2eb64d46d073704f055,12115,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s43n/results_A.csv,5f26b3789cdb6eb08d04bb43c0dc348c5e2a9d2d6f4ed2eb64d46d073704f055,12115,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s44n/results.csv,725927ad9d2b4c93bae28f7e2ed8f92faec61ddaedbe678953918d2434e17e8d,12139,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s44n/results_A.csv,725927ad9d2b4c93bae28f7e2ed8f92faec61ddaedbe678953918d2434e17e8d,12139,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s45n/results.csv,bd80e5955d282c66057054533f1f81a670fbeea2c3714db157b025d150548b10,12137,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s45n/results_A.csv,bd80e5955d282c66057054533f1f81a670fbeea2c3714db157b025d150548b10,12137,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s46n/results.csv,be2e90cec7ab3c7155244f478f6c1ee545d3f6b96b65a5254da0d12ccb6efb4e,12098,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s46n/results_A.csv,be2e90cec7ab3c7155244f478f6c1ee545d3f6b96b65a5254da0d12ccb6efb4e,12098,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s47n/results.csv,f4160a3bc73ac3ec85c097798eee9a9823d0f65a78b8fcd86d472f1b005959d7,12123,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s47n/results_A.csv,f4160a3bc73ac3ec85c097798eee9a9823d0f65a78b8fcd86d472f1b005959d7,12123,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s48n/results.csv,cfca8c5ef87cf85d4a48ac2f56ff1e00e12884886b13e1af072c3cf1f65d428a,12116,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s48n/results_A.csv,cfca8c5ef87cf85d4a48ac2f56ff1e00e12884886b13e1af072c3cf1f65d428a,12116,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s49n/results.csv,0d10c8b1a4efc4dcbe4e977ab77e7f81142db22a383bea44ec3ab5b10f8eecc6,12098,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s49n/results_A.csv,0d10c8b1a4efc4dcbe4e977ab77e7f81142db22a383bea44ec3ab5b10f8eecc6,12098,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s50n/results.csv,c5c65ebb4d3f6f1d1857b5daaf5275d4014d61aea090a3e30d181c10c19ec634,12121,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s50n/results_A.csv,c5c65ebb4d3f6f1d1857b5daaf5275d4014d61aea090a3e30d181c10c19ec634,12121,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s51n/results.csv,fb25512634817407f24326ab02112f9abbe45ff1f2b2bb84591ba11be491f024,12125,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s51n/results_A.csv,fb25512634817407f24326ab02112f9abbe45ff1f2b2bb84591ba11be491f024,12125,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s42n/results.csv,76e6cbe5a5b0d096c4ee429aa6f046200b1ee61436a1dc44b488e72fd49200f6,11982,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s42n/results_A.csv,76e6cbe5a5b0d096c4ee429aa6f046200b1ee61436a1dc44b488e72fd49200f6,11982,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s43n/results.csv,11c0231933ed68c25793ae414abc89a6dc6fd9e38e7b54a1e8fcae467f9c7c24,12023,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s43n/results_A.csv,11c0231933ed68c25793ae414abc89a6dc6fd9e38e7b54a1e8fcae467f9c7c24,12023,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s44n/results.csv,67f26dee11ddb915c3c9af4bc2617bdd8fe289fd0376880db4dc93c008f86d74,12000,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s44n/results_A.csv,67f26dee11ddb915c3c9af4bc2617bdd8fe289fd0376880db4dc93c008f86d74,12000,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s45n/results.csv,79009fce6fe36e28d65b9982131f41300ec96ab77760eb287c50111b3b09b9a4,12022,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s45n/results_A.csv,79009fce6fe36e28d65b9982131f41300ec96ab77760eb287c50111b3b09b9a4,12022,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s46n/results.csv,6813cffd13ec74dea562a41c41ebb262c9eaadb6dddd0a1e5274e79855f4a63b,12019,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s46n/results_A.csv,6813cffd13ec74dea562a41c41ebb262c9eaadb6dddd0a1e5274e79855f4a63b,12019,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s47n/results.csv,9587ff16de951b960b0af4a2ea546dec83cac103ac25361e4b1134c1ace77495,12008,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s47n/results_A.csv,9587ff16de951b960b0af4a2ea546dec83cac103ac25361e4b1134c1ace77495,12008,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s48n/results.csv,b726baadfffc36c8ef9db99b3ae54372d21eb200f03959da8032ffa15f32d39c,12012,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s48n/results_A.csv,b726baadfffc36c8ef9db99b3ae54372d21eb200f03959da8032ffa15f32d39c,12012,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s49n/results.csv,7be534fa51584967a41aee0431edfff992cb89bccc0a28f5c59b5e85327da352,12024,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s49n/results_A.csv,7be534fa51584967a41aee0431edfff992cb89bccc0a28f5c59b5e85327da352,12024,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s50n/results.csv,4ec1db6ea4e8bca09c8bd9639104138e1c7de97f48fe2ab0068e0fe7479c2bdc,11991,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s50n/results_A.csv,4ec1db6ea4e8bca09c8bd9639104138e1c7de97f48fe2ab0068e0fe7479c2bdc,11991,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s51n/results.csv,51f44ba89a98f348cc2c7523c586cd3114347945d5ed7f74d8ec7e1416c645df,12018,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s51n/results_A.csv,51f44ba89a98f348cc2c7523c586cd3114347945d5ed7f74d8ec7e1416c645df,12018,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
+01_paper/P2_English_submission_blind_v1.docx,838cecc58fea4757ef15bf52f5276772dc2551ea6b1b9b653bec41fa9b2d0f97,637424,"article (anonymised submission form), Word build"
+01_paper/P2_Supplementary_English_v0.1.docx,2b71ca61b044c34b1cf6c59b29597ac79071f57afd57bfc36a3f9edaa4b67e2d,343895,"supplementary material, Word build"

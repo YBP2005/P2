@@ -5,7 +5,7 @@ checked rather than taken on trust. It accompanies the manuscript and its Supple
 
 ## Version and snapshot
 
-This snapshot carries the submission text of **2026-10-01** (editing rounds r134-r176 of the authors' own log: the eighth review round's remediations, the presentation pass, and the method-detail relocation). The manuscript copies under `01_paper/` are **byte-identical** to the submitted files: `P2_English_v0.1.md` md5 `98ba37fa4655e03536452be95bfbc324`, `P2_English_submission_blind_v1.md` md5 `7cd8c86d0e0f9bdcc7026ec9dbe94e68`, `P2_Supplementary_English_v0.1.md` md5 `e8a8da695809fc0b3ab7356e5dd2b551`. The Data availability statement in the article names this repository with the access date **2026-09-29** (the deposit date; the text was refreshed on 2026-10-01), and the commit hash is the one this file is served from.
+This snapshot carries the submission text of **2026-10-01** (editing rounds r134-r176 of the authors' own log: the eighth review round's remediations, the presentation pass, and the method-detail relocation). The manuscript copies under `01_paper/` are **byte-identical** to the submitted files: `P2_English_v0.1.md` md5 `98ba37fa4655e03536452be95bfbc324`, `P2_English_submission_blind_v1.md` md5 `7cd8c86d0e0f9bdcc7026ec9dbe94e68`, `P2_Supplementary_English_v0.1.md` md5 `e8a8da695809fc0b3ab7356e5dd2b551`. The Data availability statement in the article names this repository with the access date **2026-09-29** (the deposit date; the text was refreshed on 2026-10-01; the released-data correction of 2026-10-02 is recorded below), and the commit hash is the one this file is served from.
 
 ## Licence
 
@@ -25,6 +25,11 @@ The article names six checkers. Every entry point was run from an unpacked copy 
 | `work/gap_mechanism_20260916.py` | no -- **author-side gate** | the working-tree run archives; its artefact, `02_release_data/gap_mechanism_20260916.txt`, is shipped and byte-checkable |
 
 Two claims made in an earlier version of this file were **wrong and are withdrawn**: that `audit_anchors_fupaper.py` "runs from this package alone and passes" (it passed on the authors' machine because the working tree was present) and that "no checker hardcodes an author-machine path" (the anchor checker did; it now resolves `P2_ROOT` -> package root -> authors' tree, and the author-side generators point at the working tree by design, as the table says).
+
+
+## One released-data correction (2026-10-02)
+
+One row of the released registered-replication summary had been computed with the wrong endpoint. In `02_release_data/release_T2_saturated-control_summary.csv` the saturated control's `test_best_epoch` row carried one run's **`last`** reading in place of its **`best`** reading (`t2_mask2mende_base100_s42n`: `67.1200`, against `67.1183` for that run's `last` and `70.0603` for its `best`); that run's `source_test` also came from a different machine from the rest of its family. The row is corrected here, and in `P2_T1_registered-replication_long.csv`, to `-1.4901` pp (sd `0.8002`, paired t `-4.164`, p `0.0141`, signs `1+/4-` over the five runs in the row), which is what the row reads once every run contributes the quantity its column names. **No number printed in the article or its Supplementary Material changes**: the figure quoted for this control there is the `last`-epoch row, which was already correct, and the correction leaves the control non-significant, as it was. A systematic check of every released per-run `test` value against fresh re-evaluations found this to be the **only** row that mixed the two quantities; seven further rows (`t1d_dotatod15_*`) differ from the fresh re-evaluation by `0.012`-`0.164` pp in the direction of `best`, i.e. within the cross-machine band the submission measured, and are **not** corrected. The archives the re-evaluations were read from are named in that file's own `source_run` field, and the corrected row's per-run long form is in `P2_T1_registered-replication_long.csv`.
 
 
 ## Layout
