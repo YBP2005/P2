@@ -58,7 +58,7 @@ therefore a methodological premise, not a caveat (§3, §6).
 We do not claim that aliasing is data contamination: the image-level intersection between the
 training and held-out evaluation images is **zero** (SHWD excepted, where `train` and `val` are one
 directory). We do not claim a single bias direction: our paired analysis finds **two corpora where `val`
-understates and two where it overstates**, nine cells not significant (§5.1). Nor do we claim the
+understates and two where it overstates**, and **nine cells are not testable at n = 3** (§5.1, §7.1). Nor do we claim the
 convention is framework-general (§6.5) or that the audited benchmarks are wrong: they report what their
 configuration computes.
 
@@ -82,7 +82,7 @@ family among the six frameworks we checked (five pinned repositories plus the Ul
 None of these works is wrong — **they audit data (image identity, or the splitting unit), we audit configurations** (which path each key points to). Configuration-level aliasing shifts the
 **comparison between arms**, and its direction is **not single-valued** — a **weaker** statement
 than [2], whose rankings reverse across budgets on **all** of its benchmarks. Here **2 of 13
-cells are underestimated on `val`, 2 overestimated and 9 are not significant**, so no more than that is
+cells are underestimated on `val`, 2 overestimated and **9 are not testable at n = 3****, so no more than that is
 claimed. They instantiate the taxonomy of [3], of which duplication is one mismatch [4]; binding `val:`
 and `test:` to one directory creates the same mismatch **without duplicating an image**, so
 de-duplication cannot find it.
@@ -128,7 +128,7 @@ premium on a disjoint split with the reporting conventions it depends on (§8.6�
    and was escalated to n = 10 under a criterion fixed in advance (**Table S28's note**) — so the convention
    systematically shifts **arm-to-arm comparisons**; its direction
    varies by corpus: three-way paired differencing gives 2 cells where `val` understates, 2 where it
-   overstates and 9 not significant — the **no-systematic-direction** [10] reports, measured here on
+   overstates and 9 not testable at n = 3 — the **no-systematic-direction** [10] reports, measured here on
    detection corpora.
    **We do not claim a general understatement** (§5). It appears in third-party logs too (a searched 20-log sample; §5.5) — corroboration that the
 component exists elsewhere, **not independent evidence** and not a field-level rate.
@@ -298,7 +298,7 @@ reproduces the archived `sio_b_results.csv` to **0.0046 pp**.
 cells, CIs excluding zero); **the direction of that shift varies by corpus** (Tier 2: 2 understate /
 2 overstate on the four-cell base) — **neither "a general understatement" nor "no systematic direction"**.
 BH at q = 0.05 **now leaves three cells significant** — `p_vistod15`, `p_aitovis`, `shwd2sf` [28], **reversing what we reported before the
-escalation**.
+escalation**. **The two families are not the same test**: the **13-cell scan is descriptive**, while the **confirmatory family is the four escalated cells** (declared before their runs, §3.2) — so the direction statement rests on those four, and the nine cells left at n = 3 are **not testable at that n** (§7.1).
 
 **Scope (cross-framework boundary).** The convention this paper audits belongs to the **YOLO lineage —
 Ultralytics YOLO [16] and YOLOX [29]**: at pinned commits, Detectron2 (`TEST.EVAL_PERIOD = 0`) [30],
