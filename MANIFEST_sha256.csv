@@ -1,8 +1,8 @@
 path,sha256,bytes,description
-01_paper/P2_English_submission_blind_v1.md,2ec6b4b5953cbd3b729f59367d203dd2184af4ca2992f7865088868c13d2c84d,78445,article (anonymised submission form)
-01_paper/P2_English_v0.1.md,aaa616c9079beb160c980f0f3836b1f560d75468514b5a3ec6d8cef98f8590c4,79642,article (working form)
+01_paper/P2_English_submission_blind_v1.md,17b7be268fe42dcf121123b269c40db02e28cd554afec3d075a1e849bd3e0a12,78556,article (anonymised submission form)
+01_paper/P2_English_v0.1.md,aab0a1740265d0347b1dcd41075cb4afc49c99d686db55e6b8020d6c515f9386,79753,article (working form)
 01_paper/P2_English_v0.1.pdf,78466139d4f13b2564d906641aadb5825fca9322916e8661da1715d08e35ba6e,890401,article PDF as built
-01_paper/P2_Supplementary_English_v0.1.md,363734db2bea6fc8ce355e701ce5fa34c96bdb85744847841447c8952cadfb1b,299564,"supplementary material (English, authoritative artefact)"
+01_paper/P2_Supplementary_English_v0.1.md,4ffb474f7943ba6fec34eeb117f500464015441eefb461d8b030885e76c9a747,299588,"supplementary material (English, authoritative artefact)"
 01_paper/P2_Supplementary_English_v0.1.pdf,e2e8207996672793328db5d00a15e014826a282d3cbc889d51a809018a5c6eed,5887837,supplementary PDF as built
 01_paper/P2_投稿前件_v0.1.md,e62d8ede3f3013b2bbd957637d141dd88f26f6dd74948269e7f33b22b9750235,33853,submission front matter (author names still placeholders): the anchor audit reads its Highlights and Cover Letter sections (X47/X48) so that the 289-anchor claim holds inside the package
 01_paper/P2_补充材料.md,c4ebb7d01f852038b96d02c0fab9bc517ec3c5581e526162e35d3971a0fedd02,51805,supplementary material (Chinese source record)
@@ -330,7 +330,7 @@ work/x3b_perepoch_corrected_20260918.py,69c8a5ced19bf111b34d6a31a311fe10e466263f
 02_release_data/xeval_perepoch_20260918/x3.DONE,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,0,Table 4 recompute-chain input (C01)
 02_release_data/xeval_perepoch_20260918/xeval_perepoch.log,79c436ce050e2fc72723d19618a6c67c6ea84cd5696a91f147cb73aa98a2482b,1942061,Table 4 recompute-chain input (C01)
 work/item2_final_v2_20260925.py,9edcf49a53565c8d9a0dc6d84d77c7cca0ba9103ec21423da013b5e7cced208f,7856,Table 4 rate: root-relative paths (C01/C05)
-README.md,f14afd61cde8ecf1edda6d3c331997ac93fe06c9aa75ab4440fa00b9e0b5cc88,10160,hand-written package documentation
+README.md,0a4bdb2ca2b4c2ce48fba888d23ad567dc66e361386e0c8a2a24e109c037359d,10160,hand-written package documentation
 02_release_data/t1d_valext_20261002/README.md,6ce17006a2d536273695ea6100fc52c5388aae331ddc1372ce3b3929513e9992,1603,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
 02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s42n/results.csv,b499828a720c9a67e3f1f431fbe9a9ec18836157caf53a9a387de3de10b048b3,12118,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
 02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s42n/results_A.csv,b499828a720c9a67e3f1f431fbe9a9ec18836157caf53a9a387de3de10b048b3,12118,T1-d val extension (r9 review remediation: the three curves the supplement says ship)

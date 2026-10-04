@@ -10,7 +10,7 @@ Object-detection papers report a number from a split they call held out. We audi
 **1. The convention is broken in our own corpora.** **6 of 14** corpora we hold give the reported number no independent held-out split: the checkpoint was selected there.
 Training and evaluation do not overlap: **checkpoint selection**, not contamination.
 
-**2. The direction varies by corpus.** The premium is **positive in all four cells** (§5.1, an escalated four-cell base; **near-definitional**), the baseline arm gaining more, the **paired Δgap** changing sign by corpus — and **that sign is not the selection term's sign** (Table 2); a declared 13-cell family leaves **3** after BH; in 19 public benchmarks the reported number comes from a non-independent split (§6.1; **one rater's judgement**). **Changing the metric keeps the mean direction; one cell loses
+**2. The direction varies by corpus.** The premium is **positive in all four cells** (§5.1, an escalated four-cell base; **near-definitional**), the baseline arm gaining more, the **paired Δgap** changing sign by corpus — and **that sign is not the selection term's sign** (Table 2); a declared, **descriptive** 13-cell family leaves **3** after BH; in 19 public benchmarks the reported number comes from a non-independent split (§6.1; **one rater's judgement**). **Changing the metric keeps the mean direction; one cell loses
 significance and sign unanimity** (`smoke2sf` **+0.063 pp**, p = 0.54, **6+/5−**).
 
 **3. Partial realization on a disjoint split.** Separating the selection set from the reported set, the
@@ -383,7 +383,7 @@ same three-way split, at **six seeds**, is **positive in all six runs, with a 95
 
 ### 7.1 With n = 3 a permutation test **cannot** reject in principle
 
-**A power note for the cells that remain at n = 3.** Recovering each Tier-2 cell's sd from its own printed 95 % CI gives **0.20–0.67 pp** across the four escalated cells; at n = 3 the required effect is **0.7–2.4 pp** for 80 % power at a two-sided α = 0.05 — **at or above every Tier-1 effect this paper reports** (+0.27 to +0.53 pp) — and at n = 10 it is 0.2–0.7 pp, the scale at which the four escalated cells are judged. The nine cells left at n = 3 are therefore not merely unlucky: **at this design they cannot carry an inference**, and they are reported descriptively only. **The derivation, including the correction of the earlier `3.10·sd`, is in Supplementary S12.**
+**A power note for the cells that remain at n = 3.** Recovering each Tier-2 cell's sd from its own printed 95 % CI gives **0.20–0.67 pp** across the four escalated cells; at n = 3 the required effect is **0.65–2.19 pp** for 80 % power at a two-sided α = 0.05 — **at or above every Tier-1 effect this paper reports** (+0.27 to +0.53 pp) — and at n = 10 it is 0.2–0.7 pp, the scale at which the four escalated cells are judged. The nine cells left at n = 3 are therefore not merely unlucky: **at this design they cannot carry an inference**, and they are reported descriptively only. **The derivation, with the exact non-central-`t` factor (`3.26·sd`), is in Supplementary S12.**
 
 **For a sign-flip permutation test on n pairs the smallest attainable two-sided p is 2/2ⁿ**: at
 n = 3 that is **0.25**, so such a cell has **no resolution at this n**; **after §5.1's escalations no
@@ -575,12 +575,13 @@ This paper's subject is a reporting convention, not a detector: a count is meani
 
 ## References
 
-> **Note on preprint citations.** Seventeen of the 55 entries give an arXiv edition: three also name a
+> **Note on preprint citations.** Seventeen of the 55 entries give an arXiv edition. **Three** of them also name a
 > peer-reviewed venue (Dodge et al., EMNLP-IJCNLP 2019; Yu et al., IEEE TIM 2024; Pintelas & Livieris,
-> IEEE TNNLS 2026), four are cited at a benchmark's or dataset's canonical release (COCO, xView, DIOR,
-> CrowdHuman), and two are methodological (Smith & Winkler; Roth). The remaining **ten** — Guedes de Souza
-> & Panisson; Apicella et al.; Ruangsang & Pramkeaw; Suo et al.; Roth; Roktim; Zhang & Zhao; Sweeney;
-> Tian et al.; Ajroldi et al., **two from 2025 and eight from 2026** — have no peer-reviewed version. They are the
+> IEEE TNNLS 2026). **The other fourteen** have no peer-reviewed version; within those, four are cited at a
+> benchmark's or dataset's canonical release (COCO, xView, DIOR, CrowdHuman) and two are methodological
+> (Smith & Winkler; Roth), leaving the **eight** closest concurrent and tooling works — Guedes de Souza
+> & Panisson; Apicella et al.; Ruangsang & Pramkeaw; Suo et al.; Roktim; Zhang & Zhao; Sweeney;
+> Tian et al.; Ajroldi et al. — of which **two are from 2025 and six from 2026**. They are the
 > closest concurrent and tooling work, cited **for positioning only**: no quantitative claim here rests
 > on them, every number being measured on our own corpora or on the third-party logs of §5.5.
 
