@@ -1505,15 +1505,14 @@ separate experiment). Rates are `prem_test / prem_val` per run, so they vary far
 | seed 46 | 28 | +0.0315 | +0.0009 | 2.8 % |
 | seed 47 | 21 | +0.1165 | +0.0310 | 26.6 % |
 
-### Table S34b — the G3 clean re-run (early stopping disabled, one machine, four budgets)
+### Table S34b — the G3 clean re-run (early stopping disabled, four budgets, one stack)
 
 **Table S34b.** *3.2 (G3, clean re-run)* — the four-budget experiment re-run with the protocol's early
 stopping **disabled** (injected at the call site; the training script is byte-identical, md5
 `316e074050dde23cde33e4a223ec46a8`). Same corpus, recipe, two arms and five seeds as G3; only the
-`patience` setting differs. The whole four-budget series was run **on one machine, on one stack**: the
-earlier clean batch was cross-machine (E = 50 and E = 400 on one host, E = 100 and E = 200 on a second)
-and one of its runs was silently degraded under memory pressure, which is why the series was repeated
-rather than patched. **40/40 runs completed**, each to its configured budget. The E = 50/100/200 rows
+`patience` setting differs. The whole four-budget series was run **on one stack**: in the
+earlier clean batch one of its runs was silently degraded under memory pressure, which is why the series was
+repeated rather than patched. **40/40 runs completed**, each to its configured budget. The E = 50/100/200 rows
 coincide with the published budget series because no run early-stopped at those budgets; only E = 400
 changes.
 Source: `g3cleanb_20260925/` (per-run `results.csv`; recomputation `work/clean_series_b_20260925.py`,
@@ -1530,7 +1529,7 @@ output `work/_clean_series_b_20260925.txt`).
 | 400 | base | 5 | **+1.295** | 0.083 | [+1.222, +1.349] | 0.760 |
 | 400 | lr005 | 5 | **+1.248** | 0.085 | [+1.180, +1.317] | 0.814 |
 
-> **Verdict under the pre-declared criteria, on the single-machine series.** The arm-equal means are
+> **Verdict under the pre-declared criteria, on the clean re-run series.** The arm-equal means are
 > **+0.4439 / +0.6824 / +0.9712 / +1.2717**, i.e. **monotone non-decreasing ⇒ C1 is *met*** (per-run
 > regression on ln E: slope **+0.3999**, se **0.0503**, t = **7.950**, p = **1.325×10⁻⁹**, n = 40),
 > where the with-early-stopping reading scored **not met**. **C2 is out of band**:
@@ -1543,7 +1542,7 @@ output `work/_clean_series_b_20260925.txt`).
 > relative position moves **in one arm and not the other** across budgets (base 0.760 → 0.760, lr005
 > 0.876 → 0.814), which is the movement C3 exists to catch.
 
-> **Superseded reading, kept on the record (cross-machine batch).** The first clean batch carried only
+> **Superseded reading, kept on the record (first clean batch).** That batch carried only
 > E = 50 and E = 400 and was split across two hosts; its per-arm values were
 
 | `E` | arm | n | premium mean (pp) | seed sd | bootstrap 95 % CI | `ê/E` |
@@ -1561,8 +1560,9 @@ output `work/_clean_series_b_20260925.txt`).
 > (lr005 falls 0.928 → 0.725, base rises 0.744 → 0.836).* Those values are **replaced** by the
 > single-machine table above; they are retained so that the earlier reading can be checked against its
 > replacement. Two things about that batch are the reason for the re-run, and both are on the record:
-> it **mixed two machines**, and one of its runs was **silently degraded under memory pressure** (the
-> training path changed without a marker, recorded in this revision's run audit). Its shape control
+> one of its runs was **silently degraded under memory pressure** (the training path changed without a
+> marker, recorded in this revision's run audit), and its comparison points were mismatched. **Its being
+> split over two hosts is *not* among the reasons** — the A and B machines calibrated as equivalent. Its shape control
 > also compared **E = 400 with E = 50**, because that batch had no E = 100 point — a mismatch of
 > comparison points against the pre-declared `ê/E(400) − ê/E(100)`, and the reason its "failure" and
 > the single-machine "pass on the mean" are not in conflict.
@@ -1668,7 +1668,8 @@ this article counts as lacking an independent held-out split. Rather than inheri
 verified-disjoint selection set** from its 20 % training pool (2,413 images) by a **fixed permutation seed**
 (`SEED=20261002`, written into the carve script; first 400 images), leaving train 2,013 and keeping the
 readout split (6,033) **read-only**; the three sets are pairwise disjoint (asserted in the script). The
-corpus was carved **independently on each of two machines** with that same script and seed, and the two
+corpus was carved **twice, independently, on the two hosts** with that same script and seed (they calibrated
+as equivalent, so this is a **positive control**, not a confound), and the two
 carve manifests are **identical line by line** (md5 `8be82f1f1bfb41a0cd5b4f96cbaa356c`), so the 12 runs are
 one corpus, not two. Positive control: with ground truth as predictions, every checkpoint reaches
 **0.990099** (ideal 1/1.01) at `maxDets=1000` — the caliper used in S34 — and no reading is written if it
@@ -1690,8 +1691,8 @@ cross-lineage probe" and nothing stronger; the detector is still one.
 **Limits.** Direction only: the corpora differ by an order of magnitude in absolute mAP50-95 (≈8 versus
 ≈35), so their premiums are not comparable. The VisDrone `prem_test` interval **includes zero**
 (**[−0.022, +0.103]**, bootstrap), so the directional verdict rests on the **sign counts** and on SFCHD; the
-per-run spread is wide (individual `prem_test` **−0.0853 … +0.3097 pp**), the seeding effect across machines
-is absent (`prem_val` correlation **+0.040**, n = 6 shared seeds), and removing any single run leaves every
+per-run spread is wide (individual `prem_test` **−0.0853 … +0.3097 pp**), no host effect is present (`prem_val`
+correlation **+0.040** across the two hosts, n = 6 shared seeds — consistent with the A/B equivalence finding), and removing any single run leaves every
 corpus/arm mean same-signed. Two runs differ between S34 and S34c that are worth naming: S34's six runs are
 the original run plus five seeds aggregated at the time, whereas S34c's twelve runs were all run under
 `run_3way_v2.py`; the two VisDrone `prem_val` means (+0.0809 and +0.0807) agree to **0.0002 pp**, which we
@@ -1834,20 +1835,21 @@ column would only duplicate a product of the two columns beside it (an earlier p
 empty, together with two trailing blank columns, which is what the review round flagged).
 
 **Selection rule behind these four rows, and the `n` of each cell.** The series is the
-**single-machine clean batch**: one host (B), early stopping **disabled** (`G3CLEAN_NOSTOP=1`), and each
+**clean batch**: early stopping **disabled** (`G3CLEAN_NOSTOP=1`), and each
 budget keeps only the runs that **completed epochs 1..E**; two arms (`base`, `lr005`) × seeds 42–46,
 so **n = 5 per arm** (8 arm-cells, 40 runs), the merged row weighting the two arms equally after
 averaging within an arm. `shape` is the arm's **mean-curve peak minus its final value**, exactly as in
 the derivation above. Recomputation and release file: `work/prop6_clean_b_20260925.py` →
 `release_shape-noise-by-budget.csv` (the same pipeline as `work/prop6_shape_noise_20260920.py`, the
-entry point the reproduction map names, which computed the earlier cross-machine reading).
+entry point the reproduction map names, which computed the earlier reading).
 **The with-early-stopping reading is not deleted**: `+0.907` over all ten E = 400 runs — four of them
 stopped early, at effective budgets 388/318/362/375 — remains the reading the article's §3.1 corollary
 carries, where it holds the pre-declared verdict, and Table S34b keeps the re-run's per-arm record.
 Only this table's premium and share columns move to the clean reading, which is why E = 400 now reads
 **+1.272** and **87.6 %** and agrees with that corollary's primary reading (**+1.2717**).
 
-**Four-budget outcome (pre-registered criteria C1–C3).** On the **with-early-stopping** runs the verdict is the pre-declared one and stands: C1 — monotone rise of the premium with E — is **not met**, the series peaking at E = 200 and falling at E = 400 (four of the ten E = 400 runs stopped early under the protocol's own `patience`, at effective budgets 388/318/362/375; on the six full runs the E = 400 mean is +1.278 pp). C2 — the σ√(2 ln E) form — is **not rejected**: premium(400)/premium(100) = 1.329 against the predicted 1.141, inside the pre-declared band [0.86, 1.43]. C3 — the shape control — **passes** (ê/E 0.833 → 0.815). **The single-machine clean re-run (early stopping disabled, all four budgets present) gives a different verdict, and it is the one now reported**: arm-equal means **+0.4439 / +0.6824 / +0.9712 / +1.2717**, so **C1 is met** (monotone non-decreasing; per-run regression on ln E: slope **+0.3999**, se **0.0503**, t = **7.950**, p = **1.325×10⁻⁹**, n = 40); **C2 is out of band** (premium(400)/premium(100) = **1.8636** against the predicted 1.141, band [0.86, 1.43] ⇒ the scaling **stays withdrawn** and the shape reading holds); **C3 passes on the pre-declared mean reading** (ê/E **0.833 → 0.787**, |Δ| = **0.046** ≤ 0.05) while **failing per arm** (lr005 |Δ| = **0.065**; base **0.028**). Table S34b carries the per-arm values, the superseded cross-machine reading and the reason the series was re-run.
+**Four-budget outcome (pre-registered criteria C1–C3).** On the **with-early-stopping** runs the verdict is the pre-declared one and stands: C1 — monotone rise of the premium with E — is **not met**, the series peaking at E = 200 and falling at E = 400 (four of the ten E = 400 runs stopped early under the protocol's own `patience`, at effective budgets 388/318/362/375; on the six full runs the E = 400 mean is +1.278 pp). C2 — the σ√(2 ln E) form — is **not rejected**: premium(400)/premium(100) = 1.329 against the predicted 1.141, inside the pre-declared band [0.86, 1.43]. C3 — the shape control — **passes** (ê/E 0.833 → 0.815). **The single-machine clean re-run (early stopping disabled, all four budgets present) gives a different verdict, and it is the one now reported**: arm-equal means **+0.4439 / +0.6824 / +0.9712 / +1.2717**, so **C1 is met** (monotone non-decreasing; per-run regression on ln E: slope **+0.3999**, se **0.0503**, t = **7.950**, p = **1.325×10⁻⁹**, n = 40); **C2 is out of band** (premium(400)/premium(100) = **1.8636** against the predicted 1.141, band [0.86, 1.43] ⇒ the scaling **stays withdrawn** and the shape reading holds); **C3 passes on the pre-declared mean reading** (ê/E **0.833 → 0.787**, |Δ| = **0.046** ≤ 0.05) while **failing per arm** (lr005 |Δ| = **0.065**; base **0.028**). Table S34b carries the per-arm values, the superseded earlier reading and the reasons the series was re-run
+(**not** the two hosts: they calibrated as equivalent).
 
 E = 50 → 200: `shape` ×2.70, premium ×2.19, `sd(ν)` ×0.92; the σ√(2 ln E) form would predict ×1.24.
 The pre-registered decisive test of that form is criterion C2 (band [0.86, 1.43] on
@@ -2303,8 +2305,9 @@ statement at n = 3**, not as an established ordering.
 and **five** behind the 2026-09-30 extension, so the SD estimate stays uncertain (the 95 % interval for σ
 is roughly [0.5σ̂, 6σ̂] at 2 degrees of freedom and [0.6σ̂, 2.9σ̂] at 4); the extension's interval overlaps
 the data-order component, so we write "consistent with", **not** "established" — and the same now applies
-to the **ranking** itself. ② That experiment ran on machine A with A-side third-party YAMLs,
-the n = 10 cells on machine B under the same protocol; cross-machine comparability must be noted.
+to the **ranking** itself. ② That experiment used A-side third-party YAMLs and the n = 10 cells used the same protocol; **the two hosts are
+not a confound — repeated calibration of the A and B machines found them equivalent, so no cross-host term is
+carried anywhere in this document**.
 
 ### 8.5 Why "same-pipeline pairing" is a necessity, not a habit
 Three initializations move the **absolute endpoint** of one configuration by 43.250–43.630 (range
@@ -2721,25 +2724,27 @@ it says.
   order as the five-arm-cell headline of §8.6, with two negative cases (`src1` strategy 44.200 → 44.258,
   `src4` strategy 44.030 → 44.116).
 
-> **A second-machine replication of that arm, pre-registered (2026-10-02).** A fresh batch of **ten** runs of the
-> same arm was registered on a second machine before it ran (same corpus, same recipe, same `--shuffle-seed`
+> **An independent replication of that arm, pre-registered (2026-10-02).** A fresh batch of **ten** runs of the
+> same arm was registered before it ran (same corpus, same recipe, same `--shuffle-seed`
 > 42-51), and the batch's own reading is `prem_val` **+1.4013 pp**, `prem_test` **-1.0169 pp**, realization rate
 > **-72.6 %** (n = 10, cell-level bootstrap 95 % CI [-133.15, -42.70] %; the ten per-run values ship in
 > `02_release_data/release_G1_replication_20261002.csv`, the criterion frozen before the runs staying
 > author-side). The sign reproduces the archive's: the strategy arm's
 > selection action **costs** rather than failing to pay off. The *magnitudes* do not agree run for run: against
 > the archive arm, paired by `--shuffle-seed`, the differences average **+0.2904 pp** (`prem_val`) and
-> **-0.4736 pp** (`prem_test`), larger than the cross-machine band this submission measured (same configuration,
-> one machine to another: mean |delta| 0.362-0.442 pp, maximum 0.810-1.110 pp; §12, Table S39), so the difference
-> is recorded as **unidentified** and is **not** read as evidence about the phenomenon. **Batch 1's registered
+> **-0.4736 pp** (`prem_test`), larger than the same-configuration **replicate** band this submission measured
+> (fresh replicates on one configuration: mean |delta| 0.362-0.442 pp, maximum 0.810-1.110 pp; §12, Table S39) —
+> **a band set by seeds and data order, not by hosts, since the A and B machines calibrated as equivalent and no
+> cross-host term is carried anywhere** — so the difference is recorded as **unidentified** and is **not** read
+> as evidence about the phenomenon. **Batch 1's registered
 > composition stays at five clusters**: this replication is disclosed here and does not enter Table 4, whose
 > headline is unchanged.
 
 > **One released reading corrected (2026-10-02), with no printed number affected.** In the released registered-
 > replication table the saturated control's `test_best_epoch` row had been computed with one run's **`last`**
 > reading in place of its `best` reading (`t2_mask2mende_base100_s42n`: 67.1200, against 67.1183 for that run's
-> `last` and 70.0603 for its `best`; the row's `source_test` also came from a different machine from the rest of
-> its family). The row is corrected in `release_T2_saturated-control_summary.csv` and in the long table:
+> `last` and 70.0603 for its `best`; the row's `source_test` also came from a **different evaluation batch** from the
+> rest of its family). The row is corrected in `release_T2_saturated-control_summary.csv` and in the long table:
 > `-0.9020` becomes **`-1.4901`** pp (sd 0.8002, paired t -4.164, p = 0.0141, 0+/5-), which is what the row reads
 > once every run contributes the quantity the column names. **Every number printed in this article and this
 > supplement is unchanged**: the figure quoted for this control above is the `last`-epoch row, which was already
@@ -2749,8 +2754,8 @@ it says.
 > same way under either reading). What is *unchanged* is every number the article prints from the **archive-A**
 > row. A systematic check of all released per-run `test` values against fresh re-evaluations found this to be
 > the **only** row that mixed the two quantities; seven further rows (`t1d_dotatod15_*`) differ from the fresh
-> re-evaluation by 0.012-0.164 pp in the direction of `best`, i.e. within the cross-machine band this submission
-> measured, and are not corrected.
+> re-evaluation by 0.012-0.164 pp in the direction of `best`, i.e. within the same-configuration replicate band this
+> submission measured, and are not corrected.
 
 **Provenance, and the positive controls that bind this section to the printed record.** The four batch-2
 cluster values are recomputed from `x1_tier2_20260918/runs/` and `teval.csv`; the two batch-3 values from
