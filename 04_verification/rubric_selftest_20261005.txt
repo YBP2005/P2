@@ -1,0 +1,3 @@
+  正例（五字段齐）                     检出缺 0 项 [] ⇒ 绿  OK
+  负例1（无任何新字段）                  检出缺 5 项 ['credits', 'searched', 'to_earn_more', 'required', 'satisfied'] ⇒ 红  OK
+  负例2（缺 satisfied，其余齐）         检出缺 1 项 ['satisfied'] ⇒ 红  OK
