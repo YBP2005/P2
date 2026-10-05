@@ -63,6 +63,10 @@ Evidence marks: (A) explicit in the audit｜(D) derived from audit facts｜(?) t
 
 | # | benchmark | release | protocol | yolo_dist | reported | Evidence category | Confidence |
 |---|---|---|---|---|---|---|---|
+<!-- citations: 1 COCO [34], 2 PASCAL VOC [21], 3 Objects365 [35], 4 Open Images v7 [36], 5 DOTA v1.0 [37],
+     6 DOTA v2.0 [37], 7 VisDrone-DET [38], 8 AI-TOD [39], 9 UAVDT [40], 10 xView [41], 11 DIOR [42],
+     12 NWPU VHR-10 [43], 13 SHWD [44], 14 SFCHD [45], 15 MAFA [46], 16 Mendeley face-mask [22],
+     17 WIDER FACE [47], 18 CrowdHuman [48], 19 D-Fire [49] -->
 | 1 | COCO | `n_a(A)` | `independent_test(A)` | `clean(A)` | `clean(A)` | Official counts + mirror yaml | high |
 | 2 | PASCAL VOC | `n_a(A)` | `test_gated(A)` | `alias(A)` | `alias(A)` | mirror VOC.yaml (both keys cited per row) | high |
 | 3 | Objects365 | `no_test(A)` | `no_test(A)` | `no_test_key(A)` | `alias(D)` | mirror yaml + Ultralytics docs | high |

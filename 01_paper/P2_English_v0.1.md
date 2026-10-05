@@ -23,7 +23,7 @@ Object-detection papers report a number from a split they call held out. We audi
 **1. The convention is broken in our own corpora.** **6 of 14** corpora we hold give the reported number no independent held-out split: the checkpoint was selected there.
 Training and evaluation do not overlap: **checkpoint selection**, not contamination.
 
-**2. The direction varies by corpus.** The premium is **positive in all four cells** (§5.1, an escalated four-cell base; **near-definitional**), the baseline arm gaining more, the **paired Δgap** changing sign by corpus (**its sign is not the selection term's**); a declared, **descriptive** 13-cell family leaves **3** after BH; in **12–14 of 19** public benchmarks the reported number comes from a non-independent split (§6.1; **one rater's judgement**). **Changing the metric keeps the mean direction; one cell loses
+**2. The direction varies by corpus.** The premium is **positive in all four cells** with the baseline arm gaining more (§5.1; **near-definitional**), the **paired Δgap** changing sign by corpus (**not the selection term's sign**); a declared, **descriptive** 13-cell family leaves **3** after BH; in **12–14 of 19** benchmarks it comes from a non-independent split — **inter-coding uncertainty, not a CI** (κ **0.11–0.44**), over **configurations the archive could read, not a sample** (§6.1). **Changing the metric keeps the mean direction; one cell loses
 significance and sign unanimity** (`smoke2sf` **+0.063 pp**, p = 0.54, **6+/5−**).
 
 **3. Partial realization on a disjoint split.** Separating the selection set from the reported set, the
@@ -274,7 +274,7 @@ than contrary, since its mechanism is holdout **reuse** and ours needs none.
 11+/0−): **the mean direction is metric-robust, one cell's significance and sign unanimity are not**
 (full mAP50 columns and both mAP75 columns — the mAP75 `val` side is a **5-epoch grid**, so a rate computed from it is **upward-biased** — **Supplementary S12**).
 
-**Table 1.** Tier 1 — each arm's **peak−final gap** and the **paired difference** between arms, by cell; the gap is a within-run maximum (§5.1), so the finding is the paired difference. `n` counts paired units (ten seeded, one unseeded — Supplementary S12); at n = 10 the two differences hold (**+0.272**, **+0.449** pp). **A different run set from the transfer measurement in §8.6**: these are the 569-run local archive under the published (aliased) protocol, while that measurement’s premiums come from the clean three-way runs — the two tables’ premiums are different quantities, not two readings of one. Source: `verify_two_critiques_20260916.txt`; the `dota15` row's n = 10 escalation is in Table S28.
+**Table 1.** Tier 1 — each arm's **peak−final gap** and the **paired difference** between arms, by cell; the gap is a within-run maximum (§5.1), so the finding is the paired difference. `n` counts paired units (ten seeded, one unseeded — Supplementary S12); both differences hold at n = 10. **A different run set from the transfer measurement in §8.6**: these are the 569-run local archive under the published (aliased) protocol, while that measurement’s premiums come from the clean three-way runs — the two tables’ premiums are different quantities, not two readings of one. Source: `verify_two_critiques_20260916.txt`; the `dota15` row's n = 10 escalation is in Table S28.
 
 | Cell | n (paired units) | peak−final gap, base | peak−final gap, strat | **paired diff** | sd | t | p | perm. *p* (floor 2/2ⁿ) | 95 % CI |
 |---|---|---|---|---|---|---|---|---|---|
@@ -330,7 +330,7 @@ external check **corrects this to** the paired-difference form, which cancels th
 under the pairing assumption stated in **§S11**. The argument and the recomputation are in
 **Supplementary S12**.
 ### 5.5 The same component in third-party public logs
-**The same quantity appears in other people's logs** — **a sample, not a field-level rate**: 20 logs from 6 sources found by repository **search**, median **+1.04 pp**, max **+5.65 pp**, 18/20 positive. The queries, the rest of the frame and the reason public logs **cannot establish aliasing** are in **Supplementary S12**.
+**The same quantity appears in other people's logs** — **a convenience sample with no sampling frame, not a field-level rate**: 20 logs from 6 sources found by repository **search**, median **+1.04 pp**, max **+5.65 pp**, 18/20 positive. The queries, the rest of the frame and the reason public logs **cannot establish aliasing** are in **Supplementary S12**.
 **Five limitations**: ① the two cells escalated in §5.1 reach n = 10 with **local** runs and test-side
 evaluations, and the remaining 9 cells' `test` side was closed on 2026-09-30 on one machine;
 ② `prem_test` is **best − last**, while the per-epoch `test` curve now exists for **all thirteen**
@@ -345,10 +345,11 @@ row by ~0.02 pp; ④ this section does **not** touch §6's 19-benchmark census; 
 **Evidence**: `benchmark_split_audit.md`, a line-by-line audit of 19 benchmark rows, plus
 `split_units_19rows_20260916.md` (recomputation script; no hard-coded percentages).
 
-The 19 audited benchmarks, with the release or dataset paper read for each: COCO [34], PASCAL VOC [21], Objects365 [35],
-Open Images v7 [36], DOTA v1.0 and v2.0 [37], VisDrone-DET [38], AI-TOD [39], UAVDT [40], xView [41],
-DIOR [42], NWPU VHR-10 [43], SHWD [44], SFCHD [45], MAFA [46], Mendeley face-mask [22], WIDER FACE [47],
-CrowdHuman [48], D-Fire [49]. **These nineteen are the configurations this archive could read, not a sample of the field.** The question is **evaluation validity**: dataset-level bias auditing [50]
+**The nineteen audited benchmarks** — each read from its own release or dataset paper — are COCO [34], PASCAL VOC [21],
+Objects365 [35], Open Images v7 [36], DOTA v1.0 and v2.0 [37], VisDrone-DET [38], AI-TOD [39], UAVDT [40], xView [41],
+DIOR [42], NWPU VHR-10 [43], SHWD [44], SFCHD [45], MAFA [46], Mendeley face-mask [22], WIDER FACE [47], CrowdHuman [48]
+and D-Fire [49]; their per-unit markings are in **Supplementary S1**. **They are the configurations this archive could
+read, not a sample of the field.** The question is **evaluation validity**: dataset-level bias auditing [50]
 and classifier-accuracy estimation [51] ask whether a reported number measures what it is taken to
 measure, but neither audits a release's configuration binding.
 
@@ -465,14 +466,14 @@ revision's two batches (`x4_teval.csv` on A, `x4fill_20260925.csv` on B, for `pr
 | aitod20 | baseline | **10** | **+0.766** | **−0.218** | **−28 %** |
 | aitod20 | **strategy** | **10** | **+1.111** | **−0.543** | **−49 %** |
 
-> The `aitod20` **strategy** row is in the data but outside the five-cell pool. **That pool is mechanical**: every arm-cell whose `test` side had reached **n = 10 at the 2026-09-25 freeze** — both arms of `shwd2sf` and of `smoke2sf`, plus `aitod20` **baseline** (**50 runs**; `work/item2_final_v2_20260925.py` applies the rule and prints the **23.26 %** aggregate). **Its exclusion was decided after the readings were in, not by a pre-registered rule** (the only pre-registered criterion is the companion's, §9) — so **this table prints six cells, Table S20 the five of the pool**.
+> The `aitod20` **strategy** row is in the data but outside the five-cell pool; **that pool is defined mechanically in Table S20's note** (every arm-cell whose `test` side had reached n = 10 at the 2026-09-25 freeze — 50 runs), which is why **this table prints six cells and Table S20 the five of the pool**. **The exclusion was decided after the readings were in, not by a pre-registered rule** (the only pre-registered criterion is the companion's, §9).
 
 where `prem_val = V_max − V_final` (**selecting on val**) and
 `prem_test = T_best − T_final` (**realized on test**).
 
 **The three bases**: run-level `[8.4 %, 37.4 %]`, `P = 0.002`; five-cell `[−17.3 %, 53.2 %]`, `P = 0.118` (claim-level, **zero inside**); eleven-cluster `[19.3 %, 60.4 %]`, `P = 0.000`.
 
-**Aggregate** (runs weighted equally, n = 50; the `aitod20` cell completed from 1 run to 10): `prem_val` **+0.879 pp** → `prem_test` **+0.205 pp**. **At the claim level this is not significant**: the **claim-level interval** is the cell-level, five-cluster one, **[−17.3 %, 53.2 %]**, **P(rate ≤ 0) = 0.118**, zero inside. Descriptively, arm-cell median **17.6 %** (span **−28.5 % to +73.7 %**, **2/5** negative) and run-weighted **23.3 %** (`work/item2_final_v2_20260925.py`). On a difference scale the eleven clusters give `prem_test − prem_val` = **−1.367 pp**, 95 % CI **[−1.59, −1.15]** (the five cells' denominators span **+0.605 to +1.469 pp**). Re-aggregated: run-weighted **36.9 %**, arm-cell-equal **39.3 %**, 95 % CI **[19.3 %, 60.4 %]** — the interval's sign depends on the base, and **completing the cell, not the weighting, is what moves it**: at n = 10 the three weightings agree, so **the fragile axis is pool composition**. **Leave-one-out 9.77 % to 34.16 %.** In two arm-cells the selection action **costs** rather than failing to pay off (`smoke2sf` strategy, `aitod20` baseline); the escalated cells reach **82 % / 104 %** and **56 % / 29 %**, pooled **55 %** (§5.1). The closest concurrent work, the winner's-curse check, the withdrawn σ√(2 ln E) form and each cell's corpus pair: **Supplementary S12**.
+**Aggregate** (runs weighted equally, n = 50): `prem_val` **+0.879 pp** → `prem_test` **+0.205 pp**. **At the claim level this is not significant**: the **claim-level interval** is the cell-level, five-cluster one, **[−17.3 %, 53.2 %]**, **P(rate ≤ 0) = 0.118**, zero inside. Descriptively, arm-cell median **17.6 %** and run-weighted **23.3 %** (`item2_final_v2_20260925.py`; the span, **2/5** negative, is in Table 4). On a difference scale the eleven clusters give **−1.367 pp**, 95 % CI **[−1.59, −1.15]** (five-cell denominators span **+0.605 to +1.469 pp**). Re-aggregated: run-weighted **36.9 %**, arm-cell-equal **39.3 %**, 95 % CI **[19.3 %, 60.4 %]** — the interval's sign depends on the base, and **completing the cell, not the weighting, is what moves it**: at n = 10 the three weightings agree, so **the fragile axis is pool composition**. **Leave-one-out 9.77 % to 34.16 %.** In two arm-cells the selection action **costs** rather than failing to pay off (`smoke2sf` strategy, `aitod20` baseline); the escalated cells reach **82 % / 104 %** and **56 % / 29 %**, pooled **55 %** (§5.1). The closest concurrent work, the winner's-curse check, the withdrawn σ√(2 ln E) form and each cell's corpus pair: **Supplementary S12**.
 
 (the `best.pt`-versus-argmax residual, our withdrawn attribution and why the remainder is **unidentified**: **Supplementary S12**.)
 
@@ -573,7 +574,7 @@ behind every count, as Table 3's header does.
 
 ## 13. Conclusions
 
-A count is meaningless until its **unit** is named: the same nineteen benchmarks answer differently under each declared unit (Fig. 1) — the same rows give **10/19** under `release`, **13/19** under `protocol` and **4/19** under `yolo_dist`, while a second reading of one row moves the `reported` count across **12–14 of the 19** (its COCO-`val` reading: **13/19**). Three findings stand. **The most robust number here is the transfer slope κ (§8.7): early `val` movement does transfer to `test`, and the premium is only its residual.** The selection premium is positive in all four cells, the baseline arm gaining more (**near-definitional on the monitored split**); the paired Δgap **varies in sign** by corpus, so "the convention understates the effect" is not claimed here. On five arm-cells at n = 10 the `val`-selected premium is realized on a disjoint split at **23.3 %**, a run-level statistic whose cell-level interval includes zero. Two things do **not** hold: the σ√(2 ln E) scaling was tested and **withdrawn**, and no prospective power analysis was registered, so the nine `n = 3` cells remain descriptive. What we ask of a detection paper is narrow: declare the counting unit, freeze in writing which checkpoint is the reported number, and state the interval at the level of the claim. The remediation protocol's first report is the companion's; the measurement under it is this paper's.
+A count is meaningless until its **unit** is named: the same nineteen benchmarks answer differently under each declared unit (Fig. 1, Table 3) — **10/19** under `release`, **13/19** under `protocol`, **4/19** under `yolo_dist`, and **12–14 of the 19** under `reported` (whose COCO-`val` reading is **13/19**). Three findings stand. **The most robust number here is the transfer slope κ (§8.7): early `val` movement does transfer to `test`, and the premium is only its residual.** The premium is positive in all four cells, the baseline arm gaining more, and the paired Δgap **varies in sign** by corpus — so "the convention understates the effect" is not claimed. On five arm-cells at n = 10 it is realized on a disjoint split at **23.3 %**, interval containing zero. Two things do **not** hold: the σ√(2 ln E) scaling was tested and **withdrawn**, and no prospective power analysis was registered, so the nine `n = 3` cells stay descriptive. What we ask of a detection paper is narrow: **name the counting unit, freeze in writing which checkpoint is the reported number, and state the interval at the level of the claim.** First report is the companion's (§7.2).
 
 ## Declarations
 
