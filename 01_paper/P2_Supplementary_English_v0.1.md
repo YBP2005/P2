@@ -963,6 +963,26 @@ The strength of every statement in the main text is distinguished accordingly.
 
 > **Which cells are these five, and why exactly five.** The rule is mechanical: **every arm-cell whose `test` side had reached n = 10 at the 2026-09-25 freeze** — both arms of `shwd2sf` and of `smoke2sf`, plus `aitod20` **baseline** (50 runs); `work/item2_final_v2_20260925.py` applies it and prints the pool, the per-cell means and the **23.26 %** aggregate. The `aitod20` **strategy** arm finished after the freeze: it is **the sixth row of Table 4, printed as Table S20c below**, **kept out of this pool** (feeding it in gives **8.7 %**), and **its exclusion was decided after its readings were in, not by a pre-registered rule**. **Table S20 and Table 4 therefore print five and six cells on purpose.**
 
+**Table S20-lite — the pool ledger, and its status (the one thing it is not).** Every cell that could enter the
+§8.6 pool, its completion state at the two dates that matter, and whether it is in:
+
+| Cell · arm | `test` side at the **2026-09-25 freeze** | completed | in the five-cell pool | run-weighted rate |
+|---|---|---|---|---|
+| shwd2sf · baseline | n = 10 | 2026-09-25 | **yes** | +50 % |
+| shwd2sf · strategy | n = 10 | 2026-09-25 | **yes** | +18 % |
+| smoke2sf · baseline | n = 10 | 2026-09-25 | **yes** | +74 % |
+| smoke2sf · strategy | n = 10 | 2026-09-25 | **yes** | −26 % |
+| aitod20 · **baseline** | n = 10 | 2026-09-25 | **yes** | −28 % |
+| aitod20 · **strategy** | n = 1 | **after** the freeze | **no** (Table S20c) | −49 % |
+
+> **Status, stated plainly: this is a *mechanical* rule applied at a recorded date, not a *pre-registered* one.** The
+> rule is "every arm-cell whose `test` side had reached n = 10 at the 2026-09-25 freeze", and `work/item2_final_v2_20260925.py`
+> is what applies it; the date and the completion states above are what make it re-derivable. But the rule was **written
+> down when the pool was formed**, not before the runs existed, so it cannot carry the authority of a pre-registration.
+> **What carries that authority is that it does not need to**: the §8.6 claim is interval-level and **both pools cover
+> zero** (five-cell [−17.3 %, 53.2 %], six-cell [−4.9 %, +21.3 %]), so **no reported conclusion depends on pool membership**.
+> The remaining freedom is over the **point estimate**, and §8.6 prints both.
+
 | Cell | Arm | n | `prem_val` | **`prem_test`** | **realization rate** |
 |---|---|---|---|---|---|
 | shwd2sf | baseline | 10 | +1.469 | **+0.736** | **50 %** |
@@ -1093,7 +1113,7 @@ The strength of every statement in the main text is distinguished accordingly.
 
 ### Table S38 — the selection term, cell by cell: `prem_test` and WC for all thirteen scanned corpora
 
-**Table S38.** *5.6 / 8.6* — the selection contribution proper, `prem_val − prem_test` = WC, formed here for **every** scanned corpus and both arms. The five arm-cells printed in Table S20 are repeated with that table's values; the other twenty-one were closed on **2026-09-30** by scoring **every archived 5-epoch checkpoint** on each run's own held-out `test` split: **1,568 grid checkpoints over 140 runs** — the two figures are a **decomposition, not two counts of the same thing**: **1,848 evaluations in total = 1,568 grid checkpoints + 140 runs × 2 endpoints (`best`/`last`)**, on one machine, with the pipeline's registered call (`YOLO(w)` → `val(split="test", batch=32, imgsz=640, plots=False, save_json=False)`, no loss re-import), the data YAML read from each run's own `args.yaml` and asserted to be three-way with a `test:` split. `n` is the number of seeds carrying a `test` curve for that arm (3 where the scan ran at n = 3, 10 where the cell was later escalated, and 10 for the five arm-cells of Table S20); `prem_val` and `prem_test` are means over those seeds, in pp, with `prem_test = T_best − T_final`; realization rate = `prem_test / prem_val`. **The same run reproduces the values printed earlier in this supplement**: over the 21 arm-cells carrying both readings, the val maximum, `prem_val` and the archived `T_best` agree to **max |Δ| = 0.005 pp**, which is the printed rounding (`work/g6_repro_vs_printed_20260930.py`); the coverage audit reports **140/140 runs, 1,848 rows, 0 anomalies** (`g6_prem_per_run.csv` and `g6_perepoch_test_curves.csv`). Per-run readings and the curves themselves: release files `g6_prem_per_run.csv` and `g6_perepoch_test_curves.csv`.
+**Table S38.** *5.6 / 8.6* — the selection contribution proper, `prem_val − prem_test` = WC, formed here for **every** scanned corpus and both arms. **Two scopes, two counts, one table**: this table covers **26 arm-cells / 190 runs** — the five arm-cells printed in Table S20 (their values repeated here, **40 runs**) plus **21 arm-cells / 140 runs** closed on **2026-09-30** by scoring **every archived 5-epoch checkpoint** on each run's own held-out `test` split: **1,568 grid checkpoints over 140 runs** — the two figures are a **decomposition, not two counts of the same thing**: **1,848 evaluations in total = 1,568 grid checkpoints + 140 runs × 2 endpoints (`best`/`last`)**, on one machine, with the pipeline's registered call (`YOLO(w)` → `val(split="test", batch=32, imgsz=640, plots=False, save_json=False)`, no loss re-import), the data YAML read from each run's own `args.yaml` and asserted to be three-way with a `test:` split. `n` is the number of seeds carrying a `test` curve for that arm (3 where the scan ran at n = 3, 10 where the cell was later escalated, and 10 for the five arm-cells of Table S20); `prem_val` and `prem_test` are means over those seeds, in pp, with `prem_test = T_best − T_final`; realization rate = `prem_test / prem_val`. **The same run reproduces the values printed earlier in this supplement**: over the 21 arm-cells carrying both readings, the val maximum, `prem_val` and the archived `T_best` agree to **max |Δ| = 0.005 pp**, which is the printed rounding (`work/g6_repro_vs_printed_20260930.py`); the coverage audit reports **140/140 runs, 1,848 rows, 0 anomalies** (`g6_prem_per_run.csv` and `g6_perepoch_test_curves.csv`). Per-run readings and the curves themselves: release files `g6_prem_per_run.csv` and `g6_perepoch_test_curves.csv`.
 
 | Cell | Arm | n | `prem_val` | `prem_test` | WC | realization rate |
 |---|---|---|---|---|---|---|

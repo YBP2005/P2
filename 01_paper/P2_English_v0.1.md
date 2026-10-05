@@ -489,7 +489,7 @@ E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of s
 ![Fig. 3](figures/fig6_sigma_vs_rate.png)
 
 
-**Pool composition (a stated sensitivity, not a headline).** Table 4 prints **six** measured arm-cells; adding the sixth (`aitod20` **strategy**) moves the run-weighted rate **23.3 % → 8.7 %** and the median **+17.6 % → −4.2 %**. Declared **after the fact**: five cells primary, six the sensitivity, **both intervals printed** — six-cell **[−4.9 %, +21.3 %]** **still covers zero**, so the reading is **unchanged**.
+**Pool composition — and why the claim does not turn on it.** Table 4 prints **six** measured arm-cells; adding the sixth (`aitod20` **strategy**) moves the run-weighted rate **23.3 % → 8.7 %** and the median **+17.6 % → −4.2 %**. That is a large move, so this is the one place where a post-hoc pool decision could have mattered — **and it does not**. The exclusion was **decided after the readings were in, not by a pre-registered rule**, but **every claim we make is interval-level and both pools give the same verdict**: five-cell **[−17.3 %, 53.2 %]** (P = 0.118) and six-cell **[−4.9 %, +21.3 %]** **both cover zero**, so **no reported conclusion depends on which cells are in the pool** — what moves is the point estimate, not the reading. Five cells are primary because they are the ones the mechanical rule admits (n = 10 on both sides at the freeze, Table S20's note); six is the sensitivity; **both intervals are printed**.
 
 ### 8.7 The per-epoch view: the realization rate is not a constant
 
