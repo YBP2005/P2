@@ -42,7 +42,7 @@ RULES = [
      r'_review_|distill_|评审件|归档清单|consensus_ledger|intake_ledger',
      '材料里出现了评审产物名 ⇒ 他评痕迹', 0),
     ('其它轮次材料',
-     r'(上一轮|前一轮|再上一轮|round R\d|本轮改了什么|与上一版相比|previous round)',
+     r'(上一轮|前一轮|再上一轮|round R\d{1,3}(?!\d)|本轮改了什么|与上一版相比|previous round)',
      '材料提到了其它轮次 ⇒ 破坏了盲态（应只讲"本轮"）', 0),
     ('他评分数/档位泄露',
      r'(上一轮出现过自报|别的评审者.{0,8}(分|分项)|出现过自报\s*\d|其它评审者.{0,8}(分数|评价))',
@@ -68,6 +68,16 @@ def main():
     for p in found:
         s = io.open(p, encoding='utf-8').read()
         print('\n--- %s（%d B）---' % (os.path.basename(p), len(s.encode())))
+        # ★ 两处**必须排除的假阳性**（2026-10-05 实测）：
+        #   ① 包内的 `round R13` 是**包自己的轮次标记**，不是跨轮信息；
+        #   ② 包内 `plaintext password` 是**稿件 §10 defect 4 的披露原文**（作者自陈"两个头条脚本原先
+        #      依赖租用 pod：import paramiko + 明文口令"）⇒ 是**被审内容**，不是发布卫生缺陷。
+        #   注意：**任务件**里若出现"明文口令"仍应报（那是**任务件的断言**，不是稿件内容）。
+        _is_pkg = os.path.basename(p).startswith('P2盲审包')
+        # ★ 从**包的首行**读本轮标记（`# Blind review pack — round R13`）；
+        #   不能用 `re.findall(r'round R\d+')`（贪婪匹配会把 R13 截成 R1）。
+        _m = re.search(r'round\s+R\s*(\d+)', s)
+        _mine = {'round R%s' % _m.group(1)} if _m else set()
         for name, pat, why, allow in RULES:
             ms = re.findall(pat, s)
             # 允许项：① `<你的模型目录>`（说明输出位置）；② 输出文件名模板 `<tag>_review_<标识>_<日期>.md`
@@ -80,6 +90,16 @@ def main():
                 _keep.append(m)
             ms = [m for m in _keep
                   if not (str(m) == '_review_' and re.search(r'@?p2r\d+_review_<评审者标识>', s))]
+            if name == '其它轮次材料':
+                # 排除"**本轮自己的**轮次标记"与"本轮自己的日期"——两件都适用。
+                _self = set(_mine) | {DATE, DATE[:6]}
+                ms = [m for m in ms
+                      if str(m) not in _self and not (isinstance(m, str) and m.startswith('round R') and m.split()[-1].isdigit() and ('round R%s' % m.split()[-1]) in _mine)]
+            if name.startswith('明文口令') and _is_pkg:
+                # 包内出现"明文口令"是稿件披露原文 ⇒ 只作 INFO，不判失败
+                if ms:
+                    print('  INFO %-16s %d 处 —— 是稿件 §10 defect 4 的披露原文（被审内容，非泄漏）' % (name, len(ms)))
+                ms = []
             ok = len(ms) <= allow
             print('  %s %-16s %d 处 %s' % ('OK  ' if ok else 'FAIL', name, len(ms),
                                            '' if ok else '(%s)' % why))
