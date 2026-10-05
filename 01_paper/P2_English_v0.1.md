@@ -23,7 +23,7 @@ Object-detection papers report a number from a split they call held out. We audi
 **1. The convention is broken in our own corpora.** **6 of 14** corpora we hold give the reported number no independent held-out split: the checkpoint was selected there.
 Training and evaluation do not overlap: **checkpoint selection**, not contamination.
 
-**2. The direction varies by corpus.** The premium is **positive in all four cells** (§5.1, an escalated four-cell base; **near-definitional**), the baseline arm gaining more, the **paired Δgap** changing sign by corpus (**its sign is not the selection term's**); a declared, **descriptive** 13-cell family leaves **3** after BH; in 19 public benchmarks the reported number comes from a non-independent split (§6.1; **one rater's judgement**). **Changing the metric keeps the mean direction; one cell loses
+**2. The direction varies by corpus.** The premium is **positive in all four cells** (§5.1, an escalated four-cell base; **near-definitional**), the baseline arm gaining more, the **paired Δgap** changing sign by corpus (**its sign is not the selection term's**); a declared, **descriptive** 13-cell family leaves **3** after BH; in **12–14 of 19** public benchmarks the reported number comes from a non-independent split (§6.1; **one rater's judgement**). **Changing the metric keeps the mean direction; one cell loses
 significance and sign unanimity** (`smoke2sf` **+0.063 pp**, p = 0.54, **6+/5−**).
 
 **3. Partial realization on a disjoint split.** Separating the selection set from the reported set, the
@@ -403,8 +403,8 @@ same three-way split, at **six seeds**, is **positive in all six runs, with a 95
 n = 3 that is **0.25**, so such a cell has **no resolution at this n**; **after §5.1's escalations no
 headline cell (Tables 1–2) is n = 3** (**the derivation and each n's floor: Supplementary S12**).
 
-### 7.2 Significance first appears at n = 6
-**Both conventions first reach significance at n = 6** (weaker endpoint *t* **p = 0.0164**); below that the exact permutation is bounded by **2/2ⁿ** (**0.25** at n = 3). The clean-protocol seed extension that reaches n = 10, and the per-cell numbers, are in **Supplementary S12** and Table S15.
+### 7.2 The two clean-protocol cells clear significance by n = 6–8
+**The weaker endpoint reaches *t*-significance at n = 6 on `shwd2sf` (p = 0.0164) and n = 7 on `smoke2sf` (p = 0.0400)**; the **exact permutation — floored at 2/2ⁿ (0.25 at n = 3) — follows one to two steps behind** (n = 8 on both `selected` readings; Table S42 gives every prefix n, both endpoints). The clean-protocol seed extension that reaches n = 10, and the per-cell numbers, are in **Supplementary S12** and Table S15.
 > **First-report attribution (a convention we hold to).** Three things here belong to the companion
 > paper and are cited, not claimed: the two Δ values (**+1.434 / +0.507 pp**), the three-way remediation
 > protocol itself, and the pre-registered multi-target replication (§9). What this paper reports first is
@@ -465,14 +465,14 @@ revision's two batches (`x4_teval.csv` on A, `x4fill_20260925.csv` on B, for `pr
 | aitod20 | baseline | **10** | **+0.766** | **−0.218** | **−28 %** |
 | aitod20 | **strategy** | **10** | **+1.111** | **−0.543** | **−49 %** |
 
-> The `aitod20` **strategy** row is in the data but outside the five-cell pool: that pool is the one the analysis behind Table S20 used, and **its exclusion of this cell was decided after the readings were in, not by a pre-registered rule** (the article's only pre-registered criterion is the companion's, §9).
+> The `aitod20` **strategy** row is in the data but outside the five-cell pool. **That pool is mechanical**: every arm-cell whose `test` side had reached **n = 10 at the 2026-09-25 freeze** — both arms of `shwd2sf` and of `smoke2sf`, plus `aitod20` **baseline** (**50 runs**; `work/item2_final_v2_20260925.py` applies the rule and prints the **23.26 %** aggregate). **Its exclusion was decided after the readings were in, not by a pre-registered rule** (the only pre-registered criterion is the companion's, §9) — so **this table prints six cells, Table S20 the five of the pool**.
 
 where `prem_val = V_max − V_final` (**selecting on val**) and
 `prem_test = T_best − T_final` (**realized on test**).
 
 **The three bases**: run-level `[8.4 %, 37.4 %]`, `P = 0.002`; five-cell `[−17.3 %, 53.2 %]`, `P = 0.118` (claim-level, **zero inside**); eleven-cluster `[19.3 %, 60.4 %]`, `P = 0.000`.
 
-**Aggregate (runs weighted equally, n = 50; the `aitod20` cell completed from **1** run to **10**): `prem_val` +0.879 pp → `prem_test` +0.205 pp. **At the claim level this is not significant**: the **claim-level interval is the cell-level, five-cluster one, [−17.3 %, 53.2 %], P(rate ≤ 0) = 0.118, zero inside**. Descriptively, arm-cell median **17.6 %** (span **−28.5 % to +73.7 %**, **2/5** negative) and run-weighted **23.3 %** (script `work/item2_final_v2_20260925.py`).** **On a difference scale the eleven clusters give `prem_test − prem_val` = −1.367 pp, 95 % CI [−1.59, −1.15]** (not a new experiment; the five cells' denominators span **+0.605 to +1.469 pp**). The same re-aggregation: **run-weighted 36.9 %**, **arm-cell-equal 39.3 %**, 95 % CI **[19.3 %, 60.4 %]** — the interval's sign depends on the base. **Completing the cell, not the weighting, is what moves this estimate**: with every cell at n = 10 the three weightings agree, so **the fragile axis is pool composition**, not the weight. **Leave-one-out 9.77 % to 34.16 %**: *partial realization* is a **descriptive five-cell statement**; in two arm-cells the selection action **costs** rather than failing to pay off (the `smoke2sf` strategy arm and the `aitod20` baseline). **The escalated cells reach 82 % / 104 % and 56 % / 29 %, pooled 55 %** (§5.1); the closest concurrent work, the winner's-curse check, the withdrawn σ√(2 ln E) form, and each arm-cell's corpus pair: **Supplementary S12**.
+**Aggregate** (runs weighted equally, n = 50; the `aitod20` cell completed from 1 run to 10): `prem_val` **+0.879 pp** → `prem_test` **+0.205 pp**. **At the claim level this is not significant**: the **claim-level interval** is the cell-level, five-cluster one, **[−17.3 %, 53.2 %]**, **P(rate ≤ 0) = 0.118**, zero inside. Descriptively, arm-cell median **17.6 %** (span **−28.5 % to +73.7 %**, **2/5** negative) and run-weighted **23.3 %** (`work/item2_final_v2_20260925.py`). On a difference scale the eleven clusters give `prem_test − prem_val` = **−1.367 pp**, 95 % CI **[−1.59, −1.15]** (the five cells' denominators span **+0.605 to +1.469 pp**). Re-aggregated: run-weighted **36.9 %**, arm-cell-equal **39.3 %**, 95 % CI **[19.3 %, 60.4 %]** — the interval's sign depends on the base, and **completing the cell, not the weighting, is what moves it**: at n = 10 the three weightings agree, so **the fragile axis is pool composition**. **Leave-one-out 9.77 % to 34.16 %.** In two arm-cells the selection action **costs** rather than failing to pay off (`smoke2sf` strategy, `aitod20` baseline); the escalated cells reach **82 % / 104 %** and **56 % / 29 %**, pooled **55 %** (§5.1). The closest concurrent work, the winner's-curse check, the withdrawn σ√(2 ln E) form and each cell's corpus pair: **Supplementary S12**.
 
 (the `best.pt`-versus-argmax residual, our withdrawn attribution and why the remainder is **unidentified**: **Supplementary S12**.)
 
@@ -488,7 +488,7 @@ E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of s
 ![Fig. 3](figures/fig6_sigma_vs_rate.png)
 
 
-**Pool composition (a stated sensitivity, not a headline).** Table 4 prints **six** measured arm-cells; adding the sixth (`aitod20` **strategy**) moves the run-weighted rate **23.3 % → 8.7 %** and the median **+17.6 % → −4.2 %**, and its exclusion was **decided after the readings were in**. Declared **after the fact**: five cells primary, six the sensitivity, **both intervals printed** — six-cell **[−4.9 %, +21.3 %]** **still covers zero**, so the reading is **unchanged**.
+**Pool composition (a stated sensitivity, not a headline).** Table 4 prints **six** measured arm-cells; adding the sixth (`aitod20` **strategy**) moves the run-weighted rate **23.3 % → 8.7 %** and the median **+17.6 % → −4.2 %**. Declared **after the fact**: five cells primary, six the sensitivity, **both intervals printed** — six-cell **[−4.9 %, +21.3 %]** **still covers zero**, so the reading is **unchanged**.
 
 ### 8.7 The per-epoch view: the realization rate is not a constant
 

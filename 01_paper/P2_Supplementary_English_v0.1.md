@@ -667,7 +667,7 @@ The strength of every statement in the main text is distinguished accordingly.
 | **Table S12** | 6.2 "Same directory" has four levels, and the audit reported only the narrowest | Level, Rows, Meaning | 4 |
 | **Table S13** | 6.3 We do **not** reproduce the original audit's two numbers, and we say why | Audit's number, Our recomputation, Reason | 3 |
 | **Table S14** | 6.5 Across frameworks: is the convention specific to YOLO? | Framework (pinned commit), Split the reported metric comes from, Also used for selection?, Status of an independent "test" | 6 |
-| **Table S15** | 7.2 Significance first appears at n = 6 | Cell, n, Δ, paired t p, permutation p (n = 10 floor 0.001953), seeds positive | 2 |
+| **Table S15** | 7.2 The two clean-protocol cells clear significance by n = 6–8 | Cell, n, Δ, paired t p, permutation p (n = 10 floor 0.001953), seeds positive | 2 |
 | **Table S16** | 7.3 A cross-archive endpoint conflict on the same run (investigated — and itself a disclosure) | Reading, Δ, p | 3 |
 | **Table S17** | 8.1 The protocol is the companion's; the measurement under it is this paper's | Cell, clean protocol (n = 10), published (old protocol) | 2 |
 | **Table S18** | 8.3 ⭐ A direct measurement of selection inflation | Cell, n = 6, n = 9, change | 2 |
@@ -888,9 +888,9 @@ The strength of every statement in the main text is distinguished accordingly.
 
 > **Correction (2026-10-04, and a defect of our instrument).** The MMDetection row above was first written as "the base config has **no** test split at all". That is **false**: at the pinned commit, `configs/_base_/datasets/coco_detection.py` lines **65** and **73** read `test_dataloader = val_dataloader` and `test_evaluator = val_evaluator`. The extraction behind this table (`work/analyze_xframe_20260916.py`) searched only for `val_*` keys, so the `test_*` keys were **absent from the evidence file rather than absent from the config**. The corrected reading is **stronger for the article's claim**: the key exists but is bound to the validation object — an **alias, not an independent split**. On the same day the other rows were re-checked against the pinned sources and stand (YOLOX: `test_ann` used only when `testdev=True`, `yolox/exp/yolox_base.py` 301/306/307; PaddleDetection: `if validate and is_snapshot:` in `ppdet/engine/trainer.py` 694 with `status['save_best_model'] = True` at 721).
 
-### Table S15 — moved from *7.2 Significance first appears at n = 6*
+### Table S15 — moved from *7.2 The two clean-protocol cells clear significance by n = 6–8*
 
-**Table S15.** *7.2 Significance first appears at n = 6* — columns: Cell, n, Δ, paired t p, permutation p (n = 10 floor 0.001953), seeds positive.
+**Table S15.** *7.2 The two clean-protocol cells clear significance by n = 6–8* — columns: Cell, n, Δ, paired t p, permutation p (n = 10 floor 0.001953), seeds positive.
 
 | Cell | n | Δ | paired t p | permutation p (n = 10 floor 0.001953) | seeds positive |
 |---|---|---|---|---|---|
@@ -956,6 +956,8 @@ The strength of every statement in the main text is distinguished accordingly.
 ### Table S20 — moved from *8.6 ⭐ The premium's realization rate: **not significant at claim level**; arm-cell median **17.6 %** (five arm-cells, n = 10; run-weighted **23.3 %**)*
 
 **Table S20.** *8.6 ⭐ The premium's realization rate: **not significant at claim level**; arm-cell median 17.6 % (five arm-cells, n = 10; run-weighted 23.3 %)* — columns: Cell, Arm, n, `prem_val`, `prem_test`, realization rate.
+
+> **Which cells are these five, and why exactly five.** The rule is mechanical: **every arm-cell whose `test` side had reached n = 10 at the 2026-09-25 freeze** — both arms of `shwd2sf` and of `smoke2sf`, plus `aitod20` **baseline** (50 runs); `work/item2_final_v2_20260925.py` applies it and prints the pool, the per-cell means and the **23.26 %** aggregate. The `aitod20` **strategy** arm finished after the freeze: it is **the sixth row of Table 4, printed as Table S20c below**, **kept out of this pool** (feeding it in gives **8.7 %**), and **its exclusion was decided after its readings were in, not by a pre-registered rule**. **Table S20 and Table 4 therefore print five and six cells on purpose.**
 
 | Cell | Arm | n | `prem_val` | **`prem_test`** | **realization rate** |
 |---|---|---|---|---|---|
@@ -1087,7 +1089,7 @@ The strength of every statement in the main text is distinguished accordingly.
 
 ### Table S38 — the selection term, cell by cell: `prem_test` and WC for all thirteen scanned corpora
 
-**Table S38.** *5.6 / 8.6* — the selection contribution proper, `prem_val − prem_test` = WC, formed here for **every** scanned corpus and both arms. The five arm-cells printed in Table S20 are repeated with that table's values; the other twenty-one were closed on **2026-09-30** by scoring **every archived 5-epoch checkpoint** on each run's own held-out `test` split: **1,568 checkpoints over 140 runs** (1,848 evaluations including each run's `best`/`last` endpoints), on one machine, with the pipeline's registered call (`YOLO(w)` → `val(split="test", batch=32, imgsz=640, plots=False, save_json=False)`, no loss re-import), the data YAML read from each run's own `args.yaml` and asserted to be three-way with a `test:` split. `n` is the number of seeds carrying a `test` curve for that arm (3 where the scan ran at n = 3, 10 where the cell was later escalated, and 10 for the five arm-cells of Table S20); `prem_val` and `prem_test` are means over those seeds, in pp, with `prem_test = T_best − T_final`; realization rate = `prem_test / prem_val`. **The same run reproduces the values printed earlier in this supplement**: over the 21 arm-cells carrying both readings, the val maximum, `prem_val` and the archived `T_best` agree to **max |Δ| = 0.005 pp**, which is the printed rounding (`work/g6_repro_vs_printed_20260930.py`); the coverage audit reports **140/140 runs, 1,848 rows, 0 anomalies** (`g6_prem_per_run.csv` and `g6_perepoch_test_curves.csv`). Per-run readings and the curves themselves: release files `g6_prem_per_run.csv` and `g6_perepoch_test_curves.csv`.
+**Table S38.** *5.6 / 8.6* — the selection contribution proper, `prem_val − prem_test` = WC, formed here for **every** scanned corpus and both arms. The five arm-cells printed in Table S20 are repeated with that table's values; the other twenty-one were closed on **2026-09-30** by scoring **every archived 5-epoch checkpoint** on each run's own held-out `test` split: **1,568 grid checkpoints over 140 runs** — the two figures are a **decomposition, not two counts of the same thing**: **1,848 evaluations in total = 1,568 grid checkpoints + 140 runs × 2 endpoints (`best`/`last`)**, on one machine, with the pipeline's registered call (`YOLO(w)` → `val(split="test", batch=32, imgsz=640, plots=False, save_json=False)`, no loss re-import), the data YAML read from each run's own `args.yaml` and asserted to be three-way with a `test:` split. `n` is the number of seeds carrying a `test` curve for that arm (3 where the scan ran at n = 3, 10 where the cell was later escalated, and 10 for the five arm-cells of Table S20); `prem_val` and `prem_test` are means over those seeds, in pp, with `prem_test = T_best − T_final`; realization rate = `prem_test / prem_val`. **The same run reproduces the values printed earlier in this supplement**: over the 21 arm-cells carrying both readings, the val maximum, `prem_val` and the archived `T_best` agree to **max |Δ| = 0.005 pp**, which is the printed rounding (`work/g6_repro_vs_printed_20260930.py`); the coverage audit reports **140/140 runs, 1,848 rows, 0 anomalies** (`g6_prem_per_run.csv` and `g6_perepoch_test_curves.csv`). Per-run readings and the curves themselves: release files `g6_prem_per_run.csv` and `g6_perepoch_test_curves.csv`.
 
 | Cell | Arm | n | `prem_val` | `prem_test` | WC | realization rate |
 |---|---|---|---|---|---|---|
@@ -1563,7 +1565,7 @@ output `work/_clean_series_b_20260925.txt`).
 > premium is an order of magnitude below the YOLO-side cells of §8.6 (+0.865 … +1.469 pp) and
 > **must not be compared with them**: the detector, corpus, dataset scale and absolute mAP level all
 > differ. The evaluation-side self-test (`ground truth as predictions` = **0.990099** at
-> `maxDets = 1000**, **0.962854** at 100) is reported in the project log for that pass (2026-09-16). **Why it is not
+> `maxDets = 1000`**, **0.962854** at 100) is reported in the project log for that pass (2026-09-16). **Why it is not
 > exactly 1.0.** Feeding the ground truth back in is not capped by the interpolation grid: measured locally
 > (`work/c23_eval_ceiling_20261001.py`, `pycocotools`, gt = predictions, score 1.0), a **one-box self-test reads
 > exactly 1.000000** at both `maxDets` settings. The 101-point grid turns a **recall cap** `r` into
@@ -2325,7 +2327,7 @@ the test value of the **selected** checkpoint — supplying it means re-running 
 
 ---
 
-### 7.2 Significance first appears at n = 6 — measurement detail
+### 7.2 The two clean-protocol cells clear significance by n = 6–8 — measurement detail
 The clean-protocol seed extension (seeds 42–51) reaches **n = 10**:
 
 > **Table S15** → Supplementary §S8.
@@ -2355,7 +2357,7 @@ how the tables print it, so the two spellings denote one number and not two. **A
 headline cell (Tables 1–2) is n = 3.** The article keeps the general form, the n = 3 case and the fact
 that no headline cell is n = 3, and points here for the derivation and the remaining floors.
 
-**The power note for the n = 3 cells, with its derivation (moved from the article).** Recovering each Tier-2 cell's sd from its own printed 95 % CI as `sd = half-width ÷ (t_{9,0.975}/√10)` gives **0.20–0.67 pp** across the four escalated cells; a paired comparison at n = 3 then needs `(t_{2,0.975} + t_{2,0.80})·sd/√3 = 3.10·sd`, and the **exact 80 %-power MDE from the non-central t (df = 2, two-sided α = 0.05) is 3.26·sd`** — i.e. **0.65–2.19 pp** for 80 % power at a two-sided α = 0.05, **at or above every Tier-1 effect the article reports** (+0.27 to +0.53 pp); at n = 10 the same derivation gives an MDE of `0.99·sd`, i.e. **0.2–0.7 pp**, the scale at which the four escalated cells are judged. The nine cells left at n = 3 cannot carry an inference at this design and are reported descriptively only.
+**The power note for the n = 3 cells, with its derivation (moved from the article).** Recovering each Tier-2 cell's sd from its own printed 95 % CI as `sd = half-width ÷ (t_{9,0.975}/√10)` gives **0.20–0.67 pp** across the four escalated cells; a paired comparison at n = 3 then needs `(t_{2,0.975} + t_{2,0.80})·sd/√3 = 3.10·sd`, and the **exact 80 %-power MDE from the non-central t (df = 2, two-sided α = 0.05) is `3.26·sd`** — i.e. **0.65–2.19 pp** for 80 % power at a two-sided α = 0.05, **at or above every Tier-1 effect the article reports** (+0.27 to +0.53 pp); at n = 10 the same derivation gives an MDE of `0.99·sd`, i.e. **0.2–0.7 pp**, the scale at which the four escalated cells are judged. The nine cells left at n = 3 cannot carry an inference at this design and are reported descriptively only.
 
 ### 7.3 A cross-archive endpoint conflict on the same run (investigated — and itself a disclosure) — measurement detail
 One run, `t2_mask2mende_base100_s42n`, is recorded with **two different checkpoints**: one row reports
