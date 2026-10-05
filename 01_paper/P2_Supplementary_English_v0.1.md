@@ -2175,7 +2175,9 @@ pinned at commit `2417aff0457c`, with **0 untraceable entries** and **24/24 agre
    `currentVersionNumber` *at probe time*: `ikram0703` 2, the rest 1).
 3. **The endpoint reading is an upper bound**: repositories rarely record which epoch was reported, so we
    assume it was the best.
-4. **Licensing**: **5 sources do not state a licence** (Kaggle `Unknown`), and the GitHub source's `LICENSE`
+4. **Licensing** (of **these third-party logs** — a different object from the seven **open** corpora of §4–§8, all of
+   which we hold no local copies of only because the images are not in the archive): **5 sources do not state a licence**
+   (Kaggle `Unknown`), and the GitHub source's `LICENSE`
    was not retained. We **do not redistribute** these CSVs, only hashes and source pointers; derived
    statistics should be cited with that caveat.
 
@@ -3144,7 +3146,8 @@ in the archive, and is not reconstructed here from what the row says.
 
 This distinction is why the article claims **evaluation validity** rather than full reproducibility:
 every number we report is recomputable from what is shipped, while regenerating the checkpoints behind
-them would require corpora we do not redistribute.
+them would require downloading the corpora again — they are **open**, but the archive **holds no copies** of six
+of the seven, so the images are not on hand (`§10`, defect 6).
 
 **Why a second pass, and what it is not.** The single-rater disclosure above is unchanged,
 and a second human rater is still what a true inter-rater statistic would need. What has

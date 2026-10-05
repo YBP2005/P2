@@ -8,7 +8,7 @@
 Object-detection papers report a number from a split they call held out. We audit that premise, with three results.
 
 **1. The convention is broken in our own corpora.** **6 of 14** corpora we hold give the reported number no independent held-out split: the checkpoint was selected there.
-Training and evaluation do not overlap: **checkpoint selection**, not contamination.
+Training and evaluation do not overlap — **checkpoint selection**, not contamination.
 
 **2. The direction varies by corpus.** The premium is **positive in all four cells** with the baseline arm gaining more (§5.1; **near-definitional**), the **paired Δgap** changing sign by corpus (**not the selection term's sign**); a declared, **descriptive** 13-cell family leaves **3** after BH; in **12–14 of 19** benchmarks it comes from a non-independent split — **inter-coding uncertainty, not a CI** (κ **0.11–0.44**), over **configurations the archive could read, not a sample** (§6.1). **Changing the metric keeps the mean direction; one cell loses
 significance and sign unanimity** (`smoke2sf` **+0.063 pp**, p = 0.54, **6+/5−**).
@@ -476,7 +476,7 @@ E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of s
 ![Fig. 3](figures/fig6_sigma_vs_rate.png)
 
 
-**Pool composition — and why the claim does not turn on it.** Table 4 prints **six** measured arm-cells; adding the sixth (`aitod20` **strategy**) moves the run-weighted rate **23.3 % → 8.7 %** and the median **+17.6 % → −4.2 %**. That is a large move, so this is the one place where a post-hoc pool decision could have mattered — **and it does not**. The exclusion was **decided after the readings were in, not by a pre-registered rule**, but **every claim we make is interval-level and both pools give the same verdict**: five-cell **[−17.3 %, 53.2 %]** (P = 0.118) and six-cell **[−4.9 %, +21.3 %]** **both cover zero**, so **no reported conclusion depends on which cells are in the pool** — what moves is the point estimate, not the reading. Five cells are primary because they are the ones the mechanical rule admits (n = 10 on both sides at the freeze, Table S20's note); six is the sensitivity; **both intervals are printed**.
+**Pool composition — and why the claim does not turn on it.** Table 4 prints **six** measured arm-cells; adding the sixth (`aitod20` **strategy**) moves the run-weighted rate **23.3 % → 8.7 %** and the median **+17.6 % → −4.2 %**. That is a large move, so this is the one place where a post-hoc pool decision could have mattered — **and it does not**. The exclusion was **decided after the readings were in, not by a pre-registered rule**, but **every claim we make is interval-level and both pools give the same verdict**: five-cell **[−17.3 %, 53.2 %]** (P = 0.118) and six-cell **[−4.9 %, +21.3 %]** **both cover zero**, so **no reported conclusion depends on which cells are in the pool** — what moves is the point estimate, not the reading. Five cells are primary because the mechanical rule admits them (n = 10 on both sides at the freeze, Table S20's note); six is the sensitivity.
 
 ### 8.7 The per-epoch view: the realization rate is not a constant
 
@@ -561,14 +561,15 @@ behind every count, as Table 3's header does.
 
 ## 13. Conclusions
 
-A count is meaningless until its **unit** is named: the same nineteen benchmarks answer differently under each declared unit (Fig. 1, Table 3) — **10/19** under `release`, **13/19** under `protocol`, **4/19** under `yolo_dist`, and **12–14 of the 19** under `reported` (whose COCO-`val` reading is **13/19**). Three findings stand. **The most robust number here is the transfer slope κ (§8.7): early `val` movement does transfer to `test`, and the premium is only its residual.** The premium is positive in all four cells, the baseline arm gaining more, and the paired Δgap **varies in sign** by corpus — so "the convention understates the effect" is not claimed. On five arm-cells at n = 10 it is realized on a disjoint split at **23.3 %**, interval containing zero. Two things do **not** hold: the σ√(2 ln E) scaling was tested and **withdrawn**, and no prospective power analysis was registered, so the nine `n = 3` cells stay descriptive. What we ask of a detection paper is narrow: **name the counting unit, freeze in writing which checkpoint is the reported number, and state the interval at the level of the claim.** First report is the companion's (§7.2).
+A count is meaningless until its **unit** is named: the same nineteen benchmarks answer differently under each declared unit (Fig. 1, Table 3) — **10/19** under `release`, **13/19** under `protocol`, **4/19** under `yolo_dist`, and **12–14 of the 19** under `reported` (whose COCO-`val` reading is **13/19**). Three findings stand. **The most robust number here is the transfer slope κ (§8.7): early `val` movement does transfer to `test`, and the premium is only its residual.** The premium is positive in all four cells, the baseline arm gaining more, and the paired Δgap **varies in sign** by corpus — so "the convention understates the effect" is not claimed. On five arm-cells at n = 10 it is realized on a disjoint split at **23.3 %**, interval containing zero. Two things do **not** hold: the σ√(2 ln E) scaling was tested and **withdrawn**, and no power analysis was registered, so the nine `n = 3` cells stay descriptive. What we ask of a detection paper is narrow: **name the counting unit, freeze in writing which checkpoint is the reported number, and state the interval at the level of the claim.** First report is the companion's (§7.2).
 
 ## Declarations
 
-- **Data availability.** Claims are backed by the artifacts in the Supplementary Material; the third-party training logs are **not redistributed** (hashes and source pointers only) and 5 of their sources state no licence. The reproduction package itself — data files, per-epoch matrix, verdict files, checkers, with their SHA-256 list in `MANIFEST_sha256.csv` — is deposited and openly available at **https://github.com/YBP2005/P2.git** (accessed 2026-09-29).
+- **Data availability.** The **seven experiment corpora are open**; what the pack lacks is their **images**, so retraining is not recomputable (§10 defect 6). Separately, §5.5's **third-party logs** are **not redistributed** (hashes + pointers only), as **5 of their 6 sources state no licence**. The package — data, per-epoch matrix, verdicts, checkers, `MANIFEST_sha256.csv` — is at **https://github.com/YBP2005/P2.git** (accessed 2026-09-29). The reproduction package itself — data files, per-epoch matrix, verdict files, checkers, with their SHA-256 list in `MANIFEST_sha256.csv` — is deposited and openly available at **https://github.com/YBP2005/P2.git** (accessed 2026-09-29).
 - **Recomputability boundary.** Every reported number is recomputable from the released per-run artifacts **without
-  retraining**, each with its script; **three are not, and they are named**: the unredistributable corpora
-  (§10 defect 6), the conflicting-endpoint archives (§7.3), and the `aitod20` completion to n = 10.
+  retraining**, each with its script; **three are not, and they are named**: the corpora and carve directories the
+  archive **holds no copy of** (open corpora, images not in the pack; §10 defect 6), the conflicting-endpoint archives
+  (§7.3), and the `aitod20` completion to n = 10.
 - **Competing interests.** None declared.
 - **One quantity, two spellings.** The n = 10 attainable floor is **exactly 2/2¹⁰ = 0.001953**; the tables
   use the exact value, the abstract writes **0.002**. Same floor, spelling only.

@@ -578,10 +578,11 @@ A count is meaningless until its **unit** is named: the same nineteen benchmarks
 
 ## Declarations
 
-- **Data availability.** Claims are backed by the artifacts in the Supplementary Material; the third-party training logs are **not redistributed** (hashes and source pointers only) and 5 of their sources state no licence. The reproduction package itself — data files, per-epoch matrix, verdict files, checkers, with their SHA-256 list in `MANIFEST_sha256.csv` — is deposited and openly available at **https://github.com/YBP2005/P2.git** (accessed 2026-09-29).
+- **Data availability.** Claims rest on the Supplementary artifacts. The **seven experiment corpora are open** — what the pack lacks is their **images**, so retraining is not recomputable (§10 defect 6). Separately, §5.5's **third-party logs** are **not redistributed** (hashes + source pointers only), as **5 of their 6 sources state no licence**. The package — data, per-epoch matrix, verdicts, checkers, with `MANIFEST_sha256.csv` — is deposited at **https://github.com/YBP2005/P2.git** (accessed 2026-09-29). The reproduction package itself — data files, per-epoch matrix, verdict files, checkers, with their SHA-256 list in `MANIFEST_sha256.csv` — is deposited and openly available at **https://github.com/YBP2005/P2.git** (accessed 2026-09-29).
 - **Recomputability boundary.** Every reported number is recomputable from the released per-run artifacts **without
-  retraining**, each with its script; **three are not, and they are named**: the unredistributable corpora
-  (§10 defect 6), the conflicting-endpoint archives (§7.3), and the `aitod20` completion to n = 10.
+  retraining**, each with its script; **three are not, and they are named**: the corpora and carve directories
+  our archive **holds no copy of** (§10 defect 6 — the corpora are **open**, the images are simply not in the pack),
+  the conflicting-endpoint archives (§7.3), and the `aitod20` completion to n = 10.
 - **Competing interests.** None declared.
 - **One quantity, two spellings.** The n = 10 attainable floor is **exactly 2/2¹⁰ = 0.001953**; the tables
   use the exact value, the abstract writes **0.002**. Same floor, spelling only.
