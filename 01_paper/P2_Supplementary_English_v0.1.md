@@ -831,8 +831,14 @@ The strength of every statement in the main text is distinguished accordingly.
 | shwd2sf | **10** | **+0.78** | −0.33 | +0.60 | +0.51 | Δprem |
 | smoke2sf | **10** | **+0.46** | −1.06 | +0.09 | +1.43 | −test diff |
 | dota | 3 | **+0.35** | +0.75 | +0.54 | −0.93 | −test diff |
+| `aitod20` | 3 | **+1.48** | +1.95 | +0.44 | −0.91 | final-epoch val diff |
+| `d15d15` | 3 | **+1.28** | +0.02 | +1.46 | −0.21 | Δprem |
+| `mende20` | 3 | **+2.47** | +6.23 | −0.85 | −2.90 | final-epoch val diff |
+| `p_d15toai` | 3 | **+0.78** | +0.41 | +0.10 | +0.27 | final-epoch val diff |
+| `p_masktomende` | 3 | **−2.46** | −1.06 | +0.99 | −2.39 | −test diff |
+| `vis` | 3 | **+0.17** | +0.58 | +0.22 | −0.63 | −test diff |
 
-**The six scanned cells this table does not carry**, with their Δgap at their own scanned `n` = 3 as recorded in the same released file — `aitod20` **+1.48**, `d15d15` **+1.28**, `mende20` **+2.47**, `p_d15toai` **+0.78**, `p_masktomende` **−2.46**, `vis` **+0.17** — bring the frame to the full **thirteen**. They are not tabulated here because at `n` = 3 the sign-flip test has no resolution (§5.1, §7.1), so their components are quoted from the released file rather than re-derived. **The identity `Δgap = final-epoch val diff + Δprem − test diff` holds on all thirteen cells**; on the printed columns it is exact on five of the seven rows above and differs by ±0.01 on `fire` and `dota` from rounding of the components.
+**The last six rows are derived, not re-measured.** They are the six scanned cells the table previously left to the released file; their four columns follow from the identity and the file's own columns as `final-epoch val diff = val diff − Δprem`, with `Δprem` and `−test diff` read directly from it. **The rule was validated before use**: applied to the five rows whose `n` matches the file (the two escalated cells are excluded because the file predates their escalation), it reproduces every printed column to ±0.01, and the identity closes on all thirteen. The `Dominant` label is likewise mechanical — the largest-|·| component, or **nearly cancel** where the two largest both exceed 5 pp and oppose — and reproduces the seven labels this table already carried.
 
 
 
@@ -1832,7 +1838,7 @@ same for the realized premiums.
 **Proof.** Apply Proposition 1 to each arm and subtract; the split-difficulty terms do not cancel but
 combine into Δδ_f, and the bracket terms are Δprem_val − Δprem_test. ∎
 
-**Verification.** The identity holds to the printed digit on all 13 scanned cells (Table S10 prints seven of them; the other six cells' components are in `work/gap_mechanism_20260916.txt`) and on
+**Verification.** The identity holds to the printed digit on all 13 scanned cells (**Table S10 now prints all thirteen**; the seven it originally carried are typed from the escalation analysis, the other six are derived from `work/gap_mechanism_20260916.txt` as its caption states) and on
 both escalated cells at n = 10: −1.226 = (−1.583) + (+0.090) + (+0.267) and
 −3.315 = (−7.072) + (−0.213) + (+3.971) (`work/x1_aux_20260918.txt`); the three components sum to **−3.314** at full
 > precision, so the printed −3.315 differs from the component sum by **0.001 pp** — rounding, not a residual.
