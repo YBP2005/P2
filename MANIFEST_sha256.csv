@@ -8,7 +8,7 @@ path,sha256,bytes,description
 01_paper/P2_补充材料.md,c4ebb7d01f852038b96d02c0fab9bc517ec3c5581e526162e35d3971a0fedd02,51805,supplementary material (Chinese source record)
 01_paper/PR形式要求_核实_20260917.md,1910d8527859894be61c7aacf4822f70c20aaac5e59bea50d8948da433fdafc8,5035,the journal-forms verification record: the anchor audit reads its source correction (X45/X46)
 01_paper/figures/fig6_graphical_abstract.png,3abca737e5802a6cc658dbdd5ab665fc48674a0652064df264fcf3e43da4e2d3,111922,"the graphical abstract, for the size anchor X49 (>=1328x531 px)"
-01_paper/评测有效性稿_正文_v0.1.md,9a242279401b81a1ec38b3a39346c092d2aaf76dc7cb0e0fd28c4d314a83b515,94916,governing Chinese draft
+01_paper/评测有效性稿_正文_v0.1.md,6bae4c0a523413cbd9a892871a1a0f45bda1ac03b872e164cad0782ff6b0b040,96127,governing Chinese draft
 02_release_data/FIGURES.md,b7b66597db46e73a1413aa6a46be354d3966cb86e8e405936cf6e160c9f6bad7,1229,named in the article/supplement: figures/FIGURES.md
 02_release_data/P2_T1_registered-replication_long.csv,d5abe4766389e62f2c902eb27bbac2a95b0b12c98dab9163dd0eca7f347a0c0d,52105,"the 90-run registered replication, long form (§9)"
 02_release_data/P2_X3_perepoch_test-sweep_806-evals.csv,b75c534509d8a62e004baa00b5d7ef587eace34a0bf4a5e48c8fe13dc58a9c99,140886,the 806-checkpoint per-epoch sweep (§8.7)
