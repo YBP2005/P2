@@ -61,7 +61,7 @@ then report that it misses its criterion — a registration **also reported in t
 
 Ask "how many of these benchmarks have a split problem?" and, unless a unit is declared, every answer is
 defensible and they disagree by a factor of six: 2/19 (**structural**: one path bound to both keys),
-10/19 (**`release` unit**: no independent held-out test), 13/19 (**`protocol` unit**: local independent testing gated), **12–14 of the 19** (**`reported` unit** — **12** the single rater's printed coding, **14** that rater's rows after a **non-blind recoding** moved two; **five blind coders agree at κ 0.824** and, once the record is re-verified first-hand, independently reach **19 of the 30** corrected cells, eleven unanimously (**S12**); the reported number's split is non-independent). These are defensible answers, not the four counting units (§6.1: 10/19, 13/19, 4/19, 12/19). Declaring the unit is
+10/19 (**`release` unit**: no independent held-out test), 13/19 (**`protocol` unit**: local independent testing gated), **12–14 of the 19** (**`reported` unit** — **12** the single rater's printed coding, **14** that rater's rows after a **non-blind recoding** moved two; **five blind coders agree at κ 0.824** and, once the record is re-verified first-hand, independently reach **19 of the 30** corrected cells, eleven unanimously (**S12**); the reported number's split is non-independent). The readings above are all defensible, and §6.1's four counting units (`release`, `protocol`, `yolo_dist`, `reported`) are the **columns** they come from — including `yolo_dist`, omitted above, at **4/19**. Declaring the unit is
 therefore a methodological premise, not a caveat (§3, §6).
 
 ### 1.2 What we do not claim
@@ -193,7 +193,7 @@ The propositions of §S11 are testable, so we ran them on rented GPUs with the *
 
 **The two negative outcomes and the redone design are stated as such in Supplementary Table S37** (G1 is void; **two of the five judged experiments are negative — G1′ and G2**; the values behind every verdict are in **S31–S33**, the G1 family in **S12**; the reading below is stated more weakly in **Supplementary S11, section 13.3**).
 
-**We then ran the clean test** of G3's epoch-budget series on **one machine with early stopping disabled**, all four budgets present: C1 is **met**, C2 falls **outside** its band, and C3 **passes** on the mean ê/E it specifies but not per arm — see §3.1 and **Table S34b**; **the pre-declared verdict stays with the with-early-stopping series**. The judged criteria carry one message, **at the level of sign, not of functional form**: the selection bias moves with the amount of selection noise and with the number of selection opportunities, but not with whether the two splits are the same file — **the form itself was withdrawn** (§3.1). Two consequences do not follow: §4's configuration-level fact stands, while the stronger reading — that aliasing *adds* a measurable amount on top — does not.
+**We then ran the clean test** of G3's epoch-budget series on **one machine with early stopping disabled**, all four budgets present: C1 is **met**, C2 falls **outside** its band, and C3 **passes** on the mean ê/E it specifies but not per arm — see §3.1 and **Table S34b**; **the pre-declared verdict stays with the with-early-stopping series**. The judged criteria carry one message, **at the level of sign, not of functional form**: the selection bias moves with the amount of selection noise and with the number of selection opportunities, but not with whether the two splits are the same file — **the form itself was withdrawn** (§3.1). Two consequences do not follow: §4's configuration-level fact stands, while the stronger reading — that aliasing *adds* a measurable amount on top — does not. **The premium this paper measures is the premium of selecting on the reported split; aliasing is the configuration that guarantees it, not an additional term.**
 
 On the shared 5-epoch grid the `val` and `test` peaks agree in only **17.5 %** of runs, and conditioning on that single observable splits the 40 runs: where they agree the **median Δgap is lower** (mean **+0.13 pp**, median **−0.20 pp**, n = 7; **post-hoc**), where they differ it is **systematically not** (mean **+0.91 pp**, n = 33; permutation p = **0.009**, **post-hoc**; the median reading is **p = 0.0011**). **This is a partial predictor, not an explanation of the sign**; its limits — including the four of seven agreement runs whose gap is non-positive — and the per-run table and test are in **Supplementary S11**.
 
@@ -203,7 +203,7 @@ On the shared 5-epoch grid the `val` and `test` peaks agree in only **17.5 %** o
 
 ### 4.1 How common the aliasing is
 
-In **our own packaged configurations** — the YAMLs we train from, a different object from a benchmark's own release — **6 of 14** give the reported number no independent held-out split: **AI-TOD, DOTA v1, DOTA v1.5, Mendeley face-mask, SFCHD** (five binding `val:` to `test:`) and **SHWD** (which binds `train` to `val`; **S1** row 13). Of the remaining 8, **4** keep the keys genuinely distinct and **4** have no `test:` key at all — the three groups account for all 14, and this is **a count over the configurations we hold, not a prevalence, nor the benchmarks' own releases** (audited separately, §6.1). Counting by file, **19 YAML files** alias the two keys, in five locations; on the archived manifest subset the ratio is **8 of 28**.
+In **our own packaged configurations** — the YAMLs we train from, a different object from a benchmark's own release — **6 of 14** give the reported number no independent held-out split: **AI-TOD, DOTA v1, DOTA v1.5, Mendeley face-mask, SFCHD** (five binding `val:` to `test:`) and **SHWD** (which binds `train` to `val`; **S1** row 13). Of the remaining 8, **4** keep the keys genuinely distinct and **4** have no `test:` key at all — the three groups account for all 14, and this is **a count over the configurations we hold, not a prevalence, nor the benchmarks' own releases** (audited separately, §6.1). Counting by file, **19 YAML files** alias the two keys, in five locations; on the archived manifest subset the ratio is **8 of 28**. **These three bases answer three different questions** — configurations (6 of 14), the files inside them (19), the archived manifest's rows (8 of 28) — **not three estimates of one rate.**
 
 **For the corpora whose `val` and `test` are the same directory this is not contamination**: their image-level intersection with training is **exactly zero**, so the aliasing changes not *what* was evaluated but *which checkpoint* was reported, turning "selection contamination" from an ethical question into a **measurement** question. **SHWD is the exception and is not folded into that statement**: with `train` and `val` on one directory, its training and evaluation images are the same files. **It still counts among the six, for the reason the list is about: its `val` is not an independent held-out split either.**
 
@@ -299,7 +299,7 @@ external check **corrects this to** the paired-difference form, which cancels th
 under the pairing assumption stated in **§S11**. The argument and the recomputation are in
 **Supplementary S12**.
 ### 5.5 The same component in third-party public logs
-**The same quantity appears in other people's logs** — **a convenience sample with no sampling frame, not a field-level rate**: 20 logs from 6 sources found by repository **search**, median **+1.04 pp**, max **+5.65 pp**, 18/20 positive. The queries, the rest of the frame and the reason public logs **cannot establish aliasing** are in **Supplementary S12**.
+**The same quantity appears in other people's logs** — **a convenience sample with no sampling frame, not a field-level rate**: 20 logs from 6 sources found by repository **search**, median **+1.04 pp**, max **+5.65 pp**, 18/20 positive. **The sign is not the informative part**: the premium is a within-run maximum minus that run's own final epoch, so it is **non-negative by construction** (both non-positive logs sit at exactly **+0.00**), and the sample's content is its **magnitude**. The queries, the rest of the frame and the reason public logs **cannot establish aliasing** are in **Supplementary S12**.
 **Five limitations**: ① the two cells escalated in §5.1 reach n = 10 with **local** runs and test-side
 evaluations, and the remaining 9 cells' `test` side was closed on 2026-09-30 on one machine;
 ② `prem_test` is **best − last**, while the per-epoch `test` curve now exists for **all thirteen**
@@ -326,7 +326,9 @@ measure, but neither audits a release's configuration binding.
 
 ![Fig. 1](figures/fig3_four_units.png)
 
-**Table 3.** The four counting units, with denominators named (§3). **Co-headline (2026-10-10):** the same four units were re-coded blind by **five current-generation coders** (κ **0.824**; **Supplementary S12**), and re-verifying every row first-hand changed **30 cells** — so the table prints **both tallies**: the frozen single-rater counts, and beside them the same four units **re-tallied from the marking table after the 2026-10-09 first-party correction record**, under the **same per-column rule** (the value-to-count mapping is in **Supplementary S12**). Source: `split_units_19rows_20260916.md`. **Rows marked `n_a` enter the denominator, not the numerator**; **alternative readings of the same rows** are **12/19** for `release`, **12/15** the 19 less the four **undecidable** (`n_a` is two rows), and **13/19** for `reported` under the COCO-`val` reading. **The `clean` row is a reading**: the audit counted **5/19**, a later pass moved **two**, so this table reads **3/19**. **The `reported` row's two denominators**: `12–14 of the 19`, and `12/15 = 80 %` over the fifteen neither `n_a` nor undecidable (**4 rows are evidence-insufficient**). **Both ranges span two readings, not intervals**, on a **single rater's** judgement (per-coder κ **0.11–0.44**, the weakest unit in the three-valued round). **Independent re-coding reproduces it only at slight-to-fair agreement, and ten coders given the archived evidence still do not reproduce the `reported` column** (Supplementary S12). A **model-assisted, non-blind second coding** is **reliability evidence, not a replacement** (**Supplementary S12**).
+**Fig. 1.** The four counting units on the same nineteen benchmarks — the **printed single-rater** counts (10/19 `release`, 13/19 `protocol`, 4/19 `yolo_dist`, 12/19 `reported`); the re-verified tallies are Table 3's second column.
+
+**Table 3.** The four counting units, with denominators named (§3). **Co-headline (2026-10-10):** the same four units were re-coded blind by **five current-generation coders** (κ **0.824**; **Supplementary S12**), and re-verifying every row first-hand changed **30 cells** — so the table prints **both tallies**: the frozen single-rater counts, and beside them the same four units **re-tallied from the marking table after the 2026-10-09 first-party correction record**, under the **same per-column rule** (the value-to-count mapping is in **Supplementary S12**). Source: `split_units_19rows_20260916.md`. **Rows marked `n_a` enter the denominator, not the numerator**; **alternative readings of the same rows** are **12/19** for `release`, **12/15** the 19 less the four **undecidable** (`n_a` is two rows), and **13/19** for `reported` under the COCO-`val` reading. **The `clean` row is a reading**: the audit counted **5/19**, a later pass moved **two**, so this table reads **3/19**. **The `reported` row's two denominators**: `12–14 of the 19`, and `12/15 = 80 %` over the fifteen neither `n_a` nor undecidable (**4 rows are evidence-insufficient**). **Both ranges span two readings, not intervals**, on a **single rater's** judgement. **Independent re-coding reproduces it only at slight-to-fair agreement** (Supplementary S12). A **model-assisted, non-blind second coding** is **reliability evidence, not a replacement** (**Supplementary S12**).
 
 | Unit | non-independent: printed (single rater) | non-independent: after first-party re-verification | of decidable rows: printed → re-verified | undecidable: printed → re-verified |
 |---|---|---|---|---|
@@ -334,20 +336,13 @@ measure, but neither audits a release's configuration binding.
 | **protocol** (the official protocol) | **13/19 ≈ 68 %** | **14/19** | 13/19 → **14/19** | — |
 | **yolo_dist** (the generic YOLO distribution package) | **4/19 ≈ 21 %** | **2/19** | 4/15 ≈ 27 % → **2/17 ≈ 12 %** | 4 → **2 rows** |
 | **reported** (the layer actually reported) | **12–14 of the 19 ≈ 63–74 %** | **10–11 of the 19** | 12/15 = 80 % → **10/16–11/17 ≈ 63–65 %** | 4 → **2–3 rows** |
-| ↳ of which **literal two-key same path** (= the 2/19 the original audit reported) | **2/19 ≈ 11 %** | **1/19** | 2/19 → **1/19** | — |
-| ↳ of which `reported` is **`clean`** (independent) | **3/19 ≈ 16 %** | **6/19** | 3/15 → **6/16–6/17** | 4 → **2–3 rows** |
 
 > **What a count here is, and what a "yes" means.** Every row is a **single rater's judgement**
 > (§6.1), so the counts are printed as counts — the percentages beside them are a reading aid, not a
 > rate estimated from independent coding. A "yes" under any
 > unit means the reported number is **not a sample from an independent split**; it does **not** mean
 > the benchmark is broken or the experiment dishonest, and it does not license a generalization claim.
-**These 19 rows were coded by one rater** — 28 literal judgements (**§10**, defect 5) — and re-coded blind by **five current-generation language models**, who agree at **Fleiss κ 0.824**; re-verifying every row first-hand changes **30 cells**, and the coders **independently reach 19 of 30 (63.3 %)**, eleven unanimously, while **26 of 76** cells stay **undecidable** (**S12**); a **non-blind, model-assisted** pass agrees at κ **0.874** (**Supplementary S12**) and **moves two rows**. `reported` means **the number the literature prints**: it is printed as a range, **12–14 of the 19 ≈ 63–74 %**, with the **80 %** column the lower end over the **12/15** decidable rows, and `n_a` rows counted in the **19** but not the numerator (**Supplementary S12**).
-
-**Five clauses move to Supplementary S12** (the self-check's column and subtotal equalities to
-**S1**): the COCO row's judged number, the `yolo_dist` first-version correction (**4/19**), the
-literal-two-key self-check (**2/19**), Mendeley face-mask's **generator** provenance, and the audit's
-unused "63–79 %" bound.
+**These 19 rows were coded by one rater** — 28 literal judgements (**§10**, defect 5). The five blind coders **independently reach 19 of 30 (63.3 %)** corrected cells, eleven unanimously, while **26 of 76** cells stay **undecidable**; a **non-blind, model-assisted** pass agrees at κ **0.874** and **moves two rows** (**Supplementary S12**). `reported` means **the number the literature prints**: it is printed as a range, **12–14 of the 19 ≈ 63–74 %**, with the **80 %** column the lower end over the **12/15** decidable rows, and `n_a` rows counted in the **19** but not the numerator (**Supplementary S12**).
 
 ### 6.2 "Same directory" has four levels, and the audit reported only the narrowest
 The levels, the rows each admits and the resulting shift are in **Supplementary S12**, Table S12.
@@ -361,7 +356,7 @@ one rests on the narrowest reading of "same directory", the other on a stale sna
 **Among the pinned default configurations we checked, only the YOLO lineage does this by default.** At pinned commits Detectron2 (`TEST.EVAL_PERIOD = 0`), MMDetection, DETR and PaddleDetection **report the final epoch instead** (file-by-file evidence, 25 configuration files: **S12**, Table S14; **a targeted sample at pinned commits, not a census**, so "the convention" means that family's, not the field's). A **cross-lineage realization test** — a Faster
 R-CNN (ResNet-50 FPN) detector, a family that **reports the final epoch by default** — on VisDrone under the
 same three-way split, at **six seeds**, is **positive in all six runs, with a 95 % interval excluding zero** (**68.2 %** realized; **+0.0809 pp** mean `prem_val`, 95 % CI **[26.9 %, 123.5 %]**)
-(values, interval and per-run table: **Supplementary S34**): the mechanism is **not confined to the YOLO lineage in this instance**. A **second detector family** (RetinaNet, both corpora) keeps the **direction** but not the strength (**Supplementary S34e**). A second corpus, same protocol, same direction: **6/6** and **12/12** runs. This is **one detector, one protocol, two corpora, one setting** — **not a generalisation beyond the YOLO lineage** (**Supplementary S34c**).
+(values, interval and per-run table: **Supplementary S34**): the mechanism is **not confined to the YOLO lineage in this instance**. A **second detector family** (RetinaNet, both corpora) keeps the **direction** but not the strength (**Supplementary S34e**). A second corpus, same protocol, same direction: **6/6** and **12/12** runs. This is **one detector, one protocol, two corpora, one setting** — **not a generalisation beyond the YOLO lineage** (**Supplementary S34c**). Its **68.2 %** is a rate over **six runs** on this probe's own split and is **not comparable** with §8.6's realization rate: different protocol, different denominator.
 ## 7. Finding 4: what "significant" means, and how the endpoint convention changes it
 
 ### 7.1 With n = 3 a permutation test **cannot** reject in principle
@@ -393,8 +388,9 @@ reports that **the effect reproduces in direction while its magnitude falls** �
 it** rather than presenting the replication. **In this paper's own terms it is three
 things**: a `val` carved from the pool so that training never sees it; the target corpus's own held-out
 `test`, with a filename-level check that its images do not intersect training; and an endpoint **defined in
-writing before any run**. The registration text and its **FROZEN-HASH** stamp are in **§9** and in the author-side
-registration record; **Tables S24–S27** carry the registered cells' readings. What this paper measures
+writing before any run**. Its **FROZEN-HASH** stamp is stated in **§9**; the registration **text** itself is the
+companion's and is **author-side**, so this paper carries the stamp and the readings (**Tables S24–S27**), not the
+document. What this paper measures
 **under** that protocol is the quantity §3.1 formalises: **how much of the `val`-selected premium survives
 on a split no selection rule can touch**, and that measurement is this paper's.
 
@@ -413,6 +409,8 @@ headline effect, the **seed-budget discipline** measured rather than assumed ([5
 
 ![Fig. 2](figures/fig2_realization_rate.png)
 
+**Fig. 2.** The `val`-selected premium against what it realizes on the disjoint `test` split, per arm-cell; the title's aggregate is the plotted pool's — **§8.6** names the pool Table 4 uses.
+
 **What this section claims, and what it does not.** The rate below is the realization of the `val`-selected premium on a disjoint split **for the five arm-cells measured here, under the companion's protocol** — **not a constant**. The escalated cells reach a **pooled
 55 %**, but the two batches are **not pooled** (different runs, different protocol, §8.1). "The
 convention realizes about a quarter of the `val` premium" would be false; "in these five cells, about
@@ -430,9 +428,9 @@ revision's two batches (`x4_teval.csv` on A, `x4fill_20260925.csv` on B, for `pr
 | smoke2sf | baseline | 10 | +0.691 | **+0.509** | **74 %** |
 | smoke2sf | strategy | 10 | +0.605 | **−0.157** | **−26 %** |
 | aitod20 | baseline | **10** | **+0.766** | **−0.218** | **−28 %** |
-| aitod20 | **strategy** | **10** | **+1.111** | **−0.543** | **−49 %** |
+| aitod20 **†** | **strategy** | **10** | **+1.111** | **−0.543** | **−49 %** |
 
-> **The inclusion rule, stated as a rule.** An arm-cell enters the pool **iff its `test` side reached n ≥ 5** (`work/item2_final_v2_20260925.py`), applied to every cell alike; **exactly five met it at the 2026-09-25 freeze** (50 runs). The `aitod20` strategy row **qualifies under the same rule but completed after the freeze**, so it is printed here as the sixth row and kept out of the primary pool — **both readings are reported and both intervals cover zero** (Table S20's note, §8.6b).
+> **The inclusion rule, stated as a rule.** An arm-cell enters the pool **iff its `test` side reached n ≥ 5** (`work/item2_final_v2_20260925.py`), applied to every cell alike; **exactly five met it at the 2026-09-25 freeze** (50 runs). The `aitod20` strategy row **qualifies under the same rule but completed after the freeze**, so it is printed here as the sixth row and kept out of the primary pool — **the `†` row, and the only one**; **both readings are reported and both intervals cover zero** (Table S20's note, §8.6b).
 
 where `prem_val = V_max − V_final` (**selecting on val**) and
 `prem_test = T_best − T_final` (**realized on test**).
@@ -454,12 +452,15 @@ E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of s
 
 ![Fig. 3](figures/fig6_sigma_vs_rate.png)
 
+**Fig. 3.** Realization rate against the noise scale σ̂ of the run's own `val` curve, over **80 runs** in three groups of 27 (Spearman ρ = −0.466, p = 1.3×10⁻⁵); dashed: rate = 1, dotted: §8.6's pooled reading.
 
 **Pool composition — and why the claim does not turn on it.** Table 4 prints **six** measured arm-cells; adding the sixth (`aitod20` **strategy**) moves the run-weighted rate **23.3 % → 8.7 %** and the median **+17.6 % → −4.2 %**. **The inclusion rule is a rule, not a per-cell choice**: an arm-cell enters **iff its `test` side reached n ≥ 5**, and **exactly five met it at the freeze**, where all three weightings coincide (**23.26 %**). The sixth row **qualifies but completed later**, so it is the sensitivity. **Every claim is interval-level and any scope gives the same verdict** — five-cell **[−17.3 %, 53.2 %]** (P = 0.118), six-cell **[−4.9 %, +21.3 %]**, eleven-cluster **[19.3 %, 60.4 %]** — the cell-level intervals **both cover zero**, so **no conclusion depends on the pool boundary**.
 
 ### 8.7 The per-epoch view: the realization rate is not a constant
 
 ![Fig. 4](figures/fig5_epoch_curve.png)
+
+**Fig. 4.** **Left**: mean `val` and `test` trajectories over 10 seeds, both headline cells (baseline solid, strategy dashed). **Right**: per-(seed, epoch) `val` movement against what transfers to `test` — the ratio is not taken (its denominator can vanish); the fit through the origin is **κ = 0.734**.
 
 **One metric self-correction first.** Our first version used `r(e) = ΔT(e)/ΔV(e)`, producing values such as **−860 % and +1031 %**: at late epochs `V(e) ≈ V(final)`, the **denominator vanishing** — **an ill-conditioned metric, not a finding.** We report only the non-dividing `ΔV(e) = V(e) − V(final)` and `ΔT(e) = T(e) − T(final)`, summarized by the through-origin slope κ of ΔT on ΔV.
 

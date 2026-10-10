@@ -1089,7 +1089,7 @@ The strength of every statement in the main text is distinguished accordingly.
 
 ### Table S38 — the selection term, cell by cell: `prem_test` and WC for all thirteen scanned corpora
 
-**Table S38.** *5.6 / 8.6* — the selection contribution proper, `prem_val − prem_test` = WC, formed here for **every** scanned corpus and both arms. **Two scopes, two counts, one table**: this table covers **26 arm-cells / 190 runs** — the five arm-cells printed in Table S20 (their values repeated here, **40 runs**) plus **21 arm-cells / 140 runs** closed on **2026-09-30** by scoring **every archived 5-epoch checkpoint** on each run's own held-out `test` split: **1,568 grid checkpoints over 140 runs** — the two figures are a **decomposition, not two counts of the same thing**: **1,848 evaluations in total = 1,568 grid checkpoints + 140 runs × 2 endpoints (`best`/`last`)**, on one machine, with the pipeline's registered call (`YOLO(w)` → `val(split="test", batch=32, imgsz=640, plots=False, save_json=False)`, no loss re-import), the data YAML read from each run's own `args.yaml` and asserted to be three-way with a `test:` split. `n` is the number of seeds carrying a `test` curve for that arm (3 where the scan ran at n = 3, 10 where the cell was later escalated, and 10 for the five arm-cells of Table S20); `prem_val` and `prem_test` are means over those seeds, in pp, with `prem_test = T_best − T_final`; realization rate = `prem_test / prem_val`. **The same run reproduces the values printed earlier in this supplement**: over the 21 arm-cells carrying both readings, the val maximum, `prem_val` and the archived `T_best` agree to **max |Δ| = 0.005 pp**, which is the printed rounding (`work/g6_repro_vs_printed_20260930.py`); the coverage audit reports **140/140 runs, 1,848 rows, 0 anomalies** (`g6_prem_per_run.csv` and `g6_perepoch_test_curves.csv`). Per-run readings and the curves themselves: release files `g6_prem_per_run.csv` and `g6_perepoch_test_curves.csv`.
+**Table S38.** *5.6 / 8.6* — the selection contribution proper, `prem_val − prem_test` = WC, formed here for **every** scanned corpus and both arms. **Two scopes, two counts, one table**: this table covers **26 arm-cells / 190 runs** — the five arm-cells printed in Table S20 (their values repeated here, **50 runs**) plus **21 arm-cells / 140 runs** closed on **2026-09-30** by scoring **every archived 5-epoch checkpoint** on each run's own held-out `test` split: **1,568 grid checkpoints over 140 runs** — the two figures are a **decomposition, not two counts of the same thing**: **1,848 evaluations in total = 1,568 grid checkpoints + 140 runs × 2 endpoints (`best`/`last`)**, on one machine, with the pipeline's registered call (`YOLO(w)` → `val(split="test", batch=32, imgsz=640, plots=False, save_json=False)`, no loss re-import), the data YAML read from each run's own `args.yaml` and asserted to be three-way with a `test:` split. `n` is the number of seeds carrying a `test` curve for that arm (3 where the scan ran at n = 3, 10 where the cell was later escalated, and 10 for the five arm-cells of Table S20); `prem_val` and `prem_test` are means over those seeds, in pp, with `prem_test = T_best − T_final`; realization rate = `prem_test / prem_val`. **The same run reproduces the values printed earlier in this supplement**: over the 21 arm-cells carrying both readings, the val maximum, `prem_val` and the archived `T_best` agree to **max |Δ| = 0.005 pp**, which is the printed rounding (`work/g6_repro_vs_printed_20260930.py`); the coverage audit reports **140/140 runs, 1,848 rows, 0 anomalies** (`g6_prem_per_run.csv` and `g6_perepoch_test_curves.csv`). Per-run readings and the curves themselves: release files `g6_prem_per_run.csv` and `g6_perepoch_test_curves.csv`.
 
 | Cell | Arm | n | `prem_val` | `prem_test` | WC | realization rate |
 |---|---|---|---|---|---|---|
@@ -1135,7 +1135,7 @@ The strength of every statement in the main text is distinguished accordingly.
 > pools seeds 42–51 with no duplicate). Their pooled values, side by side with the n = 3 readings
 > printed in the table above, are **Table S38b**. Read descriptively with the escalation folded in,
 > the three quantities quoted just above move as follows: **WC > 0 holds in 25 of the 26 arm-cells
-(unchanged)**, the **arm-cell median realization rate rises from 17.5 % to 21.6 %** (mean 9.0 % →
+(unchanged)**, the **arm-cell median realization rate rises from 17.2 % to 21.6 %** (mean 9.0 % →
 > 11.6 %, the negative cells go from ten to **nine**), and the realized premium is still **negative in
 > 8 of the 13 strategy arms** (the baseline arms go from two negative to **one**). The direction of the
 > section's descriptive claim therefore survives the escalation; what changes is the magnitude of the
@@ -1175,6 +1175,14 @@ realization rate = `prem_test / prem_val` (means of the per-run values, in pp).
 > measured at the *n* it had, and they are left standing. Scripts: `work/collect_test_final.py` (the
 > `last.pt` test readings) and `work/_archive_results_csv.py` (the val curves); per-run file:
 > `g6_prem_per_run_210_20261006.csv` (the released 140 rows plus these 70).
+>
+> **Availability of the three names just given (author-side, added 2026-10-10).** None of the three —
+> `work/collect_test_final.py`, `work/_archive_results_csv.py`, `g6_prem_per_run_210_20261006.csv` —
+> is in the released package: they are **author-side**, and this is stated here rather than left to be
+> discovered, because this table's escalated readings cannot be recomputed from the released copy
+> alone. What **is** released for this family is the earlier scan's per-run file
+> `02_release_data/g6_prem_per_run.csv` (140 runs / 11 corpora, named in the manifest), from which the
+> **pre-**escalation rows of Table S38 are recomputable.
 ### Table S39 — the second intervention axis (`weight_decay` 1e-4 → 1e-3)
 
 **Table S39.** *the second (weight-decay) axis, cell by cell* — both levels re-run fresh on one machine (A), `lr0` fixed at 0.001; `reference` = wd 1e-4 (the archived value), `treatment` = wd 1e-3
@@ -2539,8 +2547,9 @@ test evaluation — which has since been run for **all thirteen** corpora, so th
 available cell by cell (**Table S38**); it does not change the p-values, the confirmatory family or
 anything reported in this subsection. Four of 13 cells cross
 the uncorrected line; the three marginal ones are `aitod20` **+1.481** (p = **0.054**), `fire`
-**+13.658** (p = **0.061**) and `mende20` **+2.472** (p = **0.099**). The **declared** family is this 13-cell scan, and BH at q = 0.05 is applied to it (with **Holm across the two
-targets** of the escalation plan); **Table S8 carries the raw p-values only** — the BH-adjusted step is stated
+**+13.658** (p = **0.061**) and `mende20` **+2.472** (p = **0.099**). The **declared descriptive** family is this 13-cell scan, and BH at q = 0.05 is applied to it (with **Holm across the two
+targets** of the escalation plan); the **confirmatory** family is the four escalated cells of §5.1, declared before their
+runs. The two are **not the same test** (the article's §5.1 states this); **Table S8 carries the raw p-values only** — the BH-adjusted step is stated
 here, not tabulated. The **0 → 3 move after escalation is descriptive**. The three cells BH leaves significant are `p_vistod15` (**6.5×10⁻⁹**), `p_aitovis`
 (**1.3×10⁻⁸**) and `shwd2sf` (**0.0053** against a line of **0.0115**), because the two very small
 p-values at the front of the ordering lift the lines behind them; `smoke2sf` (**0.0263** against
@@ -3277,6 +3286,13 @@ only tallies them. In the article, Table 3's re-verified column prints **counts 
 percentages, for the reason §6.1 gives for the whole table: the count is the datum and the percentage
 is a reading aid.
 
+### Clauses moved out of the article's §6.1 (added 2026-10-10)
+
+**Five clauses move here from the article's §6.1** (the self-check's column and subtotal equalities to **S1**): the COCO
+row's judged number, the `yolo_dist` first-version correction (**4/19**), the literal-two-key self-check (**2/19**),
+Mendeley face-mask's **generator** provenance, and the audit's unused "63–79 %" bound. The clause is **relocated, not
+dropped**: it is kept here so that the article's §6.1 stays inside the journal's page limit.
+
 ### Table S45 — §2.1 relocated from the article (detailed related-work comparison)
 
 > Moved here at revision because the journal counts text inside the 20–35 page limit. The article keeps
@@ -3740,6 +3756,15 @@ The frozen region (§S0–§S7, byte-frozen at 50,600 characters) cannot be edit
 * that summary reports **+0.205 pp / 23.3 %**, while its own five rows average **0.2034 pp**, i.e. **23.1 %**.
 
 Neither changes a printed headline number: the article's realization rates come from **Table S20** (the released 50-run aggregate), and the frozen dump's role is verbatim provenance for the two escalated cells. A later revision that unfreezes §S0–§S7 should correct both lines at source; until then this note is the pointer a reader should follow.
+
+### Known discrepancy inside the frozen §S1 (recorded, not edited; added 2026-10-10)
+
+The same byte-frozen region (§S0–§S7) contains a **heading/value mismatch** in §S1's embedded block: its sub-heading reads
+`## The three units (the main text must state which one it uses)` while the table beneath it lists **four** —
+`release`, `protocol`, `yolo_dist`, `reported`. The word is a leftover from an earlier three-unit framing; the table itself, the
+recomputation beneath it and the article's §3 definition are all four-unit and mutually consistent, so **no count moves**.
+It is **recorded here rather than repaired in place**, for the same reason as the §S4 note above: editing the frozen region
+breaks the cross-draft contract. A later revision that unfreezes §S0–§S7 should change `three` to `four` at source.
 
 ### Author-side names that are not in the released package (added 2026-10-01)
 
