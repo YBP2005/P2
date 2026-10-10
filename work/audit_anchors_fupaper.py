@@ -564,15 +564,18 @@ def main():
         ('X31', '英文稿含"两级报告"的口径', eng, r'must be reported in two tiers'),
         # r54x（2026-09-24）：兑现率头条由"臂格等权 19 %"改为 **run 加权 32.7 %**（用户裁定"用加权的"），
         # 故本锚点改断言新的头条措辞。19 % 仍作为**已声明敏感性**留在稿内（§8.6 口径声明段）。
-        ('X32', '英文稿含兑现率头条 23.3 %（五格各 n = 10 时三口径重合）', eng, r'a realization rate of \*\*23\.3 %\*\*'),
+        ('X32', '英文稿含兑现率头条 23.3 %（五格各 n = 10 时三口径重合）', eng, r'realized on a disjoint split at \*\*23\.3 %\*\*'),
         # r42：压缩会合法改写措辞，故这两条改为**按内容**锚，而不是按字面串。
         # r54w: 参考文献在 r54w 按"正文首次出现顺序"重排（PR 官方要求），编号整体变了：
         #   四条曾未核实的引用 → 新 **[1] [2] [3] [4]**（实测取证，不推断）；
         #   CVPR 2026 地理影像泄漏那篇（Adimoolam）→ 新 **[1]**。
         ('X33', '英文稿说明四条曾未核实的引用已解决为 [1] [2] [3] [4]（r54w 重排后的编号）', eng,
          r'(?s)(?:now verified|resolved|verified)[^.]{0,60}\*\*\[1\] \[2\] \[3\] \[4\]\*\*'),
-        ('X36', '参考文献 [1] 就是 CVPR 2026 地理影像泄漏那篇（r54w 重排后）', eng,
-         r'(?m)^\[1\] Y\.K\. Adimoolam'),
+        # ★ r240b：本条原断言 [1] = Adimoolam，实测**不成立** —— 2026-10-06 复核：
+        #   参考文献按首现序 1..55 **严格递增**（55 条全被引），Adimoolam 那篇是 **[11]**，
+        #   [1] 是 COCO/检测综述。故锚改指 [11]（值仍在，只是编号变了）。
+        ('X36', '参考文献 [11] 就是 CVPR 2026 地理影像泄漏那篇（首现序实测）', eng,
+         r'(?m)^\[11\] Y\.K\. Adimoolam'),
         ('X37', '参考文献表条目数（r51 后 = 44，条数由 X41 精确核对）', reflist, r'(?m)^\| \[\d+\] \|'),
         # ---- r41：图与证据表移入补充材料（页数上限），正文只留"在哪"的清单。
         #      故这里改锚"清单列出了 Fig. S1–S5"，而不是"正文内嵌了 Fig. N"。
@@ -688,8 +691,11 @@ def main():
         #   但 P2 §9 的**移交说明句**仍写"its per-seed table for all **90 runs**" ——
         #   即"90 这个运行数仍在 P2 正文里、且仍以 run 目录为准"这件事**没有丢**，
         #   只是不再以"判决段"的形式出现。⇒ 改指到该句，保住"运行数以目录计数"这条审计意图。
-        ('X85', '运行数以 run 目录为准（90），移交说明句里仍在', eng,
-         r'all\s+\*{0,2}90 runs'),
+        # ★ r240b：'90 runs' 实测**已不在英文正文**（移交句被改写）；该值现在在
+        #   补充材料 §9 的注里（'**90 runs**: three registered pairs 3 × 2 × 10 = 60, …'）。
+        #   判据意图（运行数以目录计数）未丢，故把域由 eng 改为 suppen。
+        ('X85', '运行数以 run 目录为准（90），补充材料 §9 注里仍在', suppen,
+         r'\*{0,2}90 runs\*{0,2}: three registered pairs'),
         # r54v: B de-duplication moved the *quantification* of this bias into the Supplementary
         # (the article keeps one sentence and points at S12).  The anchor follows the value, as
         # it did for X56 and X81 — an anchor that pins a number to a location the de-duplication
@@ -801,7 +807,12 @@ def main():
         #      旧正则要求以 "selection|seed inflation." 收尾 ⇒ **静默匹配失败、wc=0**，
         #      于是报出"words=0 超限"这种**假失败**；
         #   ③ 改为"**取到 Keywords 之前**"的稳健切法，并把空匹配当失败报出（不再静默 0）。
-        _m = re.search(r'Object-detection papers report.*?(?=\s*\*\*Keywords:\*\*)', eng[i:], re.S)
+        # ★ r240b：原先的 lookahead 只切到 `**Keywords:**`，于是把摘要与 Keywords 之间的
+        #   分隔线 `---` 也吞进来，多算 1 个「词」（实测 words=251，判 FAIL）。
+        #   修正：在**第一个换行后的 `---`** 处截断——分隔线是字段边界，不是摘要正文。
+        # ★ r240b：原 lookahead 只切到 `**Keywords:**`，把摘要与 Keywords 之间的分隔线 `---`
+        #   也吞进来，多算 1 个「词」（实测 251 判 FAIL）。修正：在第一个换行后的 `---` 处截断。
+        _m = re.search(r'Object-detection papers report.*?(?=\n---|\s*\*\*Keywords:\*\*)', eng[i:], re.S)
         abs_txt = re.sub(r'[*`]', '', _m.group(0)).strip() if _m else ''
         wc = len(abs_txt.split())
         ok = (0 < wc <= 250)

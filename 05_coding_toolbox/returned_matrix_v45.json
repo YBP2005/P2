@@ -1,0 +1,721 @@
+{
+ "tag": "p2coding_v45",
+ "units": [
+  "release",
+  "protocol",
+  "yolo_dist",
+  "reported"
+ ],
+ "vals": [
+  "independent",
+  "alias",
+  "absent",
+  "gated",
+  "unknown",
+  "not_recorded",
+  "n_a",
+  "no_yaml",
+  "no_split",
+  "no_val",
+  "no_test",
+  "independent_test",
+  "test_gated",
+  "contradictory",
+  "BLOCKED",
+  "MISSING"
+ ],
+ "meta": [
+  {
+   "dir": "gpt-6-astra",
+   "file": "编码结果.md",
+   "bytes": 77756,
+   "sha256": "5e0113abb7f7535a3f74c77c6410d6651f6b5a52f90f846502b418f2ed2a4653",
+   "rows": 19,
+   "cells": 76,
+   "blocked": 22,
+   "counts": {
+    "test_gated": 18,
+    "gated": 5,
+    "BLOCKED": 22,
+    "independent_test": 3,
+    "unknown": 1,
+    "absent": 15,
+    "no_val": 7,
+    "no_split": 1,
+    "not_recorded": 4
+   }
+  },
+  {
+   "dir": "gpt-6.1-sol",
+   "file": "p2coding_v45_独立编码结果_gpt-6.1-sol.md",
+   "bytes": 26216,
+   "sha256": "4b9d7c17ff1a9b27bfe13bae2175bc156b94625e06aae328dbd12cb8b3da06cf",
+   "rows": 19,
+   "cells": 76,
+   "blocked": 12,
+   "counts": {
+    "test_gated": 18,
+    "gated": 6,
+    "BLOCKED": 12,
+    "independent_test": 3,
+    "alias": 7,
+    "not_recorded": 7,
+    "absent": 15,
+    "no_val": 7,
+    "contradictory": 1
+   }
+  },
+  {
+   "dir": "gpt-5.6-sol",
+   "file": "p2coding_v45_独立编码结果.md",
+   "bytes": 42976,
+   "sha256": "126ca464f83c46d2ec1d1143e2afc443142236739128de89153e122dd1a252c8",
+   "rows": 19,
+   "cells": 76,
+   "blocked": 13,
+   "counts": {
+    "test_gated": 15,
+    "gated": 5,
+    "BLOCKED": 13,
+    "independent_test": 3,
+    "alias": 9,
+    "absent": 15,
+    "contradictory": 4,
+    "independent": 1,
+    "no_val": 5,
+    "no_split": 1,
+    "not_recorded": 5
+   }
+  },
+  {
+   "dir": "grok4.7",
+   "file": "p2coding_v45_判定结果.md",
+   "bytes": 26049,
+   "sha256": "eca3bb3d06710b52c4bea1da2dcd4aca31d3ba700d7bf0211ff14266779de878",
+   "rows": 19,
+   "cells": 76,
+   "blocked": 2,
+   "counts": {
+    "n_a": 1,
+    "test_gated": 12,
+    "gated": 5,
+    "unknown": 5,
+    "independent_test": 9,
+    "alias": 6,
+    "BLOCKED": 2,
+    "absent": 14,
+    "contradictory": 3,
+    "independent": 5,
+    "no_split": 2,
+    "not_recorded": 7,
+    "no_val": 5
+   }
+  },
+  {
+   "dir": "claude-opus-5.5",
+   "file": "p2coding_v45_判定输出_claude-opus-5.5.md",
+   "bytes": 51991,
+   "sha256": "5b6ba44d494d0666f6fb5ad0d0ce9d5b119f7b619a654378127f43f86c1f1cf9",
+   "rows": 19,
+   "cells": 76,
+   "blocked": 0,
+   "counts": {
+    "test_gated": 15,
+    "gated": 6,
+    "unknown": 3,
+    "independent_test": 6,
+    "alias": 6,
+    "absent": 15,
+    "contradictory": 4,
+    "independent": 5,
+    "no_val": 7,
+    "no_split": 1,
+    "not_recorded": 7,
+    "no_yaml": 1
+   }
+  }
+ ],
+ "matrix": {
+  "gpt-6-astra": {
+   "1": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "gated",
+    "reported": "BLOCKED"
+   },
+   "2": {
+    "release": "independent_test",
+    "protocol": "independent_test",
+    "yolo_dist": "unknown",
+    "reported": "BLOCKED"
+   },
+   "3": {
+    "release": "BLOCKED",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "4": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "gated"
+   },
+   "5": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "gated",
+    "reported": "BLOCKED"
+   },
+   "6": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "gated"
+   },
+   "7": {
+    "release": "independent_test",
+    "protocol": "test_gated",
+    "yolo_dist": "BLOCKED",
+    "reported": "gated"
+   },
+   "8": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "9": {
+    "release": "BLOCKED",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "10": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "11": {
+    "release": "BLOCKED",
+    "protocol": "BLOCKED",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "12": {
+    "release": "no_split",
+    "protocol": "not_recorded",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   },
+   "13": {
+    "release": "BLOCKED",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "14": {
+    "release": "no_val",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "15": {
+    "release": "no_val",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "16": {
+    "release": "BLOCKED",
+    "protocol": "not_recorded",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   },
+   "17": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "18": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "19": {
+    "release": "no_val",
+    "protocol": "BLOCKED",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   }
+  },
+  "gpt-6.1-sol": {
+   "1": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "gated",
+    "reported": "BLOCKED"
+   },
+   "2": {
+    "release": "independent_test",
+    "protocol": "independent_test",
+    "yolo_dist": "alias",
+    "reported": "not_recorded"
+   },
+   "3": {
+    "release": "BLOCKED",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "4": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "gated"
+   },
+   "5": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "gated",
+    "reported": "alias"
+   },
+   "6": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "gated"
+   },
+   "7": {
+    "release": "independent_test",
+    "protocol": "test_gated",
+    "yolo_dist": "BLOCKED",
+    "reported": "gated"
+   },
+   "8": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "9": {
+    "release": "BLOCKED",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "10": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "11": {
+    "release": "BLOCKED",
+    "protocol": "BLOCKED",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "12": {
+    "release": "no_val",
+    "protocol": "not_recorded",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   },
+   "13": {
+    "release": "BLOCKED",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   },
+   "14": {
+    "release": "BLOCKED",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "15": {
+    "release": "BLOCKED",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "16": {
+    "release": "no_val",
+    "protocol": "not_recorded",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   },
+   "17": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "gated"
+   },
+   "18": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "19": {
+    "release": "contradictory",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   }
+  },
+  "gpt-5.6-sol": {
+   "1": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "gated",
+    "reported": "BLOCKED"
+   },
+   "2": {
+    "release": "independent_test",
+    "protocol": "independent_test",
+    "yolo_dist": "alias",
+    "reported": "BLOCKED"
+   },
+   "3": {
+    "release": "BLOCKED",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "4": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "gated"
+   },
+   "5": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "gated",
+    "reported": "alias"
+   },
+   "6": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "gated"
+   },
+   "7": {
+    "release": "independent_test",
+    "protocol": "contradictory",
+    "yolo_dist": "independent",
+    "reported": "BLOCKED"
+   },
+   "8": {
+    "release": "contradictory",
+    "protocol": "BLOCKED",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "9": {
+    "release": "no_val",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "10": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "11": {
+    "release": "BLOCKED",
+    "protocol": "BLOCKED",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "12": {
+    "release": "no_split",
+    "protocol": "not_recorded",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   },
+   "13": {
+    "release": "alias",
+    "protocol": "alias",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "14": {
+    "release": "alias",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "15": {
+    "release": "no_val",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "BLOCKED"
+   },
+   "16": {
+    "release": "BLOCKED",
+    "protocol": "not_recorded",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   },
+   "17": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "gated"
+   },
+   "18": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "19": {
+    "release": "contradictory",
+    "protocol": "contradictory",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   }
+  },
+  "grok4.7": {
+   "1": {
+    "release": "n_a",
+    "protocol": "test_gated",
+    "yolo_dist": "gated",
+    "reported": "unknown"
+   },
+   "2": {
+    "release": "independent_test",
+    "protocol": "independent_test",
+    "yolo_dist": "alias",
+    "reported": "gated"
+   },
+   "3": {
+    "release": "BLOCKED",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "4": {
+    "release": "independent_test",
+    "protocol": "contradictory",
+    "yolo_dist": "absent",
+    "reported": "unknown"
+   },
+   "5": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "gated",
+    "reported": "unknown"
+   },
+   "6": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "gated"
+   },
+   "7": {
+    "release": "independent_test",
+    "protocol": "independent_test",
+    "yolo_dist": "independent",
+    "reported": "independent"
+   },
+   "8": {
+    "release": "contradictory",
+    "protocol": "contradictory",
+    "yolo_dist": "absent",
+    "reported": "unknown"
+   },
+   "9": {
+    "release": "BLOCKED",
+    "protocol": "independent_test",
+    "yolo_dist": "unknown",
+    "reported": "independent"
+   },
+   "10": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "11": {
+    "release": "independent_test",
+    "protocol": "independent_test",
+    "yolo_dist": "absent",
+    "reported": "independent"
+   },
+   "12": {
+    "release": "no_split",
+    "protocol": "not_recorded",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   },
+   "13": {
+    "release": "no_val",
+    "protocol": "not_recorded",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   },
+   "14": {
+    "release": "alias",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "15": {
+    "release": "independent_test",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "independent"
+   },
+   "16": {
+    "release": "no_split",
+    "protocol": "not_recorded",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   },
+   "17": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "gated"
+   },
+   "18": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "19": {
+    "release": "no_val",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   }
+  },
+  "claude-opus-5.5": {
+   "1": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "gated",
+    "reported": "unknown"
+   },
+   "2": {
+    "release": "independent_test",
+    "protocol": "test_gated",
+    "yolo_dist": "alias",
+    "reported": "gated"
+   },
+   "3": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "4": {
+    "release": "independent_test",
+    "protocol": "contradictory",
+    "yolo_dist": "absent",
+    "reported": "unknown"
+   },
+   "5": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "gated",
+    "reported": "gated"
+   },
+   "6": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "gated"
+   },
+   "7": {
+    "release": "independent_test",
+    "protocol": "independent_test",
+    "yolo_dist": "independent",
+    "reported": "independent"
+   },
+   "8": {
+    "release": "contradictory",
+    "protocol": "contradictory",
+    "yolo_dist": "absent",
+    "reported": "unknown"
+   },
+   "9": {
+    "release": "no_val",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "independent"
+   },
+   "10": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "11": {
+    "release": "independent_test",
+    "protocol": "independent_test",
+    "yolo_dist": "absent",
+    "reported": "independent"
+   },
+   "12": {
+    "release": "no_split",
+    "protocol": "not_recorded",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   },
+   "13": {
+    "release": "no_val",
+    "protocol": "not_recorded",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   },
+   "14": {
+    "release": "alias",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "15": {
+    "release": "no_val",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "independent"
+   },
+   "16": {
+    "release": "no_yaml",
+    "protocol": "not_recorded",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   },
+   "17": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "gated"
+   },
+   "18": {
+    "release": "test_gated",
+    "protocol": "test_gated",
+    "yolo_dist": "absent",
+    "reported": "alias"
+   },
+   "19": {
+    "release": "contradictory",
+    "protocol": "no_val",
+    "yolo_dist": "absent",
+    "reported": "not_recorded"
+   }
+  }
+ },
+ "problems": []
+}

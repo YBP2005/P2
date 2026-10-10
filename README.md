@@ -69,6 +69,14 @@ One row of the released registered-replication summary had been computed with th
   in the Supplementary Material.
 * **Internal project records** (working logs, hand-over notes, review correspondence): not paper
   material.
+* **The superseded intermediate coding rounds.** The 2026-09-27 second-coding round's manual and its
+  returned matrix (`coding_manual_19x4_20260927.md`, `second_coding_20260927.csv`) and the earlier
+  `G8` agreement runs are **withdrawn from this package**. They are superseded by the v4.6 instrument
+  released in `05_coding_toolbox/`, and neither the article nor the Supplementary Material builds a
+  claim on them. Two files that **remain** shipped - `02_release_data/kappa_summary_20260927.md` and
+  `02_release_data/kappa_computed_20260927.txt` - still **name** them on their provenance line, which
+  is why they are listed here: a reader who follows that pointer should find this bullet rather than a
+  missing file.
 
 ## Note on the two forms of the article
 

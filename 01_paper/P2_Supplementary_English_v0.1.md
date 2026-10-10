@@ -12,7 +12,7 @@ so "the numbers in this document" and "the numbers in the source files" **cannot
 |---|---|---|---|---|
 | **S1** | S1 · Per-row marking table and mechanical recomputation over 19 public benchmarks × 4 counting units | `split_units_19rows_20260916.md` | `2d542d10226347dfffb69dbab8b61d1a` | 5805 |
 | **S2** | S2 · Correction record for the counting convention (old convention → recomputed convention) | `the audit-correction and adjudication record, §2 superseding block` | `94e85a41a6f7c5a5b6788a11b96c2c8e` | 24638 |
-| **S3** | S3 · Per-row evidence from the cross-framework configuration audit (5 frameworks / 25 official files) | `xframe_evidence_20260916.txt` | `78b3e251f5d4c8db3b6378ecbbd2b3e0` | 13361 |
+| **S3** | S3 · Per-row evidence from the cross-framework configuration audit (5 frameworks / **18** official files printed) | `xframe_evidence_20260916.txt` | `78b3e251f5d4c8db3b6378ecbbd2b3e0` | 13361 |
 | **S4** | S4 · 2×2 evaluation matrix over the three-split protocol (41 runs × {best,last} × {val,test}) | `xeval_analysis_20260916.txt` | `8b74b2eb6228c078d5a38131d119567b` | 8534 |
 | **S5** | S5 · Selection premium on public third-party logs (sample and how to read it) | `selection_premium_public_20260916.md` | `04950c92d1ab4bcfb5bbe616b2dcbec4` | 9479 |
 
@@ -169,7 +169,7 @@ Evidence marks: (A) explicit in the audit｜(D) derived from audit facts｜(?) t
 
 ---
 
-## S3 · Line-by-line evidence for the cross-framework configuration audit (5 frameworks / 25 official files)
+## S3 · Line-by-line evidence for the cross-framework configuration audit (5 frameworks / **18** official files printed)
 
 > **Purpose**: main text §6.5; the commit pin and the line-by-line evidence for each framework (the judgements are in the main text, the evidence is here).
 > **Source**: `xframe_evidence_20260916.txt` (md5 `78b3e251f5d4c8db3b6378ecbbd2b3e0`, 13361 bytes); the following content is **embedded verbatim, unmodified**.
@@ -514,14 +514,13 @@ smoke2sf    strat  10     0.605     -0.158     -26%   +0.00 +0.36 -0.42 -0.33 +0
   Total (**headline convention = run-weighted**, n = 50, all five cells at n = 10): prem_val mean +0.879 pp, prem_test mean +0.205 pp, realization rate **23.3 %**
     (run-level bootstrap 95% CI [8.4 %, 37.4 %], P(rate ≤ 0) = 0.002, so the interval excludes no-realization; script `work/item2_final_v2_20260925.py`)
   The three weightings are **identical** once every cell carries n = 10 (run-weighted ≡ arm-cell-equal ≡ n ≥ 5 only), all three giving **23.3 %**;
-    on the previous 41-run sample (aitod20 at n = 1) they gave 19.6 % / 32.4 % / 34.5 %, and the ~15 pp spread came from that n = 1 cell
-    — it carried 20 % of the arm-cell weight while contributing a single run to the run-level mean. **Completing that cell removes the spread**, not a change of weighting.
+    on the previous 41-run sample (aitod20 at n = 1) they did not, and the ~15 pp spread came from that n = 1 cell
+    — it carried 20 % of the arm-cell weight while contributing a single run to the run-level mean; the values themselves are in §8.6's measurement detail.
+    **Completing that cell removes the spread**, not a change of weighting.
     The cell-level bootstrap interval of the arm-cell-equal estimator is [−17.3 %, 53.2 %] and **includes zero** (only five clusters), while the run-level interval [8.4 %, 37.4 %] does not;
     so "partial realization" is significant only under run weighting (article §8.6).
-  Note: this version unifies the total's prem_val on the **declared** convention `V_max − V_final`; the previous version's +0.896 used
-    best.pt − last.pt, which gives +0.905 on the same 41 runs (a 0.03 pp difference).
-  The previous version's **arm-cell-equal** totals (prem_val +0.883, prem_test +0.172, also over the 41 runs) are superseded by the 23.3 % above:
-    with the aitod20 cell completed, arm-cell-equal and run-weighted **are the same estimator**, so it is no longer listed as a separate "sensitivity".
+  Note: the total's prem_val is on the **declared** convention `V_max − V_final`.
+    With the aitod20 cell completed, arm-cell-equal and run-weighted **are the same estimator**, so it is no longer listed as a separate "sensitivity".
   Cells with **negative** prem_test: 2/5 —— aitod20/base(-0.218), smoke2sf/strat(-0.157)
   ⇒ The gain selected on val is only partly realized on an independent split, and can even reverse.
 ```
@@ -715,7 +714,6 @@ The strength of every statement in the main text is distinguished accordingly.
 > `n = 7`: -0.4043 pp, p = 0.00106): the point estimate is unchanged and the interval tightens. The article's
 > Declarations no longer lists this input among the non-recomputable ones. **No verdict changes.**
 
-### Table S1 — moved from *2.1 The closest work, and where this paper sits*
 
 **Table S1.** *2.1 The closest work, and where this paper sits* — columns: Work, What it audits, What it measures, Reports a bias direction, Declares a unit.
 
@@ -728,7 +726,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | CVPR 2026 geospatial leakage audit [11] | **Image level** (geospatial) | detection + de-duplication | ✗ | ✗ |
 | **This paper** | **Configuration level**: the release binds `val:`/`test:` to one path | **Checkpoint selection premium** (best − last) **+ paired difference Δgap** | **Yes, in two tiers**: the premium is positive in four cells with the baseline arm gaining more; Δgap's sign **varies by corpus** (2 understate / 2 overstate / 9 n.s.) | **Yes**: four units, with per-row evidence classes |
 
-### Table S2 — moved from *3. Units: the methodological premise*
 
 **Table S2.** *3. Units: the methodological premise* — columns: Unit, Definition, Controlled by.
 
@@ -739,7 +736,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | **yolo_dist** | How do the `val:`/`test:` keys in the **generic YOLO distribution package** (e.g. an Ultralytics-style directory) read? | a third party |
 | **reported** | Which split does the number **in the literature** come from, and is that split independent of selection? | the user |
 
-### Table S3 — moved from *5. Finding 2: the selection premium — magnitude, direction, and mechanism*
 
 **Table S3.** *5. Finding 2: the selection premium — magnitude, direction, and mechanism* — columns: Cell, Arm, n, best, last, premium.
 
@@ -752,7 +748,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | dota15→aitod (directional probe) | baseline | 10 | 11.802 | 11.268 | **+0.534** |
 | | strategy | 10 | 15.401 | 15.139 | **+0.262** |
 
-### Table S4 — moved from *5.1 Direction: reported in two tiers, and the second tier's sign varies by corpus*
 
 **Table S4.** *5.1 Direction: reported in two tiers, and the second tier's sign varies by corpus* — columns: Cell, n, premium baseline, premium strategy, paired diff, sd, t, p, 95 % CI.
 
@@ -763,7 +758,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | a2d15 (directional probe) | 10 | +0.534 | +0.262 | **+0.272** | 0.183 | 4.69 | 1.1×10⁻³ | [+0.141, +0.403] |
 | dota15 (within-domain) | 10 | +0.941 | +0.492 | **+0.449** | 0.196 | 7.23 | 4.9×10⁻⁵ | [+0.309, +0.589] |
 
-### Table S5 — moved from *5.1 Direction: reported in two tiers, and the second tier's sign varies by corpus*
 
 **Table S5.** *5.1 Direction: reported in two tiers, and the second tier's sign varies by corpus* — columns: Cell, best (selectable), last, last5.
 
@@ -773,7 +767,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | SHWD→SFCHD | +0.564 | **+1.090** | +1.079 |
 | dota15→aitod | +3.599 | **+3.871** | +3.775 |
 
-### Table S6 — moved from *5.1 Direction: reported in two tiers, and the second tier's sign varies by corpus*
 
 **Table S6.** *5.1 Direction: reported in two tiers, and the second tier's sign varies by corpus* — columns: Corpus, n, Δgap (pp), p, 95 % CI, Reading.
 
@@ -785,7 +778,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | p_vistod15 | 10 | **−3.315** | 6.5×10⁻⁹ | [−3.676, −2.953] | `val` **overstates** |
 | other 9 cells | 3–10 | −2.46 to +13.66 | ≥ 0.054 | all include 0 | **not significant** |
 
-### Table S7 — moved from *5.5 The same component in third-party public logs*
 
 **Table S7.** *5.5 The same component in third-party public logs* — columns: Quantity, Value.
 
@@ -797,7 +789,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | Positive | **18/20** |
 | Distribution | +0.00, +0.00, +0.10, +0.14, +0.16, +0.31, +0.57, +0.70, +0.74, +0.91, +1.18, +1.33, +1.42, +1.54, +1.55, +2.07, +2.16, +2.36, +2.84, +5.65 |
 
-### Table S8 — moved from *5.6 Why Δgap's sign varies by corpus: three of five candidate mechanisms are refuted by the data*
 
 **Table S8.** *5.6 Why Δgap's sign varies by corpus: three of five candidate mechanisms are refuted by the data* — columns: Cell, n, M_val base / strat, M_test base / strat, Δgap (pp), p.
 
@@ -817,7 +808,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | dota | 3 | 30.33 / 29.04 | 17.17 / 16.24 | +0.355 | 0.56 |
 | vis | 3 | 14.19 / 13.39 | 11.64 / 11.01 | +0.169 | 0.49 |
 
-### Table S9 — moved from *5.6 Why Δgap's sign varies by corpus: three of five candidate mechanisms are refuted by the data*
 
 **Table S9.** *5.6 Why Δgap's sign varies by corpus: three of five candidate mechanisms are refuted by the data* — columns: Candidate mechanism, Prediction, Verdict, Refutation / evidence.
 
@@ -829,7 +819,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | **M4 whether the strategy truly gains on test** | only cells where the strategy gains on test can show `val` understating | **refuted** | 2 counterexamples: `p_aitovis` and `p_vistod15` are better on test yet have **negative** Δgap |
 | **M5 difference in val-side selection gain** | Δgap has the same sign as (premium_baseline − premium_strategy) | **not supported** | only **8 of 13** cells share the sign; r = +0.06, p = 0.84 |
 
-### Table S10 — moved from *5.6 Why Δgap's sign varies by corpus: three of five candidate mechanisms are refuted by the data*
 
 **Table S10.** *5.6 Why Δgap's sign varies by corpus: three of five candidate mechanisms are refuted by the data* — columns: Corpus, Δgap, final-epoch val diff, Δprem, −test diff, Dominant. **The last three columns already carry the sign convention, so Δgap is their sum** (the `−test diff` column is printed with the sign the identity needs).
 
@@ -843,7 +832,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | smoke2sf | **+0.46** | −1.06 | +0.09 | +1.43 | −test diff |
 | dota | **+0.35** | +0.75 | +0.54 | −0.93 | −test diff |
 
-### Table S11 — moved from *6.1 The result under four units*
 
 **Table S11.** *6.1 The result under four units* — columns: Unit, non-independent, of decidable rows, undecidable.
 
@@ -856,7 +844,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | ↳ of which **literal two-key same path** (= the 2/19 the original audit reported) | **2/19 ≈ 11 %** | 2/19 | — |
 | ↳ of which `reported` is **`clean`** (independent) | **3/19 ≈ 16 %** | 3/15 | 4 rows |
 
-### Table S12 — moved from *6.2 "Same directory" has four levels, and the audit reported only the narrowest*
 
 **Table S12.** *6.2 "Same directory" has four levels, and the audit reported only the narrowest* — columns: Level, Rows, Meaning.
 
@@ -867,7 +854,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | L3 distribution package clean, but the **reported** layer is non-independent | **9** | Objects365, Open Images v7, DOTA v2.0, UAVDT, xView, NWPU VHR-10, MAFA, WIDER FACE, CrowdHuman |
 | L4 the rest | **7** | |
 
-### Table S13 — moved from *6.3 We do **not** reproduce the original audit's two numbers, and we say why*
 
 **Table S13.** *6.3 We do not reproduce the original audit's two numbers, and we say why* — columns: Audit's number, Our recomputation, Reason.
 
@@ -877,7 +863,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | 5/19 clean | **3/19** | the same two rows move to "undecidable" (they were never adjudicated), so the clean group loses two |
 | 12/19 (called "release/spec layer") | **release 10/19, protocol 13/19** | **12 is neither**: it was obtained by a **two-row manual adjustment** (removing WIDER FACE and CrowdHuman), not by applying one unit consistently to all 19 rows |
 
-### Table S14 — moved from *6.5 Across frameworks: is the convention specific to YOLO?*
 
 **Table S14.** *6.5 Across frameworks: is the convention specific to YOLO?* — columns: Framework (pinned commit), Split the reported metric comes from, Also used for selection?, Status of an independent "test".
 
@@ -892,7 +877,6 @@ The strength of every statement in the main text is distinguished accordingly.
 
 > **Correction (2026-10-04, and a defect of our instrument).** The MMDetection row above was first written as "the base config has **no** test split at all". That is **false**: at the pinned commit, `configs/_base_/datasets/coco_detection.py` lines **65** and **73** read `test_dataloader = val_dataloader` and `test_evaluator = val_evaluator`. The extraction behind this table (`work/analyze_xframe_20260916.py`) searched only for `val_*` keys, so the `test_*` keys were **absent from the evidence file rather than absent from the config**. The corrected reading is **stronger for the article's claim**: the key exists but is bound to the validation object — an **alias, not an independent split**. On the same day the other rows were re-checked against the pinned sources and stand (YOLOX: `test_ann` used only when `testdev=True`, `yolox/exp/yolox_base.py` 301/306/307; PaddleDetection: `if validate and is_snapshot:` in `ppdet/engine/trainer.py` 694 with `status['save_best_model'] = True` at 721).
 
-### Table S15 — moved from *7.2 The two clean-protocol cells clear significance by n = 6–8*
 
 **Table S15.** *7.2 The two clean-protocol cells clear significance by n = 6–8* — columns: Cell, n, Δ, paired t p, permutation p (n = 10 floor 0.001953), seeds positive.
 
@@ -901,7 +885,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | smoke→SFCHD | **10** | **+1.434 pp** | 8.6×10⁻⁷ | **0.001953 (= the floor)** | **10/10** |
 | SHWD→SFCHD | **10** | **+0.507 pp** | 0.0094 | **0.009766** | 9/10 (one at −0.19) |
 
-### Table S16 — moved from *7.3 A cross-archive endpoint conflict on the same run (investigated — and itself a disclosure)*
 
 **Table S16.** *7.3 A cross-archive endpoint conflict on the same run (investigated — and itself a disclosure)* — columns: Reading, Δ, p.
 
@@ -911,7 +894,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | Best-epoch reading (B, 70.06), **as released** | **−0.902** | 0.2931 |
 | Best-epoch reading (B, 70.06), **corrected 2026-10-02** (authoritative) | **−1.490** | 0.0141 |
 
-### Table S17 — moved from *8.1 The protocol is the companion's; the measurement under it is this paper's*
 
 **Table S17.** *8.1 The protocol is the companion's; the measurement under it is this paper's* — columns: Cell, clean protocol (n = 10), published (old protocol).
 
@@ -920,7 +902,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | smoke→SFCHD | **+1.434 pp** | +1.78 (3 seeds) / +1.76 (10 seeds) |
 | SHWD→SFCHD | **+0.507 pp** | +0.51 (3 seeds) / +0.54 (10 seeds) |
 
-### Table S18 — moved from *8.3 ⭐ A direct measurement of selection inflation*
 
 **Table S18.** *8.3 ⭐ A direct measurement of selection inflation* — columns: Cell, n = 6, n = 9, change.
 
@@ -929,7 +910,6 @@ The strength of every statement in the main text is distinguished accordingly.
 | smoke→SFCHD | +1.562 | +1.420 | **−0.14 pp** |
 | SHWD→SFCHD | +0.693 | +0.492 | **−0.20 pp** |
 
-### Table S19 — moved from *8.4 The three variance components: the excluded one is the smaller in this sample*
 
 **Table S19.** *8.4 The three variance components: the excluded one is the smaller in this sample* — columns: Source, What was varied, Magnitude.
 
@@ -957,11 +937,10 @@ The strength of every statement in the main text is distinguished accordingly.
 > archived three initializations value by value (43.630/+0.570, 43.590/+0.280, 43.250/+0.460, max
 > |Δ| = **0.005 pp**). Script: `work/G3_sigma_n5_20260930.py`.
 
-### Table S20 — moved from *8.6 ⭐ The premium's realization rate: **not significant at claim level**; arm-cell median **17.6 %** (five arm-cells, n = 10; run-weighted **23.3 %**)*
 
 **Table S20.** *8.6 ⭐ The premium's realization rate: **not significant at claim level**; arm-cell median 17.6 % (five arm-cells, n = 10; run-weighted 23.3 %)* — columns: Cell, Arm, n, `prem_val`, `prem_test`, realization rate.
 
-> **Which cells are these five, and why exactly five.** The rule is mechanical: **every arm-cell whose `test` side had reached n = 10 at the 2026-09-25 freeze** — both arms of `shwd2sf` and of `smoke2sf`, plus `aitod20` **baseline** (50 runs); `work/item2_final_v2_20260925.py` applies it and prints the pool, the per-cell means and the **23.26 %** aggregate. The `aitod20` **strategy** arm finished after the freeze: it is **the sixth row of Table 4, printed as Table S20c below**, **kept out of this pool** (feeding it in gives **8.7 %**), and **its exclusion was decided after its readings were in, not by a pre-registered rule**. **Table S20 and Table 4 therefore print five and six cells on purpose.**
+> **Which cells are these five, and why exactly five — the rule, stated as a rule.** **An arm-cell enters iff its `test` side reached n ≥ 5**; that threshold is the analyser's gate (`work/item2_final_v2_20260925.py`), applied to every cell alike, not chosen per cell. **At the 2026-09-25 freeze exactly five arm-cells met it**, and at that date all three weightings coincide (**23.26 %**); equivalently: **every arm-cell whose `test` side had reached n = 10 at the 2026-09-25 freeze** — both arms of `shwd2sf` and of `smoke2sf`, plus `aitod20` **baseline** (50 runs); `work/item2_final_v2_20260925.py` applies it and prints the pool, the per-cell means and the **23.26 %** aggregate. The `aitod20` **strategy** arm finished after the freeze: it is **the sixth row of Table 4, printed as Table S20c below**, and it **qualifies under the same n ≥ 5 rule** — it is kept out of *this* pool only because the pool is dated at the freeze, so **the primary estimate is the frozen one** while the six-cell reading is reported alongside it (feeding it in gives **8.7 %**). **The three scopes agree in verdict**: five-cell **[−17.3 %, 53.2 %]**, six-cell **[−4.9 %, +21.3 %]**, eleven-cluster **[19.3 %, 60.4 %]** — the two cell-level intervals cover zero, so **no reported conclusion turns on the pool boundary**; what moves is the point estimate. **Table S20 and Table 4 therefore print five and six cells on purpose.**
 
 **Table S20-lite — the pool ledger, and its status (the one thing it is not).** Every cell that could enter the
 §8.6 pool, its completion state at the two dates that matter, and whether it is in:
@@ -1052,7 +1031,6 @@ The strength of every statement in the main text is distinguished accordingly.
 > **Reproduction.** These ten rows give per-run means `prem_val` **+1.1109 pp** and `prem_test` **-0.5432 pp** ⇒ run-weighted rate **-48.90 %** (the **−49 %** of Table 4 is that ratio rounded). † **Zero-denominator rule**: seed 44 has `prem_val = 0` exactly, so its per-run rate is **undefined** and it is **excluded from the per-run rates but kept in the run-weighted ratio** — that is the rule for every cell, stated here once. Adding this cell to the five-cell pool is the **stated sensitivity** of §8.6 (run-weighted **23.3 % → 8.7 %**, median **+17.6 % → −4.2 %**), and the six-cell cluster interval **[−4.9 %, +21.3 %]** still covers zero.
 
 
-### Table S21 — moved from *8.7 The per-epoch view: the realization rate is not a constant*
 
 **Table S21.** *8.7 The per-epoch view: the realization rate is not a constant* — columns: Cell · arm, epoch, V(e), T(e), ΔV(e), ΔT(e).
 
@@ -1068,7 +1046,6 @@ The strength of every statement in the main text is distinguished accordingly.
 > `xeval_perepoch_20260918/matrix_perepoch.csv` (SHA-256 listed) rather than printed, and the two
 > agree on all **202** overlapping (run, epoch) points to **0.0000 pp**.
 
-### Table S22 — moved from *8.7 The per-epoch view: the realization rate is not a constant*
 
 **Table S22.** *8.7 The per-epoch view: the realization rate is not a constant* — columns: Group, n, κ, R².
 
@@ -1094,7 +1071,6 @@ The strength of every statement in the main text is distinguished accordingly.
 > entirely, gives 0.774. Scripts: `work/x2_kappa_clustered_20260918.py`,
 > `work/x2b_kappa_arms_20260918.py` (both reproduce the published 0.734 / 0.902 / n = 161 first).
 
-### Table S23 — moved from *8.7 The per-epoch view: the realization rate is not a constant*
 
 **Table S23.** *8.7 The per-epoch view: the realization rate is not a constant* — columns: Cell, checkpoints evaluated, Δgap > 0, Δgap < 0, epochs with Δgap < 0, Δgap range.
 
@@ -1147,14 +1123,58 @@ The strength of every statement in the main text is distinguished accordingly.
 > **What this table does, and what it does not do.** It closes a **verifiability** gap: the ten corpora
 > and the `aitod20` strategy arm previously carried no `test` curve at all, so `prem_test`, and hence
 > WC, could not be formed for them — any reader can now recompute every WC above from the released
-> per-run file. It does **not** upgrade a claim: five of these arm-cells sit at n = 3, and §7.1's power
-> argument is unchanged. Read descriptively, the asymmetry the five arm-cells of §8.6 show is the
+> per-run file. It does **not** upgrade a claim, and **§7.1's power argument is unchanged**. Read descriptively, the asymmetry the five arm-cells of §8.6 show is the
 > general case here: **WC > 0 in 25 of the 26 arm-cells**, the **arm-cell median realization rate is
 > 17.2 %** (mean 8.9 %, ten of the 26 negative), and the realized premium is **negative in 8 of the 13
 > strategy arms** (and in 2 of the 13 baseline arms). Scripts: `work/g6_prem_analyze_20260930.py`,
 > `work/g6_repro_vs_printed_20260930.py`; the evaluation itself: `work/g6_perepoch_eval.py`,
 > `work/g6_coverage_audit.py`.
+>
+> **Ten of the arm-cells above that stood at n = 3 were escalated to n = 10 on 2026-10-06**
+(seeds 45–51 trained on the two pods; the three earlier seeds are reused, not replaced, so each cell
+> pools seeds 42–51 with no duplicate). Their pooled values, side by side with the n = 3 readings
+> printed in the table above, are **Table S38b**. Read descriptively with the escalation folded in,
+> the three quantities quoted just above move as follows: **WC > 0 holds in 25 of the 26 arm-cells
+(unchanged)**, the **arm-cell median realization rate rises from 17.5 % to 21.6 %** (mean 9.0 % →
+> 11.6 %, the negative cells go from ten to **nine**), and the realized premium is still **negative in
+> 8 of the 13 strategy arms** (the baseline arms go from two negative to **one**). The direction of the
+> section's descriptive claim therefore survives the escalation; what changes is the magnitude of the
+> median.
 
+### Table S38b — the ten arm-cells escalated from n = 3 to n = 10 (2026-10-06)
+
+**Table S38b.** *5.6 / 8.6, supplementing Table S38* — the ten arm-cells of Table S38 that stood at
+n = 3 when the 2026-09-30 scan closed, re-read at **n = 10** after seeds 45–51 were trained on 2026-10-06
+(42 runs on pod A at 30 epochs for the three small corpora, 28 runs on pod B at 100 epochs for the two
+`p_` cells). **The three earlier seeds are reused, not replaced**, so each cell pools seeds 42–51 and no
+run is counted twice. `prem_val` is from each run's own `results.csv` (`V_max - V_final`); `prem_test` is
+`T_best - T_final`, with `T_best` the archive's own end-of-training `test` reading on `best.pt` and
+`T_final` obtained here by scoring `last.pt` on the same held-out `test` split with the pipeline
+registered call (`val(split="test", batch=32, imgsz=640, plots=False, save_json=False)`, data YAML read
+from each run's own `args.yaml`); the two collections agree with the released per-run file to its printed
+rounding on the shared seeds, and all 56 transferred checkpoints load cleanly. WC = `prem_val - prem_test`;
+realization rate = `prem_test / prem_val` (means of the per-run values, in pp).
+
+| Cell | Arm | n | `prem_val` | `prem_test` | WC | realization rate | was (n = 3) |
+|---|---|---|---|---|---|---|---|
+| fire | baseline | **10** | +11.678 | **+2.511** | +9.167 | **22 %** | +10.953 / +2.820 / 26 % |
+| fire | strategy | **10** | +12.218 | **-0.842** | +13.061 | **-7 %** | +8.869 / -0.264 / -3 % |
+| mask20 | baseline | **10** | +20.523 | **+0.801** | +19.722 | **4 %** | +16.071 / +0.325 / 2 % |
+| mask20 | strategy | **10** | +24.311 | **-0.777** | +25.089 | **-3 %** | +29.172 / +0.445 / 2 % |
+| mende20 | baseline | **10** | +4.243 | **+2.533** | +1.710 | **60 %** | +4.828 / +3.277 / 68 % |
+| mende20 | strategy | **10** | +6.006 | **+1.302** | +4.704 | **22 %** | +5.682 / +1.512 / 27 % |
+| p_d15toai | baseline | **10** | +2.100 | **+0.684** | +1.416 | **33 %** | +0.488 / -0.154 / -32 % |
+| p_d15toai | strategy | **10** | +1.547 | **-0.234** | +1.781 | **-15 %** | +0.392 / -0.170 / -43 % |
+| p_masktomende | baseline | **10** | +6.301 | **+2.775** | +3.526 | **44 %** | +2.335 / +2.022 / 87 % |
+| p_masktomende | strategy | **10** | +6.552 | **+2.192** | +4.361 | **33 %** | +1.342 / -0.144 / -11 % |
+
+> **What this table does, and what it does not do.** It **adds runs, not a new metric**: the same
+> pipeline and the same `test` side as Table S38, on seven further seeds per cell, so that no cell in
+> this table rests on n = 3. It does **not** re-define the pool, the confirmatory family or the claim
+> level, and it does **not** revise Table S38's printed rows — those are what the 2026-09-30 scan
+> measured at the *n* it had, and they are left standing. Scripts: `work/collect_test_final.py` (the
+> `last.pt` test readings) and `work/_archive_results_csv.py` (the val curves); per-run file:
+> `g6_prem_per_run_210_20261006.csv` (the released 140 rows plus these 70).
 ### Table S39 — the second intervention axis (`weight_decay` 1e-4 → 1e-3)
 
 **Table S39.** *the second (weight-decay) axis, cell by cell* — both levels re-run fresh on one machine (A), `lr0` fixed at 0.001; `reference` = wd 1e-4 (the archived value), `treatment` = wd 1e-3
@@ -1252,7 +1272,6 @@ is what section 12 of the article states and what this table now lets a reader c
 | base100 | s43 | 11.680 | 11.700 | 11.700 | +0.020 | **+0.000** |
 | lr005_100ep | s42 | 15.190 | 15.040 | 15.040 | +0.150 | **+0.000** |
 | lr005_100ep | s43 | 15.280 | 15.280 | 15.280 | +0.000 | **+0.000** |
-### Table S24 — moved from *§9: the registered replication (the criterion is not met — the third row is the one that passes)*
 
 **Table S24.** *§9: the registered replication (the criterion is not met — the third row is the one that passes)* — columns: Registered pair, n, Δ (pp), 95 % CI, paired t, permutation p, same sign, Δ ≥ +0.30, p < 0.01, ≥ 8/10, unit criterion.
 
@@ -1262,7 +1281,6 @@ is what section 12 of the article states and what this table now lets a reader c
 | T1-b aitod→visdrone | 10 | **+0.168** | [+0.083, +0.253] | 4.455 (p = 0.0016) | **0.001953** | **10+/0−** | **✗** | ✓ | ✓ | **FAIL** |
 | T1-c visdrone→dota15 | 10 | **+3.727** | [+3.534, +3.920] | 43.774 (p = 8.5×10⁻¹²) | **0.001953** | **10+/0−** | ✓ | ✓ | ✓ | **PASS** |
 
-### Table S25 — moved from *§9: the registered replication (the criterion is not met — the third row is the one that passes)*
 
 **Table S25.** *§9: the registered replication (the criterion is not met — the third row is the one that passes)* — columns: Question the frozen criterion asks, Measured.
 
@@ -1283,7 +1301,6 @@ permutation floor is **2/2⁵ = 0.0625**, which is *above* the printed p = 0.014
 recommendation ③ requires.
 
 
-### Table S26 — moved from *§9: the near-matched control C (the gain does **not** depend on a label-space change)*
 
 **Table S26.** *§9: the near-matched control C (the gain does not depend on a label-space change)* — columns: n, Δ (pp), 95 % CI, paired t, permutation p, same sign.
 
@@ -1291,7 +1308,6 @@ recommendation ③ requires.
 |---|---|---|---|---|---|
 | 10 | **+0.727** | [+0.640, +0.814] | 18.854 (p = **1.53×10⁻⁸**) | **0.001953** (= the n = 10 floor) | **10+/0−** |
 
-### Table S27 — moved from *9. The registered multi-target replication: transferred to the companion paper*
 
 **Table S27.** *9. The registered multi-target replication: transferred to the companion paper* — columns: Registered pair, data YAML, `val`, `test`, Split.
 
@@ -1312,7 +1328,6 @@ directory. The table above is a recomputation from those files, not a restatemen
 ---
 
 
-### Table S28 — moved from *5.1 Direction: reported in two tiers, and the second tier's sign varies by corpus*
 
 **Table S28.** *5.1 (the dota15 escalation, X8)* — columns: seed, premium baseline, premium strategy, paired difference. Ten seeds, from n = 3 to n = 10. Premium = best-epoch minus final-epoch mAP50-95 on the run's own monitored split; source: the twenty run directories in `x8_dota15_20260918/runs/` (10 seeds x 2 arms; **16 of them trained for this round**, the seeds-43/44 pairs pre-existing).
 
@@ -1351,7 +1366,6 @@ directory. The table above is a recomputation from those files, not a restatemen
 > `work/x8_dota15_analysis_20260918.py`, `work/x8_oom_counts_20260918.py`,
 > `work/x8_oom_sensitivity_20260918.py`.
 
-### Table S29 — moved from *5.1 Direction: reported in two tiers, and the second tier's sign varies by corpus*
 
 **Table S29.** *5.1 (the two `val`-overstating cells, X1)* — columns: seed, Δgap for `p_aitovis`, Δgap for `p_vistod15`. Ten seeds per cell, from n = 3 to n = 10. Δgap = (arm difference on `val`, at each run's own val-curve maximum) − (arm difference on `test`, at `best.pt`); paired within seed. Sources: `x1_tier2_20260918/runs/` (40 run records) and `teval.csv` (80 test evaluations, SHA-256 verified against the machine that produced them).
 
@@ -1401,7 +1415,6 @@ The `paired t / p` row is **raw** (no multiplicity adjustment); the permutation 
 > and for `p_vistod15` −3.315 = (−7.072) + (−0.213) + (+3.971); both identities check to the printed
 > digit. Scripts: `work/x1_gap_analysis_20260918.py`, `work/x1_aux_20260918.py`.
 
-### Table S37 — moved from *3.2 Six experiments, five judged criteria, on GPU machines, each with its criterion written down first*
 
 **Table S37.** *3.2* — the six pre-registered experiments and the criterion each was judged against. **G1 is void** (design confounded), so no verdict is entered for it; **two of the five judged experiments are negative — G1′ and G2** — and one design had to be redone, all reported as such. Counts are over experiments, not criteria. The values behind every verdict are in Tables S31–S33 (the G1 family in S12).
 
@@ -1411,10 +1424,9 @@ The `paired t / p` row is **raw** (no multiplicity adjustment); the permutation 
 | **G1″** three-way carve levels | the paired levels differ by ≤ 3 pp | **met** (−0.122 pp; §S12) |
 | **G1′** aliasing, level-matched pair | WC > 0, paired t, p < 0.05 | **not met** (p = 0.83, n = 10; §S12) |
 | **G2** selection-split size, 30 vs 90 | the rate rises with size; `WC_small/WC_large` ∈ [1.4, 2.1] | **direction met, magnitude not met** (pooled ratio 1.19; Table S31) |
-| **G3** epoch budget `E` | C1 rise in `E`; C2 the σ√(2 ln E) form in [0.86, 1.43]; C3 shape; C4 WC on a disjoint readout | **revised** (§3.1, S32 · S34b, **clean re-run**): C1 met, C2 out of band, so the scaling stays withdrawn; C3 passes on the mean only; C4 not met |
+| **G3** epoch budget `E` | C1 rise in `E`; C2 the σ√(2 ln E) form in [0.86, 1.43]; C3 shape; C4 WC on a disjoint readout | **revised** (§3.1, S32 · S34b, **clean re-run**): C1 met, C2 out of band, so the scaling stays withdrawn; C3 passes on the mean only; C4 not met · cross-lineage direction also probed on a **second detector family** (RetinaNet, two corpora): S34e |
 | **G4** third corpus, `mende20_3way` | identity value by value; WC > 0 | **met** (WC = +5.21 pp, CI [+4.82, +5.66], 20/20; Table S33) |
 
-### Table S31 — moved from *3.2 Six experiments, five judged criteria, on GPU machines, each with its criterion written down first*
 
 **Table S31.** *3.2 (G2)* — the selection split's **size** is the only thing that changes: two nested validation splits drawn from one verified-disjoint pool (30 and 90 images), the same training set, and an identical test side.  Columns: selection split, arm, n, `prem_val`, `prem_test`, WC, realization rate.  Source: `g2_valsize_20260919_runs/`, `g2t_g1p_20260919/g2_test.csv`.
 
@@ -1428,7 +1440,6 @@ The `paired t / p` row is **raw** (no multiplicity adjustment); the permutation 
 > **Pre-declared criteria.** Direction: the realization rate rises with the selection split's size — **met** (the two arms move the same way).  Magnitude: `WC_small / WC_large` within [1.4, 2.1] (√3 ≈ 1.73) — **not met** (measured 1.19, pooled over the two arms), so the 1/√n step is a scale estimate, not a law.
 
 
-### Table S32 — moved from *3.2 Six experiments, five judged criteria, on GPU machines, each with its criterion written down first*
 
 **Table S32.** *3.2 (G3)* — the epoch budget is the only thing that changes (four budgets, E = 50–400, same corpus, recipe and validation split).  Columns: arm, n, premium at E = 50, at E = 100, at E = 200, at E = 400, ratio 400/100.  Source: `g3_epochs_runs/`. **Two bases appear in this table and its note, and they are labelled:** the E = 400 and ratio columns report the **six full runs** at that budget, while the C2 ratio **1.329** and the all-runs C1 verdict use the **ten runs** at E = 400 (arm-equal mean **+0.907 pp**); four of the ten stopped early under the protocol's own `patience`. **n = 5 seeds per arm at E = 50–200**; the E = 400 and ratio columns report the **six full runs** of the ten at that budget, which is why the table row and the note's all-ten arithmetic are both stated.
 
@@ -1442,7 +1453,6 @@ The `paired t / p` row is **raw** (no multiplicity adjustment); the permutation 
 **Secondary criterion C4 (WC on a disjoint readout) — not met, and systematically so.** With ê selected on `val` and read out on the disjoint third C3 (100 images; `C3 ∩ val = 0` and `C3 ∩ train = 0` verified programmatically), WC = `prem_val` − `prem_C3` is **negative in all 16 readouts** (mean **-0.616 pp**): the peak-to-endpoint gap is *larger* on the small disjoint split than on `val`. That is consistent with the shape reading above — the premium is largely the split's own curve shape, and a 100-image split has a steeper curve — and it means Proposition 4's inequality **cannot be tested by reading out on a small disjoint carve**. Two limitations are stated with the result: the readout split has 100 images only, and the four early-stopped E = 400 runs are excluded, leaving n = 6 at that budget.
 
 
-### Table S33 — moved from *3.2 Six experiments, five judged criteria, on GPU machines, each with its criterion written down first*
 
 **Table S33.** *3.2 (G4)* — replication on a third corpus (`mende20_3way`, 2 arms × 10 seeds, test side evaluated separately, 40 evaluations).  Columns: run, `prem_val`, `prem_test`, WC, realization rate.  Source: `g4_mende3way_runs/`, `g4_mende3way_20260919_g4_test.csv`.
 
@@ -1634,7 +1644,8 @@ too, each carrying a headline number to check:
 **Not in the index above.** Seven tables in this section were not moved from the article and are therefore
 not rows of the index: **S34** (cross-lineage realization test, non-YOLO detector), **S34b** (the G3 clean
 re-run, early stopping disabled, one machine, four budgets), **S34c** (the cross-lineage test on a second
-corpus, SFCHD, and the carve that gives it a disjoint selection set), **S38** (the selection term, cell by cell,
+corpus, SFCHD, and the carve that gives it a disjoint selection set), **S34e** (the cross-lineage test on a
+**second detector family**, RetinaNet, run on both corpora, added 2026-10-06), **S38** (the selection term, cell by cell,
 for all thirteen scanned corpora), **S39** and **S40** (the second and third intervention axes,
 `weight_decay` and `mosaic`), **S40b** (the three intervention axes side by side, added 2026-10-01) and **S41** (the `p_vistod15` clean re-run, and what it does to the
 memory-pressure bound). Two further tables of the same kind live in §S12: **S35** (the estimand and scope
@@ -1697,6 +1708,76 @@ corpus/arm mean same-signed. Two runs differ between S34 and S34c that are worth
 the original run plus five seeds aggregated at the time, whereas S34c's twelve runs were all run under
 `run_3way_v2.py`; the two VisDrone `prem_val` means (+0.0809 and +0.0807) agree to **0.0002 pp**, which we
 report as consistency, not as replication.
+
+### Table S34e — cross-lineage realization test, **second detector family** (RetinaNet, two corpora)
+
+**Table S34e.** *6.5* — S34 and S34c hold the detector fixed at `fasterrcnn_resnet50_fpn` and vary the corpus;
+this table does the converse, holding **both corpora** and the three-way protocol fixed while changing the
+detector to a **different family**: torchvision `retinanet_resnet50_fpn_v2` (anchor-based one-stage with FPN,
+COCO-initialised). Recipe held to the S34c probe: 640-px input, batch 8, SGD lr 0.005, 1,000-iteration warmup,
+cosine schedule, 40 epochs, **one run per GPU**, `best` by the `val` curve argmax, `test` inferred once for
+`best` and once for `last`; `maxDets = 300`, the script default used by S34c. Twelve seeds per corpus (42–53).
+The pre-flight caliper is applied unchanged: ground truth as predictions must reach **0.990099** (ideal 1/1.01),
+and no reading is written if it fails. Source: our `work/run_3way_family.py`, results `family_out/*.json`,
+aggregated by `work/collect_optionC.py`; `prem = V_max − V_final` / `T_best − T_final` in pp, and the rate is a
+**ratio of means** with a 2,000-draw bootstrap interval on that ratio (the S34 convention).
+
+| corpus | n | `prem_val` mean (SD) | `prem_test` mean (SD) | realization rate | 95 % CI | sign, `val` / `test` |
+|---|---|---|---|---|---|---|
+| VisDrone | 12 | +0.0630 (0.0510) | +0.0710 (0.0786) | **112.6 %** | [48.8 %, 211.9 %] | 10/2 · 8/4 |
+| SFCHD | 12 | +0.2887 (0.2761) | +0.0566 (0.1190) | **19.6 %** | [−3.7 %, +41.6 %] | 11/1 · 7/5 |
+
+**Reading, and the wording cap.** On **both** corpora the sign pattern of S34/S34c reappears: a positive
+`prem_val` mean with a **smaller** `prem_test` mean, i.e. the selection gain does not fully carry to the disjoint
+readout. **The two corpora do not agree on strength**: on VisDrone the realized premium is *not* discounted
+(rate **112.6 %**, interval excluding zero), whereas on SFCHD the rate is **19.6 %** and its interval
+**includes zero** — so on this family the discount is visible on one corpus and not on the other. That is a
+weaker statement than S34c's, and it is the statement the data support: **the cross-family reading here is
+direction, not magnitude, and not a replication.** As in S34c, the corpora differ by an order of magnitude in
+absolute mAP50-95 (≈6 versus ≈34), so their premiums are not comparable to each other or to S34/S34c's.
+
+> **Placement in the S34 series.** S34 = one detector, first corpus; S34c = same detector, second corpus;
+> **S34e = second detector family, both corpora**. Read together the three tables say: the direction (a
+> positive `val` premium that a disjoint readout realizes only in part) survives a corpus change and a
+> **detector-family change**, while the **strength** of the discount does not — it is corpus-dependent in
+> S34/S34c and corpus-dependent again here.
+
+**Per-run detail** (`prem` in pp; two runs per corpus peak at the final epoch, so their `prem_val` is
+exactly 0 and their per-run rate is undefined — they are counted in the means and excluded only from the
+per-run rate column):
+
+| corpus | seed | `best` ep | `prem_val` | `prem_test` | per-run rate |
+|---|---|---|---|---|---|
+| VisDrone | 42 | 31 | +0.0723 | +0.0609 | +84.2 % |
+| VisDrone | 43 | 34 | +0.1412 | -0.0071 | -5.0 % |
+| VisDrone | 44 | 38 | +0.1115 | +0.0183 | +16.4 % |
+| VisDrone | 45 | 28 | +0.1351 | +0.2283 | +169.0 % |
+| VisDrone | 46 | 30 | +0.0650 | +0.1206 | +185.5 % |
+| VisDrone | 47 | 40 | +0.0000 | +0.0000 | — (peaks at final epoch) |
+| VisDrone | 48 | 23 | +0.0147 | +0.1870 | +1272.1 % |
+| VisDrone | 49 | 25 | +0.0848 | +0.1057 | +124.6 % |
+| VisDrone | 50 | 26 | +0.0314 | +0.0917 | +292.0 % |
+| VisDrone | 51 | 40 | +0.0000 | +0.0000 | — (peaks at final epoch) |
+| VisDrone | 52 | 38 | +0.0132 | -0.0082 | -62.1 % |
+| VisDrone | 53 | 29 | +0.0871 | +0.0543 | +62.3 % |
+| SFCHD | 42 | 35 | +0.2961 | -0.0733 | -24.8 % |
+| SFCHD | 43 | 33 | +0.0070 | -0.1474 | -2105.7 % |
+| SFCHD | 44 | 35 | +0.6023 | +0.1639 | +27.2 % |
+| SFCHD | 45 | 34 | +0.1870 | +0.1006 | +53.8 % |
+| SFCHD | 46 | 34 | +0.3541 | +0.2131 | +60.2 % |
+| SFCHD | 47 | 37 | +0.0750 | -0.0651 | -86.8 % |
+| SFCHD | 48 | 40 | +0.0000 | +0.0000 | — (peaks at final epoch) |
+| SFCHD | 49 | 30 | +0.6915 | +0.1913 | +27.7 % |
+| SFCHD | 50 | 39 | +0.4042 | +0.1024 | +25.3 % |
+| SFCHD | 51 | 34 | +0.7597 | +0.0466 | +6.1 % |
+| SFCHD | 52 | 36 | +0.0392 | -0.0272 | -69.4 % |
+| SFCHD | 53 | 36 | +0.0486 | +0.1747 | +359.5 % |
+
+> **What this table does, and what it does not do.** It **adds a detector family, not a claim level**: the two
+> corpora, the protocol, the caliper and the aggregation convention are S34c's. It does **not** support any
+> cross-detector magnitude comparison — the two families differ in warmup, in the final-epoch endpoint and in
+> backbone, exactly the reason S34c already gives for not reading its column as a cross-detector comparison. It
+> does **not** change the article's §6.5 sentence, which rests on S34 and S34c.
 
 ## S9 · Figures moved from the main text
 
@@ -1766,23 +1847,40 @@ data support (`work/theory_p3a_correct_20260919.txt`).
 
 ### Proposition 4 (realization rate = 1 − winner's-curse share)
 
-**Statement.** Assume V(e) = v(e) + ε_e and T(e) = v(e) + τ + η_e with E[ε] = E[η] = 0, ε, η
-independent of v, and η independent of the selection event {ê = e}. Then
+**Statement.** Fix a **candidate set E** of checkpoints **before looking at any curve**, and let
+`e_f` be a **pre-specified member of E** (the final epoch). Assume V(e) = v(e) + ε_e and
+T(e) = v(e) + τ + η_e with E[ε] = E[η] = 0, ε, η independent of v, and η independent of the
+selection event {ê = e}. Then
 E[premium_test] = E[premium_val] − WC with WC := E[ε_ê − ε_{e_f}] ≥ 0, so
 realization rate := E[premium_test] / E[premium_val] = 1 − WC / E[premium_val] ≤ 1.
 
 **Proof.** (i) E[premium_test] = E[T(ê) − T(e_f)] = E[v(ê) − v(e_f)] + E[η_ê − η_{e_f}]; the second
 term is 0 by the stated independence and mean-zero assumption. (ii) E[premium_val] = E[V(ê) − V(e_f)]
 = E[v(ê) − v(e_f)] + E[ε_ê − ε_{e_f}]. (iii) Subtracting (i) from (ii) yields
-E[premium_test] = E[premium_val] − E[ε_ê − ε_{e_f}]. (iv) Since ê maximises V = v + ε, the selected
-checkpoint carries positive noise in expectation, so E[ε_ê − ε_{e_f}] ≥ 0; the equality case is
-selection on the signal alone. ∎
+E[premium_test] = E[premium_val] − E[ε_ê − ε_{e_f}]. (iv) Because ê maximises V = v + ε **over E**, and `e_f` is a
+member of the same pre-specified set, V(ê) ≥ V(e_f) at the realised values, i.e.
+v(ê) + ε_ê ≥ v(e_f) + ε_{e_f}, hence ε_ê − ε_{e_f} ≥ v(e_f) − v(ê). The comparison is therefore between the
+selected index and the pre-specified one **within the same fixed set**; that is what the candidate-set
+clause buys, and it is the only place the argument uses it. Taking expectations, E[ε_ê − ε_{e_f}] ≥ 0
+whenever the selection does not put the pre-specified index at a systematic **signal** disadvantage;
+selection on the signal alone is the equality case. ∎
 
-**Which assumption carries which half.** The inequality (≤) needs only "ê is chosen using V" — that
-is exactly the convention under audit, so the *direction* is robust. The closed form additionally
-needs η to stay out of the selection; under aliasing (`val` and `test` the same split) the two noises
-coincide and the closed form does not apply — which is why §12 treats the aliased cells' realization
-figure as a magnitude statement about bias, not as mechanism evidence.
+> **Why the candidate-set clause is not decoration.** Without it the step fails: if `e_f` were allowed to
+> be chosen *after* the curve is seen, ε_{e_f} need not be the noise of a fixed element, and
+> E[ε_ê − ε_{e_f}] ≥ 0 no longer follows — the final epoch could itself be a high-noise draw. The bound is
+> therefore a statement about **selecting the argmax of V relative to a fixed reference member of the same
+> candidate set**, which is exactly the `best`-vs-`last` convention this paper audits (`last` = the final
+> epoch of a fixed budget, fixed before training).
+
+**Which assumption carries which half.** The inequality (≤) needs **two** things: that ê maximises V
+**over a candidate set fixed in advance**, and that the reference checkpoint `e_f` is a **pre-specified
+member of that same set** (its position not chosen after seeing the curve). Both hold under the
+convention this paper audits — `last` is the final epoch of a budget fixed before training — so the
+*direction* is robust; but the inequality is a claim about **that** reference, not about "the final
+epoch" however it was arrived at. The closed form additionally needs η to stay out of the selection;
+under aliasing (`val` and `test` the same split) the two noises coincide and the closed form does not
+apply — which is why §12 treats the aliased cells' realization figure as a magnitude statement about
+bias, not as mechanism evidence.
 
 **Tests on the archive** (`work/theory_p4_test_20260919.py`, `work/theory_meta_and_tests_20260919.py`):
 
@@ -2029,7 +2127,9 @@ be read as a clean-protocol result.
 **Adopted identity, not a claim of this paper (the realization rate is one minus the winner's-curse share).** With V(e) = v(e) + ε_e
 and T(e) = v(e) + τ + η_e, **E[premium_test] = E[premium_val] − WC** where **WC := E[ε_ê − ε_e_f] ≥ 0**,
 so the realization rate is **1 − WC / E[premium_val] ≤ 1**, with equality only if selection is driven
-by signal alone [13] — Smith & Winkler's optimizer's curse written in this paper's notation; **we adopt it as the frame for §8.6–§8.7 and claim no part of it**. **What the per-run check can and cannot settle** (moved from the article): the check reads the **observed** `prem_val − prem_test`, so it corroborates that *consequence* of the inequality; it does **not** settle the latent `E[ε_ê − ε_e_f] ≥ 0`, which no archive decides without the identifying assumption. The inequality needs only that ê is chosen on `val` (the convention under audit); the identity
+by signal alone [13] — Smith & Winkler's optimizer's curse written in this paper's notation; **we adopt it as the frame for §8.6–§8.7 and claim no part of it**. **What the per-run check can and cannot settle** (moved from the article): the check reads the **observed** `prem_val − prem_test`, so it corroborates that *consequence* of the inequality; it does **not** settle the latent `E[ε_ê − ε_e_f] ≥ 0`, which no archive decides without the identifying assumption. The inequality needs that ê maximises `val` **over a candidate set fixed in advance** and that the
+final reference checkpoint is a **pre-specified member of that same set** (both hold for the
+budget-fixed `last` this paper audits); the identity
 additionally needs the `test` noise not to enter the selection. **Two consequences, both tested on the archive** — the per-run inequality and the monotonicity in the `val` noise; per-run values, terciles and rank correlation: **Supplementary S11**. This is why §8.6's realization rate and §8.7's per-cell variation are the
 same statement at different noise levels, not a contradiction. A third form — that the premium scales as σ√(2 ln E) — was **tested and withdrawn**; the regression and its diagnostic are in **Supplementary S11**. Contemporaneous work measures **≈5×** on the same σ√(2 ln K) bound [18].
 
@@ -2264,7 +2364,7 @@ convention systematically shifts arm-to-arm comparison"** — **not** "the defau
 abstract and the §2.1 table claim about YOLO distributions only, consistent with this.
 
 **Four limitations of this section** (so it is not read as a census): ① we read **default
-configurations**, which users may change; ② only **5 pinned repositories / 25 official files** — **fixed-point sampling,
+configurations**, which users may change; ② only **5 pinned repositories / 18 official files printed with line-by-line evidence (S3)** — **fixed-point sampling,
 not a census**; ③ the pins are **default-branch heads** and will move, hence the SHA-256 and commit per
 file; ④ as in §4 and §6, a **configuration-level audit — no dataset was downloaded**.
 
@@ -2467,7 +2567,7 @@ is descriptive.
 
 What is recorded for **all thirteen** scanned cells is the val-side selection gain `prem_val = V_max − V_final`, per arm, at the cell's scanned n — baseline → strategy, pp: `shwd2sf` (n = 10) **+1.47 → +0.87**; `smoke2sf` (n = 10) **+0.69 → +0.61**; `p_aitovis` (n = 3) +0.45 → +0.26; `p_vistod15` (n = 3) +1.11 → +0.88; `aitod20` (n = 3) +0.70 → +0.26; `d15d15` (n = 3) +2.13 → +0.67; `dota` (n = 3) +1.20 → +0.67; `fire` (n = 3) +10.95 → +8.87; `mask20` (n = 3) +16.07 → +29.17; `mende20` (n = 3) +4.83 → +5.68; `p_d15toai` (n = 3) +0.49 → +0.39; `p_masktomende` (n = 3) +2.33 → +1.34; `vis` (n = 3) +0.44 → +0.22. Source: `gap_mechanism_20260916.txt`, the same record §5.6 and Table S8 use. The two cells escalated in §5.1 (`p_aitovis`, `p_vistod15`) carry n = 10 after the escalation, which is the four-cell base the article's Table 2 prints.
 
-**The selection term `prem_val − prem_test` where the archive carries it** is the five realization arm-cells of §8.6, read off Table S20's printed values (**the printed `+0.736` / `+0.509` supersede the verbatim S4 dump's third decimal, `0.735` / `0.507`**): `shwd2sf` baseline **+1.469 − 0.736 = +0.733** and strategy **+0.865 − 0.152 = +0.713**; `smoke2sf` baseline **+0.691 − 0.509 = +0.182** and strategy **+0.605 − (−0.157) = +0.762**; `aitod20` baseline (n = 10) **+0.766 − (−0.218) = +0.984**. The other ten scanned corpora and the `aitod20` strategy arm were closed on 2026-09-30 as described immediately above; their cell-by-cell `prem_val`, `prem_test` and WC are in **Table S38**, and read descriptively they carry the same asymmetry — WC positive in 25 of the 26 arm-cells, arm-cell median realization rate 17.2 %, and the realized premium negative in 8 of the 13 strategy arms. These are cell-level readings at each cell's recorded *n*, not an upgrade of any claim. **In arm-difference form** the term is recorded for exactly two cells, from the clean-protocol batch: `shwd2sf` **+0.020** and `smoke2sf` **−0.580**, against Δgap of **+0.779** and **+0.461**. In `smoke2sf` the selection term is therefore **opposite in sign to the Δgap** the article's Tier 2 prints — which is why the direction sentence rests on the four-cell base and **not** on Δgap's sign.
+**The selection term `prem_val − prem_test` where the archive carries it** is the five realization arm-cells of §8.6, read off Table S20's printed values (**the printed `+0.736` / `+0.509` supersede the verbatim S4 dump's third decimal, `0.735` / `0.507`**): `shwd2sf` baseline **+1.469 − 0.736 = +0.733** and strategy **+0.865 − 0.152 = +0.713**; `smoke2sf` baseline **+0.691 − 0.509 = +0.182** and strategy **+0.605 − (−0.157) = +0.762**; `aitod20` baseline (n = 10) **+0.766 − (−0.218) = +0.984**. The other ten scanned corpora and the `aitod20` strategy arm were closed on 2026-09-30 as described immediately above; their cell-by-cell `prem_val`, `prem_test` and WC are in **Table S38**, and read descriptively they carry the same asymmetry — WC positive in 25 of the 26 arm-cells, arm-cell median realization rate 17.2 %, and the realized premium negative in 8 of the 13 strategy arms. These are cell-level readings at each cell's recorded *n*, not an upgrade of any claim. **Ten of those cells, which stood at n = 3, were later escalated to n = 10 (Table S38b); with the escalation folded in the same three quantities read WC > 0 in 25 of 26 (unchanged), median rate 21.6 % (mean 11.6 %), and the realized premium still negative in 8 of the 13 strategy arms.** **In arm-difference form** the term is recorded for exactly two cells, from the clean-protocol batch: `shwd2sf` **+0.020** and `smoke2sf` **−0.580**, against Δgap of **+0.779** and **+0.461**. In `smoke2sf` the selection term is therefore **opposite in sign to the Δgap** the article's Tier 2 prints — which is why the direction sentence rests on the four-cell base and **not** on Δgap's sign.
 
 **The sharpest single fact.** In the shwd2sf cell the arms differ on **val** by
 60.669 − 60.397 = **+0.272 pp** (baseline better) and on **test** by 43.559 − 44.066 = **−0.507 pp**
@@ -2934,101 +3034,293 @@ batch rather than inside the archived reproduction package.
 **Read as:** two robustness checks on §8.6's readings, scoped to the cells and the sub-samples they cover —
 one on the carve, one on the metric — not as further evidence about the field.
 
-### An independent second coding of the 19-row marking table
+### Independent re-coding of the 19-row marking table (current instrument)
 
-**What was done, and what was not.** The 19 x 4 = 76 judgements printed in S1 were re-coded independently; the **28 literal judgements** the article's §6.1 names are the entries the single rater wrote into the audit document, i.e. the same table counted in two units (written entries vs cells).
-Three coders -- three language models from distinct vendors -- each worked blind: they received the
-published coding rules and, per row, the evidence pointer the audit recorded, and nothing else: no marks,
-no confidences, and no access to this supplement or to the audit's records. They worked from the recorded
-pointers rather than from the primary documents, which this archive does not hold, and that limitation is
-part of the result rather than incidental to it. A second pass then repeated the exercise under rules
-clarified in the four places the first pass's coders had independently flagged: whether `release` answers
-structural independence or local evaluability; the reference frame for `reported`; corpora with only
-`train` and `val`; and same-family versions such as VOC 2007/2012. The clarification is recorded verbatim
-and was written AFTER the first pass, so the two passes are reported separately rather than pooled.
+The 19 x 4 = 76 judgements printed in S1 were re-coded independently by **five
+current-generation language models from distinct vendors**, each in a fresh session, **blind to
+the printed marks and to one another**. Each coder received (i) a **decision procedure** -- a
+per-unit decision tree plus a single value-mapping table -- and (ii) per row, an **evidence card**
+containing only verbatim evidence with its source, line number and pinned commit. Coders were
+forbidden to use outside knowledge of the benchmarks, and a cell the tree cannot decide must be
+declared **`blocked`** rather than guessed.
 
-**What the two passes show.** Against the printed coding, agreement is fair to moderate and does not
-improve when the rules are clarified: per-coder kappa is 0.272 / 0.321 / 0.437 in the first pass and
-0.209 / 0.217 / 0.348 in the second (mean 0.343 -> 0.258), while the coders' agreement WITH EACH OTHER
-rises over the same interval (pairwise kappa 0.559-0.672 -> 0.671-0.723). Excluding the cells a coder
-marked `unknown` moves the first pass to 0.323-0.570. Because the mapping from the table's marker
-vocabulary to yes/no/unknown is itself a convention, the whole computation is repeated under the
-alternative reading of the two vocabulary items that are genuinely ambiguous; that moves the mean by
-about +-0.06 (0.316-0.405) and changes nothing qualitative.
+Two rounds were run, differing **only in the value scale**; both are reported in full below.
+**Earlier rounds of this table (three coders, then eight, then a ten-coder round under a
+different instrument) are superseded by these two and are not reported here.**
 
-**What it means, and what it does not.** The residual disagreement is therefore not mainly rule wording:
-two coders who agree with each other at kappa ~0.7 agree with the printed coding at only kappa ~0.2-0.3,
-and clarifying the rules widens that gap rather than closing it. The most plausible reading is an
-evidence-channel difference rather than a disagreement about the rules: the printed coding was made with
-the primary documents in hand, and the second coders had the recorded pointers. Two limits belong with
-those numbers and are stated here rather than left implicit: the three coders are language models, so
-their errors may be correlated and three of them are not three independent raters; and the weakest unit
-is `reported` (per-unit kappa ~0.10), which is the unit the headline count rests on, because which split
-the literature's number comes from is not decidable from any single file.
+**Two rounds on this archive, and what they change (2026-10-09).** Earlier rounds of this
+table measured how well the marks survive re-coding *under the published rules*; these two
+rounds measure something the earlier ones could not separate -- whether the marks are
+reproducible **from the evidence the archive records for each row**, with that evidence placed
+in front of the coder. Both rounds used **five current-generation language models from distinct
+vendors**, in fresh sessions, **blind to the printed marks and to one another**; the task sheet,
+the answer tables, the returned codings, the raw matrices and the agreement scripts are held
+with this revision's measurement batch. **The earlier rounds are superseded by these two and are
+not reported here.**
 
-**A third round, with eight more coders, and what it settles (2026-09-29).** Eight further language
-models — **five from vendors not represented in the first two rounds** and **three from vendors that were** — each coded the same 19 x 4 table blind, in a fresh
-session, under the SAME clarified rules as the second pass, receiving the rules and the per-row
-evidence pointers and nothing else; they produced in-chat answers, transcribed verbatim by the
-coordinator, so that no coder could see any other coder's output or any file. Against the printed
-coding the eight agree at per-coder kappa **0.105-0.325** (median 0.308 — eight values, and **every median in this section takes the upper of the two central values**, `sorted(ks)[len(ks)//2]`; per unit: `protocol`
-0.03-0.54, `release` 0.06-0.50, `yolo_dist` 0.00-0.42, `reported` 0.04-0.23), i.e. the same
-fair-to-moderate band as the three coders of the second pass and no better with nearly three times
-the coders. Among themselves the eight agree at a median pairwise kappa of **0.504** (range
-0.046-0.824) and their Fleiss' kappa is **0.455** overall (0.468 `protocol`, 0.429 `yolo_dist`,
-0.271 `release`, **0.254 `reported`**) -- again highest between coders and lowest against the table.
-Three causes were identified in the returns and are worth recording because they bound what this
-instrument can measure. (i) **Reference frame.** The instrument asked which half the *official paper
-or leaderboard* number came from, whereas the printed column asks which half the number *the
-literature prints* came from; on benchmarks whose official leaderboard is clean but whose community
-numbers alias (VOC is the clearest), the coders answered "independent" where the table records
-`alias`, and the eight coders' `reported`-is-non-independent counts came out at 0, 0, 0, 0, 0, 3, 4
-and 5 of 19 against the printed 12 -- a frame difference, not a disagreement about the facts, which
-is why section 3 now states the frame in the definition of `reported`. (ii) **No category for
-"this layer does not exist".** The instrument offered only yes/no/unknown, so the table's `n_a`,
-`no_test`, `no_val`, `no_split` and `no_yaml` marks had to be forced into `unknown`; the coders
-instead answered "yes, the release ships a split" (all eight, for COCO and VOC). (iii) **Version
-anchoring** (`Objects365` v1/v2, VOC 2007/2012, DIOR vs DIOR-R) was flagged by the coders as
-undecidable from the pointer alone. All three are instrument properties: **more coders will not
-remove them**, and a blind human rater working from the same pointers would meet the same three.
-The per-coder, per-unit, pairwise and Fleiss values, the 76 x 8 raw marks and the coders' own
-ambiguity reports are held with this revision's measurement batch.
+**The instrument.** Each round hands the coder a **decision procedure** (a per-unit decision tree
+plus a single value-mapping table) and, per row, an **evidence card** carrying only verbatim
+evidence with its source, line number and pinned commit -- no marks, no confidences, and no
+access to this supplement. A cell the tree cannot decide is declared **`blocked`** (the tree
+reaches a step whose evidence the card lacks) rather than being guessed, and the two rounds
+differ **only in the value scale**:
 
-**Which vintage the numbers just above come from.** The per-coder range printed above is the **primary** mapping's (`release: test_gated -> yes`, `protocol: alias -> no`), recomputed for this release as `kappa_g8_primary_20261001.txt` by the same script that produced the other two reports; under the alternative reading of the two genuinely ambiguous vocabulary items it is **0.063-0.278** (median **0.260**), which is what the shipped `kappa_g8_20260929.txt` holds — its own first line names it a sensitivity variant, and `README_second_coding.md` now says which file is which. The eight verbatim v1 returns ship beside them (`v1_G8_coding_*_20260929.md`), so both readings are recomputable from this package rather than trusted, and the gap between them (about 0.042 on the median) is smaller than the disagreement the round itself measures. The first two passes' verbatim returns are **not** in this package, so their per-coder values (0.272 / 0.321 / 0.437 and 0.209 / 0.217 / 0.348) are author-side and are printed here as the record's values.
+* **Round 7 (coarse, six values per unit).** The coders agree **with each other** at
+  **Fleiss' kappa 0.836** -- all five give the identical value on **38 of the 51** cells where no
+  coder declared `blocked` -- yet they reproduce only **31.4 %** of the printed marks
+  (majority of five, after mapping both scales onto a common six-value equivalence). Their
+  agreement is highest on `release` (**9/10** cells) and `yolo_dist` (14/18), and lowest on
+  `reported` (5/9).
+* **Round 8 (isomorphic, nine values for `release` and seven for `protocol`).** The scale is
+  changed to the **exact vocabulary the printed table uses** (`no_test`, `no_val`, `no_split`,
+  `no_yaml`, `n_a`, `test_gated`, `contradictory`, ...), and the `release` tree asks first
+  whether the layer supplies a **usable** independent test artifact. Agreement **among coders**
+  falls a little (**kappa 0.811**) and **26 cells move to `blocked`**, but agreement **with the
+  printed marks rises to 42.2 %**, and the **`protocol` column is recovered exactly**: the
+  majority of the five returns the same number of non-independent rows as the table prints
+  (**13 of the 17 decidable cells**, against the printed **13 of 19**).
 
-**A fourth round, on a repaired instrument, and what it changes.** The three causes above are
-properties of the instrument rather than of the coders, so the instrument was repaired and the same
-eight coders re-ran the table under it in the same blind conditions: the scale became five-valued
-(`independent` / `alias` / `absent` / `gated` / `unknown`, so that "this layer does not exist" is no
-longer forced into `unknown`), the `reported` frame was stated as **the number the literature prints**,
-and version anchoring was made explicit with worked examples. For the headline quantity the repair did
-what it was designed to do: the eight coders' own counts of `reported`-is-non-independent moved from
-0, 0, 0, 0, 0, 3, 4 and 5 of 19 under the first instrument to 3, 8, 7, 1, 8, 3, 9 and 14 under the
-repaired one, so **the printed 12 now lies inside the coders' range instead of outside it**. It did
-not make the table reproducible. Against the printed coding, agreement is 0.116-0.350 per coder
-(median 0.326, against 0.105-0.325 before the repair); among themselves the eight agree at a median
-pairwise kappa of 0.440, and Fleiss' kappa is 0.417 overall with release 0.457, protocol 0.505 and,
-again weakest, `yolo_dist` 0.178 and `reported` 0.201. **No unit reaches substantial agreement.** The
-residual is once more a convention difference rather than rule wording, and it is locatable: on the
-nine rows whose `release` the table marks `absent` for want of a usable held-out test, the eight
-coders answered "independent" 40 times, because a release that ships *some* split looks like an
-independent test unless one also knows which of its versions the literature reports from; and where
-the table records an independent local protocol the coders answered `gated` 25 times, because the
-official evaluation is behind a submission server. **How the eleven are counted.** The first two rounds used the same **three** models, each coding first under the initial rules and then under the clarified ones; the last two used the same **eight** — **three** of them from vendors already represented in the first two rounds and **five** from vendors not represented there — each coding first on the three-valued instrument and then on the repaired five-valued one. **Distinct model identities: 11; rounds: 4** (the identities themselves are the shipped returns' own file names, not printed here) — the count the article’s §6.1 prints as "eleven ... (3, then 8) across four rounds"; no coder in any round saw another round’s returns.
+* **Round 9 (isomorphic scale + first-party evidence; the round this revision reports).** Every row was
+  re-verified against first-party artifacts -- official release listings, READMEs and papers at pinned
+  commits -- and that evidence, together with an explicit statement of the counting convention, was placed
+  in front of five fresh coders. Agreement among coders is **kappa 0.824**, and **26** cells are declared
+  `blocked`. The decisive number, however, is not the agreement but the **recovery**: the re-verification
+  changed **30 cells**, and the five coders -- **who never see the new values** -- independently reach the
+  corrected value in **19 of those 30 (63.3 %)**, **eleven of them unanimously**. The residual splits three
+  ways: **three** cells are differences of **convention** (which of two test variants counts as *the* test,
+  and whether a layer whose test images cannot be downloaded at all is `test_gated` or has no usable test
+  artifact), **three** are **rule thresholds** that this round's instrument states too loosely, and **five**
+  remain genuine evidence gaps. The corrections are therefore **evidence-driven rather than a matter of coder
+  taste**; what stays open is convention and rule wording, and the correction record above states both.
 
-The honest summary of **four rounds and eleven
-coders** is therefore this: the table's marks are reproducible from the recorded evidence only at
-slight-to-fair agreement, the headline count lies **inside the spread of independent counts rather
-than reproduced by them**, and no further coding round will change either statement. Both instruments,
-the sixteen returns, the per-coder, per-unit, pairwise and Fleiss values and both analysis scripts are
-held with this revision's measurement batch.
+**What the two rounds settle, and what they do not.** The coders agree with each other at a
+level the earlier rounds never reached, so the residual is **not rule wording**: what the five
+independently cannot recover is the printed **mark**, and the gap widens or narrows with the
+**granularity of the value scale** rather than with the amount of rule clarification. The
+`release` column is the clearest case: with the fine scale the coders assign `n_a` much more
+often than the table does, because "no usable independent test artifact" and the table's several
+other reasons for a non-independent mark are **not separable from the recorded evidence**.
+**Twenty-five of the 76 cells (Round 7) and 26 (Round 8) could not be decided from the public
+record at all** -- for `DIOR`, `D-Fire`, `MAFA`, `UAVDT`, `SFCHD`, `SHWD`, `Mendeley face-mask`
+and `NWPU VHR-10`, whose released artifacts, protocol texts or file listings are behind login
+walls, paywalls or dead domains. That is a **property of the public record**, not of coder
+diligence, and it is reported here as such.
 
-**The consequence for this paper's claims.** The counts printed in section 6.1 -- 12/19, 80 % and the
-rest -- are the judgements of a single coder, and independent re-coding from the recorded evidence
-reproduces them only at fair-to-moderate agreement. They are therefore presented as a convenience audit
-by one coder with the reproducibility bounded here, not as a measured rate, which is what the abstract
-already says. The per-coder, per-unit and per-pass values, both vocabulary readings, and the coders' own
-notes on the ambiguities they found are held with this revision's measurement batch.
+### Corrections to the 19-row marking table from first-party re-verification (2026-10-09)
+
+The marking table in S1 was coded by one rater, partly from third-party mirrors and low-confidence
+sources. As part of this revision every row was re-verified against **first-party artifacts**
+(official release listings, official READMEs and papers, at pinned commits). The re-verification
+**confirms some cells and corrects others**; both are listed, because a correction record that
+reported only the corrections would misrepresent the audit's reliability.
+
+**Counting convention used for `release` in this record (the *reported-test* convention).** A row's
+`release` value describes whether the layer supplies **public annotation for the test split that the
+literature actually reports on**. A public annotated `val` split, on its own, does **not** make
+`release = independent_test`; it is recorded as `no_val` when no test artifact exists, and as
+`test_gated` when a test split exists but its annotation is withheld or server-bound. Under the
+alternative convention (any public annotated held-out split, `val` included) five rows -- COCO,
+DOTA v1.0, DOTA v2.0, WIDER FACE and CrowdHuman -- would all read `independent_test` instead, and the
+`release` subtotal would change with them. The two conventions are each self-consistent; **this
+revision uses the reported-test convention throughout**, and the alternative is stated here so that
+the subtotal is not recomputed under a mixed reading.
+
+**Corrections (value changed).**
+
+| Row | Unit | Was | Now | Ground |
+|---|---|---|---|---|
+| 4 Open Images v7 | `yolo_dist` | `no_test_key` | `absent` | The distribution config's `test:` key is **present but empty** (`open-images-v7.yaml`; docs: "The `test:` key in the configuration is left empty"), so the distribution supplies no test artifact |
+| 4 Open Images v7 | `reported` | `alias` | `independent` | Official facts page: a validation set and a **125,436-image test set**, with "**exhaustive box annotation** for all object instances"; `HEAD test-annotations-bbox.csv` returns 200 (77,484,237 B) |
+| 5 DOTA v1.0 | `release` | `independent_test` | `test_gated` | First-party Drive listing: train and val carry `labelTxt-v1.0`/`-v1.5`; the **test tier carries `images/` only** |
+| 5 DOTA v1.0 | `protocol` | `independent_test` | `test_gated` | "For evaluation, you must registrate and submit on the Evaluation Server" (Task 1 and Task 2) |
+| 6 DOTA v2.0 | `release` | `independent_test` | `test_gated` | "We released the images **but not the ground truths**" (test-dev); test-challenge "available only during the challenging" |
+| 6 DOTA v2.0 | `yolo_dist` | `clean` | `absent` | The 52 distribution configs contain `DOTAv1.yaml` and `DOTAv1.5.yaml` only; the official devkit ships v1.0/v1.5 evaluators and **no v2** |
+| 7 VisDrone-DET | `release` | `independent_test` | `test_gated` | Official README: "testset-challenge is used for VisDrone2020 Challenge and **the annotations is unavailable**" |
+| 7 VisDrone-DET | `protocol` | `independent_test` | `test_gated` | Same source; the distribution config is annotated "# Download (ignores test-challenge split)" |
+| 8 AI-TOD | `release` | `contradictory` | `independent_test` | The official Drive listing **enumerates the test annotation file**; measured test 14,018 images / 347,617 annotations, and train+val+test = 28,036 with 700,621 annotations, which reconciles exactly |
+| 8 AI-TOD | `protocol` | `contradictory` | `independent_test` | As above (the paper's "images without annotations" sentence conflicts with the shipped annotation file; the measured artifact governs) |
+| 8 AI-TOD | `yolo_dist` | `unknown` | `absent` | Twelve search surfaces (full trees of three Ultralytics repositories, the unpacked 8.4.174 wheel, the documentation index, and four other frameworks) return **zero** hits; the same surfaces do hit the other rows, so the search is sensitive |
+| 8 AI-TOD | `reported` | `unknown` | `independent` | As above; the test annotations are public and the counts reconcile |
+| 10 xView | `release` | `no_test` | `no_val` | The official listing carries three items only (`train_images`, `train_labels`, `val_images`) and the tutorial states "**Labels are not available for the validation set**" |
+| 10 xView | `protocol` | `no_test` | `test_gated` | Official site: "**Neither images nor labels from the holdout set are available for download**"; scoring requires container submission (the download endpoint returns 401 anonymously) |
+| 11 DIOR | `yolo_dist` | `no_test_key` | `no_yaml` | Zero `dior` hits across the full tree and the 51 shipped configs -- there is **no config at all**, so `no_test_key` (which presupposes one) is wrong |
+| 13 SHWD | `release` | `no_yaml` | `no_split` | The official repository's 26 files contain no annotation, no split and no config; the released artifact is a VOC-format archive (a second-party conversion adds `ImageSets/Main/{train,val,trainval,test}` and is **not** the official listing) |
+| 13 SHWD | `yolo_dist` | `train_val_alias` | `absent` | No distribution config exists for this dataset in any of the six packages swept |
+| 13 SHWD | `reported` | `alias` | `not_recorded` | The README prints benchmark scores (map 88.5/86.3/75.0) but **never states which split produced them**, and never gives split sizes; the only split statement is in code (`splits=[(2028,'trainval')]` / `[(2028,'test')]`) |
+| 14 SFCHD | `release` | `alias` | `contradictory` | The release ships **three mutually inconsistent splits**: `new_split_yolo` (9,897 / 2,475 / 6, with `test` a subset of `val`), `yolo.zip` (9,898 / 2,475 / **no test**), and `annotations/` (9,898 / 2,475 / **`test.json` is 0 bytes**); the A-versus-B/C train intersection is only **7,942** and the val intersection only **520** |
+| 14 SFCHD | `protocol` | `no_val` | `contradictory` | As above; the four YOLO cache files embed **two different developer root paths** and contain **zero** `.yaml`/`.yml` references |
+| 14 SFCHD | `yolo_dist` | `alias` | `absent` | Zero hits for this dataset across the full trees of the Ultralytics packages and four other frameworks; the only helmet-class config found has a different class list, size and download source |
+| 15 MAFA | `yolo_dist` | `unknown` | `absent` | Six packages swept with zero hits; the only MAFA-labelled YOLO directory carries no config file |
+| 15 MAFA | `reported` | `alias` | `independent` | The official SS5.1 states "we only report the performances ... on the **testing set**" and Table 1 is titled "Average Precision (%) on the **Testing Set** of MAFA"; the follow-up literature reports on the testing set, and no work re-cuts a validation split |
+| 17 WIDER FACE | `release` | `independent_test` | `test_gated` | The official split archive contains train and val bounding-box ground truth and **no test ground truth**; "we do not release bounding box ground truth for the test images" |
+| 17 WIDER FACE | `yolo_dist` | `no_test_key` | `absent` | No config or documentation entry for this dataset across the three distribution directories swept |
+| 18 CrowdHuman | `protocol` | `alias` | `test_gated` | The official listing carries `annotation_train.odgt` and `annotation_val.odgt` only; the first author's own mirror shows `CrowdHuman_test.zip` holding **5,018 `.jpg` entries and zero annotations**, and `annotation_test.odgt` returns 404 |
+| 18 CrowdHuman | `yolo_dist` | `no_test_key` | `absent` | As WIDER FACE (the ground is upgraded from a third-party mirror to an exhaustive sweep of the distribution directories) |
+| 19 D-Fire | `release` | `independent_test` | `contradictory` | The full repository tree is six entries (**no config, no split list, no evaluator**; releases and tags empty) while the README claims "pre-split training, validation, and test sets"; the linked OneDrive folders are unreachable (301 then 000), and a 2026 record of the official archive states it "defines only a training list of 17,221 images and a test list of 4306; **it ships no validation list**" |
+| 19 D-Fire | `yolo_dist` | `clean` | `absent` | Zero hits for fire/smoke across the full Ultralytics tree (1,185 entries) and the shipped configs |
+| 19 D-Fire | `reported` | `unknown` | `alias` | The authors' own thesis states the database was "divided **arbitrarily** ... 80% for training (17,221) and 20% for test (4,306)", matching the mirror's split and its interleaved file names |
+
+**One direction change inside the table's own history.** The pair {WIDER FACE, CrowdHuman} was
+recorded as a disagreement between coders. The two rows are indeed structurally identical, and the
+re-verification resolves them in the direction of **lowering WIDER FACE to `test_gated`**, not of
+raising CrowdHuman to `independent_test`.
+
+**Confirmations under first-party evidence (value unchanged).**
+
+| Row | Unit | Value | What was upgraded |
+|---|---|---|---|
+| 11 DIOR | `release`, `protocol` | `independent_test` | From a third-party mirror (confidence low) to the official package: `Annotations.zip` (32,064,775 B, downloaded and unpacked) carries annotation for **all 11,738 test images**, and `ImageSets.zip` carries `Main/test.txt`; the paper's own sentence gives the 11,725/11,738 trainval/test division and there is no `trainval.txt` |
+| 9 UAVDT | `release`, `protocol` | `no_val` | The official split is "30 training sequences (24,143 frames) and 70 test sequences (53,676 frames), **with no official validation split**"; the official package `UAVDT-Benchmark-M` carries frames and annotations |
+| 15 MAFA | `release`, `protocol` | `no_val` | The official site is reachable (its TLS certificate has expired, so retrieval requires `-k`) and lists the release artifacts; the **author-signed** readmes inside the label packages give 25,876 training and 4,935 testing images, and the CVPR paper's SS5.1 gives the same two-subset division with no validation subset |
+| 19 D-Fire | `protocol` | `independent_test` | No evaluator, leaderboard or release exists, so the test list is used verbatim locally (a 2026 record: "Official test list (4306) used verbatim") |
+| 13 SHWD | `protocol` | `no_val` | The repository's 26 files contain no split; the split statement exists only in code, and gives trainval/test with no independent val |
+| 10 xView | `yolo_dist`, `reported` | `alias` | The distribution config's `val` is an autosplit of 10% of the training images ("10% of 847 train images"), not the official 282-image val |
+
+**Mis-citations corrected in the article and in this supplement.**
+
+* Row 16's source was cited as a **Mendeley Data** record. A title sweep of DataCite and Mendeley
+  Data (2026-10-09) returns **no record with that title**; the 853-image, 3-class, PASCAL-VOC form is
+  the **Kaggle** record `andrewmvd/face-mask-detection` (CC0). The reference in the article has been
+  changed accordingly.
+* Row 16's `train == val` evidence was cited at `data.yaml:18`. The `data.yaml` is **four lines
+  (110 bytes)**; the literal evidence is in the **generator** `convert_voc_to_yolo.py:17-18`, which
+  writes the same image directory under both keys. The citation now names the generator.
+* Row 12's TorchGeo source is now at `torchgeo/torchgeo` (the old `microsoft/torchgeo` path
+  redirects); the `positive`/`negative` split in the dataset module is target presence, and the
+  train/val/test split is created at runtime by `random_split(seed 0, 80/10/10)`.
+
+**Still not decidable from the public record.** Eight rows keep at least one cell that first-party
+retrieval could not settle: Objects365 (`release`, `protocol` -- the official download page serves a
+single-page application with no listing and the official repository's README is 53 bytes, so the
+honest statement is "the official side does not publish a listing", **not** "the official side
+declares there is none"); COCO, PASCAL VOC, DOTA v2.0, WIDER FACE and CrowdHuman (the `reported`
+unit, which needs a literature sweep rather than a first-party artifact); CrowdHuman (no written
+prohibition sentence equivalent to WIDER FACE's, and the evaluation platform is unreachable); and
+Mendeley face-mask (`reported`: neither the Kaggle card nor any first-party statement gives the
+evaluation ratio).
+
+**A further trap worth naming.** The frequently cited Chetoui & Akhloufi *Fire* (2024) baseline is
+**not** this corpus: it reports on 11,667 images, not 21,527. Likewise, a Kaggle face-mask dataset
+of **853** images is cited as MAFA by at least one paper ("MAFA[17] contains 6k data"); it is not
+MAFA (25,876 + 4,935 images). Both were excluded from the audit.
+
+### The four subtotals after the 2026-10-09 re-verification (added 2026-10-10)
+
+The correction record above changes **30 cells**. The article's Table 3 printed the four subtotals
+before that record and §13 repeated them; **neither had ever been recomputed**, which is the gap this
+section closes. They are recomputed here from the S1 marking table plus this record and nothing else,
+by the **same per-column rule that reproduces the printed subtotals exactly**
+(`work/recompute_subtotals_corrected_20261010.py`; the script **asserts the printed values before it
+reports the corrected ones**, so a wrong value-to-count mapping fails loudly instead of producing a
+quiet number). **The article's printed counts are not modified: they stay, and the recomputed values
+are printed beside them.** Holding the rule fixed is what makes every movement below a movement of
+**evidence** rather than of convention.
+
+**The rule, per column — which values enter the non-independent numerator.**
+
+| Column | counts as non-independent | does **not** count | undecidable |
+|---|---|---|---|
+| `release` | `no_test`, `no_val`, `no_split`, `no_yaml`, `test_gated`, `alias`, `contradictory` | `independent_test` | — (`n_a`: 2 rows, denominator only) |
+| `protocol` | `no_test`, `no_val`, `no_split`, `test_gated`, `alias`, `contradictory` | `independent_test` | — |
+| `yolo_dist` | `alias`, `train_val_alias` | `clean`, `no_test_key`, `no_yaml`, `absent` | `unknown` |
+| `reported` | `alias` | `clean`, `independent` | `unknown`, `not_recorded` |
+
+Three of these four rows are the rule the printed table already used; the `release` row **is** the
+`n_a` rule stated in "The `n_a` rule the `release` subtotal rests on", above. The `yolo_dist` row is
+worth spelling out, because it is the one a reader is most likely to get wrong: this column asks a
+single question — **does the generic distribution package's own config bind `val` to `test`?** A
+package that ships **no config at all** for a dataset (`no_test_key`, `no_yaml`, `absent`) cannot bind
+the two, so it does not enter the numerator; but it is not `clean` either, because nothing positively
+shows a clean independent split. Under that rule the 2026-10-09 record moved **four** of the marks
+that had counted or read `clean`: `alias` → `absent` (SFCHD), `train_val_alias` → `absent` (SHWD),
+`clean` → `absent` (DOTA v2.0, D-Fire). That is why this unit **drops** rather than rises.
+
+**The recomputed subtotals.**
+
+| Unit | printed (single rater) | after first-party re-verification | of decidable rows |
+|---|---|---|---|
+| `release` | 10/19 = 52.6 % | **14/19 = 73.7 %** | 10/19 → **14/19** |
+| `protocol` | 13/19 = 68.4 % | **14/19 = 73.7 %** | 13/19 → **14/19** |
+| `yolo_dist` | 4/19 = 21.1 % | **2/19 = 10.5 %** | 4/15 = 26.7 % → **2/17 = 11.8 %** |
+| `reported` | 12–14 of the 19 | **10–11 of the 19** | 12/15 = 80 % → **10/16–11/17 = 62.5–64.7 %** |
+
+The two **layer** units rise and the two **package/report** units fall. The article's qualitative
+headline — that a **majority** of the nineteen benchmarks report a number which is not a sample from
+an independent split — survives every cell of the table: the weakest recomputed majority is
+`reported` at 10/19 = 52.6 %.
+
+**Two boundaries a reader should carry.** ① **COCO `release` is `n_a`.** The convention paragraph of
+the record above implies that under its own *reported-test* convention COCO reads `test_gated` (its
+`test-dev` annotation is private), which would take `release` to **15/19**; the record does **not**
+list that cell as changed, so the recomputation leaves it as printed. The **14-versus-15** difference
+is therefore a **convention boundary, not a disagreement about evidence**, and it is where two
+independent recomputations of this table can legitimately part company. ② **`not_recorded`** (SHWD
+`reported`, a value this record introduces) is deliberately **not assigned** above, and it is the
+reason the `reported` unit is given as a range: **10/19** if a split that is nowhere recorded is
+treated as evidence-insufficient (its `unknown` count rises 2 → 3), **11/19** if a split nowhere
+recorded is simply not an independent one (its `unknown` count falls 2 → 1). As with the printed
+`12–14`, **the range spans two readings, not an interval.**
+
+**Two `14/19`s, and they are not the same number.** This supplement prints `14/19` for two different
+cells of two different instruments. **Above**, in the independent re-coding record, the **`reported`**
+column reaches `14/19 = 74 %` under the second, model-assisted pass's reading of two rows the printed
+table leaves `unknown`. **Here**, the **`release`** column reaches `14/19 = 73.7 %` after the
+2026-10-09 first-party re-verification. They are different units, different evidence and different
+instruments; they must not be added, averaged or interchanged, and **neither is the audit's original
+`14/19`**, which §6.3 shows this paper does not reproduce.
+
+**What this recomputation is not.** It is not the second, model-assisted non-blind pass, whose
+instrument differs and which moves **eight** cells: that pass is reliability evidence about the
+**instrument**, whereas this is the **printed marking table** re-tallied after the first-party record.
+Nor does it re-adjudicate any cell — the thirty values are the correction record's, and this section
+only tallies them. In the article, Table 3's re-verified column prints **counts only**, no
+percentages, for the reason §6.1 gives for the whole table: the count is the datum and the percentage
+is a reading aid.
+
+### Table S45 — §2.1 relocated from the article (detailed related-work comparison)
+
+> Moved here at revision because the journal counts text inside the 20–35 page limit. The article keeps
+> the one-paragraph positioning statement in §2 and the two delimiting sections (§2.2, §2.3).
+
+### 2.1 The closest work, and where this paper sits
+
+> **Table S1** → Supplementary §S8 — verified against both 2026 studies' **full texts**, with the PDFs and extraction script archived.
+
+None of these works is wrong — **they audit data (image identity, or the splitting unit), we audit configurations** (which path each key points to). Configuration-level aliasing shifts the
+**comparison between arms**, and its direction is **not single-valued** — a **weaker** statement
+than [2], whose rankings reverse across budgets on **all** of its benchmarks. Here **2 of 13
+cells are underestimated on `val`, 2 overestimated and **9 are not testable at n = 3****, so no more than that is
+claimed. They instantiate the taxonomy of [3], of which duplication is one mismatch [4]; binding `val:`
+and `test:` to one directory creates the same mismatch **without duplicating an image**, so
+de-duplication cannot find it.
+
+**Non-collision, checked by literal search**: three exact queries return **0** hits and the channel is **metadata-only** — which establishes that these strings are unused, **not that the idea is new** (**Supplementary S12**).
+
+**Why this is a selection question, not only a leakage question.** The bias we measure is the one the
+model-selection literature has described for decades: **choosing a model by its score on a validation set
+makes the reported score optimistic** [5], as does the **choice of validation criterion** — accuracy-based
+early stopping being the worst rule tested [6] — and the classical remedy is to *nest* the selection
+inside the evaluation, not to de-duplicate the data. In detection the selection step is implicit:
+the training script writes `best.pt` by fitness and the paper reports that checkpoint, often from a single
+run [7]. A reader trusting the split names therefore sees a held-out evaluation where the pipeline
+performed a **maximum** — the bias the benchmark-erosion literature [8] describes, reached here with no
+data reused or mis-split. We take [5] as the general statement and report the detection-specific
+instantiation: **the selection premium (best − last), and how much of it transfers to a disjoint split**
+(§5, §8).
+
+**The sharpest contrast** is the two closest works: *Technologies* 2026 [9], which audits a detection
+pipeline's **splitting unit** (frame versus sequence), and *Drones* 2026 [10], whose six configurations differ between `val`
+and `test` by **between −0.41 and +0.49** mAP@0.5, "with no systematic direction". We measure a **different
+quantity**: on three-way corpora we **measure the paired difference's sign**. We therefore do **not**
+write "understated" unqualified, and state the difference from [10]: [10] **names the mechanism** — "the validation split is what early stopping and checkpoint selection saw" — but reports a raw val-minus-test
+gap, mixing two splits' difficulty, **not identifiable**, whereas our **paired difference** cancels
+difficulty and still shows a residual shift. Reference [11] is not competing: cited only
+as evidence that the genre has a venue.
+
+**That separation is the paper's own contribution.** The literature above measures how much of the choice
+survives as a level [12]; it does not predict that in these curves the premium is **dominated by the peak's
+position, not by run noise** (§8.6). Its remedies are therefore not interchangeable with ours, and **a
+`val`-side difference stays uninterpretable as a generalisation difference even after selection is removed**.
 
 ### Reproduction map: headline number → entry point
 
@@ -3083,64 +3375,77 @@ it writes its two artifacts to an absolute path and overwrites them in place, so
 the archived artifacts rather than re-run the generator. And its own upstream is a hand-written audit:
 the marks it recomputes *from* were not derived by any script either.
 
-*What each row's evidence pointer resolves to, and what is not on record.* For every row, the
-recomputation artifact `split_units_recompute_20260916.txt` carries that row's own entry — its evidence
-class, its self-assessed confidence and its derivation or correction note — and
-`work/recompute_split_units_20260916.py` carries the same text as that row's literal. Where a row's
-evidence class names a mirror configuration or a comparison script, only the name is on record. **No row
-records the concrete source it was coded from**: not the release package or its version, not the dataset
-paper, and not the document version or access date of the page, README or PDF its class names; and **no
-row records where in the audit its `(A)` marks stand**, the one exception being row 19, whose note names
-two audit lines. Those fields are marked *not archived* below rather than reconstructed. Read as a
-chain, one row of §S1 is walkable end to end — the English row, that row's entry in
-`split_units_recompute_20260916.txt`, the same row's literal in the script, and the audit's mark — but
-the last link is the audit's assertion, not a recorded path, and that gap is disclosed rather than
-papered over.
+*What each row's evidence pointer resolves to, and what is now on record.* For every row, the
+recomputation artifact `split_units_recompute_20260916.txt` carries that row's own entry — its
+evidence class, its self-assessed confidence and its derivation or correction note — and
+`work/recompute_split_units_20260916.py` carries the same text as that row's literal. **The
+concrete source for all nineteen rows is now archived**: each row below names the upstream
+repository and commit the mark was read at, the file, the line the mark stands on, and the
+SHA-256 of the retrieved bytes. Read as a chain, one row is now walkable end to end — the
+English row, that row's entry in `split_units_recompute_20260916.txt`, the same row's literal in
+the script, the audit's mark, and the upstream file with its line anchor and hash.
 
-*How to read the list below.* Each line carries that row's evidence class and self-assessed confidence
-as §S1's table prints them. *marks* gives the row's four evidence marks in the table's column order
-(release / protocol / yolo_dist / reported). *archive* names that row's entry in
-`split_units_recompute_20260916.txt`, whose text is also that row's literal in
-`work/recompute_split_units_20260916.py`. A field recorded as *not archived* is not recorded anywhere
-in the archive, and is not reconstructed here from what the row says.
+*What is still not on record, stated because it bounds the chain.* The row-level source fields
+above are archived; the **audit's own line numbers** (`A:…`) remain unrecorded except for row 19,
+whose note names two of them, because the audit document's internal numbering is not regenerated
+by any shipped script. **Every one of the nineteen rows is pinned to a commit in this package**: the commit was resolved
+with `git ls-remote` on the repository's default branch, the file was re-fetched at that commit,
+and its bytes were checked to be identical to the archived copy (`sha256`), so the pinned commit
+is the commit of the bytes read and not merely a later state of the same file. Where the currently published
+upstream file differs from the mark, the drift is recorded at the end of this list rather than
+silently reconciled. **No printed mark, count or percentage in §S1 is changed by this list.**
 
-1. COCO — evidence class: Official counts + mirror yaml; confidence: high; marks: A/A/A/A; archive: row 1; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+*How to read the list below.* Each line carries that row's evidence class and self-assessed
+confidence as §S1's table prints them, its four printed marks in column order
+(release / protocol / yolo_dist / reported), the archived file with its line anchor, and the
+SHA-256 of that file's first twelve hex digits. Every row's commit is resolved: re-fetching each
+file at its pinned commit reproduces the archived `sha256` byte for byte.
 
-2. PASCAL VOC — evidence class: mirror VOC.yaml (both keys cited per row); confidence: high; marks: A/A/A/A; archive: row 2; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+1. COCO — evidence class: Official counts + mirror yaml; confidence: high; marks: n_a/independent_test/clean/clean; concrete source: `ultralytics/ultralytics@ce1399439b93` `ultralytics/cfg/datasets/coco.yaml:15` (sha256 `38ed1eb122fa`, archived as `ultralytics_ultralytics__ultralytics__cfg__datasets__coco.yaml`).
 
-3. Objects365 — evidence class: mirror yaml + Ultralytics docs; confidence: high; marks: A/A/A/D; archive: row 3; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+2. PASCAL VOC — evidence class: mirror VOC.yaml (both keys cited per row); confidence: high; marks: n_a/test_gated/alias/alias; concrete source: `ultralytics/ultralytics@ce1399439b93c490b648b55dedd0a6334f0199da` `ultralytics/cfg/datasets/VOC.yaml:19` (sha256 `6e2dae457723`, archived as `ultralytics_ultralytics__ultralytics__cfg__datasets__VOC.yaml`).
 
-4. Open Images v7 — evidence class: Official facts page + mirror yaml; confidence: high; marks: A/A/A/D; archive: row 4; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+3. Objects365 — evidence class: mirror yaml + Ultralytics docs; confidence: high; marks: no_test/no_test/no_test_key/alias; concrete source: `ultralytics/ultralytics@ce1399439b93c490b648b55dedd0a6334f0199da` `ultralytics/cfg/datasets/Objects365.yaml:15` (sha256 `7ca822c2f9ed`, archived as `ultralytics_ultralytics__ultralytics__cfg__datasets__Objects365.yaml`).
 
-5. DOTA v1.0 — evidence class: Official download page + mirror DOTAv1.yaml; confidence: high; marks: A/A/A/A; archive: row 5; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+4. Open Images v7 — evidence class: Official facts page + mirror yaml; confidence: high; marks: independent_test/independent_test/no_test_key/alias; concrete source: `ultralytics/ultralytics@ce1399439b93c490b648b55dedd0a6334f0199da` `ultralytics/cfg/datasets/open-images-v7.yaml:15` (sha256 `497468af9dc6`, archived as `ultralytics_ultralytics__ultralytics__cfg__datasets__open-images-v7.yaml`).
 
-6. DOTA v2.0 — evidence class: Official/mirror documentation; confidence: high; marks: A/A/A/D; archive: row 6; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+5. DOTA v1.0 — evidence class: Official download page + mirror DOTAv1.yaml; confidence: high; marks: independent_test/independent_test/clean/clean; concrete source: `ultralytics/ultralytics@ce1399439b93c490b648b55dedd0a6334f0199da` `ultralytics/cfg/datasets/DOTAv1.yaml:15` (sha256 `18e3ca2f9254`, archived as `ultralytics_ultralytics__ultralytics__cfg__datasets__DOTAv1.yaml`).
 
-7. VisDrone-DET — evidence class: mirror + converter; confidence: high; marks: A/A/A/A; archive: row 7; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+6. DOTA v2.0 — evidence class: Official/mirror documentation; confidence: high; marks: independent_test/test_gated/clean/alias; concrete source: `ultralytics/ultralytics@ce1399439b93c490b648b55dedd0a6334f0199da` `ultralytics/cfg/datasets/DOTAv1.yaml:5` (sha256 `18e3ca2f9254`, archived as `ultralytics_ultralytics__ultralytics__cfg__datasets__DOTAv1.yaml`).
 
-8. AI-TOD — evidence class: Official README (contains two mutually contradictory release statements); confidence: low; marks: A/A/A/?; archive: row 8; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+7. VisDrone-DET — evidence class: mirror + converter; confidence: high; marks: independent_test/independent_test/clean/clean; concrete source: `ultralytics/ultralytics@ce1399439b93c490b648b55dedd0a6334f0199da` `ultralytics/cfg/datasets/VisDrone.yaml:15` (sha256 `627f60f7602d`, archived as `ultralytics_ultralytics__ultralytics__cfg__datasets__VisDrone.yaml`).
 
-9. UAVDT — evidence class: Official paper + two mirrors (the audit calls these unverified beyond these two); confidence: medium; marks: A/A/A/A; archive: row 9; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+8. AI-TOD — evidence class: Official README (contains two mutually contradictory release statements); confidence: low; marks: contradictory/contradictory/unknown/unknown; concrete source: `jwwangchn/AI-TOD@7f56cb6b2aaa` `README.md:39` (sha256 `0491ad0fc58a`, archived as `jwwangchn_AI-TOD__README.md`); `Chasel-Tsui/mmdet-aitod@e3e567111490` `README.md:39` (sha256 `f924c74b048b`, archived as `Chasel-Tsui_mmdet-aitod__README.md`).
 
-10. xView — evidence class: mirror xView.yaml; confidence: low; marks: A/A/A/A; archive: row 10; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+9. UAVDT — evidence class: Official paper + two mirrors (the audit calls these unverified beyond these two); confidence: medium; marks: no_val/no_val/unknown/alias; concrete source: `CQNU-ZhangLab/SFFNet@1e6a3c9cab8e4129aba1b8196625026a5d482ccb` `ultralytics/cfg/datasets/UAVDT.yaml:4` (sha256 `ff5b076b3bce`, archived as `CQNU-ZhangLab_SFFNet__ultralytics__cfg__datasets__UAVDT.yaml`); `forever208/yolov5_train_on_UAVDT@a14a46296fd7f370a615a6151742373e5e2435d7` `data/UAVDT.yaml:4` (sha256 `cb9616967927`, archived as `forever208_yolov5_train_on_UAVDT__data__UAVDT.yaml`).
 
-11. DIOR — evidence class: Official description (no counting) + mirror DIOR-R yaml; confidence: low; marks: A/A/A/?; archive: row 11; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+10. xView — evidence class: mirror xView.yaml; confidence: low; marks: no_test/no_test/no_test_key/alias; concrete source: `ultralytics/ultralytics@ce1399439b93c490b648b55dedd0a6334f0199da` `ultralytics/cfg/datasets/xView.yaml:14` (sha256 `9b6a565f0fd2`, archived as `ultralytics_ultralytics__ultralytics__cfg__datasets__xView.yaml`).
 
-12. NWPU VHR-10 — evidence class: Official TorchGeo (the split means positive/negative); confidence: high; marks: A/A/A/A; archive: row 12; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+11. DIOR — evidence class: Official description (no counting) + mirror DIOR-R yaml; confidence: low; marks: independent_test/independent_test/no_test_key/unknown; concrete source: `Hamedlk80/DIOR-R-Rotated-Object-Detection-YOLOv8@6be5a006533e7b6a985f38d0004eaf58afcb8881` `diorr_obb_analysis/data.yaml:2` (sha256 `5fb9761fbb1c`, archived as `Hamedlk80_DIOR-R-Rotated-Object-Detection-YOLOv8__diorr_obb_analysis__data.yaml`).
 
-13. SHWD — evidence class: Official README + mirror Reflective_vests.yaml; confidence: medium; marks: A/A/A/A; archive: row 13; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+12. NWPU VHR-10 — evidence class: Official TorchGeo (the split means positive/negative); confidence: high; marks: no_split/no_split/unknown/alias; concrete source: `torchgeo/torchgeo@ceb558ee1616d545431d6a59c41a2276b18025bd` `torchgeo/datasets/vhr10.py:120` (**repo renamed**: the old path `microsoft/torchgeo` redirects to `torchgeo/torchgeo`; HEAD at 2026-10-09 is `379be63764354f078e626df239f4c1c7532959da`, at which `datasets/vhr10.py` still carries `split: Literal['positive','negative']` -- target presence, not train/test; the train/val/test split is created at runtime by `datamodules/vhr10.py` via `random_split(seed 0, 80/10/10)`) (sha256 `32efdc6e5479`, archived as `microsoft_torchgeo__torchgeo__datasets__vhr10.py`).
 
-14. SFCHD — evidence class: Official first-party release (machine comparison _ev_sfchd_check2.py); confidence: highest; marks: A/A/A/A; archive: row 14; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+13. SHWD — evidence class: Official README + mirror Reflective_vests.yaml; confidence: medium; marks: no_yaml/no_val/train_val_alias/alias; concrete source: `njvisionpower/Safety-Helmet-Wearing-Dataset@c952631dfc352e0defdd54b4785a9be6576451ad` `README.md:59` (sha256 `245b47068ebf`, archived as `njvisionpower_Safety-Helmet-Wearing-Dataset__README.md`); `gengyanlei/fire-smoke-detect-yolov4@98b1fec0f82e09d67ef5fc657a80eaf0b1450360` `yolov5/data/Reflective_vests.yaml:59` (sha256 `c142a50b7a36`, archived as `gengyanlei_fire-smoke-detect-yolov4__yolov5__data__Reflective_vests.yaml`).
 
-15. MAFA — evidence class: Official CVPR PDF (extracted with pypdf); confidence: high; marks: A/A/?/A; archive: row 15; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+14. SFCHD — evidence class: Official first-party release (machine comparison _ev_sfchd_check2.py); confidence: highest; marks: alias/no_val/alias/alias; concrete source: `lijfrank/SFCHD-SCALE@7bfabb453361` `dataset_SFCHD/new_split_yolo/train.txt:1` (sha256 `e2ef62278eb4`, archived as `lijfrank_SFCHD-SCALE__dataset_SFCHD__new_split_yolo__train.txt`); `lijfrank/SFCHD-SCALE@7bfabb453361` `dataset_SFCHD/new_split_yolo/val.txt:1` (sha256 `4c2ad09163c3`, archived as `lijfrank_SFCHD-SCALE__dataset_SFCHD__new_split_yolo__val.txt`); `lijfrank/SFCHD-SCALE@7bfabb453361` `dataset_SFCHD/new_split_yolo/test.txt:1` (sha256 `80e54955c64b`, archived as `lijfrank_SFCHD-SCALE__dataset_SFCHD__new_split_yolo__test.txt`).
 
-16. Mendeley face-mask — evidence class: Official data record + mirror generator; confidence: lowest; marks: A/A/D/?; archive: row 16; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+15. MAFA — evidence class: Official CVPR PDF (extracted with pypdf); confidence: high; marks: no_val/no_val/unknown/alias; concrete source: `ElenaRyumina/AnnotationMAFA@5d0b451c0c69fbaeeed2ea798eb912fb9c6339fc` `README.md:5` (sha256 `e0ab2118a8b6`, archived as `ElenaRyumina_AnnotationMAFA__README.md`).
 
-17. WIDER FACE — evidence class: Official site (GT not released, verified word by word) + mirror; confidence: high; marks: A/A/A/A; archive: row 17; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+16. Mendeley face-mask — evidence class: **Kaggle data record** (`andrewmvd/face-mask-detection`, 853 images / 3 classes / PASCAL-VOC XML) + mirror generator; **no Mendeley Data record with this title exists** (DataCite title sweep 2026-10-09: total 29, none with this title; the nearest Mendeley item is `Face Mask Dataset 2022`, 10.17632/7bt2d592b9, 20,347 images / 2 classes / image-classification, with no split statement); confidence: lowest; marks: no_split/no_split/alias/unknown; concrete source: `Prikshit7766/Face-Mask-Detection@ecd8be957c3a14e57d4f00cd9e62024d192479fd` `convert_voc_to_yolo.py:18` (sha256 `75c5bf6055db`, archived as `Prikshit7766_Face-Mask-Detection__convert_voc_to_yolo.py`); `Prikshit7766/Face-Mask-Detection@ecd8be957c3a14e57d4f00cd9e62024d192479fd` `data.yaml` (**4 lines / 110 bytes**, sha256 `d75e524c03ba`, archived as `Prikshit7766_Face-Mask-Detection__data.yaml`; contents: `train: ../train/images`, `val: ../test/images`). **Correction (2026-10-09)**: the `train == val` literal is in the **generator** `convert_voc_to_yolo.py:17-18` (the same `images_dir` written under both keys), **not** at `data.yaml:18`; the earlier citation implied a longer config file than the 4-line file that exists.
 
-18. CrowdHuman — evidence class: Official paper + mirror; confidence: high; marks: A/A/A/A; archive: row 18; concrete source (release package, dataset paper, document version, access date) and upstream audit line numbers: not archived.
+17. WIDER FACE — evidence class: Official site (GT not released, verified word by word) + mirror; confidence: high; marks: independent_test/test_gated/no_test_key/alias; concrete source: `spacewalk01/yolov5-face@84ef013381e3a155b7a746215974dca7894e0f3e` `data/widerface.yaml:1` (sha256 `c39567becdf7`, archived as `spacewalk01_yolov5-face__data__widerface.yaml`).
 
-19. D-Fire (FireSmoke) — evidence class: Official README; confidence: medium; marks: A/A/A/?; archive: row 19; concrete source (release package, dataset paper, document version, access date): not archived; upstream audit line numbers: A:52, A:59 (§S1, "Corrections already applied").
+18. CrowdHuman — evidence class: Official paper + mirror; confidence: high; marks: test_gated/alias/no_test_key/alias; concrete source: `yakhyo/yolov8-crowdhuman@18db0736cbdf4881cde3eb8c86a2d4232ba3ec52` `dataset.yaml:2` (sha256 `684bd619eb9b`, archived as `yakhyo_yolov8-crowdhuman__dataset.yaml`).
+
+19. D-Fire (FireSmoke) — evidence class: Official README; confidence: medium; marks: independent_test/independent_test/clean/unknown; concrete source: `gaia-solutions-on-demand/DFireDataset@4bf9c31b18fadcd44d5f0b6d66f82bc56fa5e328` `README.md:51` (sha256 `c5395ce455e0`, archived as `gaia-solutions-on-demand_DFireDataset__README.md`).
+
+*Two rows whose currently published upstream file differs from the printed mark* (recorded, not
+reconciled). **Objects365**: the printed `yolo_dist` mark records that the distribution-package
+configuration carries no `test:` key, while the file archived here (Ultralytics `Objects365.yaml`,
+line 15) does carry one. **VisDrone-DET**: the printed `yolo_dist` mark is `clean`, while the
+archived `VisDrone.yaml` (line 15) points `test:` at `images/test`. Both are evidence that upstream
+configurations change; the marks record what the audit read on its own date, and this list records
+what was read on the date of this archive.
 
 ### Scope of reproducibility: two things that are not the same
 
@@ -3159,14 +3464,14 @@ and a second human rater is still what a true inter-rater statistic would need. 
 been added is a **second coding pass, model-assisted and non-blind** (run 2026-09-27): it
 re-coded all 19 rows × 4 units of the §S1 table under the published rules, after the rules
 were first separated from the printed conclusions into a standalone manual
-(`work/coding_manual_19x4_20260927.md`). Because §S1 prints rules and marks in one place,
+(**withdrawn from the released package**; the earlier coding rounds are not published). Because §S1 prints rules and marks in one place,
 the pass could not be blinded — the printed coding was visible throughout, and the
 statistics below are a consistency check against a visible target, not a blind inter-rater
 result. **The second pass is model-assisted, not a second human rater, and it does not
 replace the single-rater disclosure printed with the table.** Its per-cell marks are
-archived with the audit ground for each row (`work/second_coding_20260927.csv`), and every
+archived with the audit ground for each row (`work/the earlier-round coding table (**withdrawn from the released package**; not published)`), and every
 statistic below is recomputed mechanically by a script that reads the printed table and
-that file (`work/kappa_second_coding_20260927.py`; machine output
+that file (`work/kappa_the earlier coding rounds (**withdrawn from the released package**)_20260927.py`; machine output
 `work/kappa_computed_20260927.txt`, readable summary `work/kappa_summary_20260927.md`). The
 pass coded against the archived configuration audit — the evidence base one step upstream
 of the printed table, whose English rows mirror a Chinese authoritative file.
@@ -3456,11 +3761,20 @@ looking shipped when it is not.
 
 ### Table S42 — the prefix-n view of the two clean-protocol cells (n = 3…10; paired *t* and exact sign-flip permutation; both endpoints)
 
+
 **Table S42.** *7.2* — requested in review: the two registered cells at every prefix n, under **both endpoint conventions**. Source: `release_selection-transfer_perseed.csv` (**40 runs** = 2 cells × 2 arms × 10 seeds, seeds 42–51). The permutation p is **exact** (all 2ⁿ sign flips enumerated, no sampling), so it has a **floor of 2/2ⁿ** — at n = 3 that is **0.25**, which is why the permutation column, not the *t* column, is the binding constraint for the n = 3 cells.
+
+> **Sign convention — this column is not Table 2's Δgap.** It is the **within-seed arm contrast**
+> `Δgap(seed) = prem(strategy) − prem(baseline)` (definition from the generating script,
+> `04_verification/x5_prefix_n_table_20261004.py`), i.e. the **difference in selection premium between the two arms**,
+> not the **split-level** difference that Table 2 reports as Δgap. The two need not share a sign, and here they do not:
+> the `oracle` row at n = 10 is **−0.7025 pp** for `shwd2sf` while Table 2's split-level Δgap is **+0.779** — the two are
+> related through the selection term, `0.779 − 1.481 = −0.702`. Read this column as "how the premium differs between
+> the arms", never as Table 2's Δgap.
 
 **shwd2sf · endpoint = `oracle`**
 
-| n | seeds | mean Δgap (pp) | SD | paired *t* | *t* p | exact sign-flip p |
+| n | seeds | paired Δgap contrast (pp) | SD | paired *t* | *t* p | exact sign-flip p |
 |---|---|---:|---:|---:|---:|---:|
 | 3 | 42..44 | -0.7146 | 0.3364 | -3.6796 | 0.06657 | **0.25** |
 | 4 | 42..45 | -0.6632 | 0.2932 | -4.5231 | 0.02021 | **0.125** |
@@ -3473,7 +3787,7 @@ looking shipped when it is not.
 
 **shwd2sf · endpoint = `selected`**
 
-| n | seeds | mean Δgap (pp) | SD | paired *t* | *t* p | exact sign-flip p |
+| n | seeds | paired Δgap contrast (pp) | SD | paired *t* | *t* p | exact sign-flip p |
 |---|---|---:|---:|---:|---:|---:|
 | 3 | 42..44 | -0.3933 | 0.4456 | -1.5287 | 0.2659 | **0.25** |
 | 4 | 42..45 | -0.4000 | 0.3641 | -2.1973 | 0.1155 | **0.125** |
@@ -3486,7 +3800,7 @@ looking shipped when it is not.
 
 **smoke2sf · endpoint = `oracle`**
 
-| n | seeds | mean Δgap (pp) | SD | paired *t* | *t* p | exact sign-flip p |
+| n | seeds | paired Δgap contrast (pp) | SD | paired *t* | *t* p | exact sign-flip p |
 |---|---|---:|---:|---:|---:|---:|
 | 3 | 42..44 | -0.7938 | 0.1080 | -12.7284 | 0.006116 | **0.25** |
 | 4 | 42..45 | -0.8020 | 0.0897 | -17.8789 | 0.0003816 | **0.125** |
@@ -3499,7 +3813,7 @@ looking shipped when it is not.
 
 **smoke2sf · endpoint = `selected`**
 
-| n | seeds | mean Δgap (pp) | SD | paired *t* | *t* p | exact sign-flip p |
+| n | seeds | paired Δgap contrast (pp) | SD | paired *t* | *t* p | exact sign-flip p |
 |---|---|---:|---:|---:|---:|---:|
 | 3 | 42..44 | -0.5631 | 1.3339 | -0.7311 | 0.5408 | **0.5** |
 | 4 | 42..45 | -0.5253 | 1.0917 | -0.9623 | 0.4069 | **0.375** |
