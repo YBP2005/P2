@@ -1,9 +1,9 @@
 path,sha256,bytes,description
 01_paper/P2_English_submission_blind_v1.md,2a61508c16603392fe13aaa5020a07d8c25a7069a956f372703eea3576326e4c,80344,article (anonymised submission form)
 01_paper/P2_English_v0.1.md,1a4f2ad8ad665d2d3cd9c462d4b58983fa887a642ec19ea3f1b7407eeaaad43d,81541,article (working form)
-01_paper/P2_English_v0.1.pdf,1943a306521df003484a2ca5bd2b70b653b09bdfc72c3afaaa502eebc33c70a0,740426,article PDF as built
-01_paper/P2_Supplementary_English_v0.1.md,a02e3004ba1b5d96ba100cbd14fe26d7b3ddc1c61f69a0b132c135782e072c6b,344042,"supplementary material (English, authoritative artefact)"
-01_paper/P2_Supplementary_English_v0.1.pdf,74b88adfe6d90e4d19d89a1f459ffd0e19dc8c5984d90a5b6fbadefd6a366ab1,5775298,supplementary PDF as built
+01_paper/P2_English_v0.1.pdf,a628dc9d091243815f352217c1fd7f2e0322f63e5630b38ea0c05ba7f4627eaa,740426,article PDF as built
+01_paper/P2_Supplementary_English_v0.1.md,d945c1a5b6d5f8fc0b32f55ffd07dcb08c1aa6d366872965615d0cee1340493b,345302,"supplementary material (English, authoritative artefact)"
+01_paper/P2_Supplementary_English_v0.1.pdf,954a4ed7162d3ac5f5d1f2b2204a7151d8ad78149f322396b70852648e99c3e2,5797653,supplementary PDF as built
 01_paper/P2_投稿前件_v0.1.md,e62d8ede3f3013b2bbd957637d141dd88f26f6dd74948269e7f33b22b9750235,33853,submission front matter (author names still placeholders): the anchor audit reads its Highlights and Cover Letter sections (X47/X48) so that the 289-anchor claim holds inside the package
 01_paper/P2_补充材料.md,c4ebb7d01f852038b96d02c0fab9bc517ec3c5581e526162e35d3971a0fedd02,51805,supplementary material (Chinese source record)
 01_paper/PR形式要求_核实_20260917.md,1910d8527859894be61c7aacf4822f70c20aaac5e59bea50d8948da433fdafc8,5035,the journal-forms verification record: the anchor audit reads its source correction (X45/X46)
@@ -335,8 +335,8 @@ README.md,95e8309e92ff0c69fd83c9e71c1926717d0affe09eb03ce3b80219768c048f5f,10884
 02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s50n/results_A.csv,4ec1db6ea4e8bca09c8bd9639104138e1c7de97f48fe2ab0068e0fe7479c2bdc,11991,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
 02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s51n/results.csv,51f44ba89a98f348cc2c7523c586cd3114347945d5ed7f74d8ec7e1416c645df,12018,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
 02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s51n/results_A.csv,51f44ba89a98f348cc2c7523c586cd3114347945d5ed7f74d8ec7e1416c645df,12018,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
-01_paper/P2_English_submission_blind_v1.docx,bb4fddd01f28151912e02d3302da3d17dc53f25f505239856a8972e7748a77e1,636709,"article (anonymised submission form), Word build"
-01_paper/P2_Supplementary_English_v0.1.docx,9f4232763e4b9631eb83bf8473fcfd470ebc307737d4e8feffa26cb8610e662c,363842,"supplementary material, Word build"
+01_paper/P2_English_submission_blind_v1.docx,60c984f3ba8b0f64d4cb72dba4e645e47d6fef081a7641495381f4da3bcc8eba,636709,"article (anonymised submission form), Word build"
+01_paper/P2_Supplementary_English_v0.1.docx,8a04f6c1c7f37323c133e264b18625a01998db8119dd3803090e4d44d32afbf0,364506,"supplementary material, Word build"
 04_verification/x3_x4_pool_and_cluster_interval.json,2c1c9e225925072a776d7e387b7a37d52068db643b28860f34fdfb0fc0414d05,2589
 04_verification/x3_x4_pool_and_cluster_interval_20261004.py,a29755addbf13e15fe4fc8aac9f2f235a5c7fa1d13bd48fa46015682fb23e40f,8390
 04_verification/x5_prefix_n_table.json,d61d948faeef4612af02ae918eac81c1f0ef9515678e650e456710f341f7e4dc,9149
@@ -348,8 +348,8 @@ README.md,95e8309e92ff0c69fd83c9e71c1926717d0affe09eb03ce3b80219768c048f5f,10884
 04_verification/verify_rubric_protocol_20261005.py,b72307ac8eb9326a04d09713fa379f1d03afc765388790e4010cdb91e6c6c506,4756
 04_verification/verify_blind_isolation_20261015.py,467838788c8bfc18bfea4f16a4a5d3cedf5e2a5c5a8a5875cb99413d28ca7180,6718
 04_verification/rubric_selftest_20261005.txt,01cfa5f0e4078084d0b64ee683471d831aaa4fa189cb137f555405d193aace79,313
-01_paper/P2_English_v0.1.docx,efdf9cd5f0fdc11ff5bcb2fcec4a9a7ac93d7e6984d71d0e8098ee70a9fc4562,637388,"article (working form), Word build"
-01_paper/P2_English_submission_blind_v1.pdf,5535e0aa2010bb6779aa1417127d96acb8051c868907fcc63a1c5b040e81f8ba,715298,"article (anonymised submission form), PDF as built"
+01_paper/P2_English_v0.1.docx,6bab5e6c45da4f961e51fe30378b580764f4d673ee70ed238b494c2e3de4e558,637388,"article (working form), Word build"
+01_paper/P2_English_submission_blind_v1.pdf,897ec899b35af989a45346ea3863731b9f123c2df103245ebc0986a5a6a2da93,715298,"article (anonymised submission form), PDF as built"
 05_coding_toolbox/p2_coding_instrument_v46.md,f8595fdab72c62dd545e2c230e08a826ae67b93d0e10043e5c29918e82256982,248945,blind-coding instrument handed to each coder (decision procedure + evidence cards, no marks)
 05_coding_toolbox/decision_procedure_v46.md,9a6a12a96810be0dceaf43458ea763b43cb4ae5d1c668f6baa6b31364837470a,21723,decision procedure alone (Section 1-9: value sets, decision trees, counting convention)
 05_coding_toolbox/evidence_cards_19rows.md,6d16ce7ff25cb0ab7be0ae8b6e1eaf4290b8597a49de5377e1accbe93764bd89,252214,the 19 evidence cards alone (verbatim evidence with sources; contains no marks)

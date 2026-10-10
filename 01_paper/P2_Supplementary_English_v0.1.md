@@ -820,17 +820,20 @@ The strength of every statement in the main text is distinguished accordingly.
 | **M5 difference in val-side selection gain** | Δgap has the same sign as (premium_baseline − premium_strategy) | **not supported** | only **8 of 13** cells share the sign; r = +0.06, p = 0.84 |
 
 
-**Table S10.** *5.6 Why Δgap's sign varies by corpus: three of five candidate mechanisms are refuted by the data* — columns: Corpus, Δgap, final-epoch val diff, Δprem, −test diff, Dominant. **The last three columns already carry the sign convention, so Δgap is their sum** (the `−test diff` column is printed with the sign the identity needs).
+**Table S10.** *5.6 Why Δgap's sign varies by corpus: three of five candidate mechanisms are refuted by the data* — columns: Corpus, `n`, Δgap, final-epoch val diff, Δprem, −test diff, Dominant. **The last three columns already carry the sign convention, so Δgap is their sum** (the `−test diff` column is printed with the sign the identity needs). **The `n` column is needed to read this table against the released components file**: `02_release_data/gap_mechanism_20260916.txt` was computed at the **pre-escalation** sample size, so for the two cells later escalated to `n` = 10 its Δgap column still holds the **`n` = 3** reading (`p_vistod15` −3.58, `p_aitovis` −1.11) where this table prints the **`n` = 10** reading (−3.315 / −1.226); the two are not in conflict, they are two sample sizes.
 
-| Corpus | Δgap | final-epoch val diff | Δprem | −test diff | Dominant |
-|---|---|---|---|---|---|
-| **mask20** | **+1.75** | **+15.78** | **−13.10** | −0.93 | the two large components **nearly cancel** |
-| fire | **+13.66** | +15.96 | +2.08 | −4.39 | final-epoch val diff |
-| p_vistod15 | **−3.315** | −7.072 | −0.213 | +3.971 | final-epoch val diff |
-| p_aitovis | **−1.226** | −1.583 | +0.090 | +0.267 | final-epoch val diff |
-| shwd2sf | **+0.78** | −0.33 | +0.60 | +0.51 | Δprem |
-| smoke2sf | **+0.46** | −1.06 | +0.09 | +1.43 | −test diff |
-| dota | **+0.35** | +0.75 | +0.54 | −0.93 | −test diff |
+| Corpus | `n` | Δgap | final-epoch val diff | Δprem | −test diff | Dominant |
+|---|---|---|---|---|---|---|
+| **mask20** | 3 | **+1.75** | **+15.78** | **−13.10** | −0.93 | the two large components **nearly cancel** |
+| fire | 3 | **+13.66** | +15.96 | +2.08 | −4.39 | final-epoch val diff |
+| p_vistod15 | **10** | **−3.315** | −7.072 | −0.213 | +3.971 | final-epoch val diff |
+| p_aitovis | **10** | **−1.226** | −1.583 | +0.090 | +0.267 | final-epoch val diff |
+| shwd2sf | **10** | **+0.78** | −0.33 | +0.60 | +0.51 | Δprem |
+| smoke2sf | **10** | **+0.46** | −1.06 | +0.09 | +1.43 | −test diff |
+| dota | 3 | **+0.35** | +0.75 | +0.54 | −0.93 | −test diff |
+
+**The six scanned cells this table does not carry**, with their Δgap at their own scanned `n` = 3 as recorded in the same released file — `aitod20` **+1.48**, `d15d15` **+1.28**, `mende20` **+2.47**, `p_d15toai` **+0.78**, `p_masktomende` **−2.46**, `vis` **+0.17** — bring the frame to the full **thirteen**. They are not tabulated here because at `n` = 3 the sign-flip test has no resolution (§5.1, §7.1), so their components are quoted from the released file rather than re-derived. **The identity `Δgap = final-epoch val diff + Δprem − test diff` holds on all thirteen cells**; on the printed columns it is exact on five of the seven rows above and differs by ±0.01 on `fire` and `dota` from rounding of the components.
+
 
 
 **Table S11.** *6.1 The result under four units* — columns: Unit, non-independent, of decidable rows, undecidable.
