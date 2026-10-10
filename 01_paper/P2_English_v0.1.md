@@ -18,18 +18,13 @@
 
 ## Abstract
 
-Object-detection papers report a number from a split they call held out. We audit that premise, in three results.
+Object-detection papers report a number from a split they call held out. We audit that premise, and report three results.
 
-**1. The convention is broken in our own corpora.** **6 of 14** corpora give the reported number no independent held-out split: the checkpoint was selected there.
-Training and evaluation do not overlap — **checkpoint selection**, not contamination.
+**1. The convention is broken in our own corpora.** **6 of 14** corpora give the reported number no independent held-out split: the checkpoint was selected there, so training and evaluation do not overlap. What is broken is **checkpoint selection**, not contamination — which turns an ethical question into a **measurement** one.
 
-**2. The direction varies by corpus.** The premium is **positive in all four cells** (§5.1; the baseline arm gains more), the **paired Δgap** changing sign by corpus (**not the selection term**); a declared, **descriptive** 13-cell family leaves **3** after BH; **five current-generation coders** agree at κ **0.824** and, re-verifying each row, **independently reach 19 of 30 corrected cells** (eleven unanimously), **26 of 76** stay undecidable; the printed **12–14 of 19** rest **on one rater**, **10–11** after re-verification (§6.1, S12). **The mean direction is metric-robust; one cell's significance and sign unanimity are not** (`smoke2sf` **+0.063 pp**, p = 0.54, **6+/5−**).
+**2. The selection premium only partly survives.** The premium is positive in every escalated cell; what changes sign by corpus is the **paired Δgap** — the two arms' relative difference on `val` against the same difference on `test` — and not the selection term itself. The **mean direction is metric-robust while one cell's significance and sign unanimity are not** (`smoke2sf`, p = 0.54). A declared, **descriptive** 13-cell scan leaves **3** cells after BH, so the direction claim rests on the four escalated cells, not on the scan. **On a disjoint split, realization is partial**: the **claim-level interval includes zero**, and the arm-cell and run-weighted point estimates are **descriptive**, given with intervals only (Table 4). No power analysis was registered, so the scan's nine `n` = 3 cells stay descriptive.
 
-**3. Partial realization on a disjoint split.** Separating the selection set from the reported set, the
-premium is realized only in part: the **claim-level interval includes zero** ([−17.3 %, 53.2 %], P = 0.118); on a difference scale **−1.367 pp** (CI **[−1.59, −1.15]**); run-level **[8.4 %, 37.4 %]** (P = 0.002, a bootstrap tail proportion) and leave-one-out **9.77 %–34.16 %**; the arm-cell and run-weighted point estimates are **descriptive**, given only with intervals (Table 4).
-**Replication lowers it 9 %–29 %** (§8); no power analysis was registered, so the
-nine `n = 3` cells stay descriptive.
-
+**3. The printed count rests on one rater.** The layer the literature actually reports is printed as **12–14 of 19**; re-verifying every row first-hand and re-coding blind with **five** current-generation models recovers **19 of 30** corrected cells, eleven unanimously, while **26 of 76** stay undecidable (§6.1, S12).
 ---
 
 **Keywords:** evaluation validity; dataset splits; checkpoint selection; object detection; benchmark audit;
