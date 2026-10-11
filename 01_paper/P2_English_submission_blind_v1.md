@@ -9,9 +9,9 @@ Object-detection papers report a number from a split they call held out. We audi
 
 **1. The convention is broken in our own corpora.** **6 of 14** corpora give the reported number no independent held-out split: the checkpoint was selected there, **even though** training and evaluation do not overlap. What is broken is **checkpoint selection**, not contamination — which turns an ethical question into a **measurement** one.
 
-**2. The selection premium only partly survives.** The premium is positive in every escalated cell; what changes sign by corpus is the **paired Δgap** — the arms' relative difference on `val` versus on `test` — and not the selection term itself. The **mean direction is metric-robust while one cell's significance and sign unanimity are not** (`smoke2sf`, p = 0.54). A declared, **descriptive** 13-cell scan leaves **3** cells after BH, so the direction claim rests on the four escalated cells. **On a disjoint split, realization is partial**: the **claim-level interval includes zero**, and the arm-cell and run-weighted point estimates are **descriptive**, given with intervals only (Table 4). No power analysis was registered, so the scan's nine `n` = 3 cells stay descriptive.
+**2. The selection premium only partly survives.** The premium is positive in every escalated cell; what changes sign by corpus is the **paired Δgap** — the arms' relative difference on `val` versus on `test` — and not the selection term itself. The **mean direction is metric-robust while one cell's significance and sign unanimity are not** (`smoke2sf`, p = 0.54). A **descriptive** 13-cell scan leaves **3** cells after BH, so the direction claim rests on the four escalated cells. **On a disjoint split, realization is partial**: the **claim-level interval includes zero**, and the arm-cell and run-weighted point estimates are **descriptive**, as intervals only (Table 4). **At full budget, 99 % (§8.8).** No power analysis was registered; the nine `n` = 3 cells stay descriptive.
 
-**3. The printed count rests on one rater.** The layer the literature actually reports is printed as **12–14 of 19**; re-verifying every row first-hand and re-coding blind with **five** current-generation models recovers **19 of 30** corrected cells, eleven unanimously, while **26 of 76** stay undecidable and **11 of the 30 are not recovered** (§6.1, S12).
+**3. The printed count rests on one rater.** The layer the literature actually reports is printed as **12–14 of 19**; re-verifying every row first-hand and re-coding blind with **five** models recovers **19 of 30** corrected cells, eleven unanimously, while **26 of 76** stay undecidable and **11 of 30 are not recovered** (§6.1, S12).
 ---
 
 **Keywords:** evaluation validity; dataset splits; checkpoint selection; object detection; benchmark audit;
@@ -395,11 +395,13 @@ headline effect, the **seed-budget discipline** measured rather than assumed ([5
 **What this section claims, and what it does not.** The rate below is the realization of the `val`-selected premium on a disjoint split **for the five arm-cells measured here, under the companion's protocol** — **not a constant**. The escalated cells reach a **pooled
 55 %**, but the two batches are **not pooled** (§8.1). "The
 convention realizes about a quarter of the `val` premium" would be false; "in these five cells, about
-a quarter survives" is what we measured.
+a quarter survives" is what we measured. The rate is moreover **scale-dependent** (§8.8): at full
+training budget on the same corpus it reaches **+99.2 %**, so the 20 %-train reading is the
+**worst** of the two regimes measured, not a general constant.
 
 **How much of the gain selected on `val` survives on `test`?**
 
-**Table 4.** The premium selected on `val` versus what that same selection action realizes on the disjoint `test` split, per arm-cell (**an unbalanced pool** — two corpora contribute both arms, `aitod20` only its baseline — so the arm-cell is the unit). Source files for every column: **Supplementary S12** (this revision's two batches included). **Read with the 2026-10-06 escalation folded in, the full twenty-six-cell pool keeps its direction**: `WC > 0` in **25 of 26** arm-cells, the arm-cell median realization rate **17.2 % → 21.6 %**, and the premium still negative in **8 of 13** strategy arms (**Supplementary S12**, Table S38b). **The §10 memory-pressure bound (defect 10) does not arise here**: its hits are in §3.1's clean batch and §5.1's `p_vistod15`.
+**Table 4.** The premium selected on `val` versus what that same selection action realizes on the disjoint `test` split, per arm-cell (**an unbalanced pool** — two corpora contribute both arms, `aitod20` only its baseline — so the arm-cell is the unit). Source files for every column: **Supplementary S12** (this revision's two batches included). **The §10 memory-pressure bound (defect 10) does not arise here**: its hits are in §3.1's clean batch and §5.1's `p_vistod15`.
 
 | Cell | Arm | n | `prem_val` | **`prem_test`** | **realization rate** |
 |---|---|---|---|---|---|
@@ -410,31 +412,21 @@ a quarter survives" is what we measured.
 | aitod20 | baseline | **10** | **+0.766** | **−0.218** | **−28 %** |
 | aitod20 **†** | **strategy** | **10** | **+1.111** | **−0.543** | **−49 %** |
 
-> **The inclusion rule, stated as a rule.** An arm-cell enters the pool **iff its `test` side reached n ≥ 5** (`work/item2_final_v2_20260925.py`), applied to every cell alike; **exactly five met it at the 2026-09-25 freeze** (50 runs). The `aitod20` strategy row **qualifies under the same rule but completed after the freeze**, so it is printed here as the sixth row and kept out of the primary pool — **the `†` row, and the only one**; **both readings are reported and both intervals cover zero** (Table S20's note, §8.6b).
-
 where `prem_val = V_max − V_final` (**selecting on val**) and
 `prem_test = T_best − T_final` (**realized on test**).
 
-**The three bases**: run-level `[8.4 %, 37.4 %]`, `P = 0.002`; five-cell `[−17.3 %, 53.2 %]`, `P = 0.118` (claim-level, **zero inside**); eleven-cluster `[19.3 %, 60.4 %]`, `P < 0.001` (a bootstrap tail proportion **at the 20,000-resample resolution**, i.e. below the floor this procedure can print).
-
-**Aggregate** (runs weighted equally, n = 50): `prem_val` **+0.879 pp** → `prem_test` **+0.205 pp**. **At the claim level this is not significant**: the **claim-level interval** is the cell-level, five-cluster one, **[−17.3 %, 53.2 %]**, **P(rate ≤ 0) = 0.118**, zero inside. Descriptively, arm-cell median **17.6 %** and run-weighted **23.3 %** (span **2/5** negative: Table 4). On a difference scale the eleven clusters give **−1.367 pp**, 95 % CI **[−1.59, −1.15]** (five-cell denominators **+0.605 to +1.469 pp**). Re-aggregated: run-weighted **36.9 %**, arm-cell-equal **39.3 %**, 95 % CI **[19.3 %, 60.4 %]** — **completing the cell, not the weighting, is what moves it**: at n = 10 the three weightings agree, so **the fragile axis is pool composition**. **Leave-one-out 9.77 % to 34.16 %.** In two arm-cells the selection action **costs** rather than fails to pay off (`smoke2sf` strategy, `aitod20` baseline); the escalated cells of §5.1 are **not pooled with these five** (different runs, different protocol). The closest concurrent work [12], the winner's-curse check, the withdrawn σ√(2 ln E) form and each cell's corpus pair: **Supplementary S12**.
-
-(the `best.pt`-versus-argmax residual, our withdrawn attribution and why the remainder is **unidentified**: **Supplementary S12**.)
+**Aggregate** (runs weighted equally, n = 50): `prem_val` **+0.879 pp** → `prem_test` **+0.205 pp**. **At the claim level this is not significant**: the **claim-level interval** is the cell-level, five-cluster one, **[−17.3 %, 53.2 %]**, **P(rate ≤ 0) = 0.118**, zero inside. Descriptively, arm-cell median **17.6 %** and run-weighted **23.3 %** (span **2/5** negative: Table 4). On a difference scale the eleven clusters give **−1.367 pp**, 95 % CI **[−1.59, −1.15]** (five-cell denominators **+0.605 to +1.469 pp**).
 
 The monotonicity is a correlation, not a causal claim, and at the arm-cell unit the nine-cluster reading is ρ = **−0.433** (p = 0.244) — see **Fig. 3** and **Supplementary S12**: the n = 80 are the 81 runs with a measured
 `test` side less the one whose `prem_val` is 0. It has a named precedent: [53] gives validation
 overfitting (VO) its name and bounds the expected best observed loss by
 E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of selection queries Nq.
 
-**Recomputation status.** The readings were originally **not locally recomputable** (the archive lacks 6 of 7 corpora; **§10, defect 5**); a GPU **2 × 2 evaluation** on **41** three-way runs of **YOLOv12n [54]** × {`best`, `last`} × {`val`, `test`} makes them so, **retraining not**, reproducing the archived `best × test` values to within **0.0047 pp** (median **0.0021 pp**) — the endpoint rule's positive control (**Supplementary S12**).
-
-**Three limitations**: ① in the **41-run epoch sweep** only the two headline cells reach n = 10; `aitod20` contributes one run of 30 epochs and 6 checkpoints where others contribute **20** (hence 806, not 820), its Table 4 arm-cell a separate n = 10 batch; ② **closed: every retained checkpoint is now evaluated**, the *stability* reading is narrower than the grid; ③ κ is relative to each run's own final epoch, not causal. The 806-row evaluation is archived (`xeval_perepoch_20260918/`, with a SHA-256 list).
+The 806-row evaluation is archived (`xeval_perepoch_20260918/`, with a SHA-256 list).
 
 ![Fig. 3](figures/fig6_sigma_vs_rate.png)
 
 **Fig. 3.** Realization rate against the noise scale σ̂ of the run's own `val` curve, over **80 runs** in three terciles of **27 / 27 / 26** (nine-cluster Spearman ρ = **−0.433**, p = 0.244; the run-level reading is −0.466); dashed: rate = 1, dotted: §8.6's pooled reading.
-
-**Pool composition — and why the claim does not turn on it.** Table 4 prints **six** measured arm-cells; adding the sixth (`aitod20` **strategy**) moves the run-weighted rate **23.3 % → 8.7 %** and the median **+17.6 % → −4.2 %**. **The inclusion rule is a rule, not a per-cell choice**: an arm-cell enters **iff its `test` side reached n ≥ 5**, and **exactly five met it at the freeze**, where all three weightings coincide (**23.26 %**). The sixth row **qualifies but completed later**, so it is the sensitivity. **Every claim is interval-level and any scope gives the same verdict** — five-cell **[−17.3 %, 53.2 %]** (P = 0.118), six-cell **[−4.9 %, +21.3 %]**, eleven-cluster **[19.3 %, 60.4 %]** — the cell-level intervals **both cover zero**, so **no conclusion depends on the pool boundary**.
 
 ### 8.7 The per-epoch view: the realization rate is not a constant
 
@@ -442,9 +434,11 @@ E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of s
 
 **Fig. 4.** **Left**: mean `val` and `test` trajectories over 10 seeds, both headline cells (baseline solid, strategy dashed). **Right**: per-(seed, epoch) `val` movement against what transfers to `test` — the ratio is not taken (its denominator can vanish); the fit through the origin is **κ = 0.708** (R² **0.937**, run-clustered 95 % CI **[0.671, 0.745]**; the title's **0.734** is the earlier five-epoch grid).
 
-**One metric self-correction first.** Our first version used `r(e) = ΔT(e)/ΔV(e)`, producing values such as **−860 % and +1031 %**: at late epochs `V(e) ≈ V(final)`, the **denominator vanishing** — **an ill-conditioned metric, not a finding.** We report only the non-dividing `ΔV(e) = V(e) − V(final)` and `ΔT(e) = T(e) − T(final)`, summarized by the through-origin slope κ of ΔT on ΔV.
-
 > **Tables S21–S23** → Supplementary §S8.
+
+**One metric self-correction first.** Our first version used `r(e) = ΔT(e)/ΔV(e)`, which is
+**pathological** at late epochs — `V(e) ≈ V(final)`, so the ratio's **denominator vanishes**; we
+report only the non-dividing `ΔV(e)` and `ΔT(e)` below.
 
 **Slope κ** (how much of the movement on `val` transfers to `test`). On the **complete curve** —
 **n = 765 (seed, epoch) points over the 41 runs** — **κ = 0.708, R² 0.937**, with a run-clustered
@@ -463,7 +457,33 @@ negative) and is **narrowed here**; per-checkpoint values: **Supplementary S11**
 
 **The limitations of this section are in Supplementary S12.**
 
----
+### 8.8 Scale dependence: at full training budget the premium is realized in full
+
+**§8.6's rate is a 20 %-train reading and does not carry to the regular scale.** We retrained the corpus
+that supplies §8.6's largest cell at **full budget**: VisDrone with **5,971** training images (the
+6,471-image public train split less the 500-image `val` carve), YOLOv12n **[54]**, 100 epochs, §5.1's two-arm
+`lr0` contrast (**0.001** vs **0.005**), and **ten training file orders per arm (20 runs)**. Under the
+§8.6 definitions the pooled realisation rate is **+99.2 %** (95 % interval **[+80.4 %, +122.0 %]**,
+run-level bootstrap, 20,000 resamples), against the **pre-registered interval [−28 %, +74 %]**; the whole
+interval lies **above** the band's upper edge. `prem_val` averages **+0.269 pp** against **+0.879 pp**
+for §8.6's 20 %-train pool, while `prem_test` averages **+0.266 pp** — the premium is roughly **four
+times smaller**, yet now realised almost exactly. That is what §3.1's decomposition anticipates: the
+unrealised part is the winner's-curse term `WC` — whose concurrent check is **[12]** — which is what a larger `val` split should reduce, and
+it agrees with Fig. 3's rate-versus-σ̂ correlation — more training data, a smoother `val` curve,
+a smaller `WC`.
+
+**The rate is arm-dependent, and one arm stays inside the band.** The baseline arm realises **+66.4 %**
+(n = 10: `prem_val` **+0.256 pp**, range **+0.105 to +0.410**; `prem_test` **+0.170 pp**) and **remains
+inside the pre-registered interval**; the strategy arm realises **+129.0 %** (n = 10: **+0.282 pp**,
+**+0.075 to +0.412**; `prem_test` **+0.363 pp**). No run in either arm has a negative `prem_val` or
+`prem_test` (**0/20** each). **What this does not do** is revise §8.6, which measures five arm-cells
+under the companion's 20 %-train protocol and already states that the general reading — "the convention
+realises about a quarter of the `val` premium" — would be false; what it adds is **scale**. We therefore
+**weaken, rather than strengthen**, the recommendation §11 draws from §8.6 (§11 ②, §13). Two scopes
+bound it: **one corpus**, and §5.1's `lr0` axis; a second corpus with a genuine disjoint `test`
+(`mask_clean`, 919 images) is **registered as the replication**.
+
+> **Per-run matrix, protocol, leakage self-check and the bootstrap** → **Supplementary §S13** (Tables S46–S47: the per-arm table is S46).
 
 ## 9. The registered multi-target replication: **reported in the companion paper**
 
@@ -491,7 +511,10 @@ negative) and is **narrowed here**; per-checkpoint values: **Supplementary S11**
 **Four checks before reporting, each with the artifact that discharges it.** ① Are `val` and `test`
 the same source? Make it a **hard pipeline check** on every dataset YAML (§4.2); the output is the
 resolved paths. ② If you must select on the reported split, say so and report a selection-free endpoint — **the `final`-epoch endpoint, the only selection-free one this archive measures** —
-alongside — the step **enlarges** the arm difference (§5.1). ③ State the test convention: below n = 6 a
+alongside — the step **enlarges** the arm difference (§5.1). **The cost of not doing so is
+scale-dependent**: at 20 % train the selection action realises about a quarter of the `val` premium
+on a disjoint split, but at full budget it realises **+99.2 %** (§8.8) — the practice is **most
+damaging exactly where data is scarcest**. ③ State the test convention: below n = 6 a
 permutation test has no resolution; print the `2/2ⁿ` floor beside every p. ④ Declare the counting unit
 behind every count, as Table 3's header does.
 
@@ -516,12 +539,15 @@ behind every count, as Table 3's header does.
 - The intervention axis the headline comparisons use is **`lr0` (`0.001 → 0.005`)**; two further orthogonal axes were run, one reproducing, as on `lr0`, the **corpus-dependent character** of the shift (**Supplementary S8**, **Table S40b**); the cross-lineage probe is
    **one detector, two corpora, and incomparable magnitudes**.
 - **Four disclosed uncertainties** bound our claims: the 19-row audit is **single-rater**; the log sample is a **convenience sample**; the GPU memory-pressure effect is **bounded, not estimated** (**≤0.05 pp** where same-config pairs can be compared, fresh replicates being bit-identical; cross-date comparisons carry a **0.440 pp** drift); and the §8.3 replicates vary the **training file order**, not independent seeds. **And, not as an uncertainty**: **no interval here folds into §8.6's rate**. **Supplementary S12**.
+- The **scale-dependence** reading (§8.8) is **one corpus, one detector, the same `lr0` axis as
+  §5.1** (20 runs, ten file orders per arm); it does **not** re-open §8.6's pool, and **no interval
+  of §8.6's folds into it**.
 
 ---
 
 ## 13. Conclusions
 
-A count is meaningless until its **unit** is named: the same nineteen benchmarks answer differently under each declared unit (Fig. 1, Table 3), and re-tallying them after the 2026-10-09 first-party correction record moves the **layer** units up and the **package and report** units down (**Table 3**, Supplementary S12) — the **majority** conclusion is unchanged (the weakest recomputed **majority** is still **10/19**). Three findings stand. **The most robust number is the transfer slope κ (§8.7): early `val` movement does transfer to `test`, and the premium is its residual.** The premium is positive in all four cells, the baseline gaining more, and the paired Δgap **varies in sign** by corpus — so "the convention understates the effect" is not claimed. On five arm-cells at n = 10 it is realized on a disjoint split at **23.3 %** (claim-level **[−17.3 %, 53.2 %]**, P(rate ≤ 0) = **0.118**). Two things do **not** hold: the σ√(2 ln E) scaling was tested and **withdrawn**, and no power analysis was registered, so the nine `n = 3` cells stay descriptive. What we ask of a detection paper is narrow: **name the counting unit, freeze in writing which checkpoint is reported, and state the interval at the claim's level.** First report is the companion's (§7.2).
+A count is meaningless until its **unit** is named: the same nineteen benchmarks answer differently under each declared unit (Fig. 1, Table 3), and re-tallying them after the 2026-10-09 first-party correction record moves the **layer** units up and the **package and report** units down (**Table 3**, Supplementary S12) — the **majority** conclusion is unchanged (the weakest recomputed **majority** is still **10/19**). Three findings stand. **The most robust number is the transfer slope κ (§8.7): early `val` movement does transfer to `test`, and the premium is its residual.** The premium is positive in all four cells, the baseline gaining more, and the paired Δgap **varies in sign** by corpus — so "the convention understates the effect" is not claimed. On five arm-cells at n = 10 **under a 20 %-train protocol** it is realized on a disjoint split at **23.3 %** (claim-level **[−17.3 %, 53.2 %]**, P(rate ≤ 0) = **0.118**); **at full training budget on the same corpus the pooled rate rises to +99.2 % (95 % interval [+80.4 %, +122.0 %]), above the pre-registered band — so the loss we report is a small-sample one, and our recommendation is correspondingly weaker.** Two things do **not** hold: the σ√(2 ln E) scaling was tested and **withdrawn**, and no power analysis was registered, so the nine `n = 3` cells stay descriptive. What we ask of a detection paper is narrow: **name the counting unit, freeze in writing which checkpoint is reported, and state the interval at the claim's level.** First report is the companion's (§7.2).
 
 ## Declarations
 

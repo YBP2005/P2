@@ -3891,3 +3891,117 @@ looking shipped when it is not.
 
 **Per-run κ (n = 41 runs):** mean **0.737**, SD **0.152** — spread across runs is genuine, and the printed run-clustered CI **[0.671, 0.745]** lies inside it.
 
+---
+
+## S13 · Full-budget realisation on VisDrone (the E1 experiment)
+
+**Protocol.** The corpus is VisDrone. `train` is the public train split (6,471 images) with the
+500-image `val` carve removed (**5,971**); `val` is that carve; `test` is the corpus's own
+held-out split (**1,610**). Training is YOLOv12n for **100 epochs** at batch 32 / 640 px,
+SGD, the `shapeiou` loss, `train_obj.py`; the two arms differ **only** in `lr0` (`base100` =
+0.001, `lr005_100ep` = 0.005, §5.1's axis); ten training file orders per arm (`--shuffle-seed`
+42–51), 20 runs. Twenty runs were split across the two machines (A: 11, B: 9).
+
+**Leakage self-check (machine-checked at build time).** `comm -12` over the two image listings
+gives **train ∩ val = 0**; `train` 5,971 · `val` 500 · `test` 1,610; every `train` image has a
+matching label file. The three-way YAML is `/root/datasets_mask/visdrone/visdrone_full_3way.yaml`.
+
+**Definitions (identical to §8.6).** `prem_val = V_max − V_final` on `val`, where `V(e)` is the
+run's own `metrics/mAP50-95(B)` curve; `T_best` is the **reported** endpoint (the ledger column,
+the `best.pt` endpoint) evaluated on `test`; `T_last` is the test reading of the run's **last**
+saved checkpoint; `prem_test = T_best − T_last`; realisation rate = mean(`prem_test`)/mean(`prem_val`).
+Both `prem_val` and `prem_test` are in **pp** (mAP50-95 × 100).
+
+**Table S46.** Per-run readings (20 runs). `T_best`/`T_last` are on `test`.
+
+| Machine | Run | Arm | Seed | `prem_val` | `T_best` | `T_last` | `prem_test` |
+|---|---|---|---|---|---|---|---|
+| A | `r18_e1full_y12n_base100_s42n` | base100 | 42 | +0.253 | 13.190 | 12.945 | +0.245 |
+| A | `r18_e1full_y12n_base100_s43n` | base100 | 43 | +0.304 | 13.200 | 13.055 | +0.145 |
+| A | `r18_e1full_y12n_base100_s44n` | base100 | 44 | +0.410 | 13.160 | 12.983 | +0.177 |
+| A | `r18_e1full_y12n_base100_s45n` | base100 | 45 | +0.277 | 13.120 | 13.025 | +0.095 |
+| A | `r18_e1full_y12n_base100_s46n` | base100 | 46 | +0.105 | 13.230 | 13.069 | +0.161 |
+| A | `r18_e1full_y12n_base100_s47n` | base100 | 47 | +0.280 | 13.280 | 13.079 | +0.201 |
+| A | `r18_e1full_y12n_base100_s48n` | base100 | 48 | +0.217 | 13.220 | 13.044 | +0.176 |
+| B | `r18_e1full_y12n_base100_s49n` | base100 | 49 | +0.285 | 13.130 | 12.934 | +0.196 |
+| B | `r18_e1full_y12n_base100_s50n` | base100 | 50 | +0.181 | 13.170 | 13.014 | +0.156 |
+| B | `r18_e1full_y12n_base100_s51n` | base100 | 51 | +0.247 | 13.130 | 12.984 | +0.146 |
+| A | `r18_e1full_y12n_lr005_100ep_s42n` | lr005_100ep | 42 | +0.199 | 13.750 | 13.377 | +0.373 |
+| A | `r18_e1full_y12n_lr005_100ep_s43n` | lr005_100ep | 43 | +0.285 | 13.590 | 13.301 | +0.289 |
+| A | `r18_e1full_y12n_lr005_100ep_s44n` | lr005_100ep | 44 | +0.290 | 13.730 | 13.452 | +0.278 |
+| A | `r18_e1full_y12n_lr005_100ep_s45n` | lr005_100ep | 45 | +0.315 | 13.690 | 13.274 | +0.416 |
+| B | `r18_e1full_y12n_lr005_100ep_s46n` | lr005_100ep | 46 | +0.202 | 13.750 | 13.539 | +0.211 |
+| B | `r18_e1full_y12n_lr005_100ep_s47n` | lr005_100ep | 47 | +0.412 | 13.670 | 13.280 | +0.390 |
+| B | `r18_e1full_y12n_lr005_100ep_s48n` | lr005_100ep | 48 | +0.243 | 13.780 | 13.422 | +0.358 |
+| B | `r18_e1full_y12n_lr005_100ep_s49n` | lr005_100ep | 49 | +0.409 | 13.890 | 13.438 | +0.452 |
+| B | `r18_e1full_y12n_lr005_100ep_s50n` | lr005_100ep | 50 | +0.385 | 13.710 | 13.253 | +0.457 |
+| B | `r18_e1full_y12n_lr005_100ep_s51n` | lr005_100ep | 51 | +0.075 | 13.830 | 13.422 | +0.408 |
+
+**Table S47.** Summaries. The interval is a **run-level bootstrap** (20,000 resamples, seed
+20261011) of the ratio mean(`prem_test`)/mean(`prem_val`); it is **not** §8.6's cell-level interval
+and the two are not pooled (§12).
+
+| Arm | n | `prem_val` (pp) | `prem_test` (pp) | realisation rate | 95 % interval |
+|---|---|---|---|---|---|
+| `base100` (`lr0` = 0.001) | 10 | +0.256 | +0.170 | **+66.4 %** | inside [−28 %, +74 %] |
+| `lr005_100ep` (`lr0` = 0.005) | 10 | +0.282 | +0.363 | **+129.0 %** | above the band |
+| **pooled (run-weighted)** | **20** | **+0.269** | **+0.266** | **+99.2 %** | **[+80.4 %, +122.0 %]** |
+
+**Registration and the decision rule.** The interval **[−28 %, +74 %]** was registered with the
+reviewers **before** this experiment ran; the rule is that a point estimate outside it changes the
+recommendation. The pooled rate **+99.2 %** lies above the band, and the interval's **lower edge
+(+80.4 %)** also lies above it, so the outcome is **not** a point estimate near the boundary.
+
+**Counts.** `prem_val < 0`: **0/20**. `prem_test < 0`: **0/20**. No run was excluded; every run
+that appears in either ledger appears here.
+
+**Entry points.** `work/ab_p2_experiments_20261011/q_e1full_n_lane.sh` (the lane runner),
+`e1_stream_sweep.sh` (the marker-driven per-epoch test sweep), `collect_e1full_local.py` (pulls both
+ledgers and both `e1full_perepoch_*/g6_perepoch.csv` and computes every number above).
+
+**A second-corpus replication is registered**: `mask_clean` at full budget (`train` 5,220 =
+6,120 − 900 carve, `val` carve 900, `test` 919, `nc` = 1), same design (two arms × ten file orders),
+launched 2026-10-11 09:59Z; its readings will be appended here when complete.
+
+
+---
+
+## S14 · Text moved from the article (2026-10-11 revision)
+
+These passages were in the article and are retained here verbatim, so that no content is lost in
+meeting the 35-page limit; each is already carried by §S12 in substance.
+
+### S14.1 §8.6 表 4 caption 后半
+
+**Read with the 2026-10-06 escalation folded in, the full twenty-six-cell pool keeps its direction**: `WC > 0` in **25 of 26** arm-cells, the arm-cell median realization rate **17.2 % → 21.6 %**, and the premium still negative in **8 of 13** strategy arms (**Supplementary S12**, Table S38b).
+
+### S14.2 §8.6 三条限制
+
+**Three limitations**: ① in the **41-run epoch sweep** only the two headline cells reach n = 10; `aitod20` contributes one run of 30 epochs and 6 checkpoints where others contribute **20** (hence 806, not 820), its Table 4 arm-cell a separate n = 10 batch; ② **closed: every retained checkpoint is now evaluated**, the *stability* reading is narrower than the grid; ③ κ is relative to each run's own final epoch, not causal.
+
+### S14.3 §8.7 度量自纠（重复说明）
+
+**One metric self-correction first.** Our first version used `r(e) = ΔT(e)/ΔV(e)`, producing values such as **−860 % and +1031 %**: at late epochs `V(e) ≈ V(final)`, the **denominator vanishing** — **an ill-conditioned metric, not a finding.** We report only the non-dividing `ΔV(e) = V(e) − V(final)` and `ΔT(e) = T(e) − T(final)`, summarized by the through-origin slope κ of ΔT on ΔV.
+
+### S14.4 §8.7 重算状态段
+
+**Recomputation status.** The readings were originally **not locally recomputable** (the archive lacks 6 of 7 corpora; **§10, defect 5**); a GPU **2 × 2 evaluation** on **41** three-way runs of **YOLOv12n [54]** × {`best`, `last`} × {`val`, `test`} makes them so, **retraining not**, reproducing the archived `best × test` values to within **0.0047 pp** (median **0.0021 pp**) — the endpoint rule's positive control (**Supplementary S12**).
+### S14.8 §8.6 池组成敏感性段（S12 已载）
+
+**Pool composition — and why the claim does not turn on it.** Table 4 prints **six** measured arm-cells; adding the sixth (`aitod20` **strategy**) moves the run-weighted rate **23.3 % → 8.7 %** and the median **+17.6 % → −4.2 %**. **The inclusion rule is a rule, not a per-cell choice**: an arm-cell enters **iff its `test` side reached n ≥ 5**, and **exactly five met it at the freeze**, where all three weightings coincide (**23.26 %**). The sixth row **qualifies but completed later**, so it is the sensitivity. **Every claim is interval-level and any scope gives the same verdict** — five-cell **[−17.3 %, 53.2 %]** (P = 0.118), six-cell **[−4.9 %, +21.3 %]**, eleven-cluster **[19.3 %, 60.4 %]** — the cell-level intervals **both cover zero**, so **no conclusion depends on the pool boundary**.
+
+### S14.9 §8.6 三种基（与 Aggregate 段重复）
+
+**The three bases**: run-level `[8.4 %, 37.4 %]`, `P = 0.002`; five-cell `[−17.3 %, 53.2 %]`, `P = 0.118` (claim-level, **zero inside**); eleven-cluster `[19.3 %, 60.4 %]`, `P < 0.001` (a bootstrap tail proportion **at the 20,000-resample resolution**, i.e. below the floor this procedure can print).
+
+### S14.10 §8.6 再聚合尾句（S12 已载）
+
+Re-aggregated: run-weighted **36.9 %**, arm-cell-equal **39.3 %**, 95 % CI **[19.3 %, 60.4 %]** — **completing the cell, not the weighting, is what moves it**: at n = 10 the three weightings agree, so **the fragile axis is pool composition**. **Leave-one-out 9.77 % to 34.16 %.** In two arm-cells the selection action **costs** rather than fails to pay off (`smoke2sf` strategy, `aitod20` baseline); the escalated cells of §5.1 are **not pooled with these five** (different runs, different protocol). The closest concurrent work [12], the winner's-curse check, the withdrawn σ√(2 ln E) form and each cell's corpus pair: **Supplementary S12**.
+
+### S14.31 §8.6 纳入规则 blockquote
+
+> **The inclusion rule, stated as a rule.** An arm-cell enters the pool **iff its `test` side reached n ≥ 5** (`work/item2_final_v2_20260925.py`), applied to every cell alike; **exactly five met it at the 2026-09-25 freeze** (50 runs). The `aitod20` strategy row **qualifies under the same rule but completed after the freeze**, so it is printed here as the sixth row and kept out of the primary pool — **the `†` row, and the only one**; **both readings are reported and both intervals cover zero** (Table S20's note, §8.6b).
+
+### S14.27 §8.6 best.pt 残差注
+
+(the `best.pt`-versus-argmax residual, our withdrawn attribution and why the remainder is **unidentified**: **Supplementary S12**.)
