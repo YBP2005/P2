@@ -87,7 +87,7 @@ of the `val`/`test` convention and its selection premium (§4–5); and the **me
 premium on a disjoint split with the reporting conventions it depends on (§8.6–8.7, §11, §3.1).
 
 1. **We quantify the magnitude and direction of configuration-level aliasing.** The selection premium
-   (best − last) is **positive in all four cells, the baseline arm gaining more** (**near-definitional; §5.1**; four paired 95 % CIs
+   (best − last) is **positive in all four cells, the baseline arm gaining more** — **on an escalated four-cell base, not a sample** (**near-definitional; §5.1**; four paired 95 % CIs
    excluding zero, §5.1 Tier 1) — **consistent with the selection-bias literature** [5], not new in
    kind. **All four cells meet the stated-n criterion (n = 10–11)** and all four survive a Benjamini–Hochberg step over **these four** at q = 0.05 — the fourth, `dota15`, entered at n = 3
    and was escalated to n = 10 under a criterion fixed in advance (**Table S28's note**) — so the convention
@@ -210,8 +210,7 @@ wrong, and external checking refuted it (§5.4, II). **Endpoint convention (froz
 **within a single run**, both endpoints reported for every cell; §7.2–§7.3 quantify the other
 convention.
 
-**Tier 1: the selection premium is positive in all four cells and the baseline arm gains more**,
-consistent with the selection-bias literature, not new in kind; **on the monitored split that positivity is near-definitional** (`best` is that curve's own argmax), and **the finding we report is the paired arm difference and its test side (§8.6)**. Pairing brings **no** variance benefit:
+**Tier 1: on the monitored split this positivity is near-definitional** (`best` is that curve's own argmax), so **the finding we report is the paired arm difference and its test side (§8.6)**: the selection premium is positive in all four cells, the baseline arm gaining more — consistent with the selection-bias literature, not new in kind. Pairing brings **no** variance benefit:
 the paired t of 5.74 and the unpaired Welch t [25] of **5.68** agree — at ρ = 0, **standard arithmetic
 rather than an empirical finding of ours** [24]. **Permutation checks** agree with the t-tests at each cell’s attainable floor (**Supplementary S12**).
 
@@ -225,7 +224,7 @@ than contrary, since its mechanism is holdout **reuse** and ours needs none.
 11+/0−): **the mean direction is metric-robust, one cell's significance and sign unanimity are not**
 (full mAP50 columns and both mAP75 columns — the mAP75 `val` side is a **5-epoch grid**, so a rate computed from it is **upward-biased** — **Supplementary S12**).
 
-**Table 1.** Tier 1 — each arm's **peak−final gap** and the **paired difference** between arms, by cell; the gap is a within-run maximum (§5.1), so the finding is the paired difference. `n` counts paired units (**eleven**: ten `--shuffle-seed` runs plus one unseeded — Supplementary S12); both differences hold at n = 10. **A different run set from the transfer measurement in §8.6**: these are the 569-run local archive under the published (aliased) protocol, while that measurement’s premiums come from the clean three-way runs — the two tables’ premiums are different quantities, not two readings of one. Source: `verify_two_critiques_20260916.txt`; the `dota15` row's n = 10 escalation is in Table S28.
+**Table 1.** Tier 1 — each arm's **peak−final gap** and the **paired difference** between arms, by cell; the gap is a within-run maximum (§5.1), so the finding is the paired difference. `n` counts paired units (**eleven**: ten `--shuffle-seed` runs plus one unseeded — Supplementary S12); at n = 10 the two headline cells read **+0.544** (`shwd2sf`) and **+0.397** (`smoke2sf`), both 10+/0−, and both differences hold at n = 10 (Supplementary S12). **A different run set from the transfer measurement in §8.6** — the two tables’ premiums are **different quantities, not two readings of one** (which run set each uses: **Supplementary S12**). Source: `verify_two_critiques_20260916.txt`; the `dota15` row's n = 10 escalation is in Table S28.
 
 | Cell | n (paired units) | peak−final gap, base | peak−final gap, strat | **paired diff** | sd | t | p | perm. *p* (floor 2/2ⁿ) | 95 % CI |
 |---|---|---|---|---|---|---|---|---|---|
@@ -394,7 +393,7 @@ headline effect, the **seed-budget discipline** measured rather than assumed ([5
 **Fig. 2.** The `val`-selected premium against what it realizes on the disjoint `test` split, per arm-cell; the title's aggregate is the plotted pool's — **§8.6** names the pool Table 4 uses.
 
 **What this section claims, and what it does not.** The rate below is the realization of the `val`-selected premium on a disjoint split **for the five arm-cells measured here, under the companion's protocol** — **not a constant**. The escalated cells reach a **pooled
-55 %**, but the two batches are **not pooled** (different runs, different protocol, §8.1). "The
+55 %**, but the two batches are **not pooled** (§8.1). "The
 convention realizes about a quarter of the `val` premium" would be false; "in these five cells, about
 a quarter survives" is what we measured.
 
@@ -523,11 +522,11 @@ behind every count, as Table 3's header does.
 
 ## 13. Conclusions
 
-A count is meaningless until its **unit** is named: the same nineteen benchmarks answer differently under each declared unit (Fig. 1, Table 3) — **10/19** under `release`, **13/19** under `protocol`, **4/19** under `yolo_dist`, and **12–14 of the 19** under `reported` (whose COCO-`val` reading is **13/19**). **Re-tallied after the 2026-10-09 first-party correction record, under the same per-column rule and with these printed counts frozen, the same four units read 14/19, 14/19, 2/19 and 10–11 of the 19** (Table 3, Supplementary S12) — the two **layer** units rise, the two **package and report** units fall, and the **majority** conclusion is unchanged (the weakest recomputed **majority** is still **10/19**). Three findings stand. **The most robust number is the transfer slope κ (§8.7): early `val` movement does transfer to `test`, and the premium is its residual.** The premium is positive in all four cells, the baseline gaining more, and the paired Δgap **varies in sign** by corpus — so "the convention understates the effect" is not claimed. On five arm-cells at n = 10 it is realized on a disjoint split at **23.3 %** (claim-level **[−17.3 %, 53.2 %]**, P(rate ≤ 0) = **0.118**). Two things do **not** hold: the σ√(2 ln E) scaling was tested and **withdrawn**, and no power analysis was registered, so the nine `n = 3` cells stay descriptive. What we ask of a detection paper is narrow: **name the counting unit, freeze in writing which checkpoint is reported, and state the interval at the claim's level.** First report is the companion's (§7.2).
+A count is meaningless until its **unit** is named: the same nineteen benchmarks answer differently under each declared unit (Fig. 1, Table 3), and re-tallying them after the 2026-10-09 first-party correction record moves the **layer** units up and the **package and report** units down (**Table 3**, Supplementary S12) — the **majority** conclusion is unchanged (the weakest recomputed **majority** is still **10/19**). Three findings stand. **The most robust number is the transfer slope κ (§8.7): early `val` movement does transfer to `test`, and the premium is its residual.** The premium is positive in all four cells, the baseline gaining more, and the paired Δgap **varies in sign** by corpus — so "the convention understates the effect" is not claimed. On five arm-cells at n = 10 it is realized on a disjoint split at **23.3 %** (claim-level **[−17.3 %, 53.2 %]**, P(rate ≤ 0) = **0.118**). Two things do **not** hold: the σ√(2 ln E) scaling was tested and **withdrawn**, and no power analysis was registered, so the nine `n = 3` cells stay descriptive. What we ask of a detection paper is narrow: **name the counting unit, freeze in writing which checkpoint is reported, and state the interval at the claim's level.** First report is the companion's (§7.2).
 
 ## Declarations
 
-- **Data availability.** The **seven experiment corpora are open**; what the pack lacks is their **images**, so retraining is not recomputable (§10 defect 6). Separately, §5.5's **third-party logs** are **not redistributed** (hashes + pointers only), as **5 of their 6 sources state no licence**. The package — data, per-epoch matrix, verdicts, checkers, `MANIFEST_sha256.csv` — is at **https://github.com/YBP2005/P2.git** (accessed 2026-09-29). The reproduction package itself — data files, per-epoch matrix, verdict files, checkers, with their SHA-256 list in `MANIFEST_sha256.csv` — is deposited and openly available at **https://github.com/YBP2005/P2.git** (accessed 2026-09-29).
+- **Data availability.** The **seven experiment corpora are open**; what the pack lacks is their **images**, so retraining is not recomputable (§10 defect 6). Separately, §5.5's **third-party logs** are **not redistributed** (hashes + pointers only), as **5 of their 6 sources state no licence**. The reproduction package — data files, the per-epoch matrix, verdict files and checkers, with their SHA-256 list in `MANIFEST_sha256.csv` — is openly available at **https://github.com/YBP2005/P2.git** (accessed **2026-10-11**; the repository was recreated on 2026-10-10, and the released tree is the one that manifest describes).
 - **Recomputability boundary.** Every reported number is recomputable from the released per-run artifacts **without
   retraining**, each with its script; **three are not, and they are named**: the corpora and carve directories the
   archive **holds no copy of** (open corpora, images not in the pack; §10 defect 6), the conflicting-endpoint archives

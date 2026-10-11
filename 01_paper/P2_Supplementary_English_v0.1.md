@@ -576,7 +576,7 @@ smoke2sf    strat  10     0.605     -0.158     -26%   +0.00 +0.36 -0.42 -0.33 +0
 
 ## Reading
 
-- Complete logs (≥40 epochs) number **20** in total, coming from **6** source repositories; the median premium is **+1.04 pp**, the maximum **+5.65 pp**, the minimum **+0.00 pp**; **18/20** are positive.
+- Complete logs (≥40 epochs) number **20** in total, coming from **6** source repositories; the median premium is **+1.04 pp**, the maximum **+5.65 pp**, the minimum **+0.00 pp**. **The sign carries no information**: the quantity is a within-run maximum minus that run's own final epoch, so it is **non-negative by construction**, and this is a **convenience sample with no sampling frame** — the spread is the content, not the count of positives.
 - Distribution: +0.00, +0.00, +0.10, +0.14, +0.16, +0.31, +0.57, +0.70, +0.74, +0.91, +1.18, +1.33, +1.42, +1.54, +1.55, +2.07, +2.16, +2.36, +2.84, +5.65
 - **The most important point**: the largest single premium **+5.65 pp** appears in an ordinary public release log, whereas the effects reported in this kind of literature are often only of the order of 0.5–2 pp——that is, **the selection component can be of the same order as, or even larger than, the reported effect**. The median +1.04 pp is already not small. This explains why "on which split the reported value was selected" is not a detail.
 - But the sample is still small (20 logs, 6 sources, and most sources do not annotate the dataset/protocol), so it **can only** be written as "this component is present and quantifiable in other people's published logs"; it **cannot** provide a field-level distribution, nor **can** benchmark aliasing be inferred from it.
@@ -795,7 +795,7 @@ The strength of every statement in the main text is distinguished accordingly.
 | Complete logs (≥ 40 epochs) | **20 / 6 sources** |
 | Median premium | **+1.04 pp** |
 | Max / min | **+5.65 / +0.00 pp** |
-| Positive | **18/20** |
+| Positive | **18 of 20** (non-negative by construction, so this carries no information) |
 | Distribution | +0.00, +0.00, +0.10, +0.14, +0.16, +0.31, +0.57, +0.70, +0.74, +0.91, +1.18, +1.33, +1.42, +1.54, +1.55, +2.07, +2.16, +2.36, +2.84, +5.65 |
 
 
@@ -1815,7 +1815,7 @@ per-run rate column):
 
 ![Fig. S2](figures/fig4_public_logs.png)
 
-**Fig. S2.** Selection premium (best − final epoch, mAP50-95 pp) in the 20 complete third-party logs (≥ 40 epochs, 6 source repositories). Median +1.04 pp, maximum +5.65 pp, 18/20 positive, minimum +0.00. The same component measured on our own runs (main text §5.1) is present in logs we did not produce. Source: main text §5.5; `figures/FIGURES.md`.
+**Fig. S2.** Selection premium (best − final epoch, mAP50-95 pp) in the 20 complete third-party logs (≥ 40 epochs, 6 source repositories). Median +1.04 pp, maximum +5.65 pp, minimum +0.00. **The quantity is non-negative by construction** (a within-run maximum minus that run's own final epoch), so the sign is uninformative and the spread is the content; **a convenience sample with no sampling frame**. The same component measured on our own runs (main text §5.1) is present in logs we did not produce. Source: main text §5.5; `figures/FIGURES.md`.
 
 ## S11 · Formalisation: propositions and proofs (companion to §3.1 of the article)
 
