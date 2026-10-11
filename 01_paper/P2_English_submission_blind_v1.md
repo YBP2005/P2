@@ -509,8 +509,8 @@ behind every count, as Table 3's header does.
 - The audit reads **split definitions** (YAML, README, paper text), **no datasets downloaded**.
 - For several benchmarks the "generic YOLO copy" is **per-project**, not canonical.
 - Under the `reported` unit, **4 rows (AI-TOD, DIOR, Mendeley, D-Fire) are evidence-insufficient**; we do
-  not guess. Counts are **row-equal over the 19**, and the grading enters the **error bar, not the
-  count** (**Table 3's second column**).
+  not guess. Counts are **row-equal over the 19**, and they carry **no sampling interval, deliberately**
+  — the grading enters the **count** itself (**Table 3's second column**).
 - Two evidentiary differences (pod versus local) are listed side by side.
 - The census is a **literature/release survey**, weaker than our **self-measurement** (§3).
 - The **difficulty/selection decomposition** (§5.6) covers **2 of the 13 cells** (the headline two); the **identity** behind it is checked on **all 13** (`work/gap_mechanism_20260916.txt`) — what is scoped is the decomposition, not the identity.

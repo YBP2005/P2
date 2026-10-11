@@ -1667,7 +1667,7 @@ too, each carrying a headline number to check:
 | **Fig. S1** | Supplementary §S9, §5.6 |
 | **Fig. S2** | Supplementary §S9, §5.5 |
 
-**Not in the index above.** Seven tables in this section were not moved from the article and are therefore
+**Not in the index above.** Nine tables in this section were not moved from the article and are therefore
 not rows of the index: **S34** (cross-lineage realization test, non-YOLO detector), **S34b** (the G3 clean
 re-run, early stopping disabled, one machine, four budgets), **S34c** (the cross-lineage test on a second
 corpus, SFCHD, and the carve that gives it a disjoint selection set), **S34e** (the cross-lineage test on a
@@ -3513,9 +3513,9 @@ the pass could not be blinded — the printed coding was visible throughout, and
 statistics below are a consistency check against a visible target, not a blind inter-rater
 result. **The second pass is model-assisted, not a second human rater, and it does not
 replace the single-rater disclosure printed with the table.** Its per-cell marks are
-archived with the audit ground for each row (`work/the earlier-round coding table (**withdrawn from the released package**; not published)`), and every
-statistic below is recomputed mechanically by a script that reads the printed table and
-that file (`work/kappa_the earlier coding rounds (**withdrawn from the released package**)_20260927.py`; machine output
+archived with the audit ground for each row (`work/second_coding_20260927.csv`, **withdrawn from the released
+package**; not published), and every statistic below is recomputed mechanically by a script that reads the
+printed table and that file (`work/kappa_second_coding_20260927.py`; machine output
 `work/kappa_computed_20260927.txt`, readable summary `work/kappa_summary_20260927.md`). The
 pass coded against the archived configuration audit — the evidence base one step upstream
 of the printed table, whose English rows mirror a Chinese authoritative file.
