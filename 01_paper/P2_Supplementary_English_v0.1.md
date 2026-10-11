@@ -1148,6 +1148,10 @@ The strength of every statement in the main text is distinguished accordingly.
 > `work/g6_repro_vs_printed_20260930.py`; the evaluation itself: `work/g6_perepoch_eval.py`,
 > `work/g6_coverage_audit.py`.
 >
+> **Table 4 的各列来源（2026-10-11 从正文搬来）**：`prem_val` 取**逐 epoch `val` 曲线**（各 run 的 `results.csv`）；
+> `prem_test` 取 `xeval_20260916/matrix.csv` 与本次修订的两批（`x4_teval.csv` 在 A 机、`x4fill_20260925.csv` 在 B 机）。
+> 三处均为已放行件。
+
 > **Ten of the arm-cells above that stood at n = 3 were escalated to n = 10 on 2026-10-06**
 (seeds 45–51 trained on the two pods; the three earlier seeds are reused, not replaced, so each cell
 > pools seeds 42–51 with no duplicate). Their pooled values, side by side with the n = 3 readings

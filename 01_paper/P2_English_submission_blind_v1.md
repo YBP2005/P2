@@ -399,8 +399,7 @@ a quarter survives" is what we measured.
 
 **How much of the gain selected on `val` survives on `test`?**
 
-**Table 4.** The premium selected on `val` versus what that same selection action realizes on the disjoint `test` split, per arm-cell (**an unbalanced pool** — two corpora contribute both arms, `aitod20` only its baseline — so the arm-cell is the unit). Source: the **per-epoch `val` curves** (`results.csv`, for `prem_val`), `xeval_20260916/matrix.csv`, and this
-revision's two batches (`x4_teval.csv` on A, `x4fill_20260925.csv` on B, for `prem_test`). **The §10 memory-pressure bound (defect 10) does not arise here**: its hits are in §3.1's clean batch and §5.1's `p_vistod15`.
+**Table 4.** The premium selected on `val` versus what that same selection action realizes on the disjoint `test` split, per arm-cell (**an unbalanced pool** — two corpora contribute both arms, `aitod20` only its baseline — so the arm-cell is the unit). Source files for every column: **Supplementary S12** (this revision's two batches included). **Read with the 2026-10-06 escalation folded in, the full twenty-six-cell pool keeps its direction**: `WC > 0` in **25 of 26** arm-cells, the arm-cell median realization rate **17.2 % → 21.6 %**, and the premium still negative in **8 of 13** strategy arms (**Supplementary S12**, Table S38b). **The §10 memory-pressure bound (defect 10) does not arise here**: its hits are in §3.1's clean batch and §5.1's `p_vistod15`.
 
 | Cell | Arm | n | `prem_val` | **`prem_test`** | **realization rate** |
 |---|---|---|---|---|---|
