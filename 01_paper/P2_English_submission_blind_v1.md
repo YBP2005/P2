@@ -499,8 +499,8 @@ behind every count, as Table 3's header does.
 ⑤ **A plateau is a post-hoc candidate, not a rule we validate.** Weight averaging is established [55];
    what is *measured here* takes the **mean of the ranked top-5 `val` epochs' readings** (a reading average, not a weight average), capturing **70 %** of the
    realizable gain against the argmax's **30 %**, at the cost of **0.73 pp** below the peak — a post-hoc
-   reading of our own 40 runs, untested as an intervention. The per-rule table and the
-   candidate mechanism are in **Supplementary S11**, Measurement 3.
+   reading of our own 40 runs, untested as an intervention **and not general across corpora — extending
+   the same test to eight further arm-cells reverses it (Supplementary S11, Measurement 3)**.
 
 ---
 

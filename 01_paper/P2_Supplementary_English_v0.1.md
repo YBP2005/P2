@@ -2027,13 +2027,21 @@ tested it, and it is **not established**:
 * the four cells read: `σ̂_seed` 0.629 → +0.194 pp, 0.639 → +0.154 pp, 1.125 → +0.318 pp, 1.201 → +0.447 pp —
   i.e. both noisy cells show about twice the advantage of both quiet cells, with no exceptions.
 
-**What this is and is not.** The *advantage* of the plateau rule is established (Measurement 3, and the
-paired test +0.278 pp, t = 3.678, p = 7.1×10⁻⁴, positive in 26 of 40 runs). The *mechanism* is
-**consistent but not significant on four cells**, so we report it as a candidate and not as a result.
-Settling it needs more corpus cells with per-epoch `test` readouts — the direction of the effect is
-already pinned down by the four we have, but four points cannot carry a significance claim. The
-`test` side of the remaining corpora has since been closed (Table S38), so the extension can be run
-on the release; we do not read it here rather than report it as settled.
+**What this is and is not.** The *advantage* of the plateau rule is established **on the forty runs of
+Measurement 3** (paired test +0.278 pp, t = 3.678, p = 7.1×10⁻⁴, positive in 26 of 40 runs). The
+*mechanism* is **consistent but not significant on four cells**, so we report it as a candidate and not
+as a result. **The extension was run (2026-10-11), and the mechanism does not survive it.**
+`work/prop6_rules_20260920.py` reproduces the forty runs' table exactly (argmax **+0.211**, top-5
+**+0.490**) and their four per-cell advantages (+0.194 / +0.154 / +0.318 / +0.447); extending the same
+definitions to the **eight** additional arm-cells whose per-epoch `test` side is closed (the
+`*100ep`/`base100` cells of Table S38, twenty-one grid points each) makes **twelve** cells, and there
+the correlation **collapses and changes sign**: ρ(σ̂_seed, top-5 − argmax) = **−0.152**, only **5 of 12**
+cells positive, pooled advantage **−0.178 pp** against +0.278 pp on the original four. **So the
+prediction "the plateau advantage grows with `val`-curve noise" is refuted rather than under-powered**,
+and the rule's advantage itself is **not general across corpora** — it is a property of the runs it was
+found on. Both are why §11⑤ presents the rule as a post-hoc candidate the article does not recommend,
+and why we do not carry it into the Recommendations as a measured remedy. Script:
+`work/x10_plateau_extend_20261011.py`.
 
 ### 13.2 §3.2: the per-comparison reasoning, moved from the article
 
