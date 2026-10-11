@@ -2595,7 +2595,7 @@ What is recorded for **all thirteen** scanned cells is the val-side selection ga
 pipeline's own fitness rule kept (`best.pt`), read on the disjoint split. Handing a "selected
 checkpoint" to a split therefore always resolves to one of these two endpoints, and no other convention
 is used anywhere in this paper. The four paired differences and their intervals are in Table 1; the
-Δgap values and readings for the **four printed cells** are in Table 2; the other nine cells of the 13-cell scan are in §5.6 and **Table S10** (seven rows) with the remaining components in `work/gap_mechanism_20260916.txt`.
+Δgap values and readings for the **four printed cells** are in Table 2; the other nine cells of the 13-cell scan are in §5.6 and **Table S10** (all thirteen rows) with the remaining components in `work/gap_mechanism_20260916.txt`.
 
 **Sign-flip permutation tests on the four Tier-1 paired differences.** Table 1 of the article reports a
 paired *t* test per cell. Its non-parametric counterpart needs no distributional assumption and is exact

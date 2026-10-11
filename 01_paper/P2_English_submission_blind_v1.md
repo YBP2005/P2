@@ -442,7 +442,7 @@ E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of s
 
 ![Fig. 4](figures/fig5_epoch_curve.png)
 
-**Fig. 4.** **Left**: mean `val` and `test` trajectories over 10 seeds, both headline cells (baseline solid, strategy dashed). **Right**: per-(seed, epoch) `val` movement against what transfers to `test` — the ratio is not taken (its denominator can vanish); the fit through the origin is **κ = 0.734**.
+**Fig. 4.** **Left**: mean `val` and `test` trajectories over 10 seeds, both headline cells (baseline solid, strategy dashed). **Right**: per-(seed, epoch) `val` movement against what transfers to `test` — the ratio is not taken (its denominator can vanish); the fit through the origin is **κ = 0.708** (the title's **0.734** is the earlier five-epoch grid).
 
 **One metric self-correction first.** Our first version used `r(e) = ΔT(e)/ΔV(e)`, producing values such as **−860 % and +1031 %**: at late epochs `V(e) ≈ V(final)`, the **denominator vanishing** — **an ill-conditioned metric, not a finding.** We report only the non-dividing `ΔV(e) = V(e) − V(final)` and `ΔT(e) = T(e) − T(final)`, summarized by the through-origin slope κ of ΔT on ΔV.
 
