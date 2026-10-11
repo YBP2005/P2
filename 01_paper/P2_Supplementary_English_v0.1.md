@@ -207,8 +207,16 @@ Item C: extraction of cross-framework "split and checkpoint-selection" evidence 
     59:         data_root=data_root,
     60:         ann_file='annotations/instances_val2017.json',
     61:         data_prefix=dict(img='val2017/'),
+    65: test_dataloader = val_dataloader
     68:     type='CocoMetric',
     69:     ann_file=data_root + 'annotations/instances_val2017.json',
+    73: test_evaluator = val_evaluator
+
+(Lines **65** and **73** were added to this excerpt on 2026-10-10, re-fetched from the pinned commit
+`cfd5d3a985b0` (blob sha `fdf8dfad9476`, 96 lines, matching the header count above). They are the two
+`test_*` keys the correction in §7.2 cites: the extraction searched only for `val_*`, so they were absent
+from **this excerpt** rather than from the config. The key exists and is bound to the validation object —
+an **alias, not an independent split**.)
 
 ----------------------------------------------------------------------------------------------------
 ### MMDetection :: mmdetection/configs___base___default_runtime.py   (25 lines)
@@ -885,7 +893,7 @@ The strength of every statement in the main text is distinguished accordingly.
 | **PaddleDetection** [33] `b25522a0f4bd` | `EvalDataset` = `val2017` | **not written by default, and now provable line by line** — `paddledetection/tools__train.py` declares `--eval` as `action='store_true', default=False` and passes it to `trainer.train(FLAGS.eval)`; the assignment `status['save_best_model'] = True` sits inside the validation branch of `paddledetection/ppdet__engine__trainer.py` (`if validate and is_snapshot:`), and `best_model` is written only through `paddledetection/ppdet__engine__callbacks.py`'s gate `if 'save_best_model' in status and status['save_best_model']:` — both files are now in the SHA-256 list | **`TestDataset` reads an annotation-free `ImageFolder`, with `anno_path` written as `annotations/instances_val2017.json`** |
 | **DETR** [32] `29901c51d7fe` | `build_dataset(image_set='val')` | **no** (evaluates every epoch but does not track the best) | the `PATHS` in `datasets/coco.py` have **only train and val, no test key** |
 
-> **Correction (2026-10-04, and a defect of our instrument).** The MMDetection row above was first written as "the base config has **no** test split at all". That is **false**: at the pinned commit, `configs/_base_/datasets/coco_detection.py` lines **65** and **73** read `test_dataloader = val_dataloader` and `test_evaluator = val_evaluator`. The extraction behind this table (`work/analyze_xframe_20260916.py`) searched only for `val_*` keys, so the `test_*` keys were **absent from the evidence file rather than absent from the config**. The corrected reading is **stronger for the article's claim**: the key exists but is bound to the validation object — an **alias, not an independent split**. On the same day the other rows were re-checked against the pinned sources and stand (YOLOX: `test_ann` used only when `testdev=True`, `yolox/exp/yolox_base.py` 301/306/307; PaddleDetection: `if validate and is_snapshot:` in `ppdet/engine/trainer.py` 694 with `status['save_best_model'] = True` at 721).
+> **Correction (2026-10-04, and a defect of our instrument).** The MMDetection row above was first written as "the base config has **no** test split at all". That is **false**: at the pinned commit, `configs/_base_/datasets/coco_detection.py` lines **65** and **73** read `test_dataloader = val_dataloader` and `test_evaluator = val_evaluator`. The extraction behind this table (`work/analyze_xframe_20260916.py`) searched only for `val_*` keys, so the `test_*` keys were **absent from the evidence file rather than absent from the config**. The corrected reading is **stronger for the article's claim**: the key exists but is bound to the validation object — an **alias, not an independent split**. **Both lines are now printed in this supplement's §S3 excerpt of the same file** (added 2026-10-10, blob sha `fdf8dfad9476`), so the citation no longer rests on an unprinted source. On the same day the other rows were re-checked against the pinned sources and stand (YOLOX: `test_ann` used only when `testdev=True`, `yolox/exp/yolox_base.py` 301/306/307; PaddleDetection: `if validate and is_snapshot:` in `ppdet/engine/trainer.py` 694 with `status['save_best_model'] = True` at 721).
 
 
 **Table S15.** *7.2 The two clean-protocol cells clear significance by n = 6–8* — columns: Cell, n, Δ, paired t p, permutation p (n = 10 floor 0.001953), seeds positive.
