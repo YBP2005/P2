@@ -1744,9 +1744,9 @@ aggregated by `work/collect_optionC.py`; `prem = V_max − V_final` / `T_best �
 | VisDrone | 12 | +0.0630 (0.0510) | +0.0710 (0.0786) | **112.6 %** | [48.8 %, 211.9 %] | 10/2 · 8/4 |
 | SFCHD | 12 | +0.2887 (0.2761) | +0.0566 (0.1190) | **19.6 %** | [−3.7 %, +41.6 %] | 11/1 · 7/5 |
 
-**Reading, and the wording cap.** On **both** corpora the sign pattern of S34/S34c reappears: a positive
+**Reading, and the wording cap.** The sign pattern of S34/S34c reappears on **SFCHD**: a positive
 `prem_val` mean with a **smaller** `prem_test` mean, i.e. the selection gain does not fully carry to the disjoint
-readout. **The two corpora do not agree on strength**: on VisDrone the realized premium is *not* discounted
+readout. **On VisDrone it does not** — there `prem_test` (mean **+0.0710**) exceeds `prem_val` (**+0.0630**). **The two corpora do not agree on strength**: on VisDrone the realized premium is *not* discounted
 (rate **112.6 %**, interval excluding zero), whereas on SFCHD the rate is **19.6 %** and its interval
 **includes zero** — so on this family the discount is visible on one corpus and not on the other. That is a
 weaker statement than S34c's, and it is the statement the data support: **the cross-family reading here is
@@ -2468,7 +2468,7 @@ can absorb an arm difference of order 13 pp** — it supports "the convention ch
 **What this section claims.** Δgap's sign **varies by corpus** is firm (§5.1). Its generating **mechanism is
 identifiable in this archive only in part**: separating "the two splits' difficulty" from "selection optimism
 (one part on val, one on test)" requires **test metrics at non-selected epochs**, and the archive stores only
-the test value of the **selected** checkpoint — supplying it means re-running the test evaluation (see §8.6 and §10, defect 5, for what that closed).
+the test value of the **selected** checkpoint — supplying it means re-running the test evaluation (see §8.6 and §10, defect 6, for what that closed).
 **What remains is bounded and stated, not left as "mechanism to be explained".**
 
 ---
@@ -3631,7 +3631,7 @@ Mixing two pipelines' `val`/`test` conventions would confound the split conventi
 **One run is recorded with two different endpoints in two archives** — "final" (67.12) in one and "best" (70.06) in the other — i.e. **which checkpoint is recorded was never specified**; §10 discloses it and the two readings' consequences are worked out in **Supplementary S12** and Table S16. **Note (2026-10-04): the archived "best" row was computed with the run's `last` reading standing in for its `best` reading**; the row was corrected in `release_T2_saturated-control_summary.csv` and in the long table on **2026-10-02**, where the `test_best_epoch` entry goes from **−0.902 pp (p = 0.2931)** to **−1.4901 pp (p = 0.0141)**, i.e. **both endpoints now read ≈ −1.490 pp**, so the endpoint conflict does not change any verdict — see §S12 for the row-level detail:
 
 **Recomputation status.** The readings were originally **not locally recomputable** (the archive lacks
-6 of 7 corpora; **defect 5 in §10**); a GPU **2 × 2 evaluation** on **41** three-way runs of
+6 of 7 corpora; **defect 6 in §10**); a GPU **2 × 2 evaluation** on **41** three-way runs of
 **YOLOv12n [54]** × {`best`, `last`} × {`val`, `test`} makes the readings locally recomputable and
 **retraining is not**. That batch reproduces the archived `best × test` values to within **0.0047 pp**
 (median **0.0021 pp**) — the positive control for this paper's endpoint rule (**Supplementary S4**, the verbatim dump that prints both values);
@@ -3695,7 +3695,7 @@ quantity's boundary is stated once, beside the quantity rather than scattered ac
 index.* Every quantity and procedural step this paper reports, classed as **pre-registered** (frozen
 before the runs existed), **pre-planned** (fixed in advance of the analysis but not registered) or
 **post-hoc** (decided after the runs were seen). The class each item carries is the one the article's own
-prose asserts; the ledger collects them so that no post-hoc reading can be mistaken for a registered one. **Any p-value this paper quotes for a post-hoc row is uncorrected and descriptive**: the only multiplicity correction here is the Benjamini–Hochberg step over the declared 13-cell family, and only the pre-planned rows belong to that family.
+prose asserts; the ledger collects them so that no post-hoc reading can be mistaken for a registered one. **Any p-value this paper quotes for a post-hoc row is uncorrected and descriptive**: the multiplicity corrections here are **three and not interchangeable**: a Benjamini–Hochberg step over the **declared, descriptive** 13-cell family (with **Holm** across the two targets of the escalation plan), and the **confirmatory** family, which is the **four escalated cells**; only the pre-planned rows belong to the first.
 
 | Item | Status | What fixes the class |
 |---|---|---|
