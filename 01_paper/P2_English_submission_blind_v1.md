@@ -5,13 +5,13 @@
 
 ## Abstract
 
-Object-detection papers report a number from a split they call held out. We audit that premise, and report three results.
+Object-detection papers report a number from a split they call held out. We audit that premise, in three results.
 
 **1. The convention is broken in our own corpora.** **6 of 14** corpora give the reported number no independent held-out split: the checkpoint was selected there, so training and evaluation do not overlap. What is broken is **checkpoint selection**, not contamination — which turns an ethical question into a **measurement** one.
 
-**2. The selection premium only partly survives.** The premium is positive in every escalated cell; what changes sign by corpus is the **paired Δgap** — the two arms' relative difference on `val` against the same difference on `test` — and not the selection term itself. The **mean direction is metric-robust while one cell's significance and sign unanimity are not** (`smoke2sf`, p = 0.54). A declared, **descriptive** 13-cell scan leaves **3** cells after BH, so the direction claim rests on the four escalated cells, not on the scan. **On a disjoint split, realization is partial**: the **claim-level interval includes zero**, and the arm-cell and run-weighted point estimates are **descriptive**, given with intervals only (Table 4). No power analysis was registered, so the scan's nine `n` = 3 cells stay descriptive.
+**2. The selection premium only partly survives.** The premium is positive in every escalated cell; what changes sign by corpus is the **paired Δgap** — the arms' relative difference on `val` versus on `test` — and not the selection term itself. The **mean direction is metric-robust while one cell's significance and sign unanimity are not** (`smoke2sf`, p = 0.54). A declared, **descriptive** 13-cell scan leaves **3** cells after BH, so the direction claim rests on the four escalated cells. **On a disjoint split, realization is partial**: the **claim-level interval includes zero**, and the arm-cell and run-weighted point estimates are **descriptive**, given with intervals only (Table 4). No power analysis was registered, so the scan's nine `n` = 3 cells stay descriptive.
 
-**3. The printed count rests on one rater.** The layer the literature actually reports is printed as **12–14 of 19**; re-verifying every row first-hand and re-coding blind with **five** current-generation models recovers **19 of 30** corrected cells, eleven unanimously, while **26 of 76** stay undecidable (§6.1, S12).
+**3. The printed count rests on one rater.** The layer the literature actually reports is printed as **12–14 of 19**; re-verifying every row first-hand and re-coding blind with **five** current-generation models recovers **19 of 30** corrected cells, eleven unanimously, while **26 of 76** stay undecidable and **11 of the 30 are not recovered** (§6.1, S12).
 ---
 
 **Keywords:** evaluation validity; dataset splits; checkpoint selection; object detection; benchmark audit;
@@ -225,7 +225,7 @@ than contrary, since its mechanism is holdout **reuse** and ours needs none.
 11+/0−): **the mean direction is metric-robust, one cell's significance and sign unanimity are not**
 (full mAP50 columns and both mAP75 columns — the mAP75 `val` side is a **5-epoch grid**, so a rate computed from it is **upward-biased** — **Supplementary S12**).
 
-**Table 1.** Tier 1 — each arm's **peak−final gap** and the **paired difference** between arms, by cell; the gap is a within-run maximum (§5.1), so the finding is the paired difference. `n` counts paired units (ten file-order replicates, one unseeded — Supplementary S12); both differences hold at n = 10. **A different run set from the transfer measurement in §8.6**: these are the 569-run local archive under the published (aliased) protocol, while that measurement’s premiums come from the clean three-way runs — the two tables’ premiums are different quantities, not two readings of one. Source: `verify_two_critiques_20260916.txt`; the `dota15` row's n = 10 escalation is in Table S28.
+**Table 1.** Tier 1 — each arm's **peak−final gap** and the **paired difference** between arms, by cell; the gap is a within-run maximum (§5.1), so the finding is the paired difference. `n` counts paired units (**eleven**: ten `--shuffle-seed` runs plus one unseeded — Supplementary S12); both differences hold at n = 10. **A different run set from the transfer measurement in §8.6**: these are the 569-run local archive under the published (aliased) protocol, while that measurement’s premiums come from the clean three-way runs — the two tables’ premiums are different quantities, not two readings of one. Source: `verify_two_critiques_20260916.txt`; the `dota15` row's n = 10 escalation is in Table S28.
 
 | Cell | n (paired units) | peak−final gap, base | peak−final gap, strat | **paired diff** | sd | t | p | perm. *p* (floor 2/2ⁿ) | 95 % CI |
 |---|---|---|---|---|---|---|---|---|---|
@@ -281,7 +281,7 @@ external check **corrects this to** the paired-difference form, which cancels th
 under the pairing assumption stated in **§S11**. The argument and the recomputation are in
 **Supplementary S12**.
 ### 5.5 The same component in third-party public logs
-**The same quantity appears in other people's logs** — **a convenience sample with no sampling frame, not a field-level rate**: 20 logs from 6 sources found by repository **search**, median **+1.04 pp**, max **+5.65 pp**, 18/20 positive. **The sign is not the informative part**: the premium is a within-run maximum minus that run's own final epoch, so it is **non-negative by construction** (both non-positive logs sit at exactly **+0.00**), and the sample's content is its **magnitude**. The queries, the rest of the frame and the reason public logs **cannot establish aliasing** are in **Supplementary S12**.
+**The same quantity appears in other people's logs** — **a convenience sample with no sampling frame, not a field-level rate**: 20 logs from 6 sources found by repository **search**, median **+1.04 pp**, max **+5.65 pp**. **The sign is not the informative part**: the premium is a within-run maximum minus that run's own final epoch, so it is **non-negative by construction**, and the sample's content is its **magnitude**. The queries, the rest of the frame and the reason public logs **cannot establish aliasing** are in **Supplementary S12**.
 **Five limitations**: ① the two cells escalated in §5.1 reach n = 10 with **local** runs and test-side
 evaluations, and the remaining 9 cells' `test` side was closed on 2026-09-30 on one machine;
 ② `prem_test` is **best − last**, while the per-epoch `test` curve now exists for **all thirteen**

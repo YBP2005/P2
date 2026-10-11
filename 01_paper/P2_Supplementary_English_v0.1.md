@@ -616,10 +616,11 @@ and neither paper presents it as a methodological contribution.
 
 ---
 
-## S7 · Reproduction entry points (anyone can recompute independently)
+## S7 · Reproduction entry points, and what each one needs
 
 ```powershell
-# ① Main-text anchors (289 entries; must ALL PASS)
+# ① Main-text anchors (289 entries; **270 pass from the released copy** — the other 19 read
+#    author-side working-tree documents, and the checker names them)
 python work\audit_anchors_fupaper.py
 
 # ② 2×2 matrix analysis of S4 (reads the artifacts pulled back in this round)
@@ -2219,6 +2220,8 @@ Tier 1).
 > the record as a defect of the old three-run cell, not of the row now printed.**
 
 ### 9.3 The seed convention: how the ten seeds are realized
+
+**What this implies for the intervals in the article's Tables 1–2** (added 2026-10-10, at review): those intervals take the **replicate** as the sampling unit, so what they bound is the **file-order** component of the reported mean — **not** the variance between independent training seeds. The **initialization** component measured in §8.4 is of the **same order** (**0.146 → 0.439 pp**) and is **not** folded into them; the two tables carry a pointer here for that reason, and their `n` of eleven paired units is ten runs carrying a `--shuffle-seed` suffix plus one whose directory records none. Read the intervals with that axis named.
 
 Per-run randomness is installed as a **deterministic permutation of the training file order**
 (`--shuffle-seed`, set to the number in the run's own name), not through the framework's `seed`
@@ -3864,7 +3867,7 @@ looking shipped when it is not.
 
 **Reproduction of the printed estimate.** This independent recomputation resolves **765 (run, epoch) points over 41 runs** — the same count the printed estimate states — and gives **κ = 0.710** and **R² = 0.928** (R² taken relative to zero, the convention of the printed fit), against the printed **κ = 0.708, R² = 0.937**. The point count agrees **exactly**; the slope agrees to **0.003** and R² to **0.009**, i.e. the printed estimate is reproducible to that tolerance, and the remaining gap is in the fit details rather than the data.
 
-**Free-intercept control** (this is the new information): fitting `ΔT = a + κ_free·ΔV` over the same points gives **κ_free = 0.701** with **intercept = -0.121 pp** — the intercept is indistinguishable from zero, so the through-origin constraint is **supported rather than assumed**.
+**Free-intercept control** (this is the new information): fitting `ΔT = a + κ_free·ΔV` over the same points gives **κ_free = 0.701** with **intercept = -0.121 pp**. **The intercept's interval** (added 2026-10-10, run-clustered): sandwich SE **0.0643**, 95 % CI **[−0.2509, +0.0089]**; run-level bootstrap over the 41 runs (2,000 draws) **[−0.2403, +0.0024]**. Both contain zero, so the through-origin constraint is **supported rather than assumed** — the point estimate is reproduced by `work/x8_intercept_clustered_ci_20261010.py`, which re-uses the same pairing as `work/x6_arm_paired_kappa_20261004.py` and asserts `−0.1210` before reporting.
 
 **Per-run κ (n = 41 runs):** mean **0.737**, SD **0.152** — spread across runs is genuine, and the printed run-clustered CI **[0.671, 0.745]** lies inside it.
 
