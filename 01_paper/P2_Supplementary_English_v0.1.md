@@ -3513,10 +3513,10 @@ the pass could not be blinded — the printed coding was visible throughout, and
 statistics below are a consistency check against a visible target, not a blind inter-rater
 result. **The second pass is model-assisted, not a second human rater, and it does not
 replace the single-rater disclosure printed with the table.** Its per-cell marks are
-archived with the audit ground for each row (`work/second_coding_20260927.csv`, **withdrawn from the released
+archived with the audit ground for each row (the earlier-round coding table, **withdrawn from the released
 package**; not published), and every statistic below is recomputed mechanically by a script that reads the
-printed table and that file (`work/kappa_second_coding_20260927.py`; machine output
-`work/kappa_computed_20260927.txt`, readable summary `work/kappa_summary_20260927.md`). The
+printed table and that table (the script is **withdrawn with it**; its machine output
+`work/kappa_computed_20260927.txt` and its readable summary `work/kappa_summary_20260927.md` are both released). The
 pass coded against the archived configuration audit — the evidence base one step upstream
 of the printed table, whose English rows mirror a Chinese authoritative file.
 
