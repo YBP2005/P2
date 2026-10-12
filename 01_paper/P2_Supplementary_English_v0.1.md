@@ -1148,9 +1148,10 @@ The strength of every statement in the main text is distinguished accordingly.
 > `work/g6_repro_vs_printed_20260930.py`; the evaluation itself: `work/g6_perepoch_eval.py`,
 > `work/g6_coverage_audit.py`.
 >
-> **Table 4 的各列来源（2026-10-11 从正文搬来）**：`prem_val` 取**逐 epoch `val` 曲线**（各 run 的 `results.csv`）；
-> `prem_test` 取 `xeval_20260916/matrix.csv` 与本次修订的两批（`x4_teval.csv` 在 A 机、`x4fill_20260925.csv` 在 B 机）。
-> 三处均为已放行件。
+> **Sources for Table 4's columns (moved here from the article, 2026-10-11).** `prem_val` is taken from the
+> per-epoch `val` curve (each run's `results.csv`); `prem_test` from `xeval_20260916/matrix.csv` together with
+> this revision's two additional batches (`x4_teval.csv` and `x4fill_20260925.csv`, both in the released
+> package). All three are released artifacts.
 
 > **Ten of the arm-cells above that stood at n = 3 were escalated to n = 10 on 2026-10-06**
 (seeds 45–51 trained on the two pods; the three earlier seeds are reused, not replaced, so each cell
@@ -2071,8 +2072,10 @@ once, their difference does not.**
 
 Four of the ten E = 400 runs stopped early under the protocol's own `patience` (effective budgets
 388/318/362/375); on the six that ran to 400 the E = 400 mean is +1.278 pp — and that one restriction
-flips both criteria: on the six full runs the series is monotone (C1 met) and
-premium(400)/premium(100) = 1.873 falls *outside* the band (C2 rejected, the shape reading restored).
+flips both criteria: on the six full runs the series is monotone (C1 met) and the band reading flips
+with it. **The measured, pre-registered reading is given above (§13.2 / Table S32)**: on the
+with-early-stopping runs C1 is **not met** and `premium(400)/premium(100)` = **1.329** lies **inside**
+the band, so **C2 is not rejected**. The previously printed ratio figure is withdrawn.
 
 ### 5.4 The two external critiques, in full (moved from the article)
 
@@ -3971,37 +3974,37 @@ launched 2026-10-11 09:59Z; its readings will be appended here when complete.
 These passages were in the article and are retained here verbatim, so that no content is lost in
 meeting the 35-page limit; each is already carried by §S12 in substance.
 
-### S14.1 §8.6 表 4 caption 后半
+### S14.1 Table 4's caption, second half
 
 **Read with the 2026-10-06 escalation folded in, the full twenty-six-cell pool keeps its direction**: `WC > 0` in **25 of 26** arm-cells, the arm-cell median realization rate **17.2 % → 21.6 %**, and the premium still negative in **8 of 13** strategy arms (**Supplementary S12**, Table S38b).
 
-### S14.2 §8.6 三条限制
+### S14.2 The three limitations of §8.6
 
 **Three limitations**: ① in the **41-run epoch sweep** only the two headline cells reach n = 10; `aitod20` contributes one run of 30 epochs and 6 checkpoints where others contribute **20** (hence 806, not 820), its Table 4 arm-cell a separate n = 10 batch; ② **closed: every retained checkpoint is now evaluated**, the *stability* reading is narrower than the grid; ③ κ is relative to each run's own final epoch, not causal.
 
-### S14.3 §8.7 度量自纠（重复说明）
+### S14.3 The metric self-correction (duplicate statement)
 
 **One metric self-correction first.** Our first version used `r(e) = ΔT(e)/ΔV(e)`, producing values such as **−860 % and +1031 %**: at late epochs `V(e) ≈ V(final)`, the **denominator vanishing** — **an ill-conditioned metric, not a finding.** We report only the non-dividing `ΔV(e) = V(e) − V(final)` and `ΔT(e) = T(e) − T(final)`, summarized by the through-origin slope κ of ΔT on ΔV.
 
-### S14.4 §8.7 重算状态段
+### S14.4 The recomputation-status paragraph
 
 **Recomputation status.** The readings were originally **not locally recomputable** (the archive lacks 6 of 7 corpora; **§10, defect 5**); a GPU **2 × 2 evaluation** on **41** three-way runs of **YOLOv12n [54]** × {`best`, `last`} × {`val`, `test`} makes them so, **retraining not**, reproducing the archived `best × test` values to within **0.0047 pp** (median **0.0021 pp**) — the endpoint rule's positive control (**Supplementary S12**).
-### S14.8 §8.6 池组成敏感性段（S12 已载）
+### S14.5 The pool-composition sensitivity paragraph (already carried by §S12)
 
 **Pool composition — and why the claim does not turn on it.** Table 4 prints **six** measured arm-cells; adding the sixth (`aitod20` **strategy**) moves the run-weighted rate **23.3 % → 8.7 %** and the median **+17.6 % → −4.2 %**. **The inclusion rule is a rule, not a per-cell choice**: an arm-cell enters **iff its `test` side reached n ≥ 5**, and **exactly five met it at the freeze**, where all three weightings coincide (**23.26 %**). The sixth row **qualifies but completed later**, so it is the sensitivity. **Every claim is interval-level and any scope gives the same verdict** — five-cell **[−17.3 %, 53.2 %]** (P = 0.118), six-cell **[−4.9 %, +21.3 %]**, eleven-cluster **[19.3 %, 60.4 %]** — the cell-level intervals **both cover zero**, so **no conclusion depends on the pool boundary**.
 
-### S14.9 §8.6 三种基（与 Aggregate 段重复）
+### S14.6 The three bases (duplicated by the Aggregate paragraph)
 
 **The three bases**: run-level `[8.4 %, 37.4 %]`, `P = 0.002`; five-cell `[−17.3 %, 53.2 %]`, `P = 0.118` (claim-level, **zero inside**); eleven-cluster `[19.3 %, 60.4 %]`, `P < 0.001` (a bootstrap tail proportion **at the 20,000-resample resolution**, i.e. below the floor this procedure can print).
 
-### S14.10 §8.6 再聚合尾句（S12 已载）
+### S14.7 The re-aggregation tail sentences (already carried by §S12)
 
 Re-aggregated: run-weighted **36.9 %**, arm-cell-equal **39.3 %**, 95 % CI **[19.3 %, 60.4 %]** — **completing the cell, not the weighting, is what moves it**: at n = 10 the three weightings agree, so **the fragile axis is pool composition**. **Leave-one-out 9.77 % to 34.16 %.** In two arm-cells the selection action **costs** rather than fails to pay off (`smoke2sf` strategy, `aitod20` baseline); the escalated cells of §5.1 are **not pooled with these five** (different runs, different protocol). The closest concurrent work [12], the winner's-curse check, the withdrawn σ√(2 ln E) form and each cell's corpus pair: **Supplementary S12**.
 
-### S14.31 §8.6 纳入规则 blockquote
+### S14.8 The inclusion-rule blockquote
 
 > **The inclusion rule, stated as a rule.** An arm-cell enters the pool **iff its `test` side reached n ≥ 5** (`work/item2_final_v2_20260925.py`), applied to every cell alike; **exactly five met it at the 2026-09-25 freeze** (50 runs). The `aitod20` strategy row **qualifies under the same rule but completed after the freeze**, so it is printed here as the sixth row and kept out of the primary pool — **the `†` row, and the only one**; **both readings are reported and both intervals cover zero** (Table S20's note, §8.6b).
 
-### S14.27 §8.6 best.pt 残差注
+### S14.9 The `best.pt`-versus-argmax residual note
 
 (the `best.pt`-versus-argmax residual, our withdrawn attribution and why the remainder is **unidentified**: **Supplementary S12**.)

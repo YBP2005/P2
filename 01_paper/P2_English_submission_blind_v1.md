@@ -49,7 +49,7 @@ therefore a methodological premise, not a caveat (§3, §6).
 ### 1.2 What we do not claim
 
 We do not claim that aliasing is data contamination: the image-level intersection between the
-training and held-out evaluation images is **zero** (SHWD excepted, where `train` and `val` are one
+training and held-out evaluation images is **zero** (SHWD [44] excepted, where `train` and `val` are one
 directory). We do not claim a single bias direction: our paired analysis finds **two corpora where `val`
 understates and two where it overstates**, and **nine cells are not testable at n = 3** (§5.1, §7.1). Nor do we claim the
 convention is framework-general (§6.5) or that the audited benchmarks are wrong: they report what their
@@ -185,7 +185,7 @@ On the shared 5-epoch grid the `val` and `test` peaks agree in only **17.5 %** o
 
 ### 4.1 How common the aliasing is
 
-In **our own packaged configurations** — the YAMLs we train from, a different object from a benchmark's own release — **6 of 14** give the reported number no independent held-out split: **AI-TOD, DOTA v1, DOTA v1.5, Mendeley face-mask, SFCHD** (five binding `val:` to `test:`) and **SHWD** (which binds `train` to `val`; **S1** row 13). Of the remaining 8, **4** keep the keys genuinely distinct and **4** have no `test:` key at all — the three groups account for all 14, and this is **a count over the configurations we hold, not a prevalence, nor the benchmarks' own releases** (audited separately, §6.1). Counting by file, **19 YAML files** alias the two keys, in five locations; on the archived manifest subset the ratio is **8 of 28**. **These three bases answer three different questions** — configurations (6 of 14), the files inside them (19), the archived manifest's rows (8 of 28) — **not three estimates of one rate.**
+In **our own packaged configurations** — the YAMLs we train from, a different object from a benchmark's own release — **6 of 14** give the reported number no independent held-out split: **AI-TOD, DOTA v1, DOTA v1.5 [37], Mendeley face-mask [22], SFCHD [45]** (five binding `val:` to `test:`) and **SHWD [44]** (which binds `train` to `val`; **S1** row 13). Of the remaining 8, **4** keep the keys genuinely distinct and **4** have no `test:` key at all — the three groups account for all 14, and this is **a count over the configurations we hold, not a prevalence, nor the benchmarks' own releases** (audited separately, §6.1). Counting by file, **19 YAML files** alias the two keys, in five locations; on the archived manifest subset the ratio is **8 of 28**. **These three bases answer three different questions** — configurations (6 of 14), the files inside them (19), the archived manifest's rows (8 of 28) — **not three estimates of one rate.**
 
 **For the corpora whose `val` and `test` are the same directory this is not contamination**: their image-level intersection with training is **exactly zero**, so the aliasing changes not *what* was evaluated but *which checkpoint* was reported, turning "selection contamination" from an ethical question into a **measurement** question. **SHWD is the exception and is not folded into that statement**: with `train` and `val` on one directory, its training and evaluation images are the same files. **It still counts among the six, for the reason the list is about: its `val` is not an independent held-out split either.**
 
