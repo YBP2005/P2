@@ -256,8 +256,7 @@ than contrary, since its mechanism is holdout **reuse** and ours needs none.
 
 **Both escalations met the criteria fixed in advance.** `dota15` **+0.449 pp** (**10+/0−**);
 `p_aitovis` **−1.226 pp** and `p_vistod15` **−3.315 pp** (**0+/10−**), permutation p = **0.001953**,
-the attainable floor at n = 10. The `best.pt` endpoint was identified, not assumed: on `test` it
-reproduces the archived `sio_b_results.csv` to **0.0046 pp**.
+the attainable floor at n = 10. **The `p_vistod15` runs flagged for memory pressure were re-run clean and reproduce to ≤0.15 pp, changing no reading (Supplementary S41).** The `best.pt` endpoint was identified, not assumed: on `test` it reproduces the archived `sio_b_results.csv` to **0.0046 pp**.
 
 **The formal claim:** the convention systematically shifts **arm-to-arm comparisons** (Tier 1: four
 cells, CIs excluding zero); **the direction of that shift varies by corpus** (Tier 2: 2 understate /
