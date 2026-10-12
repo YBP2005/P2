@@ -4085,3 +4085,11 @@ headline effect, the **seed-budget discipline** measured rather than assumed ([5
 **Limits of this reading, stated.** (i) The 26 cells are the arm-cells that had reached n = 10 under the recorded freeze and escalation rules — they are **not** a probability sample of corpora (that objection is the article's own §6, and this interval does not answer it); (ii) the interval is over **cell-level resampling**, so it reflects between-cell variation and **not** run-level noise; (iii) the estimator pools heterogeneous corpora, which is precisely why the arm-cell-equal value is printed beside it. **What the interval does establish is that the pooled realization is positive at the claim level, not that every cell is.**
 
 **Reproduction.** Every `prem_val` / `prem_test` pair used here is printed in Table S38 (with the ten escalated cells re-read in Table S38b); the bootstrap is a twelve-line script over those 26 pairs with the seed and B printed above.
+
+---
+
+## S20 · Two reading notes asked for in review
+
+**(i) The five-cell pool spans two budgets.** The pool ledger above is a pool of **arm-cells**, and the arm-cells in it were **not** all run at the same epoch budget: **ten** of the thirteen three-way clusters ran `E = 100` and **one** — `aitod20` baseline — ran `E = 30` (the sentence already printed in the budget discussion above). The pool's **inclusion rule is stated per cell and applied mechanically** (an arm-cell enters iff its `test` side reached n ≥ 5 at the recorded freeze), so the pool is a **set of arms at their own budgets**, not a budget-matched comparison; where a budget-matched comparison is made, it is the `E = 100` family and is labelled as such.
+
+**(ii) Where Δgap's sign is read, the identifiability caveat binds.** The article states in §5.3 that the raw gap `G = V(ê) − T(ê)` is **not identifiable** from the pair alone and that the paired difference removes the difficulty term **only under the stated equal-difficulty assumption**. Every place this supplement reads the **sign** of Δgap descriptively inherits that caveat: the sign is a **sum of same-order terms**, so it is read as a **direction of movement within a cell**, never as an identified effect size. Where a claim needs an identified quantity, the paper uses the **paired** form and the **κ** decomposition instead (Table 4, §8.7).
