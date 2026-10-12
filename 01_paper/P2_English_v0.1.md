@@ -24,7 +24,7 @@ Object-detection papers report a number from a split they call held out. We audi
 
 **2. The selection premium only partly survives.** The premium is positive in every escalated cell; what changes sign by corpus is the **paired Δgap** — the arms' relative difference on `val` versus on `test` — and not the selection term itself. The **mean direction is metric-robust while one cell's significance and sign unanimity are not** (`smoke2sf`, p = 0.54). A **descriptive** 13-cell scan leaves **3** cells after BH, so the direction claim rests on the four escalated cells. **On a disjoint split, realization is partial**: the **claim-level interval includes zero**, and the arm-cell and run-weighted point estimates are **descriptive**, as intervals only (Table 4). **At full budget, 99 % (§8.8).** No power analysis was registered; the nine `n` = 3 cells stay descriptive.
 
-**3. The printed count rests on one rater.** The layer the literature actually reports is printed as **12–14 of 19**; re-verifying every row first-hand and re-coding blind with **five** models recovers **19 of 30** corrected cells, eleven unanimously, while **26 of 76** stay undecidable and **11 of 30 are not recovered** (§6.1, S12).
+**3. The printed count rests on one rater.** The layer the literature reports is printed as **12 of 19** (63 %; 4 undecidable); re-verifying every row first-hand and re-coding blind with **five** models recovers **19 of 30** corrected cells, eleven unanimously, while **26 of 76** stay undecidable and **11 of 30 are not recovered** (§6.1, S12).
 ---
 
 **Keywords:** evaluation validity; dataset splits; checkpoint selection; object detection; benchmark audit;
@@ -62,7 +62,7 @@ therefore a methodological premise, not a caveat (§3, §6).
 ### 1.2 What we do not claim
 
 We do not claim that aliasing is data contamination: the image-level intersection between the
-training and held-out evaluation images is **zero** (SHWD excepted, where `train` and `val` are one
+training and held-out evaluation images is **zero** (SHWD [44] excepted, where `train` and `val` are one
 directory). We do not claim a single bias direction: our paired analysis finds **two corpora where `val`
 understates and two where it overstates**, and **nine cells are not testable at n = 3** (§5.1, §7.1). Nor do we claim the
 convention is framework-general (§6.5) or that the audited benchmarks are wrong: they report what their
@@ -112,10 +112,12 @@ premium on a disjoint split with the reporting conventions it depends on (§8.6�
 component exists elsewhere, **not independent evidence** and not a field-level rate.
    *Note: **image-level** leakage magnitude is quantified by the two 2026 studies;
    **configuration-level** aliasing magnitude has not been measured before.*
-2. **We measure how far the selection premium transfers.** The measurement is the contribution; the
-   protocol that makes it readable is the companion's and is **cited, not restated** here (§8.1). On the
+2. **We measure how far the selection premium transfers.** The measurement is the contribution; its
+   protocol is the companion's and is **cited, not restated** here (§8.1). On the
    five arm-cells measured here the `val`-selected premium is realized on the disjoint split at
-   **23.3 %** with all five arm-cells at n = 10, and it is **not a constant**: the rate falls with the
+   **23.3 %** with all five arm-cells at n = 10 — **a point estimate whose claim-level interval
+   includes zero** ([−17.3 %, 53.2 %], P = 0.118; the six-cell pool's interval is [−4.9 %, +21.3 %]),
+   and it is **not a constant**: the rate falls with the
    validation noise of the criterion used to select (§8.6–§8.7). The identity tying it to the
    winner's-curse share we **adopt** [13], not claim; the closest concurrent work [12, 15] reaches the same **direction** with a different quantity, and neither reports a **ratio of difference premiums** — `(T_best − T_final)/(V_max − V_final)`, on disjoint splits, in detection, on our own arm-cells, with measured `val` noise as moderator. A same-estimand ratio does exist elsewhere — in genomics, where it is written as a relative bias and measured at 10–60 % (**Supplementary S12** carries the full citation). The replicate axis is **data order** (§8.4) — the **seed-budget discipline
    reproduced inside this setting** rather than a new one.
@@ -188,7 +190,7 @@ The propositions of §S11 are testable, so we ran them on rented GPUs with the *
 
 **The two negative outcomes and the redone design are stated as such in Supplementary Table S37** (G1 is void; **two of the five judged experiments are negative — G1′ and G2**; the values behind every verdict are in **S31–S33**, the G1 family in **S12**; the reading below is stated more weakly in **Supplementary S11, section 13.3**).
 
-**We then ran the clean test** of G3's epoch-budget series on **one machine with early stopping disabled**, all four budgets present: C1 is **met**, C2 falls **outside** its band, and C3 **passes** on the mean ê/E it specifies but not per arm — see §3.1 and **Table S34b**; **the pre-declared verdict stays with the with-early-stopping series**. The judged criteria carry one message, **at the level of sign, not of functional form**: the selection bias moves with the amount of selection noise and with the number of selection opportunities, but not with whether the two splits are the same file — **the form itself was withdrawn** (§3.1). Two consequences do not follow: §4's configuration-level fact stands, while the stronger reading — that aliasing *adds* a measurable amount on top — does not. **The premium this paper measures is the premium of selecting on the reported split; aliasing is the configuration that guarantees it, not an additional term.**
+**We then ran the clean test** of G3's epoch-budget series on **one machine with early stopping disabled**, all four budgets present: C1 is **met**, C2 falls **outside** its band — **this clean re-run is reported as sensitivity: the primary reading is the pre-declared series (C1 not met, C2 not rejected)**, and C3 **passes** on the mean ê/E it specifies but not per arm — see §3.1 and **Table S34b**; **the pre-declared verdict stays with the with-early-stopping series**. The judged criteria carry one message, **at the level of sign, not of functional form**: the selection bias moves with the amount of selection noise and with the number of selection opportunities, but not with whether the two splits are the same file — **the form itself was withdrawn** (§3.1). Two consequences do not follow: §4's configuration-level fact stands, while the stronger reading — that aliasing *adds* a measurable amount on top — does not. **The premium this paper measures is the premium of selecting on the reported split; aliasing is the configuration that guarantees it, not an additional term.**
 
 On the shared 5-epoch grid the `val` and `test` peaks agree in only **17.5 %** of runs, and conditioning on that single observable splits the 40 runs: where they agree the **median Δgap is lower** (mean **+0.13 pp**, median **−0.20 pp**, n = 7; **post-hoc**), where they differ it is **systematically not** (mean **+0.91 pp**, n = 33; permutation p = **0.009**, **post-hoc**; the median reading is **p = 0.0011**). **This is a partial predictor, not an explanation of the sign**; its limits — including the four of seven agreement runs whose gap is non-positive — and the per-run table and test are in **Supplementary S11**.
 
@@ -198,7 +200,7 @@ On the shared 5-epoch grid the `val` and `test` peaks agree in only **17.5 %** o
 
 ### 4.1 How common the aliasing is
 
-In **our own packaged configurations** — the YAMLs we train from, a different object from a benchmark's own release — **6 of 14** give the reported number no independent held-out split: **AI-TOD, DOTA v1, DOTA v1.5, Mendeley face-mask, SFCHD** (five binding `val:` to `test:`) and **SHWD** (which binds `train` to `val`; **S1** row 13). Of the remaining 8, **4** keep the keys genuinely distinct and **4** have no `test:` key at all — the three groups account for all 14, and this is **a count over the configurations we hold, not a prevalence, nor the benchmarks' own releases** (audited separately, §6.1). Counting by file, **19 YAML files** alias the two keys, in five locations; on the archived manifest subset the ratio is **8 of 28**. **These three bases answer three different questions** — configurations (6 of 14), the files inside them (19), the archived manifest's rows (8 of 28) — **not three estimates of one rate.**
+In **our own packaged configurations** — the YAMLs we train from, a different object from a benchmark's own release — **6 of 14** give the reported number no independent held-out split: **AI-TOD, DOTA v1, DOTA v1.5 [37], Mendeley face-mask [22], SFCHD [45]** (five binding `val:` to `test:`) and **SHWD [44]** (which binds `train` to `val`; **S1** row 13). Of the remaining 8, **4** keep the keys genuinely distinct and **4** have no `test:` key at all — the three groups account for all 14, and this is **a count over the configurations we hold, not a prevalence, nor the benchmarks' own releases** (audited separately, §6.1). Counting by file, **19 YAML files** alias the two keys, in five locations; on the archived manifest subset the ratio is **8 of 28**. **These three bases answer three different questions** — configurations (6 of 14), the files inside them (19), the archived manifest's rows (8 of 28) — **not three estimates of one rate.**
 
 **For the corpora whose `val` and `test` are the same directory this is not contamination**: their image-level intersection with training is **exactly zero**, so the aliasing changes not *what* was evaluated but *which checkpoint* was reported, turning "selection contamination" from an ethical question into a **measurement** question. **SHWD is the exception and is not folded into that statement**: with `train` and `val` on one directory, its training and evaluation images are the same files. **It still counts among the six, for the reason the list is about: its `val` is not an independent held-out split either.**
 
@@ -347,7 +349,7 @@ one rests on the narrowest reading of "same directory", the other on a stale sna
 **One classification correction is recorded in Supplementary S12** (D-Fire moves to the clean group).
 
 ### 6.5 Across frameworks: is the convention specific to YOLO?
-**Among the pinned default configurations we checked, only the YOLO lineage does this by default.** At pinned commits Detectron2 (`TEST.EVAL_PERIOD = 0`), MMDetection, DETR and PaddleDetection **report the final epoch instead** (file-by-file evidence, 25 configuration files: **S12**, Table S14; **a targeted sample at pinned commits, not a census**, so "the convention" means that family's, not the field's). A **cross-lineage realization test** — a Faster
+**Among the six pinned default configurations we checked, only the two YOLO-lineage frameworks select on the reported split by default — Ultralytics YOLO and YOLOX (`trainer.py` tracks and saves the best); Detectron2, MMDetection, PaddleDetection and DETR do not** (Table S14). At pinned commits Detectron2 (`TEST.EVAL_PERIOD = 0`), MMDetection, DETR and PaddleDetection **report the final epoch instead** (file-by-file evidence, 25 configuration files: **S12**, Table S14; **a targeted sample at pinned commits, not a census**, so "the convention" means that family's, not the field's). A **cross-lineage realization test** — a Faster
 R-CNN (ResNet-50 FPN) detector, a family that **reports the final epoch by default** — on VisDrone under the
 same three-way split, at **six seeds**, is **positive in all six runs, with a 95 % interval excluding zero** (**68.2 %** realized; **+0.0809 pp** mean `prem_val`, 95 % CI **[26.9 %, 123.5 %]**)
 (values, interval and per-run table: **Supplementary S34**): the mechanism is **not confined to the YOLO lineage in this instance**. A **second detector family** (RetinaNet, both corpora) keeps the **direction** but not the strength (**Supplementary S34e**). A second corpus, same protocol, same direction: **6/6** and **12/12** runs on `val`, **5/6** and **11/12** on `test`. This is **one detector, one protocol, two corpora, one setting** — **not a generalisation beyond the YOLO lineage** (**Supplementary S34c**). Its **68.2 %** is a rate over **six runs** on this probe's own split and is **not comparable** with §8.6's realization rate: different protocol, different denominator.
@@ -445,7 +447,7 @@ The 806-row evaluation is archived (`xeval_perepoch_20260918/`, with a SHA-256 l
 
 ![Fig. 4](figures/fig5_epoch_curve.png)
 
-**Fig. 4.** **Left**: mean `val` and `test` trajectories over 10 seeds, both headline cells (baseline solid, strategy dashed). **Right**: per-(seed, epoch) `val` movement against what transfers to `test` — the ratio is not taken (its denominator can vanish); the fit through the origin is **κ = 0.708** (R² **0.937**, run-clustered 95 % CI **[0.671, 0.745]**; the title's **0.734** is the earlier five-epoch grid).
+**Fig. 4.** **Left**: mean `val` and `test` trajectories over the 10 **data-order replicates**, both headline cells (baseline solid, strategy dashed). **Right**: per-(seed, epoch) `val` movement against what transfers to `test` — the ratio is not taken (its denominator can vanish); the fit through the origin is **κ = 0.708** (R² **0.937**, run-clustered 95 % CI **[0.671, 0.745]**; the title's **0.734** is the earlier five-epoch grid).
 
 > **Tables S21–S23** → Supplementary §S8.
 
@@ -454,7 +456,7 @@ The 806-row evaluation is archived (`xeval_perepoch_20260918/`, with a SHA-256 l
 report only the non-dividing `ΔV(e)` and `ΔT(e)` below.
 
 **Slope κ** (how much of the movement on `val` transfers to `test`). On the **complete curve** —
-**n = 765 (seed, epoch) points over the 41 runs** — **κ = 0.708, R² 0.937**, with a run-clustered
+**n = 765 (replicate, epoch) points over the 41 runs** — **κ = 0.708, R² 0.937**, with a run-clustered
 (sandwich) 95 % CI **[0.671, 0.745]**; the within-run estimator gives **0.698**. **Two controls (Table S43)**: a per-run κ distribution, and a free-intercept fit whose **intercept is indistinct from zero** — so the through-origin constraint is **supported, not assumed**. Across the curve `ΔV` reaches
 **−8.1 pp** and about **71 %** transfers: **early-training progress is real progress.** §8.6's realized
 share measures the **selection-relevant sliver** near the peak, where `ΔV` is of order **±0.2 pp** — so
@@ -568,7 +570,9 @@ A count is meaningless until its **unit** is named: the same nineteen benchmarks
 - **Recomputability boundary.** Every reported number is recomputable from the released per-run artifacts **without
   retraining**, each with its script; **three are not, and they are named**: the corpora and carve directories the
   archive **holds no copy of** (open corpora, images not in the pack; §10 defect 6), the conflicting-endpoint archives
-  (§7.3), and the `aitod20` completion to n = 10.
+  (§7.3), the `aitod20` completion to n = 10, and the **S38b escalation** (the ten arm-cells re-read at n = 10 on
+  2026-10-06: `work/collect_test_final.py`, `work/_archive_results_csv.py`, and the per-run file
+  `g6_prem_per_run_210_20261006.csv`).
 - **Competing interests.** None declared.
 - **One quantity, two spellings.** The n = 10 attainable floor is **exactly 2/2¹⁰ = 0.001953**; the tables
   use the exact value, the abstract writes **0.002**. Same floor, spelling only.
