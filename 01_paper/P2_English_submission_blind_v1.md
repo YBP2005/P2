@@ -89,7 +89,7 @@ premium on a disjoint split with the reporting conventions it depends on (§8.6�
 1. **We quantify the magnitude and direction of configuration-level aliasing.** The selection premium
    (best − last) is **positive in all four cells, the baseline arm gaining more** — **on an escalated four-cell base, not a sample** (**near-definitional; §5.1**; four paired 95 % CIs
    excluding zero, §5.1 Tier 1) — **consistent with the selection-bias literature** [5], not new in
-   kind. **All four cells meet the stated-n criterion (n = 10–11)** and all four survive a Benjamini–Hochberg step over **these four** at q = 0.05 — the fourth, `dota15`, entered at n = 3
+   kind. **All four cells meet the stated-n criterion (n = 10–11)** and all four survive a Benjamini–Hochberg step over **these four** at q = 0.05 — **a data-selected set; the 13-cell BH is the multiplicity control (§5.2)** — the fourth, `dota15`, entered at n = 3
    and was escalated to n = 10 under a criterion fixed in advance (**Table S28's note**) — so the convention
    systematically shifts **arm-to-arm comparisons**; its direction
    varies by corpus: three-way paired differencing gives 2 cells where `val` understates, 2 where it
@@ -281,6 +281,7 @@ pipeline family's convention, **not the field's**.
 external check **corrects this to** the paired-difference form, which cancels the difficulty term
 under the pairing assumption stated in **§S11**. The argument and the recomputation are in
 **Supplementary S12**.
+
 ### 5.5 The same component in third-party public logs
 **The same quantity appears in other people's logs** — **a convenience sample with no sampling frame, not a field-level rate**: 20 logs from 6 sources found by repository **search**, median **+1.04 pp**, max **+5.65 pp**. **The sign is not the informative part**: the premium is a within-run maximum minus that run's own final epoch, so it is **non-negative by construction**, and the sample's content is its **magnitude**. The queries, the rest of the frame and the reason public logs **cannot establish aliasing** are in **Supplementary S12**.
 **Five limitations**: ① the two cells escalated in §5.1 reach n = 10 with **local** runs and test-side
@@ -530,20 +531,9 @@ behind every count, as Table 3's header does.
 
 ## 12. Limitations
 
-- The audit reads **split definitions** (YAML, README, paper text), **no datasets downloaded**.
-- For several benchmarks the "generic YOLO copy" is **per-project**, not canonical.
-- Under the `reported` unit, **4 rows (AI-TOD, DIOR, Mendeley, D-Fire) are evidence-insufficient**; we do
-  not guess. Counts are **row-equal over the 19**, and they carry **no sampling interval, deliberately**
-  — the grading enters the **count** itself (**Table 3's second column**).
-- Two evidentiary differences (pod versus local) are listed side by side.
-- The census is a **literature/release survey**, weaker than our **self-measurement** (§3).
-- The **difficulty/selection decomposition** (§5.6) covers **2 of the 13 cells** (the headline two); the **identity** behind it is checked on **all 13** (`work/gap_mechanism_20260916.txt`) — what is scoped is the decomposition, not the identity.
-- The intervention axis the headline comparisons use is **`lr0` (`0.001 → 0.005`)**; two further orthogonal axes were run, one reproducing, as on `lr0`, the **corpus-dependent character** of the shift (**Supplementary S8**, **Table S40b**); the cross-lineage probe is
-   **one detector, two corpora, and incomparable magnitudes**.
-- **Four disclosed uncertainties** bound our claims: the 19-row audit is **single-rater**; the log sample is a **convenience sample**; the GPU memory-pressure effect is **bounded, not estimated** (**≤0.05 pp** where same-config pairs can be compared, fresh replicates being bit-identical; cross-date comparisons carry a **0.440 pp** drift); and the §8.3 replicates vary the **training file order**, not independent seeds. **And, not as an uncertainty**: **no interval here folds into §8.6's rate**. **Supplementary S12**.
-- The **scale-dependence** reading (§8.8) is **one corpus, one detector, the same `lr0` axis as
-  §5.1** (20 runs, ten file orders per arm); it does **not** re-open §8.6's pool, and **no interval
-  of §8.6's folds into it**.
+- **Four disclosed uncertainties bound every claim**: the 19-row audit is **single-rater**; the log sample is a **convenience sample** with no sampling frame; the GPU memory-pressure evidence is **one machine**; and §8.8's full-budget reading is **one corpus, one detector, on the same `lr0` axis as §5.1** — it does **not** re-open §8.6's pool and **no interval of §8.6 folds into it**.
+- The audit reads **split definitions only** (YAML, README, paper text), **no datasets**; under the `reported` unit **4 rows are evidence-insufficient**; and counts carry **no sampling interval, deliberately** (the grading is in the count itself, Table 3 column 2).
+- **The full nine-item limitations list is in Supplementary §S16.**
 
 ---
 

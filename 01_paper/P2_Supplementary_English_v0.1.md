@@ -4008,3 +4008,30 @@ Re-aggregated: run-weighted **36.9 %**, arm-cell-equal **39.3 %**, 95 % CI **[19
 ### S14.9 The `best.pt`-versus-argmax residual note
 
 (the `best.pt`-versus-argmax residual, our withdrawn attribution and why the remainder is **unidentified**: **Supplementary S12**.)
+
+---
+
+## S15 · Moved from the article: the data-order replication measurement (§8.3)
+
+### 8.3 A direct measurement of data-order replication (not seed variance, and not the selection claim itself)
+**A direct measurement of data-order replication — reproduced inside this setting**: adding replicates that permute the training file order lowers the mean by **9 %–29 %**, each figure taken **against that cell's own n = 6 mean** and not against the pooled
+headline effect, the **seed-budget discipline** measured rather than assumed ([52]'s setting, §8.4). **What these replicates are.** The per-run randomness is a **deterministic permutation of the training file order** (`--shuffle-seed`, the number in the run's name), **not** the framework's `seed` argument (**Supplementary S12**, section 9.3, with the two corpora whose replays are identical across `--seed` values). The quantity is therefore **data-order replication**, not seed variance: the 9 %–29 % bounds the **file-order** component of the reported mean, **not** the variance between independent training seeds. That best-of-K selection inflates a reported score is **not new** (§8.6 positions the closest concurrent work, a dose–response over 2,047 datasets), so **what is measured here is the magnitude under a protocol that selects cells for significance first and expands seeds afterwards** (design and recomputation check: **Supplementary S12**, Table S18). **The title is deliberately the weaker, sample-scoped claim**: with three initializations the interval is wide, and extending to five does not narrow it (the gain SD reaches the data-order component's order), so the components are **consistent with, not established by**, these initializations.
+
+---
+
+## S16 · Moved from the article: the full limitations list (§12)
+
+- The audit reads **split definitions** (YAML, README, paper text), **no datasets downloaded**.
+- For several benchmarks the "generic YOLO copy" is **per-project**, not canonical.
+- Under the `reported` unit, **4 rows (AI-TOD, DIOR, Mendeley, D-Fire) are evidence-insufficient**; we do
+  not guess. Counts are **row-equal over the 19**, and they carry **no sampling interval, deliberately**
+  — the grading enters the **count** itself (**Table 3's second column**).
+- Two evidentiary differences (pod versus local) are listed side by side.
+- The census is a **literature/release survey**, weaker than our **self-measurement** (§3).
+- The **difficulty/selection decomposition** (§5.6) covers **2 of the 13 cells** (the headline two); the **identity** behind it is checked on **all 13** (`work/gap_mechanism_20260916.txt`) — what is scoped is the decomposition, not the identity.
+- The intervention axis the headline comparisons use is **`lr0` (`0.001 → 0.005`)**; two further orthogonal axes were run, one reproducing, as on `lr0`, the **corpus-dependent character** of the shift (**Supplementary S8**, **Table S40b**); the cross-lineage probe is
+   **one detector, two corpora, and incomparable magnitudes**.
+- **Four disclosed uncertainties** bound our claims: the 19-row audit is **single-rater**; the log sample is a **convenience sample**; the GPU memory-pressure effect is **bounded, not estimated** (**≤0.05 pp** where same-config pairs can be compared, fresh replicates being bit-identical; cross-date comparisons carry a **0.440 pp** drift); and the §8.3 replicates vary the **training file order**, not independent seeds. **And, not as an uncertainty**: **no interval here folds into §8.6's rate**. **Supplementary S12**.
+- The **scale-dependence** reading (§8.8) is **one corpus, one detector, the same `lr0` axis as
+  §5.1** (20 runs, ten file orders per arm); it does **not** re-open §8.6's pool, and **no interval
+  of §8.6's folds into it**.
