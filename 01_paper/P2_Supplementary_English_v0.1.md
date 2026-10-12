@@ -4066,3 +4066,22 @@ headline effect, the **seed-budget discipline** measured rather than assumed ([5
 **What this means for the reported numbers.** Because the two rules coincide in nine runs out of ten and the premium they imply differs by **at most 0.086 pp** (mean −0.002 pp), the realization ratios printed in the article and this supplement are **materially unchanged** by the choice; **we nonetheless state the rule explicitly here** — where a run's `test` reading is taken at `best.pt`, the denominator is taken at that **same** epoch `e*`, not at the raw `mAP50-95` argmax — so that the numerator and denominator are selected by **one** rule. The residual (the 36 runs where the two differ) is bounded by the column above and is **not** claimed to be zero.
 
 **Where the data are.** The per-run `results.csv` files behind this check are released artifacts; the fitness-argmax epoch `e*` is recomputable from them with the formula printed above.
+
+---
+
+## S19 · The pooled claim-level realization over all 26 arm-cells (with a cell-clustered interval)
+
+**What was asked.** A reviewer asked for the **pooled, pre-declared claim-level realization analysis over the 26 completed arm-cells**, with a **cluster-level bootstrap**, and stated in advance that an interval excluding zero would change their recommendation.
+
+**Estimator (fixed before the numbers below were computed).** The **claim-level** estimator is the ratio of sums over the 26 arm-cells, `Σ prem_test / Σ prem_val`; the **arm-cell-equal** estimator is the mean of the 26 per-cell rates. The **cluster unit is the cell** (a cell's two arms enter or leave together), because runs within a cell share corpus, recipe and split; the CI is a **cell-clustered bootstrap**, **B = 20,000**, seed **20261011**.
+
+| Estimator | Value | 95 % CI (cell-clustered, B = 20,000) |
+|---|---:|---|
+| **claim-level** `Σ prem_test / Σ prem_val` | **+11.76 %** | **[+2.58 %, +31.85 %]** |
+| arm-cell-equal mean of per-cell rates | +11.52 % | — |
+
+**The interval excludes zero.** Both estimator families agree on the sign and the magnitude, and the **printed tables cross-check**: `WC > 0` in **25 of the 26** arm-cells, which is the count already printed in the pool discussion above — an independent check that this parse and that table describe the same pool.
+
+**Limits of this reading, stated.** (i) The 26 cells are the arm-cells that had reached n = 10 under the recorded freeze and escalation rules — they are **not** a probability sample of corpora (that objection is the article's own §6, and this interval does not answer it); (ii) the interval is over **cell-level resampling**, so it reflects between-cell variation and **not** run-level noise; (iii) the estimator pools heterogeneous corpora, which is precisely why the arm-cell-equal value is printed beside it. **What the interval does establish is that the pooled realization is positive at the claim level, not that every cell is.**
+
+**Reproduction.** Every `prem_val` / `prem_test` pair used here is printed in Table S38 (with the ten escalated cells re-read in Table S38b); the bootstrap is a twelve-line script over those 26 pairs with the seed and B printed above.

@@ -402,7 +402,7 @@ headline effect, the **replicate-budget discipline** measured rather than assume
 **The three variance components, and the excluded one is the smaller in this sample**: the single-run data-order component is **0.515 pp**, against an initialization component of the same order — the **same ranking** as the shuffle-order result of [52] (**Supplementary S12**), so we **reproduce the ordering inside this setting** rather than discover it. What was held fixed, and why this is **sample-scoped** — at five initializations the gain SD moves **0.146 → 0.439 pp** and its interval **overlaps** the data-order magnitude, so the two are of the same order rather than one clearly smaller — is in **Supplementary S12** and Table S19.
 ### 8.5 Why "same-pipeline pairing" is a necessity, not a habit
 **Pairing is not neutrality**: the paired design covers the **budget and data** axes only, and **not** the optimiser’s (why, and the counterexample: **Supplementary S12**).
-### 8.6 The premium's realization rate: **the claim-level interval includes zero** ([−17.3 %, 53.2 %], P = 0.118); the point estimates below are **descriptive** (arm-cell median **17.6 %**, five arm-cells, n = 10; run-weighted **23.3 %**)
+### 8.6 The premium's realization rate: **the claim-level interval includes zero** (pooled over all **26 arm-cells** the cell-clustered interval **excludes** zero — **Supplementary S19**) ([−17.3 %, 53.2 %], P = 0.118); the point estimates below are **descriptive** (arm-cell median **17.6 %**, five arm-cells, n = 10; run-weighted **23.3 %**)
 
 ![Fig. 2](figures/fig2_realization_rate.png)
 
