@@ -4035,3 +4035,16 @@ headline effect, the **seed-budget discipline** measured rather than assumed ([5
 - The **scale-dependence** reading (§8.8) is **one corpus, one detector, the same `lr0` axis as
   §5.1** (20 runs, ten file orders per arm); it does **not** re-open §8.6's pool, and **no interval
   of §8.6's folds into it**.
+
+---
+
+## S17 · The second full-budget corpus (`mask_clean`) — per-run selection premium
+
+**What this is.** The same full-budget protocol as §8.8 on a different corpus (`mask_clean`, `nc = 1`; train 5,220 / val 900 / test 919), 2 arms × ten file orders = 20 runs, 100 epochs. `prem_val = max_e V(e) − V(final)` in mAP50-95 pp, read from each run's own `results.csv`.
+
+| Arm | n | mean `prem_val` | SD | range |
+|---|---:|---:|---:|---|
+| `base100` | 10 | **+26.219 pp** | 5.182 | +17.022 … +33.950 |
+| `lr005_100ep` | 10 | **+14.883 pp** | 5.221 | +7.594 … +26.532 |
+
+**Why the magnitude differs from §8.8 by two orders of magnitude.** §8.8's VisDrone cell is a large, well-fit corpus (5,971 train images, a mature recipe), so its selection premium is **+0.27 pp**; this corpus is small (5,220 train images) and less fitted, so its premium is **+26.2 / +14.9 pp**. **The size of the premium is a property of the corpus and the recipe, not a constant of the method** — which is the same conclusion §8.6–§8.7 reach from the other direction. **The test-side realization rate for this corpus is NOT measured here** (it needs a per-epoch `test` sweep) and no realization number is claimed.

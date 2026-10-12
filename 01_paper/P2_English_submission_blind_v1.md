@@ -488,6 +488,10 @@ bound it: **one corpus**, and §5.1's `lr0` axis; a second corpus with a genuine
 
 > **Per-run matrix, protocol, leakage self-check and the bootstrap** → **Supplementary §S13** (Tables S46–S47: the per-arm table is S46).
 
+
+### 8.9 A second corpus at full budget: the premium is corpus-scale-dependent
+**The same full-budget protocol on a second corpus** (`mask_clean`: 5,220 train / 900 val / 919 test, `nc = 1`; 20 runs = 2 arms × ten file orders) gives a **selection premium of +26.2 pp (`base100`) and +14.9 pp (`lr005_100ep`)** — against **+0.27 pp** on the full-budget VisDrone cell above, a difference of two orders of magnitude on the same protocol. **The direction is reproduced** (`base100` > `lr005_100ep`, i.e. the higher `lr0` buys down the premium by ~43 %). What this establishes is therefore **scope**: the premium's *size* tracks corpus scale and fit, while its *sign* does not flip. The **test-side realization for this corpus is not yet measured** (it needs a per-epoch `test` sweep this run set does not have) and is **not claimed** here.
+
 ## 9. The registered multi-target replication: **reported in the companion paper**
 
 **First report, criterion and verdict stay with the companion paper; nothing here is a claim of this paper.** To read its registered table: ① it is a **three-way split** (train / selection / report); ② it ran under the protocol then in force, where the **`val` side aliases the `test` half** — the one fact §7 takes; ③ its criterion was frozen **before any run existed** (FROZEN-HASH `6a7eee7b3e34b15ce5adcba14cf7ea36`) and its verdict entered is **"criterion not met"**, deliberately **not** "hypothesis refuted" — the companion reads the outcome as **"direction replicates, size does not"**. Record: **Supplementary S24–S27** (source of truth: the companion's archive).
