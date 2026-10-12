@@ -4102,3 +4102,29 @@ headline effect, the **seed-budget discipline** measured rather than assumed ([5
 | `lr005_100ep` | +14.883 pp | −1.165 pp | **−9.7 %** |
 
 Pooled `Σ prem_test / Σ prem_val` = **+1.44 %**; run-level bootstrap (B = 20,000, seed 20261011) 95 % CI **[−7.2 %, +4.1 %]** — **zero inside**; `prem_test > 0` in **12 of 20** runs. **Contrast with §8.8** (full-budget VisDrone): premium **+0.27 pp**, realization **99 %**. The per-checkpoint `test` readings behind this table are the released `g6_perepoch.csv` rows for these 20 runs (22 checkpoints each, `split = test`), produced by `g6_perepoch_eval.py`.
+
+---
+
+## S21 · The realization ratios recomputed under one endpoint rule (the `e*` check asked for in review)
+
+**What was asked.** Take, for each run with both sides measured, the epoch `e*` at which Ultralytics wrote `best.pt` (the epoch maximising its **fitness** `0.1·mAP50 + 0.9·mAP50-95`), set `prem_val' = V(e*) − V(final)` from the run's own `results.csv`, and recompute the realization table, the five-cell pooled rate, its five-cluster bootstrap (B = 20,000, seed 20260927) and the §8.8 pooled rate.
+
+**The numerator does not change.** `prem_test` is defined as the `test` reading on **`best.pt`** minus the one on **`last.pt`**, so it is *already* on the same rule; only the denominator moves.
+
+**The five headline cells, under both rules:**
+
+| Cell | Arm | n | `prem_val` (argmax) | `prem_val` (`e*`) | `prem_test` | rate (argmax) | rate (`e*`) |
+|---|---|---:|---:|---:|---:|---:|---:|
+| shwd2sf | baseline | 10 | 1.469 | 1.469 | +0.736 | +50.11 % | +50.11 % |
+| shwd2sf | strategy | 10 | 0.865 | 0.857 | +0.152 | +17.57 % | +17.73 % |
+| smoke2sf | baseline | 10 | 0.691 | 0.684 | +0.509 | +73.69 % | +74.36 % |
+| smoke2sf | strategy | 10 | 0.605 | 0.605 | −0.157 | −25.96 % | −25.96 % |
+| aitod20 | baseline | 1 | 0.786 | 0.786 | −0.376 | −47.86 % | −47.86 % |
+
+* **Five-cell pooled rate**: **+19.558 %** (argmax) → **+19.620 %** (`e*`) — a change of **+0.062 pp**.
+* **Five-cluster bootstrap 95 % CI**: [−25.074 %, +50.961 %] (argmax) vs [−25.127 %, +51.159 %] (`e*`) — **both cover zero**.
+* On the **four cells whose full n = 10 series is in the released per-epoch matrix** (the `aitod20` row here carries only the one run that matrix holds; its n = 10 escalation is in Table S38b and is *not* in that matrix), the pooled rate goes **+34.156 % → +34.287 %**, a change of **+0.131 pp**, with the bootstrap interval covering zero under both rules ([−0.348, +57.647] vs [−0.350, +57.813]).
+
+**Wider check.** Over **every run on the release with a usable `results.csv` — 1,375 runs** — the fitness-argmax epoch equals the `mAP50-95` argmax in **1,275 (92.7 %)**, and the premium changes by a mean of **−0.0021 pp** with a worst case of **−0.261 pp**; **no run moves by more than 1 pp**. Per-run *rates* can move a great deal where the denominator is near zero (four of the forty runs with both sides do), which is exactly why the reported quantities are pooled and arm-equal rather than single-run.
+
+**Reading.** Under the reviewer's own written criterion — a rate move below 5 pp with the claim-level interval still covering zero — the recomputation gives **+0.06 pp (five cells) / +0.13 pp (four complete cells)** and an interval that still covers zero under both rules. The numbers printed in the article and in this supplement are therefore **unchanged by the choice of endpoint rule**, and the rule itself is now stated (§S18). The one honest qualification is that **single-run rates on cells with a near-zero premium are not stable**, and no single-run rate is claimed in the article.
