@@ -4148,3 +4148,22 @@ Pooled `Σ prem_test / Σ prem_val` = **+1.44 %**; run-level bootstrap (B = 20,0
 **How this interacts with §5.1 and §8.6.** The article's five-cell statement is explicitly a statement about **arm-cells that met an inclusion rule** (printed in the pool ledger), not a sample of target corpora; the target-level number above is what that statement would look like if it were read as a corpus-level claim, and it is **weaker**. Both are now available, and the article's wording keeps the arm-cell reading.
 
 **Reproduction.** Per-run `prem_val` comes from each run's `results.csv`; `prem_test` from the released `xeval_20260916/matrix.csv` (`best` − `last`, `split = test`); the bootstrap resamples the stated unit, B = 20,000, seed 20260927, 41 per-run records (40 SFCHD + 1 AI-TOD).
+
+---
+
+## S23 · The pre-registered A/A null control for Δgap (C2)
+
+**What was run and why.** §5.1's paired-difference reading assumes the two arms of a cell face **equal difficulty**. To test that assumption directly, the two arms were made **identical in every recipe field** — same corpus (the SFCHD three-way carve), same pretrain (`shwd2sf_pretrain.pt`), same loss (`shapeiou`), `lr0` = 0.001 in **both** arms, 100 epochs — with the **only** difference being the training **file order**: arm A uses `--shuffle-seed` 42–51, arm B uses 62–71, n = 10 each, 20 runs. The endpoint convention is §5.1's: `G = prem_val − prem_test` per run, with both endpoints evaluated on `val` and on the disjoint `test` split.
+
+**Pre-declared criterion (written before the runs).** The control passes if `Δgap_A/A`'s 95 % CI **covers zero**; it fails if the CI excludes zero **or** if |mean| exceeds ~0.2 pp (half the observed escalation effect).
+
+| Arm (file orders) | n | mean `G` | SD |
+|---|---:|---:|---:|
+| **A** (42–51) | 10 | **+1.015 pp** | 0.464 |
+| **B** (62–71) | 10 | **+0.548 pp** | 0.336 |
+
+**`Δgap_A/A` = +0.466 pp** (arm A − arm B); **Welch 95 % CI [+0.092, +0.841]**; run-level bootstrap (B = 20,000, seed 20261012) 95 % CI **[+0.116, +0.817]**. **Both intervals exclude zero, and the mean exceeds the 0.2 pp threshold.**
+
+**Reading, stated plainly.** **The null control is not null.** Two arms that differ *only* in the order in which the same training files are consumed produce a spurious `Δgap` of **+0.47 pp** — about **14 %** of the 3.315 pp escalation effect that §5.1 reports for `p_vistod15` — and the interval excludes zero under both methods. Consequently **every reading of Table 2 carries a convention line**: the quoted gaps are the observed arm differences under the registered design, and a gap of **≈0.5 pp or smaller should not be read as an identified effect** without separate justification. What this does **not** do is overturn the two escalated cells, whose gaps are 2.5–7× larger than the control's; it bounds how small a gap the design can resolve.
+
+**Reproduction.** The 20 runs are `r21_c2aa_sfchd_{A,B}_s{42..51|62..71}n`; the per-run `prem_val` comes from each run's own `results.csv` and the endpoint readings from a dedicated `best.pt` / `last.pt` evaluation on `split="test"` (40 evaluations, released as `r21_c2aa_testeval.csv`, columns `run, ckpt, split, map50_95, map50, mp, mr, data_yaml`). The Welch interval and the run-level bootstrap use the seeds printed above.
