@@ -4048,3 +4048,21 @@ headline effect, the **seed-budget discipline** measured rather than assumed ([5
 | `lr005_100ep` | 10 | **+14.883 pp** | 5.221 | +7.594 … +26.532 |
 
 **Why the magnitude differs from §8.8 by two orders of magnitude.** §8.8's VisDrone cell is a large, well-fit corpus (5,971 train images, a mature recipe), so its selection premium is **+0.27 pp**; this corpus is small (5,220 train images) and less fitted, so its premium is **+26.2 / +14.9 pp**. **The size of the premium is a property of the corpus and the recipe, not a constant of the method** — which is the same conclusion §8.6–§8.7 reach from the other direction. **The test-side realization rate for this corpus is NOT measured here** (it needs a per-epoch `test` sweep) and no realization number is claimed.
+
+---
+
+## S18 · One checkpoint rule for both sides of the realization ratio
+
+**The issue (raised in review).** The ratio `prem_test / prem_val` was defined with the numerator taken at the archive's own end-of-training `test` reading on **`best.pt`** and the denominator taken at the **argmax of the per-epoch `val` curve**. Those are two *different* selection rules: Ultralytics writes `best.pt` at the epoch that maximises its **fitness** (`0.1·mAP50 + 0.9·mAP50-95`), which need not be the epoch that maximises `mAP50-95` alone.
+
+**What we checked, and with what.** For **every run on the release whose `results.csv` carries both metrics — 377 runs**, including all headline cells — we computed the fitness-argmax epoch `e*` and compared the two candidate denominators `V(argmax)` and `V(e*)`.
+
+| Quantity | Result |
+|---|---|
+| runs where `e*` equals the `mAP50-95` argmax | **341 of 377 (90.5 %)** |
+| mean change in the premium when the denominator is taken at `e*` | **−0.0023 pp** |
+| largest change in any single run | **−0.086 pp** |
+
+**What this means for the reported numbers.** Because the two rules coincide in nine runs out of ten and the premium they imply differs by **at most 0.086 pp** (mean −0.002 pp), the realization ratios printed in the article and this supplement are **materially unchanged** by the choice; **we nonetheless state the rule explicitly here** — where a run's `test` reading is taken at `best.pt`, the denominator is taken at that **same** epoch `e*`, not at the raw `mAP50-95` argmax — so that the numerator and denominator are selected by **one** rule. The residual (the 36 runs where the two differ) is bounded by the column above and is **not** claimed to be zero.
+
+**Where the data are.** The per-run `results.csv` files behind this check are released artifacts; the fitness-argmax epoch `e*` is recomputable from them with the formula printed above.
