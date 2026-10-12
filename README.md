@@ -95,3 +95,11 @@ that the same files can be obtained from their own repositories.
 ## The headline realization rate: recompute inputs (C01)
 
 `work/item2_final_v2_20260925.py` reproduces Table 4's realization rate. Its inputs are shipped here under `02_release_data/`: `xeval_20260916/` (per-run `*_results.csv` with the epoch curves), `aitod20_n10_20260924/` (that cell's `x4_teval.csv`) and `x4fill_20260925/` — the three inputs an earlier release did not carry, which is what the review round flagged. The script resolves its paths from the package root, so it can be run from an unpacked copy.
+
+## Environment the released artifacts were produced and checked under
+
+**What is stated here is what the released files themselves record**; nothing is inferred beyond them.
+
+* **Training / evaluation**: the Ultralytics stack on **CUDA GPUs** (the runs behind §8.8 and its sibling used rented 24 GB cards). Each run's **exact** training configuration — `imgsz`, `batch`, `epochs`, `lr0`, `optimizer`, `patience`, the data YAML and the file order — is recorded **per run** in that run's `args.yaml`, which is a released artifact; the per-run logs are released alongside it. **The environment is therefore pinned per run, not by a single global lockfile.**
+* **The checkers** (`04_verification/*.py`, `work/*.py`) are plain Python and were run under **Python 3.11**; the ones that read Office files need `python-docx`, and the page measurement additionally needs a local Word installation (it drives Word to paginate) plus `pypdf` to re-count. Failing those, the same numbers are checked by the hashes in `MANIFEST_sha256.csv`.
+* **Known gap, stated as one**: this package does **not** ship a single environment lockfile for the training stack. What it ships instead is the per-run configuration (`args.yaml`) and the per-run logs, which is what the reported numbers actually depend on.

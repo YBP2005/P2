@@ -9,7 +9,7 @@ Object-detection papers report a number from a split they call held out. We audi
 
 **1. The convention is broken in our own corpora.** **6 of 14** corpora give the reported number no independent held-out split: the checkpoint was selected there, **even though** training and evaluation do not overlap. What is broken is **checkpoint selection**, not contamination — which turns an ethical question into a **measurement** one.
 
-**2. The selection premium only partly survives.** The premium is positive in every escalated cell; what changes sign by corpus is the **paired Δgap** — the arms' relative difference on `val` versus on `test` — and not the selection term itself. The **mean direction is metric-robust while one cell's significance and sign unanimity are not** (`smoke2sf`, p = 0.54). A **descriptive** 13-cell scan leaves **3** cells after BH, so the direction claim rests on the four escalated cells. **On a disjoint split, realization is partial**: the **claim-level interval includes zero**, and the arm-cell and run-weighted point estimates are **descriptive**, as intervals only (Table 4). **At full budget, 99 % (§8.8).** No power analysis was registered; the nine `n` = 3 cells stay descriptive.
+**2. The selection premium only partly survives.** The premium is positive in every escalated cell; what changes sign by corpus is the **paired Δgap** — the arms' relative difference on `val` versus on `test` — and not the selection term itself. The **mean direction is metric-robust while one cell's significance and sign unanimity are not** (`smoke2sf`, p = 0.54). A **descriptive** 13-cell scan leaves **3** cells after BH, so the direction claim rests on the four escalated cells. **On a disjoint split, realization is partial**: the **claim-level interval includes zero**; arm-cell and run-weighted estimates are **descriptive** intervals only (Table 4). **At full budget, one corpus, one detector: 99 % (§8.8).** No power analysis was registered; nine `n` = 3 cells stay descriptive.
 
 **3. The printed count rests on one rater.** The layer the literature reports is printed as **12 of 19** (63 %; 4 undecidable); re-verifying every row first-hand and re-coding blind with **five** models recovers **19 of 30** corrected cells, eleven unanimously, while **26 of 76** stay undecidable and **11 of 30 are not recovered** (§6.1, S12).
 ---
@@ -108,7 +108,7 @@ component exists elsewhere, **not independent evidence** and not a field-level r
    validation noise of the criterion used to select (§8.6–§8.7). The identity tying it to the
    winner's-curse share we **adopt** [13], not claim; the closest concurrent work [12, 15] reaches the same **direction** with a different quantity, and neither reports a **ratio of difference premiums** — `(T_best − T_final)/(V_max − V_final)`, on disjoint splits, in detection, on our own arm-cells, with measured `val` noise as moderator. A same-estimand ratio does exist elsewhere — in genomics, where it is written as a relative bias and measured at 10–60 % (**Supplementary S12** carries the full citation). The replicate axis is **data order** (§8.4) — the **seed-budget discipline
    reproduced inside this setting** rather than a new one.
-3. **We disclose our own defects, and the corrections that followed** rather than removing them:
+3. **We disclose our own defects and the corrections** rather than removing them:
    our analysis' first version had non-reproducible items — pod-dependent scripts, a citation to a file
    not holding the quoted numbers, no written endpoint convention. §10, not deleted.
 

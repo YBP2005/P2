@@ -1,6 +1,6 @@
 path,sha256,bytes,description
-01_paper/P2_English_submission_blind_v1.md,0af3551f65e65defd57df43bb608d9078f3862cc919a849b193a7fcbea1bd0ea,80129,article (anonymised submission form)
-01_paper/P2_English_v0.1.md,13c6c532cfdfb37a53bb9d847ab77d2ada3fcb30149632462ed28fe21b136d10,81326,article (working form)
+01_paper/P2_English_submission_blind_v1.md,1280cc37914f5f5587efdf3d554dbb9020dfda32d5f6aa6228bbdda472ff5268,80129,article (anonymised submission form)
+01_paper/P2_English_v0.1.md,d51db9957a75ca53dadc9655f90f8d1bca99980925b82783c92fe77d15e44126,81326,article (working form)
 01_paper/P2_English_v0.1.pdf,719ccf7fb9e511d87c78be9603dc1192a833b7169c5b8ccb758cc52dffd6c57c,736945,article PDF as built
 01_paper/P2_Supplementary_English_v0.1.md,2a545c7db625dce7b67bfecdf5459966f0d7e2a9cb5953260c7fe25e5cda47ba,359363,"supplementary material (English, authoritative artefact)"
 01_paper/P2_Supplementary_English_v0.1.pdf,023bd1fc944beace1e13d890461bc1454746d1350041c6014bae7d3f69384aa7,5893455,supplementary PDF as built
@@ -293,7 +293,7 @@ work/x3b_perepoch_corrected_20260918.py,69c8a5ced19bf111b34d6a31a311fe10e466263f
 02_release_data/xeval_perepoch_20260918/x3.DONE,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,0,Table 4 recompute-chain input (C01)
 02_release_data/xeval_perepoch_20260918/xeval_perepoch.log,79c436ce050e2fc72723d19618a6c67c6ea84cd5696a91f147cb73aa98a2482b,1942061,Table 4 recompute-chain input (C01)
 work/item2_final_v2_20260925.py,9edcf49a53565c8d9a0dc6d84d77c7cca0ba9103ec21423da013b5e7cced208f,7856,Table 4 rate: root-relative paths (C01/C05)
-README.md,530e115aa73b0852cfbb3e05df8993c0fb9b8d84ae102118ba7869ec33f54af9,10884,hand-written package documentation
+README.md,c3c96317dddea3d86151ad41407e1364a1eada662de13207001c0cf7661161e2,10884,hand-written package documentation
 02_release_data/t1d_valext_20261002/README.md,6ce17006a2d536273695ea6100fc52c5388aae331ddc1372ce3b3929513e9992,1603,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
 02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s42n/results.csv,b499828a720c9a67e3f1f431fbe9a9ec18836157caf53a9a387de3de10b048b3,12118,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
 02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_base100_s42n/results_A.csv,b499828a720c9a67e3f1f431fbe9a9ec18836157caf53a9a387de3de10b048b3,12118,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
