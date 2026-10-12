@@ -502,8 +502,16 @@ bound it: **one corpus**, and §5.1's `lr0` axis; a second corpus with a genuine
 > **Per-run matrix, protocol, leakage self-check and the bootstrap** → **Supplementary §S13** (Tables S46–S47: the per-arm table is S46).
 
 
-### 8.9 A second corpus at full budget: the premium is corpus-scale-dependent
-**The same full-budget protocol on a second corpus** (`mask_clean`: 5,220 train / 900 val / 919 test, `nc = 1`; 20 runs = 2 arms × ten file orders) gives a **selection premium of +26.2 pp (`base100`) and +14.9 pp (`lr005_100ep`)** — against **+0.27 pp** on the full-budget VisDrone cell above, a difference of two orders of magnitude on the same protocol. **The direction is reproduced** (`base100` > `lr005_100ep`, i.e. the higher `lr0` buys down the premium by ~43 %). What this establishes is therefore **scope**: the premium's *size* tracks corpus scale and fit, while its *sign* does not flip. The **test-side realization for this corpus is not yet measured** (it needs a per-epoch `test` sweep this run set does not have) and is **not claimed** here.
+### 8.9 A second corpus at full budget: the premium and its realization are corpus properties
+**The same full-budget protocol on a second corpus** (`mask_clean`: 5,220 train / 900 val / 919 test, `nc = 1`; 2 arms × ten file orders, 100 epochs, `test` side from a per-checkpoint sweep):
+
+| Arm | n | `prem_val` | `prem_test` | realization |
+|---|---:|---:|---:|---:|
+| `base100` | 10 | +26.219 | **+1.755** | **+7.2 %** |
+| `lr005_100ep` | 10 | +14.883 | **−1.165** | **−9.7 %** |
+
+Pooled **+1.44 %**; run-level bootstrap 95 % CI **[−7.2 %, +4.1 %]** — **zero inside**; `prem_test > 0` in **12 of 20** runs. **Against §8.8** (full-budget VisDrone: premium +0.27 pp, realization **99 %**), the premium here is two orders of magnitude larger and **only a minority survives** — and the arms separate on the *realization* (+7.2 % vs −9.7 %) rather than on the premium alone. **Per-run detail: Supplementary S17.**
+
 
 ## 9. The registered multi-target replication: **reported in the companion paper**
 

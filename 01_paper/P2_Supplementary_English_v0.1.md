@@ -4093,3 +4093,12 @@ headline effect, the **seed-budget discipline** measured rather than assumed ([5
 **(i) The five-cell pool spans two budgets.** The pool ledger above is a pool of **arm-cells**, and the arm-cells in it were **not** all run at the same epoch budget: **ten** of the thirteen three-way clusters ran `E = 100` and **one** — `aitod20` baseline — ran `E = 30` (the sentence already printed in the budget discussion above). The pool's **inclusion rule is stated per cell and applied mechanically** (an arm-cell enters iff its `test` side reached n ≥ 5 at the recorded freeze), so the pool is a **set of arms at their own budgets**, not a budget-matched comparison; where a budget-matched comparison is made, it is the `E = 100` family and is labelled as such.
 
 **(ii) Where Δgap's sign is read, the identifiability caveat binds.** The article states in §5.3 that the raw gap `G = V(ê) − T(ê)` is **not identifiable** from the pair alone and that the paired difference removes the difficulty term **only under the stated equal-difficulty assumption**. Every place this supplement reads the **sign** of Δgap descriptively inherits that caveat: the sign is a **sum of same-order terms**, so it is read as a **direction of movement within a cell**, never as an identified effect size. Where a claim needs an identified quantity, the paper uses the **paired** form and the **κ** decomposition instead (Table 4, §8.7).
+
+**Both sides, per arm** (full budget, 100 epochs, n = 10 per arm):
+
+| Arm | `prem_val` | `prem_test` | realization (mean of per-run rates) |
+|---|---:|---:|---:|
+| `base100` | +26.219 pp | +1.755 pp | **+7.2 %** |
+| `lr005_100ep` | +14.883 pp | −1.165 pp | **−9.7 %** |
+
+Pooled `Σ prem_test / Σ prem_val` = **+1.44 %**; run-level bootstrap (B = 20,000, seed 20261011) 95 % CI **[−7.2 %, +4.1 %]** — **zero inside**; `prem_test > 0` in **12 of 20** runs. **Contrast with §8.8** (full-budget VisDrone): premium **+0.27 pp**, realization **99 %**. The per-checkpoint `test` readings behind this table are the released `g6_perepoch.csv` rows for these 20 runs (22 checkpoints each, `split = test`), produced by `g6_perepoch_eval.py`.
