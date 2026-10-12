@@ -4128,3 +4128,23 @@ Pooled `Σ prem_test / Σ prem_val` = **+1.44 %**; run-level bootstrap (B = 20,0
 **Wider check.** Over **every run on the release with a usable `results.csv` — 1,375 runs** — the fitness-argmax epoch equals the `mAP50-95` argmax in **1,275 (92.7 %)**, and the premium changes by a mean of **−0.0021 pp** with a worst case of **−0.261 pp**; **no run moves by more than 1 pp**. Per-run *rates* can move a great deal where the denominator is near zero (four of the forty runs with both sides do), which is exactly why the reported quantities are pooled and arm-equal rather than single-run.
 
 **Reading.** Under the reviewer's own written criterion — a rate move below 5 pp with the claim-level interval still covering zero — the recomputation gives **+0.06 pp (five cells) / +0.13 pp (four complete cells)** and an interval that still covers zero under both rules. The numbers printed in the article and in this supplement are therefore **unchanged by the choice of endpoint rule**, and the rule itself is now stated (§S18). The one honest qualification is that **single-run rates on cells with a near-zero premium are not stable**, and no single-run rate is claimed in the article.
+
+---
+
+## S22 · The claim-level interval under target-level clustering (asked for in review)
+
+**What was asked.** Redo Table 4's claim-level bootstrap with the **cluster unit set to the target corpus** (the review anticipated "2–3 clusters") rather than to the arm-cell.
+
+**What the five cells' targets are — from the design, not from convention.** Four of Table 4's five cells are `shwd2sf` and `smoke2sf`, both of which read **source → target** and both of whose target is **SFCHD**; the fifth, `aitod20`, is "the **AI-TOD** corpus on its own 20 %-budget subset". The five cells therefore carry **two distinct targets** — SFCHD (40 of the 41 runs) and AI-TOD (1 run) — so a target-level bootstrap has **two clusters** and cannot be made narrow by construction. That is a property of the design, and it is why the number below is reported rather than recommended.
+
+| Clustering unit | 95 % CI (argmax denominator) | 95 % CI (`e*` denominator) |
+|---|---|---|
+| **arm-cell** (5 clusters, as printed) | [−10.64 %, +55.82 %] | [−10.67 %, +56.05 %] |
+| **target corpus** (2 clusters) | **[−47.86 %, +34.16 %]** | **[−47.86 %, +34.29 %]** |
+
+* Pooled rate over the five cells: **+32.417 %** (argmax) → **+32.539 %** (`e*`), a change of **+0.12 pp** — consistent with §S21.
+* **Both clusterings cover zero**, so the qualitative conclusion is the same; but the **lower bound moves by about 37 pp** depending on the unit, and the target-level interval is the honest one whenever the claim is read as being *about corpora* rather than about arm-cells.
+
+**How this interacts with §5.1 and §8.6.** The article's five-cell statement is explicitly a statement about **arm-cells that met an inclusion rule** (printed in the pool ledger), not a sample of target corpora; the target-level number above is what that statement would look like if it were read as a corpus-level claim, and it is **weaker**. Both are now available, and the article's wording keeps the arm-cell reading.
+
+**Reproduction.** Per-run `prem_val` comes from each run's `results.csv`; `prem_test` from the released `xeval_20260916/matrix.csv` (`best` − `last`, `split = test`); the bootstrap resamples the stated unit, B = 20,000, seed 20260927, 41 per-run records (40 SFCHD + 1 AI-TOD).
