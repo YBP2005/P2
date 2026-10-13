@@ -1,9 +1,9 @@
 path,sha256,bytes,description
-01_paper/P2_English_submission_blind_v1.md,c6678a3544d44ded1eec04fb0e437e0fe4f16169c64ef7fc8258e6a0a364799d,80129,article (anonymised submission form)
-01_paper/P2_English_v0.1.md,916d394b84ada89a293c2ce38d7f8ee528761a581811c69f118d21349567b52b,81326,article (working form)
+01_paper/P2_English_submission_blind_v1.md,04d28a4a18e4bee32ac2279d33780ce543f4f293cde896e98b643b4d482dc197,80129,article (anonymised submission form)
+01_paper/P2_English_v0.1.md,7e6c52fb15230a84530a229a4c7739d6f7515898531e5eb234a13ad20aacd547,81326,article (working form)
 01_paper/P2_English_v0.1.pdf,719ccf7fb9e511d87c78be9603dc1192a833b7169c5b8ccb758cc52dffd6c57c,736945,article PDF as built
-01_paper/P2_Supplementary_English_v0.1.md,a3229d64fc35592ce0a847bec1e665ca74a2f832a1b28d9dbd709929abecf0dd,359363,"supplementary material (English, authoritative artefact)"
-01_paper/P2_Supplementary_English_v0.1.pdf,e9864d0761fea8f0c4f9e80f2328fa3e45d5fc49711dba2a626b388f97e1e558,5893455,supplementary PDF as built
+01_paper/P2_Supplementary_English_v0.1.md,5b33d653940265393b7e5244b0b39c55354ace5d346661810644dbb14f48a57b,359363,"supplementary material (English, authoritative artefact)"
+01_paper/P2_Supplementary_English_v0.1.pdf,29faab8f55c1e75c7d75985bb2064a3ac017c9521de523b16cacbc2f97cd6eb4,5893455,supplementary PDF as built
 01_paper/P2_投稿前件_v0.1.md,e62d8ede3f3013b2bbd957637d141dd88f26f6dd74948269e7f33b22b9750235,33853,submission front matter (author names still placeholders): the anchor audit reads its Highlights and Cover Letter sections (X47/X48) so that the 289-anchor claim holds inside the package
 01_paper/P2_补充材料.md,c4ebb7d01f852038b96d02c0fab9bc517ec3c5581e526162e35d3971a0fedd02,51805,supplementary material (Chinese source record)
 01_paper/PR形式要求_核实_20260917.md,1910d8527859894be61c7aacf4822f70c20aaac5e59bea50d8948da433fdafc8,5035,the journal-forms verification record: the anchor audit reads its source correction (X45/X46)
@@ -12,7 +12,7 @@ path,sha256,bytes,description
 02_release_data/FIGURES.md,b7b66597db46e73a1413aa6a46be354d3966cb86e8e405936cf6e160c9f6bad7,1229,named in the article/supplement: figures/FIGURES.md
 02_release_data/P2_T1_registered-replication_long.csv,d5abe4766389e62f2c902eb27bbac2a95b0b12c98dab9163dd0eca7f347a0c0d,52105,"the 90-run registered replication, long form (§9)"
 02_release_data/P2_X3_perepoch_test-sweep_806-evals.csv,b75c534509d8a62e004baa00b5d7ef587eace34a0bf4a5e48c8fe13dc58a9c99,140886,the 806-checkpoint per-epoch sweep (§8.7)
-02_release_data/SHA256SUMS.txt,19e86ab002999b5d2bb521474ef44a0b8cd620e0767ad8ed259c8d3ce455e5d4,10643,named in the article/supplement: SHA256SUMS.txt
+02_release_data/SHA256SUMS.txt,a68ec34537a80f6b0b25726f9d6259d886e4ff63b62b5ba0de33dd5a0e07570c,10643,named in the article/supplement: SHA256SUMS.txt
 02_release_data/_clean_series_b_20260925.txt,b9518e6ea7d897d6c6294057899c1e6fbba98ef6d809e03185b4158b4200bce6,6516,named in the article/supplement: work/_clean_series_b_20260925.txt
 02_release_data/_r10_final_stats.txt,85e7860a6c85ed851335eca4ea14f2bac0affdedc481eb9f6fa654ea877429ca,9088,r10 final statistics (§9.4)
 02_release_data/_r10_stats_0403.txt,6de96a823b4134b6fc50266ff8b394af5c618164ef9faf028827f93b5b66ef5c,12556,r10 three-way statistics (§9.4)
@@ -335,8 +335,8 @@ README.md,c3c96317dddea3d86151ad41407e1364a1eada662de13207001c0cf7661161e2,10884
 02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s50n/results_A.csv,4ec1db6ea4e8bca09c8bd9639104138e1c7de97f48fe2ab0068e0fe7479c2bdc,11991,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
 02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s51n/results.csv,51f44ba89a98f348cc2c7523c586cd3114347945d5ed7f74d8ec7e1416c645df,12018,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
 02_release_data/t1d_valext_20261002/runs/t1d_dotatod15_lr005_100ep_s51n/results_A.csv,51f44ba89a98f348cc2c7523c586cd3114347945d5ed7f74d8ec7e1416c645df,12018,T1-d val extension (r9 review remediation: the three curves the supplement says ship)
-01_paper/P2_English_submission_blind_v1.docx,cc4b1575eaba8e1cf6a837d2470d37d4d8eb2c7053ef4eafcc616a38aaf1ec33,636423,"article (anonymised submission form), Word build"
-01_paper/P2_Supplementary_English_v0.1.docx,21a2d0a80471d5a60f307b0860341ceb737a2168ae147fbdf0a8499ac339814c,372383,"supplementary material, Word build"
+01_paper/P2_English_submission_blind_v1.docx,a2d5af24eb08853bc59255dfc485fd16c6b0dad1ae81fd69da2fd1ee694a4daf,636423,"article (anonymised submission form), Word build"
+01_paper/P2_Supplementary_English_v0.1.docx,f689ff11946af9612e0a37e120bd68cf3765a602501c034fb4e63316801910b4,372383,"supplementary material, Word build"
 04_verification/x3_x4_pool_and_cluster_interval.json,2c1c9e225925072a776d7e387b7a37d52068db643b28860f34fdfb0fc0414d05,2589
 04_verification/x3_x4_pool_and_cluster_interval_20261004.py,a29755addbf13e15fe4fc8aac9f2f235a5c7fa1d13bd48fa46015682fb23e40f,8390
 04_verification/x5_prefix_n_table.json,d61d948faeef4612af02ae918eac81c1f0ef9515678e650e456710f341f7e4dc,9149
@@ -349,7 +349,7 @@ README.md,c3c96317dddea3d86151ad41407e1364a1eada662de13207001c0cf7661161e2,10884
 04_verification/verify_blind_isolation_20261015.py,467838788c8bfc18bfea4f16a4a5d3cedf5e2a5c5a8a5875cb99413d28ca7180,6718
 04_verification/rubric_selftest_20261005.txt,01cfa5f0e4078084d0b64ee683471d831aaa4fa189cb137f555405d193aace79,313
 01_paper/P2_English_v0.1.docx,d4e678b7901f94a1509e2297777e4e462cacc0af262dcde9d4db0979c4c09ae6,637101,"article (working form), Word build"
-01_paper/P2_English_submission_blind_v1.pdf,5aa3902722f166dedaf43404ecec23d19606c63a9b31a9ebe56ea72f1dad0c6b,721428,"article (anonymised submission form), PDF as built"
+01_paper/P2_English_submission_blind_v1.pdf,ac9f79af76aec3d05124c22957a75a7f1230620e591d563f8e5b01adff40f233,721428,"article (anonymised submission form), PDF as built"
 05_coding_toolbox/p2_coding_instrument_v46.md,f8595fdab72c62dd545e2c230e08a826ae67b93d0e10043e5c29918e82256982,248945,blind-coding instrument handed to each coder (decision procedure + evidence cards, no marks)
 05_coding_toolbox/decision_procedure_v46.md,9a6a12a96810be0dceaf43458ea763b43cb4ae5d1c668f6baa6b31364837470a,21723,decision procedure alone (Section 1-9: value sets, decision trees, counting convention)
 05_coding_toolbox/evidence_cards_19rows.md,6d16ce7ff25cb0ab7be0ae8b6e1eaf4290b8597a49de5377e1accbe93764bd89,252214,the 19 evidence cards alone (verbatim evidence with sources; contains no marks)
@@ -372,3 +372,8 @@ README.md,c3c96317dddea3d86151ad41407e1364a1eada662de13207001c0cf7661161e2,10884
 02_release_data/P2_r21_c2aa_testeval.py,ca78bb475cf73f7b22b0a3f6b3c22b2066e573d0e18a741de0745f39d4cf925e,3987,script: reproduces the C2 test evaluations
 02_release_data/P2_e1full_per_run.csv,ed00f5dbb6e78099530ae0c1beb09129ab5cdc264f74beca2696c393bb656f92,1537,released with the r5 revision (per-run and analysis artifacts)
 02_release_data/g6_coverage.txt,a69a2a289a554bf2890e2e00979de15f8c014be52d710c476a844e968b16142e,97,released with the r5 revision (per-run and analysis artifacts)
+02_release_data/P2_coding_blind_matrices.json,45a975de5962fc048e9c1126f051471df8d3f72f43cd9311d12497d4598fdfdf,41030,released with the r5 revision (per-run and analysis artifacts)
+02_release_data/P2_coding_intake_ledger.json,edbf8dd9a5fdc62d7b168274b23bc35ca1869b3e991be7afe91e04eb18b425ca,2430,released with the r5 revision (per-run and analysis artifacts)
+02_release_data/P2_coding_kappa.json,6dcd74037851d08cab0633683fa4db0fb6e2e4d6569d7878165a8bc131775714,21798,released with the r5 revision (per-run and analysis artifacts)
+02_release_data/P2_coding_summary.md,3f673a50e609e30505fc2e4aa62649f0b505bad68b17cd4bdeb57cdfef7920a2,6215,released with the r5 revision (per-run and analysis artifacts)
+02_release_data/P2_freeze_hashes.txt,8472abe9a3b533bf98ca94996d3a7cb8e182cd92a3a4a9a253270fc42d415483,262,released with the r5 revision (per-run and analysis artifacts)

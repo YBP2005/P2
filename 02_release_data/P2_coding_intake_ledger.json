@@ -1,0 +1,98 @@
+[
+ {
+  "tag": "Deepseek-V4.1-Flash",
+  "model_dir": "Deepseek-V4.1-Flash",
+  "file": "p2r21coding_Deepseek-V4.1-Flash_20261018.md",
+  "bytes": 11613,
+  "md5": "d6860808e8cac0ac52731f9db3a00456",
+  "mtime": "2026-10-07 10:00:09",
+  "format": "ROW",
+  "rows_parsed": 19,
+  "evidence_parsed": 19,
+  "problems": []
+ },
+ {
+  "tag": "glm-5.2",
+  "model_dir": "GLM-5.2",
+  "file": "p2r21coding_glm-5.2_20261018.md",
+  "bytes": 9261,
+  "md5": "91e04c2286544379544fced715577318",
+  "mtime": "2026-10-07 10:01:42",
+  "format": "ROW",
+  "rows_parsed": 19,
+  "evidence_parsed": 19,
+  "problems": []
+ },
+ {
+  "tag": "glm-5.3",
+  "model_dir": "GLM-5.3",
+  "file": "p2r21coding_glm-5.3_20261018.md",
+  "bytes": 8889,
+  "md5": "153ba267e3f7f51327f836faf67c5a70",
+  "mtime": "2026-10-07 10:40:21",
+  "format": "TABLE",
+  "rows_parsed": 19,
+  "evidence_parsed": 19,
+  "problems": []
+ },
+ {
+  "tag": "GLM-5.3-Flash",
+  "model_dir": "GLM-5.3-Flash",
+  "file": "p2r21coding_GLM-5.3-Flash_20261018.md",
+  "bytes": 10728,
+  "md5": "0caf9d119820a0eae705cfd8b4f7160a",
+  "mtime": "2026-10-07 11:16:50",
+  "format": "ROW",
+  "rows_parsed": 19,
+  "evidence_parsed": 19,
+  "problems": []
+ },
+ {
+  "tag": "hy4-preview",
+  "model_dir": "Hy4 preview",
+  "file": "p2r21coding_hy4-preview_20261018.md",
+  "bytes": 14679,
+  "md5": "0a1ce1b438db5556b7ea6d4dada97cb9",
+  "mtime": "2026-10-07 10:15:04",
+  "format": "ROW",
+  "rows_parsed": 19,
+  "evidence_parsed": 19,
+  "problems": []
+ },
+ {
+  "tag": "Space-Bunny",
+  "model_dir": "Space-Bunny",
+  "file": "p2r21coding_Space-Bunny_20261018.md",
+  "bytes": 13338,
+  "md5": "37f37e3d8811a70f046cdd8d30ed28e3",
+  "mtime": "2026-10-07 09:59:29",
+  "format": "ROW",
+  "rows_parsed": 19,
+  "evidence_parsed": 19,
+  "problems": []
+ },
+ {
+  "tag": "gemini-3.8-flash",
+  "model_dir": "gemini-3.8-flash",
+  "file": "p2r21coding_gemini-3.8-flash_20261018.md",
+  "bytes": 7648,
+  "md5": "0bdaa63b6c2c78a0669c02f4b76e928c",
+  "mtime": "2026-10-07 09:59:53",
+  "format": "ROW",
+  "rows_parsed": 19,
+  "evidence_parsed": 19,
+  "problems": []
+ },
+ {
+  "tag": "gpt-5.6-sol",
+  "model_dir": "gpt-5.6-sol",
+  "file": "p2r21coding_gpt-5.6-sol_20261018.md",
+  "bytes": 7737,
+  "md5": "3a7d463baad6ea81e5d9b4497087673e",
+  "mtime": "2026-10-07 10:00:37",
+  "format": "ROW",
+  "rows_parsed": 19,
+  "evidence_parsed": 19,
+  "problems": []
+ }
+]

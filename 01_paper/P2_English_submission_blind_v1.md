@@ -49,9 +49,8 @@ therefore a methodological premise, not a caveat (§3, §6).
 ### 1.2 What we do not claim
 
 We do not claim that aliasing is data contamination: the image-level intersection between the
-training and held-out evaluation images is **zero** (SHWD [44] excepted, where `train` and `val` are one
-directory). We do not claim a single bias direction: our paired analysis finds **two corpora where `val`
-understates and two where it overstates**, and **nine cells are not testable at n = 3** (§5.1, §7.1; the escalation ledger is **Table S38b**, which records which cells moved to n = 10). Nor do we claim the
+training and held-out evaluation images is **zero** (SHWD [5] excepted, where `train` and `val` are one
+directory). We do not claim a single bias direction: our paired analysis finds **two where it overstates, one where it understates above the design’s own measured floor, and one *at* that floor (Supplementary S23)**, and **nine cells are not testable at n = 3** (§5.1, §7.1; the escalation ledger is **Table S38b**, which records which cells moved to n = 10). Nor do we claim the
 convention is framework-general (§6.5) or that the audited benchmarks are wrong: they report what their
 configuration computes.
 
@@ -69,14 +68,14 @@ family among the six frameworks we checked (five pinned repositories plus the Ul
 ## 2. Contributions and related work
 
 **Where this paper sits.** Reporting practice has itself been audited: leakage and near-duplicate
-contamination [3], [4], [11]; split naming and the choice of standard splits [8], [9]; experiment-
-reporting standards [7]; checkpoint-selection criteria [6]; and budget-dependent rankings [2]. Each audits
+contamination [3], [4], [6]; split naming and the choice of standard splits [7], [8]; experiment-
+reporting standards [9]; checkpoint-selection criteria [10]; and budget-dependent rankings [2]. Each audits
 **data, reporting, or selection**; **none audits a release’s configuration binding** — the object of §3–§6.
 
 ### 2.1 The closest work, and where this paper sits (detailed)
 
 > The detailed comparison — the nine prior lines of work, what each measures, and the axis on which
-> this paper differs — is **Table S45 in the Supplementary material**; it is not printed here because
+> this paper differs — is **§S45 in the Supplementary material**; it is not printed here because
 > the journal counts text inside the 20–35 page limit and the comparison is background, not a claim.
 > **§2.2 (Contributions) and §2.3 (what we do not claim) are unaffected.**
 
@@ -88,12 +87,12 @@ premium on a disjoint split with the reporting conventions it depends on (§8.6�
 
 1. **We quantify the magnitude and direction of configuration-level aliasing.** The selection premium
    (best − last) is **positive in all four cells, the baseline arm gaining more** — **on an escalated four-cell base, not a sample** (**near-definitional; §5.1**; four paired 95 % CIs
-   excluding zero, §5.1 Tier 1) — **consistent with the selection-bias literature** [5], not new in
+   excluding zero, §5.1 Tier 1) — **consistent with the selection-bias literature** [11], not new in
    kind. **All four cells meet the stated-n criterion (n = 10–11)** and all four survive a Benjamini–Hochberg step over **these four** at q = 0.05 — **a data-selected set; the 13-cell BH is the multiplicity control (§5.2)** — the fourth, `dota15`, entered at n = 3
    and was escalated to n = 10 under a criterion fixed in advance (**Table S28's note**) — so the convention
    systematically shifts **arm-to-arm comparisons**; its direction
    varies by corpus: three-way paired differencing gives 2 cells where `val` understates, 2 where it
-   overstates and 9 not testable at n = 3 — the **no-systematic-direction** [10] reports, measured here on
+   overstates and 9 not testable at n = 3 — the **no-systematic-direction** [12] reports, measured here on
    detection corpora.
    **We do not claim a general understatement** (§5). It appears in third-party logs too (a searched 20-log sample; §5.5) — corroboration that the
 component exists elsewhere, **not independent evidence** and not a field-level rate.
@@ -187,13 +186,13 @@ On the shared 5-epoch grid the `val` and `test` peaks agree in only **17.5 %** o
 
 ### 4.1 How common the aliasing is
 
-In **our own packaged configurations** — the YAMLs we train from, a different object from a benchmark's own release — **6 of 14** give the reported number no independent held-out split: **AI-TOD, DOTA v1, DOTA v1.5 [37], Mendeley face-mask [22], SFCHD [45]** (five binding `val:` to `test:`) and **SHWD [44]** (which binds `train` to `val`; **S1** row 13). Of the remaining 8, **4** keep the keys genuinely distinct and **4** have no `test:` key at all — the three groups account for all 14, and this is **a count over the configurations we hold, not a prevalence, nor the benchmarks' own releases** (audited separately, §6.1). Counting by file, **19 YAML files** alias the two keys, in five locations; on the archived manifest subset the ratio is **8 of 28**. **These three bases answer three different questions** — configurations (6 of 14), the files inside them (19), the archived manifest's rows (8 of 28) — **not three estimates of one rate.**
+In **our own packaged configurations** — the YAMLs we train from, a different object from a benchmark's own release — **6 of 14** give the reported number no independent held-out split: **AI-TOD, DOTA v1, DOTA v1.5 [21], Mendeley face-mask [22], SFCHD [23]** (five binding `val:` to `test:`) and **SHWD [5]** (which binds `train` to `val`; **S1** row 13). Of the remaining 8, **4** keep the keys genuinely distinct and **4** have no `test:` key at all — the three groups account for all 14, and this is **a count over the configurations we hold, not a prevalence, nor the benchmarks' own releases** (audited separately, §6.1). Counting by file, **19 YAML files** alias the two keys, in five locations; on the archived manifest subset the ratio is **8 of 28**. **These three bases answer three different questions** — configurations (6 of 14), the files inside them (19), the archived manifest's rows (8 of 28) — **not three estimates of one rate.**
 
 **For the corpora whose `val` and `test` are the same directory this is not contamination**: their image-level intersection with training is **exactly zero**, so the aliasing changes not *what* was evaluated but *which checkpoint* was reported, turning "selection contamination" from an ethical question into a **measurement** question. **SHWD is the exception and is not folded into that statement**: with `train` and `val` on one directory, its training and evaluation images are the same files. **It still counts among the six, for the reason the list is about: its `val` is not an independent held-out split either.**
 
 ### 4.2 The failure is produced by a tool, not by carelessness
 
-A PASCAL VOC [21]→YOLO conversion script wrote two keys from one `images_dir`, so `train == val` appears **because the generator could not produce distinct values** (§6.1 records the same for Mendeley face-mask [22]). §10's first recommendation: make "are `val` and `test` the same source?" a **pipeline-level hard check** — human YAML review will not catch it. 
+A PASCAL VOC [24]→YOLO conversion script wrote two keys from one `images_dir`, so `train == val` appears **because the generator could not produce distinct values** (§6.1 records the same for Mendeley face-mask [22]). §10's first recommendation: make "are `val` and `test` the same source?" a **pipeline-level hard check** — human YAML review will not catch it. 
 
 ---
 
@@ -201,7 +200,7 @@ A PASCAL VOC [21]→YOLO conversion script wrote two keys from one `images_dir`,
 
 **Evidence.** `eval_validity/selection_premium_local_20260916.txt`, reading **569 archived runs** from the local archive (the local version is the 2026-09-16 repair).
 
-**Definition.** premium = **best-epoch − final-epoch** mAP50-95 **within a single run**. When `val == test`, "best" was selected on the reported split, while `last` and `last5` are endpoints **no selection rule can reach**. This is the checkpoint-selection term of the run-to-run variation studied in [23] (early stopping, data order) and [24] (benchmark variance across seeds). Being a maximum over a noisy curve, it also carries the upward bias of any selected extreme [13]: what those works average over as uncertainty, we measure as a reproducible component. **The two arms.** Every cell is a paired comparison in which the **baseline** arm follows the published convention and the **strategy** arm is the intervention under test — in the cells reported here, raising the peak learning rate from **0.001 to 0.005** with everything else held fixed (batch 32, imgsz 640, SGD; YOLOv12n with the shape-aware IoU). The two arms run the same code and the same data.
+**Definition.** premium = **best-epoch − final-epoch** mAP50-95 **within a single run**. When `val == test`, "best" was selected on the reported split, while `last` and `last5` are endpoints **no selection rule can reach**. This is the checkpoint-selection term of the run-to-run variation studied in [25] (early stopping, data order) and [26] (benchmark variance across seeds). Being a maximum over a noisy curve, it also carries the upward bias of any selected extreme [13]: what those works average over as uncertainty, we measure as a reproducible component. **The two arms.** Every cell is a paired comparison in which the **baseline** arm follows the published convention and the **strategy** arm is the intervention under test — in the cells reported here, raising the peak learning rate from **0.001 to 0.005** with everything else held fixed (batch 32, imgsz 640, SGD; YOLOv12n with the shape-aware IoU). The two arms run the same code and the same data.
 
 > **Table S3** → Supplementary §S8.
 
@@ -213,12 +212,12 @@ wrong, and external checking refuted it (§5.4, II). **Endpoint convention (froz
 convention.
 
 **Tier 1: on the monitored split this positivity is near-definitional** (`best` is that curve's own argmax), so **the finding we report is the paired arm difference and its test side (§8.6)**: the selection premium is positive in all four cells, the baseline arm gaining more — consistent with the selection-bias literature, not new in kind. Pairing brings **no** variance benefit:
-the paired t of 5.74 and the unpaired Welch t [25] of **5.68** agree — at ρ = 0, **standard arithmetic
-rather than an empirical finding of ours** [24]. **Permutation checks** agree with the t-tests at each cell’s attainable floor (**Supplementary S12**).
+the paired t of 5.74 and the unpaired Welch t [27] of **5.68** agree — at ρ = 0, **standard arithmetic
+rather than an empirical finding of ours** [26]. **Permutation checks** agree with the t-tests at each cell’s attainable floor (**Supplementary S12**).
 
 **Meta-analyses of published results have long quantified this optimism**: development-set early stopping
-is measured to *overestimate realistic model performance*, by as much as **18.0 %** accuracy [26]; and a
-large Kaggle meta-analysis finds *little evidence of substantial overfitting* [27] — complementary rather
+is measured to *overestimate realistic model performance*, by as much as **18.0 %** accuracy [28]; and a
+large Kaggle meta-analysis finds *little evidence of substantial overfitting* [29] — complementary rather
 than contrary, since its mechanism is holdout **reuse** and ours needs none.
 
 **Metric sensitivity.** On `metrics/mAP50(B)` the mean direction holds in all four cells, but
@@ -252,21 +251,20 @@ than contrary, since its mechanism is holdout **reuse** and ours needs none.
 
 **Tier 2: on the same three-way corpora the paired difference Δgap varies in sign.** The raw
 `M_val(ê) − M_test(ê)` is **not identifiable**; the paired difference removes the difficulty term **under the equal-difficulty assumption** (Table 2) —
-**Δgap > 0 ⇒ `val` understates**. **Its effective base is four cells, not thirteen**, and an **escalated base** rather than a random sample, for the reason **Table 2's note** gives; **“2 understate / 2 overstate” is therefore a statement about these four cells, not a rate for the family**. **No prospective power analysis was registered**; the scan is in **Supplementary S12**. **Against the +0.47 pp floor** (§S23): `shwd2sf` **+0.779** is above it, `smoke2sf` **+0.461** is on it, and the two overstating cells (**−1.23**, **−3.32**) are an order of magnitude beyond it.
+**Δgap > 0 ⇒ `val` understates**. **Its effective base is four cells, not thirteen**, and an **escalated base** rather than a random sample, for the reason **Table 2's note** gives; **“2 understate / 2 overstate” is therefore a statement about these four cells, not a rate for the family**. **No prospective power analysis was registered**; the scan is in **Supplementary S12**. **Against the +0.47 pp floor** (§S23): `shwd2sf` **+0.779** is above it, `smoke2sf` **+0.461** is on it, and the two overstating cells (**−1.23**, **−3.32**) are an order of magnitude beyond it. **On the same rule the reading is one cell above the floor, one at it and two far below it** — so the direction claim rests on **one** understating cell that clears the floor, not two. **Scope of that floor:** §S23 measures the floor on the **selection term** `G = prem_val − prem_test`; Table 2’s `Δgap` adds the difficulty term, so applying the floor to `Δgap` is a **conservative analogy, not a strict null**.
 
 **Both escalations met the criteria fixed in advance.** `dota15` **+0.449 pp** (**10+/0−**);
 `p_aitovis` **−1.226 pp** and `p_vistod15` **−3.315 pp** (**0+/10−**), permutation p = **0.001953**,
 the attainable floor at n = 10. (resolution limit: **Supplementary S23**; see **Table 2**’s caption.) **The `p_vistod15` runs flagged for memory pressure were re-run clean and reproduce to ≤0.15 pp, changing no reading (Supplementary S41).** The `best.pt` endpoint was identified, not assumed: on `test` it reproduces the archived `sio_b_results.csv` to **0.0046 pp**.
 
 **The formal claim:** the convention systematically shifts **arm-to-arm comparisons** (Tier 1: four
-cells, CIs excluding zero); **the direction of that shift varies by corpus** (Tier 2: 2 understate /
-2 overstate on the four-cell base) — **neither "a general understatement" nor "no systematic direction"**.
-BH at q = 0.05 **now leaves three cells significant** — `p_vistod15`, `p_aitovis`, `shwd2sf` [28], **reversing what we reported before the
+cells, CIs excluding zero); **the direction of that shift varies by corpus** (Tier 2: **1 above the floor / 1 at it / 2 overstating**, Supplementary S23) — **neither "a general understatement" nor "no systematic direction"**.
+BH at q = 0.05 **now leaves three cells significant** — `p_vistod15`, `p_aitovis`, `shwd2sf` [30], **reversing what we reported before the
 escalation**. **The two families are not the same test**: the **13-cell scan is descriptive**, the **confirmatory family is the four escalated cells** (declared before their runs, §3.2) — the direction statement rests on those four.
 
 **Scope (cross-framework boundary).** The convention this paper audits belongs to the **YOLO lineage —
-Ultralytics YOLO [16] and YOLOX [29]**: at pinned commits, Detectron2 (`TEST.EVAL_PERIOD = 0`) [30],
-MMDetection [31], DETR [32] and PaddleDetection [33] **report the final epoch instead** (§6.5) — that
+Ultralytics YOLO [16] and YOLOX [31]**: at pinned commits, Detectron2 (`TEST.EVAL_PERIOD = 0`) [32],
+MMDetection [33], DETR [34] and PaddleDetection [35] **report the final epoch instead** (§6.5) — that
 pipeline family's convention, **not the field's**.
 
 ### 5.2 Two versions must be disclosed side by side
@@ -297,12 +295,12 @@ row by ~0.02 pp; ④ this section does **not** touch §6's 19-benchmark census; 
 **Evidence**: `benchmark_split_audit.md`, a line-by-line audit of 19 benchmark rows, plus
 `split_units_19rows_20260916.md` (recomputation script; no hard-coded percentages).
 
-**The nineteen audited benchmarks**, each read from its own release or dataset paper: COCO [34], PASCAL VOC [21],
-Objects365 [35], Open Images v7 [36], DOTA v1.0 and v2.0 [37], VisDrone-DET [38], AI-TOD [39], UAVDT [40], xView [41],
-DIOR [42], NWPU VHR-10 [43], SHWD [44], SFCHD [45], MAFA [46], Mendeley face-mask [22], WIDER FACE [47], CrowdHuman [48]
-and D-Fire [49] (**per-unit markings**: Supplementary S1) — **the configurations this archive could
-read, not a sample of the field.** The question is **evaluation validity**: dataset-level bias auditing [50]
-and classifier-accuracy estimation [51] ask whether a reported number measures what it is taken to
+**The nineteen audited benchmarks**, each read from its own release or dataset paper: COCO [36], PASCAL VOC [24],
+Objects365 [37], Open Images v7 [38], DOTA v1.0 and v2.0 [21], VisDrone-DET [39], AI-TOD [40], UAVDT [41], xView [42],
+DIOR [43], NWPU VHR-10 [44], SHWD [5], SFCHD [23], MAFA [45], Mendeley face-mask [22], WIDER FACE [46], CrowdHuman [47]
+and D-Fire [48] (**per-unit markings**: Supplementary S1) — **the configurations this archive could
+read, not a sample of the field.** The question is **evaluation validity**: dataset-level bias auditing [49]
+and classifier-accuracy estimation [50] ask whether a reported number measures what it is taken to
 measure, but neither audits a release's configuration binding.
 
 ### 6.1 The result under four units (single-rater judgements)
@@ -327,7 +325,9 @@ measure, but neither audits a release's configuration binding.
 > rate estimated from independent coding. A "yes" under any
 > unit means the reported number is **not a sample from an independent split**; it does **not** mean
 > the benchmark is broken or the experiment dishonest, and it does not license a generalization claim.
-**These 19 rows were coded by one rater** — 28 literal judgements (**§10**, defect 5). The five blind coders **independently reach 19 of 30 (63.3 %)** corrected cells, eleven unanimously, while **26 of 76** cells stay **undecidable**; **an independent blind panel reproduces only 31.4 % of the printed marks (42.2 % on the finer scale), so a 19-row count of 10–11 carries a band of roughly ±3–4 cells** — the *direction* of the majority survives on the decidable rows (10–11 of 16–17), **its size does not** (**Supplementary S27**); a **non-blind, model-assisted** pass agrees at κ **0.874** and **moves two rows** (**Supplementary S12**). `reported` means **the number the literature prints**: it is printed as a range, **12–14 of the 19 ≈ 63–74 %**, with the **80 %** column the lower end over the **12/15** decidable rows, and `n_a` rows counted in the **19** but not the numerator (**Supplementary S12**).
+> **Primary reading (panel).** The **five-coder blind panel** leads: **19 of 30 corrected cells (63.3 %)**, eleven unanimously, **κ 0.836**. The **single-rater count is the frozen instrument of record**.
+
+> **Frozen instrument.** These 19 rows were coded by **one rater** — 28 literal judgements (**§10**, defect 5). The five blind coders **independently reach 19 of 30 (63.3 %)** corrected cells, eleven unanimously, while **26 of 76** cells stay **undecidable**; **an independent blind panel reproduces only 31.4 % of the printed marks (42.2 % on the finer scale), so a 19-row count of 10–11 carries a band of roughly ±3–4 cells** — the *direction* of the majority survives on the decidable rows (10–11 of 16–17), **its size does not** (**Supplementary S27**); a **non-blind, model-assisted** pass agrees at κ **0.874** and **moves two rows** (**Supplementary S12**). `reported` means **the number the literature prints**: it is printed as a range, **12–14 of the 19 ≈ 63–74 %**, with the **80 %** column the lower end over the **12/15** decidable rows, and `n_a` rows counted in the **19** but not the numerator (**Supplementary S12**).
 
 ### 6.2 "Same directory" has four levels, and the audit reported only the narrowest
 The levels, the rows each admits and the resulting shift are in **Supplementary S12**, Table S12.
@@ -384,9 +384,9 @@ The protocol's results on the companion's corpora are the companion's first repo
 
 ### 8.3 A direct measurement of data-order replication (not seed variance, and not the selection claim itself)
 **A direct measurement of data-order replication — reproduced inside this setting**: adding replicates that permute the training file order lowers the mean by **9 %–29 %**, each figure taken **against that cell's own n = 6 mean** and not against the pooled
-headline effect, the **replicate-budget discipline** measured rather than assumed ([52]'s setting, §8.4). **What these replicates are.** The per-run randomness is a **deterministic permutation of the training file order** (`--shuffle-seed`, the number in the run's name), **not** the framework's `seed` argument (**Supplementary S12**, section 9.3, with the two corpora whose replays are identical across `--seed` values). The quantity is therefore **data-order replication**, not seed variance: the 9 %–29 % bounds the **file-order** component of the reported mean, **not** the variance between independent training seeds. That best-of-K selection inflates a reported score is **not new** (§8.6 positions the closest concurrent work, a dose–response over 2,047 datasets), so **what is measured here is the magnitude under a protocol that selects cells for significance first and expands seeds afterwards** (design and recomputation check: **Supplementary S12**, Table S18). **The title is deliberately the weaker, sample-scoped claim**: with three initializations the interval is wide, and extending to five does not narrow it (the gain SD reaches the data-order component's order), so the components are **consistent with, not established by**, these initializations.
+headline effect, the **replicate-budget discipline** measured rather than assumed ([51]'s setting, §8.4). **What these replicates are.** The per-run randomness is a **deterministic permutation of the training file order** (`--shuffle-seed`, the number in the run's name), **not** the framework's `seed` argument (**Supplementary S12**, section 9.3, with the two corpora whose replays are identical across `--seed` values). The quantity is therefore **data-order replication**, not seed variance: the 9 %–29 % bounds the **file-order** component of the reported mean, **not** the variance between independent training seeds. That best-of-K selection inflates a reported score is **not new** (§8.6 positions the closest concurrent work, a dose–response over 2,047 datasets), so **what is measured here is the magnitude under a protocol that selects cells for significance first and expands seeds afterwards** (design and recomputation check: **Supplementary S12**, Table S18). **The title is deliberately the weaker, sample-scoped claim**: with three initializations the interval is wide, and extending to five does not narrow it (the gain SD reaches the data-order component's order), so the components are **consistent with, not established by**, these initializations.
 ### 8.4 The three variance components: **the excluded one is the smaller in this sample — a sample-scoped ordering, not an established one**
-**The three variance components, and the excluded one is the smaller in this sample**: the single-run data-order component is **0.515 pp**, against an initialization component of the same order — the **same ranking** as the shuffle-order result of [52] (**Supplementary S12**), so we **reproduce the ordering inside this setting** rather than discover it. What was held fixed, and why this is **sample-scoped** — at five initializations the gain SD moves **0.146 → 0.439 pp** and its interval **overlaps** the data-order magnitude, so the two are of the same order rather than one clearly smaller — is in **Supplementary S12** and Table S19.
+**The three variance components, and the excluded one is the smaller in this sample**: the single-run data-order component is **0.515 pp**, against an initialization component of the same order — the **same ranking** as the shuffle-order result of [51] (**Supplementary S12**), so we **reproduce the ordering inside this setting** rather than discover it. What was held fixed, and why this is **sample-scoped** — at five initializations the gain SD moves **0.146 → 0.439 pp** and its interval **overlaps** the data-order magnitude, so the two are of the same order rather than one clearly smaller — is in **Supplementary S12** and Table S19.
 ### 8.5 Why "same-pipeline pairing" is a necessity, not a habit
 **Pairing is not neutrality**: the paired design covers the **budget and data** axes only, and **not** the optimiser’s (why, and the counterexample: **Supplementary S12**).
 ### 8.6 The premium's realization rate: **the claim-level interval includes zero** (pooled over all **26 arm-cells** the cell-clustered interval **excludes** zero — **Supplementary S19**) ([−17.3 %, 53.2 %], P = 0.118); the point estimates below are **descriptive** (arm-cell median **17.6 %**, five arm-cells, n = 10; run-weighted **23.3 %**)
@@ -413,10 +413,10 @@ headline effect, the **replicate-budget discipline** measured rather than assume
 where `prem_val = V_max − V_final` (**selecting on val**) and
 `prem_test = T_best − T_final` (**realized on test**).
 
-**Aggregate** (runs weighted equally, n = 50): `prem_val` **+0.879 pp** → `prem_test` **+0.205 pp**. **At the claim level this is not significant**: the **claim-level interval** is the cell-level, five-cluster one, **[−17.3 %, 53.2 %]**, **P(rate ≤ 0) = 0.118**, zero inside. Descriptively, arm-cell median **17.6 %** and run-weighted **23.3 %** (span **2/5** negative: Table 4). On a difference scale the eleven clusters give **−1.367 pp**, 95 % CI **[−1.59, −1.15]** (five-cell denominators **+0.605 to +1.469 pp**).
+**Aggregate** (runs weighted equally, n = 50): `prem_val` **+0.879 pp** → `prem_test` **+0.205 pp**. **At the claim level this is not significant**: the **claim-level interval** is the cell-level, five-cluster one, **[−17. **Both clusterings are printed** (**S22**): arm-cell **[−10.6 %, +55.8 %]**, target-corpus **[−47.9 %, +34.2 %]** — **both cover zero**.3 %, 53.2 %]**, **P(rate ≤ 0) = 0.118**, zero inside. Descriptively, arm-cell median **17.6 %** and run-weighted **23.3 %** (span **2/5** negative: Table 4). On a difference scale the eleven clusters give **−1.367 pp**, 95 % CI **[−1.59, −1.15]** (five-cell denominators **+0.605 to +1.469 pp**).
 
 The monotonicity is a correlation, not a causal claim, and at the arm-cell unit the nine-cluster reading is ρ = **−0.433** (p = 0.244) — see **Fig. 3** and **Supplementary S12**: the n = 80 are the 81 runs with a measured
-`test` side less the one whose `prem_val` is 0. It has a named precedent: [53] gives validation
+`test` side less the one whose `prem_val` is 0. It has a named precedent: [52] gives validation
 overfitting (VO) its name and bounds the expected best observed loss by
 E[min L] ≥ ν* − s_m√(2 log(Nq)), an optimism growing with the number of selection queries Nq.
 
@@ -459,14 +459,14 @@ negative) and is **narrowed here**; per-checkpoint values: **Supplementary S11**
 
 **§8.6's rate is a 20 %-train reading and does not carry to the regular scale.** We retrained the corpus
 that supplies §8.6's largest cell at **full budget**: VisDrone with **5,971** training images (the
-6,471-image public train split less the 500-image `val` carve), YOLOv12n **[54]**, 100 epochs, §5.1's two-arm
+6,471-image public train split less the 500-image `val` carve), YOLOv12n **[53]**, 100 epochs, §5.1's two-arm
 `lr0` contrast (**0.001** vs **0.005**), and **ten training file orders per arm (20 runs)**. Under the
 §8.6 definitions the pooled realisation rate is **+99.2 %** (95 % interval **[+80.4 %, +122.0 %]**,
 run-level bootstrap, 20,000 resamples), against the **pre-registered interval [−28 %, +74 %]**; the whole
-interval lies **above** the band's upper edge. `prem_val` averages **+0.269 pp** against **+0.879 pp**
+interval lies **above** the band's upper edge. **What this arm changes is a bundle**: against §8.6 it changes the **corpus, the carve size and the budget at once**, so **+99.2 % is not attributable to budget alone** — and §8.9’s second full-budget corpus lands **inside** the band (**+1.44 %**, CI covering zero), which is why we do **not** read this as a budget effect. `prem_val` averages **+0.269 pp** against **+0.879 pp**
 for §8.6's 20 %-train pool, while `prem_test` averages **+0.266 pp** — the premium is roughly **four
 times smaller**, yet now realised almost exactly. That is what §3.1's decomposition anticipates: the
-unrealised part is the winner's-curse term `WC` — whose concurrent check is **[12]** — which is what a larger `val` split should reduce, and
+unrealised part is the winner's-curse term `WC` — whose concurrent check is **[54]** — which is what a larger `val` split should reduce, and
 it agrees with Fig. 3's rate-versus-σ̂ correlation — more training data, a smoother `val` curve,
 a smaller `WC`.
 
@@ -507,11 +507,11 @@ Pooled **+1.44 %**; run-level bootstrap 95 % CI **[−7.2 %, +4.1 %]** — **zer
 | 2 | ~~the dota15 cell of `selection_premium.py` was not reproducible~~ → **fixed** (stale root directory; the matcher assumed a seed suffix the run names do not carry). | **Recomputed**; it now reproduces M3’s printed value (**§S6**). |
 | 3 | **`sio_b_results.csv` has no written endpoint convention**: `t2_mask2mende_base100_s42n` is recorded as final (67.12) in one archive and best (70.06) in another. | **Stated in §7.3**, with its consequence for the conflicting-endpoint cells. |
 | 4 | The two headline scripts **originally depended on a rented pod** (`import paramiko` plus a plaintext password) — a paper about evaluation validity whose own analysis is not reproducible from the archive. | **Repaired**: the pod is gone from the released paths, and the analyses run from the archive (**§S6**). |
-| 5 | **One script now recomputes the σ decomposition** — the data-order and initialization components from the archived per-run values, each asserted against the printed number — but it can only do so for the runs it can read. | **Disclosed**; the script and the values it reads are released, and the components it cannot reconstruct are named in **§S14.5**. |
-| 6 | The local archive **has no copy of 6 of the 7 corpora**, and of the three-way carve it holds **only the manifest** (`split_defs_20260916/`), not the other carve directories | **Partially repaired (2026-09-16, GPU run)**: the 41 runs' per-epoch curves, `sio_b_results.csv` and the **2 × 2 evaluation matrix** (164 evaluations) are now local; **retraining remains non-recomputable** |
-| 7 | The audit document has **internal inconsistencies** (nine items, found by our own census) | Each adjudicated: **3 misreadings by the inventory, 4 real defects, 1 convention risk, 1 classification correction (§6.4)** |
+| 5 | **One script recomputes the σ decomposition** from the archived per-run values, each asserted against the printed number, for the runs it can read. | **Disclosed**; the script and its inputs are released, and what it cannot reconstruct is named in §S14.5. |
+| 6 | The local archive **has no copy of 6 of the 7 corpora**, and of the three-way carve it holds **only the manifest** (`split_defs_20260916/`), not the other carve directories | **Partially repaired**; the manifest ships and the carve directories are named (§S6). |
+| 7 | The audit document has **internal inconsistencies** (nine items, found by our own census) | **Each adjudicated**: 3 misreadings, 4 real defects, 1 convention risk, 1 classification (§S12). |
 | 8 | Our own corpora contain `val == test` | **That is this paper's argument**, not an embarrassment to be hidden |
-| 9 | **Our first per-epoch report claimed curve-wide stability from a four-point sample**; the complete curve overturned it for one of the two cells (§8.7) | **Corrected in place, with the retracted sentence quoted**: the claim is **narrowed**, not deleted, and the grid's apparent uniformity is named as partly an artefact of where it sampled. Detail: §S12 |
+| 9 | **Our first per-epoch report claimed curve-wide stability from a four-point sample**; the complete curve overturned it for one of the two cells (§8.7) | **Corrected in place, with the retraction recorded** (§8.7). |
 | 10 | **Memory pressure silently changes the training path**: under GPU memory pressure Ultralytics switches implementation **without changing the recorded configuration**. | **Disclosed, not retracted**; the affected cells were re-run clean (six pairs twice each, `|clean2 − clean1| = 0.000` throughout) and the four affected `p_vistod15` runs reproduce to ≤ 0.15 pp — **Supplementary S41**; the bound this buys is stated there, verbatim with this row. |
 
 ---
@@ -523,10 +523,8 @@ the same source? Make it a **hard pipeline check** on every dataset YAML (§4.2)
 resolved paths. ② If you must select on the reported split, say so and report a selection-free endpoint — **the `final`-epoch endpoint, the only selection-free one this archive measures** —
 alongside — the step **enlarges** the arm difference (§5.1). **The cost of not doing so is
 scale-dependent**: at 20 % train the selection action realises about a quarter of the `val` premium
-on a disjoint split, but at full budget it realises **+99.2 %** (§8.8) — the practice is **most
-damaging exactly where data is scarcest**. ③ State the test convention: below n = 6 a
-permutation test has no resolution; print the `2/2ⁿ` floor beside every p. ④ Declare the counting unit
-behind every count, as Table 3's header does.
+on a disjoint split, but **at full budget the answer is corpus-specific**: **+99.2 % on VisDrone (§8.8)** vs **+1.44 %, interval covering zero, on the second full-budget corpus (§8.9)** — the cost is **not monotone in scarcity**, and the recommendation is **scoped to where it was measured** — the practice is **most
+damaging exactly where data is scarcest**. ③④ **Test conventions and counting units** (the two concrete asks): stated in **Supplementary S29**.
 
 ⑤ **A plateau is a post-hoc candidate, not a rule we validate.** Weight averaging is established [55];
    what is *measured here* takes the **mean of the ranked top-5 `val` epochs' readings** (a reading average, not a weight average), capturing **70 %** of the
@@ -560,20 +558,18 @@ A count is meaningless until its **unit** is named: the same nineteen benchmarks
 
 ## References
 
-> **Note on preprint citations.** Seventeen of the 55 entries give an arXiv edition; **three** also name a peer-reviewed venue and **fourteen** have none. Those fourteen cover four benchmark or dataset canonical releases, two methodological works and eight concurrent or tooling works; **all are cited for positioning only**, and every number comes from our own corpora or the third-party logs of §5.5. The full enumeration is in the supplement.
-
 [1] Z. Zou, K. Chen, Z. Shi, Y. Guo, J. Ye. "Object Detection in 20 Years: A Survey." *Proceedings of the IEEE* 111(3):257-276 (2023). DOI 10.1109/JPROC.2023.3238524
 [2] R. Guedes de Souza, A.R. Panisson. "Who Thinks Best Depends on How Long You Let Them: Budget-Dependent Rankings in LLM Evaluation." arXiv:2608.12150 (2026).
 [3] S. Kapoor, A. Narayanan. "Leakage and the reproducibility crisis in machine-learning-based science." *Patterns* 4(9):100804 (2023). DOI 10.1016/j.patter.2023.100804
 [4] B. Barz, J. Denzler. "Do We Train on Test Data? Purging CIFAR of Near-Duplicates." *Journal of Imaging* 6(6):41 (2020).
-[5] G.C. Cawley, N.L.C. Talbot. "On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation." *Journal of Machine Learning Research* 11(70):2079–2107 (2010).
-[6] A. Apicella, F. Isgrò, A. Pollastro, R. Prevete. "Don't stop me now: How Validation Criteria Affect Checkpoint Selection and Early Stopping." arXiv:2602.22107v2 (2026).
-[7] J. Dodge, S. Gururangan, D. Card, R. Schwartz, N.A. Smith. "Show Your Work: Improved Reporting of Experimental Results." *Proceedings of EMNLP-IJCNLP 2019*, pp. 2185–2194. https://aclanthology.org/D19-1224/
-[8] K. Gorman, S. Bedrick. "We Need to Talk about Standard Splits." *Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics* (ACL):2786–2791 (2019). DOI 10.18653/v1/P19-1267
-[9] R. Reveles-Martínez, S. Burciaga-Sosa, J.M. Celaya-Padilla, S. Castro-Tapia, H. Luna-García, H. Morales-Magallanes, M.N. Regalado-Pérez, C. Landeros-Soriano, et al.. "Sequence-Aware Dataset Auditing for Leakage-Free Benchmarking of YOLO Detectors for Bottle Detection." *Technologies* 14(9):531 (2026).
-[10] W. Ruangsang, P. Pramkeaw. "Cross-Dataset Evaluation of YOLOv8 for Unmanned Aerial Vehicle Fire and Smoke Detection: Benchmark Contamination, Zero-Shot Transfer, and Onboard Deployment on a Low-Cost Airframe." *Drones* 10(8):635 (2026).
-[11] Y.K. Adimoolam, C. Poullis, M. Averkiou. "Data Leakage Detection and De-duplication in Large Scale Geospatial Image Datasets." *CVPR* 2026 (Oral). https://openaccess.thecvf.com/content/CVPR2026/html/Adimoolam_Data_Leakage_Detection_and_De-duplication_in_Large_Scale_Geospatial_Image_CVPR_2026_paper.html
-[12] H. Suo, H. Wang, Y. Li. "Checkpoint Selection and Evaluation in EEG Emotion Recognition." arXiv:2607.27655 (2026).
+[5] Xu et al. "Detection of safety helmet wearing based on improved SSD." *Journal of Physics: Conference Series* (2019). Dataset: https://github.com/njvisionpower/Safety-Helmet-Wearing-Dataset
+[6] Y.K. Adimoolam, C. Poullis, M. Averkiou. "Data Leakage Detection and De-duplication in Large Scale Geospatial Image Datasets." *CVPR* 2026 (Oral). https://openaccess.thecvf.com/content/CVPR2026/html/Adimoolam_Data_Leakage_Detection_and_De-duplication_in_Large_Scale_Geospatial_Image_CVPR_2026_paper.html
+[7] K. Gorman, S. Bedrick. "We Need to Talk about Standard Splits." *Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics* (ACL):2786–2791 (2019). DOI 10.18653/v1/P19-1267
+[8] R. Reveles-Martínez, S. Burciaga-Sosa, J.M. Celaya-Padilla, S. Castro-Tapia, H. Luna-García, H. Morales-Magallanes, M.N. Regalado-Pérez, C. Landeros-Soriano, et al.. "Sequence-Aware Dataset Auditing for Leakage-Free Benchmarking of YOLO Detectors for Bottle Detection." *Technologies* 14(9):531 (2026).
+[9] J. Dodge, S. Gururangan, D. Card, R. Schwartz, N.A. Smith. "Show Your Work: Improved Reporting of Experimental Results." *Proceedings of EMNLP-IJCNLP 2019*, pp. 2185–2194. https://aclanthology.org/D19-1224/
+[10] A. Apicella, F. Isgrò, A. Pollastro, R. Prevete. "Don't stop me now: How Validation Criteria Affect Checkpoint Selection and Early Stopping." arXiv:2602.22107v2 (2026).
+[11] G.C. Cawley, N.L.C. Talbot. "On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation." *Journal of Machine Learning Research* 11(70):2079–2107 (2010).
+[12] W. Ruangsang, P. Pramkeaw. "Cross-Dataset Evaluation of YOLOv8 for Unmanned Aerial Vehicle Fire and Smoke Detection: Benchmark Contamination, Zero-Shot Transfer, and Onboard Deployment on a Low-Cost Airframe." *Drones* 10(8):635 (2026).
 [13] Smith JE, Winkler RL. The optimizer's curse: skepticism and postdecision surprise in decision analysis. *Management Science* **52**(3):311–322, 2006. doi:10.1287/mnsc.1050.0451.
 [14] M. R. R. Roktim. "When Is a Molecule a Duplicate? Identity Policy Determines What a Benchmark Audit Finds." *ChemRxiv* preprint (2026). DOI 10.26434/chemrxiv.15009099/v1
 [15] S. Roth. "Which Leakage Types Matter? A Quantitative Landscape Across 2,047 Benchmark Datasets." arXiv:2604.04199 (2026).
@@ -582,38 +578,38 @@ A count is meaningless until its **unit** is named: the same nineteen benchmarks
 [18] G. Zhang, K. Zhao. "Winning by Peeking: Unenforced Budgets and Test-Set Selection Inflate Short-Budget AutoML Comparisons." arXiv:2608.07303 (2026).
 [19] Taylor J, Tibshirani RJ. Statistical learning and selective inference. *Proceedings of the National Academy of Sciences* **112**(25):7629–7634, 2015. doi:10.1073/pnas.1507583112.
 [20] Benjamini Y, Yekutieli D. False discovery rate–adjusted multiple confidence intervals for selected parameters. *Journal of the American Statistical Association* **100**(469):71–81, 2005. doi:10.1198/016214504000001907.
-[21] M. Everingham, L. Van Gool, C.K.I. Williams, J. Winn, A. Zisserman. "The Pascal Visual Object Classes (VOC) Challenge." *International Journal of Computer Vision* 88(2):303-338 (2009).
+[21] G.-S. Xia, X. Bai, J. Ding, et al. "DOTA: a large-scale dataset for object detection in aerial images." *CVPR* 2018, pp. 3974-3983. DOI 10.1109/CVPR.2018.00418.
 [22] Kaggle data record, "Face mask detection" (CC0; 853 images, 3 classes, PASCAL-VOC XML): https://www.kaggle.com/datasets/andrewmvd/face-mask-detection . No DataCite or Mendeley Data record carries this title (sweep, 2026-10-09).
-[23] J. Dodge, G. Ilharco, R. Schwartz, A. Farhadi, H. Hajishirzi, N. Smith. "Fine-Tuning Pretrained Language Models: Weight Initializations, Data Orders, and Early Stopping." arXiv:2002.06305 (2020). DOI 10.48550/arXiv.2002.06305
-[24] X. Bouthillier, P. Delaunay, M. Bronzi, A. Trofimov, B. Nichyporuk, J. Szeto, N. Sepah, E. Raff, et al. "Accounting for Variance in Machine Learning Benchmarks." arXiv:2103.03098 (2021). DOI 10.48550/arXiv.2103.03098
-[25] B.L. Welch. "The Generalization of 'Student's' Problem when Several Different Population Variances are Involved." *Biometrika* 34(1/2):28 (1947).
-[26] K. Kann, K. Cho, S.R. Bowman. "Towards Realistic Practices In Low-Resource Natural Language Processing: The Development Set." *Proceedings of EMNLP-IJCNLP 2019*; arXiv:1909.01522 (2019).
-[27] R. Roelofs, V. Shankar, B. Recht, S. Fridovich-Keil, M. Hardt, J. Miller, L. Schmidt. "A Meta-Analysis of Overfitting in Machine Learning." *Advances in Neural Information Processing Systems* **32**:9179-9189 (2019).
-[28] Y. Benjamini, Y. Hochberg. "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing." *Journal of the Royal Statistical Society Series B: Statistical Methodology* 57(1):289-300 (1995).
-[29] *YOLOX* [computer software]. https://github.com/Megvii-BaseDetection/YOLOX (pinned at commit `6ddff4824372`, branch `main`, accessed 2026-09-16).
-[30] *Detectron2* [computer software]. https://github.com/facebookresearch/detectron2 (pinned at commit `a2f4a8771ab7`, branch `main`, accessed 2026-09-16).
-[31] *MMDetection* [computer software]. https://github.com/open-mmlab/mmdetection (pinned at commit `cfd5d3a985b0`, branch `main`, accessed 2026-09-16).
-[32] *DETR* [computer software]. https://github.com/facebookresearch/detr (pinned at commit `29901c51d7fe`, branch `main`, accessed 2026-09-16).
-[33] *PaddleDetection* [computer software]. https://github.com/PaddlePaddle/PaddleDetection (pinned at commit `b25522a0f4bd`, branch `release/2.9`, accessed 2026-09-16).
-[34] Tsung-Yi Lin, Michael Maire, Serge Belongie, Lubomir Bourdev, Ross Girshick, James Hays, Pietro Perona, Deva Ramanan, C. Lawrence Zitnick, Piotr Dollár. "Microsoft COCO: Common Objects in Context." arXiv:1405.0312 (2014). DOI 10.48550/arXiv.1405.0312
-[35] S. Shao, Z. Li, T. Zhang, C. Peng, G. Yu, X. Zhang, J. Li, J. Sun. "Objects365: A Large-Scale, High-Quality Dataset for Object Detection." *2019 IEEE/CVF International Conference on Computer Vision (ICCV)* 8429-8438 (2019).
-[36] A. Kuznetsova, H. Rom, N. Alldrin, J. Uijlings, I. Krasin, J. Pont-Tuset, S. Kamali, S. Popov, et al.. "The Open Images Dataset V4." *International Journal of Computer Vision* 128(7):1956-1981 (2020).
-[37] G.-S. Xia, X. Bai, J. Ding, et al. "DOTA: a large-scale dataset for object detection in aerial images." *CVPR* 2018, pp. 3974-3983. DOI 10.1109/CVPR.2018.00418.
-[38] P. Zhu, L. Wen, D. Du, et al. "Detection and tracking meet drones challenge." *IEEE TPAMI* 44(11):7380-7399 (2022). DOI 10.1109/TPAMI.2021.3119563. (VisDrone.)
-[39] J. Wang, W. Yang, H. Guo, R. Zhang, G.S. Xia. "Tiny Object Detection in Aerial Images." *2020 25th International Conference on Pattern Recognition (ICPR)* 3791-3798 (2021). DOI 10.1109/icpr48806.2021.9413340
-[40] D. Du, Y. Qi, H. Yu, Y. Yang, K. Duan, G. Li, W. Zhang, Q. Huang, et al.. "The Unmanned Aerial Vehicle Benchmark: Object Detection and Tracking." *Lecture Notes in Computer Science* 375-391 (2018). DOI 10.1007/978-3-030-01249-6_23
-[41] Darius Lam, Richard Kuzma, Kevin McGee, Samuel Dooley, Michael Laielli, Matthew Klaric, Yaroslav Bulatov, Brendan McCord. "xView: Objects in Context in Overhead Imagery." arXiv:1802.07856 (2018). DOI 10.48550/arXiv.1802.07856
-[42] Ke Li, Gang Wan, Gong Cheng, Liqiu Meng, Junwei Han. "Object Detection in Optical Remote Sensing Images: A Survey and A New Benchmark." arXiv:1909.00133 (2019). DOI 10.48550/arXiv.1909.00133 (DIOR benchmark)
-[43] G. Cheng, J. Han, P. Zhou, L. Guo. "Multi-class geospatial object detection and geographic image classification based on collection of part detectors." *ISPRS Journal of Photogrammetry and Remote Sensing* 98:119-132 (2014).
-[44] Xu et al. "Detection of safety helmet wearing based on improved SSD." *Journal of Physics: Conference Series* (2019). Dataset: https://github.com/njvisionpower/Safety-Helmet-Wearing-Dataset
-[45] Fusheng Yu, Jiang Li, Xiaoping Wang, Shaojin Wu, Junjie Zhang, Zhigang Zeng. "Large, Complex, and Realistic Safety Clothing and Helmet Detection: Dataset and Method." arXiv:2306.02098 (2023); journal version in *IEEE Transactions on Instrumentation and Measurement* (2024). DOI 10.48550/arXiv.2306.02098 (SFCHD / SFCHD-SCALE)
-[46] S. Ge, J. Li, et al. "Detecting masked faces in the wild with LLE-CNNs." *CVPR* 2017, pp. 426-434. DOI 10.1109/CVPR.2017.53. (Cited only to delimit the MAFA packaging difference.)
-[47] S. Yang, P. Luo, C.C. Loy, X. Tang. "WIDER FACE: A Face Detection Benchmark." *2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)* 5525-5533 (2016).
-[48] Shuai Shao, Zijian Zhao, Boxun Li, Tete Xiao, Gang Yu, Xiangyu Zhang, Jian Sun. "CrowdHuman: A Benchmark for Detecting Human in a Crowd." arXiv:1805.00123 (2018). DOI 10.48550/arXiv.1805.00123
-[49] P.V.A.B. de Venâncio, A.C. Lisboa, A.V. Barbosa. "An automatic fire detection system based on deep convolutional neural networks for low-power, resource-constrained devices." *Neural Computing and Applications* 34(18):15349-15368 (2022). DOI 10.1007/s00521-022-07467-z
-[50] L. Cascone, M. Nappi, C. Pero, X. Wang. "A framework for bias-aware dataset evaluation in soft facial attribute recognition." *Pattern Recognition* 172:112416 (2026). DOI 10.1016/j.patcog.2025.112416
-[51] Y. Huang, Z. Zhang, Y. Huang, Q. Wu, H. Huang, Y. Zhong, L. Wang. "Customized meta-dataset for automatic classifier accuracy evaluation." *Pattern Recognition* 146:110026 (2024). DOI 10.1016/j.patcog.2023.110026
-[52] J. Sweeney. "Optimizer Memory Makes Shuffle Order a First-Order Source of Fine-Tuning Noise." arXiv:2606.29554 (2026).
-[53] E. Pintelas, I.E. Livieris. "GeNeX: Genetic Network eXperts framework for addressing Validation Overfitting." *IEEE Transactions on Neural Networks and Learning Systems* (2026); arXiv:2603.11056. DOI 10.48550/arXiv.2603.11056
-[54] Y. Tian, Q. Ye, D. Doermann. "YOLOv12: attention-centric real-time object detectors." arXiv:2502.12524 (2025).
+[23] Fusheng Yu, Jiang Li, Xiaoping Wang, Shaojin Wu, Junjie Zhang, Zhigang Zeng. "Large, Complex, and Realistic Safety Clothing and Helmet Detection: Dataset and Method." arXiv:2306.02098 (2023); journal version in *IEEE Transactions on Instrumentation and Measurement* (2024) (SFCHD / SFCHD-SCALE)
+[24] M. Everingham, L. Van Gool, C.K.I. Williams, J. Winn, A. Zisserman. "The Pascal Visual Object Classes (VOC) Challenge." *International Journal of Computer Vision* 88(2):303-338 (2009).
+[25] J. Dodge, G. Ilharco, R. Schwartz, A. Farhadi, H. Hajishirzi, N. Smith. "Fine-Tuning Pretrained Language Models: Weight Initializations, Data Orders, and Early Stopping." arXiv:2002.06305 (2020)
+[26] X. Bouthillier, P. Delaunay, M. Bronzi, A. Trofimov, B. Nichyporuk, J. Szeto, N. Sepah, E. Raff, et al. "Accounting for Variance in Machine Learning Benchmarks." arXiv:2103.03098 (2021)
+[27] B.L. Welch. "The Generalization of 'Student's' Problem when Several Different Population Variances are Involved." *Biometrika* 34(1/2):28 (1947).
+[28] K. Kann, K. Cho, S.R. Bowman. "Towards Realistic Practices In Low-Resource Natural Language Processing: The Development Set." *Proceedings of EMNLP-IJCNLP 2019*; arXiv:1909.01522 (2019).
+[29] R. Roelofs, V. Shankar, B. Recht, S. Fridovich-Keil, M. Hardt, J. Miller, L. Schmidt. "A Meta-Analysis of Overfitting in Machine Learning." *Advances in Neural Information Processing Systems* **32**:9179-9189 (2019).
+[30] Y. Benjamini, Y. Hochberg. "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing." *Journal of the Royal Statistical Society Series B: Statistical Methodology* 57(1):289-300 (1995).
+[31] *YOLOX* [computer software]. https://github.com/Megvii-BaseDetection/YOLOX (pinned at commit `6ddff4824372`, branch `main`, accessed 2026-09-16).
+[32] *Detectron2* [computer software]. https://github.com/facebookresearch/detectron2 (pinned at commit `a2f4a8771ab7`, branch `main`, accessed 2026-09-16).
+[33] *MMDetection* [computer software]. https://github.com/open-mmlab/mmdetection (pinned at commit `cfd5d3a985b0`, branch `main`, accessed 2026-09-16).
+[34] *DETR* [computer software]. https://github.com/facebookresearch/detr (pinned at commit `29901c51d7fe`, branch `main`, accessed 2026-09-16).
+[35] *PaddleDetection* [computer software]. https://github.com/PaddlePaddle/PaddleDetection (pinned at commit `b25522a0f4bd`, branch `release/2.9`, accessed 2026-09-16).
+[36] Tsung-Yi Lin, Michael Maire, Serge Belongie, Lubomir Bourdev, Ross Girshick, James Hays, Pietro Perona, Deva Ramanan, C. Lawrence Zitnick, Piotr Dollár. "Microsoft COCO: Common Objects in Context." arXiv:1405.0312 (2014)
+[37] S. Shao, Z. Li, T. Zhang, C. Peng, G. Yu, X. Zhang, J. Li, J. Sun. "Objects365: A Large-Scale, High-Quality Dataset for Object Detection." *2019 IEEE/CVF International Conference on Computer Vision (ICCV)* 8429-8438 (2019).
+[38] A. Kuznetsova, H. Rom, N. Alldrin, J. Uijlings, I. Krasin, J. Pont-Tuset, S. Kamali, S. Popov, et al.. "The Open Images Dataset V4." *International Journal of Computer Vision* 128(7):1956-1981 (2020).
+[39] P. Zhu, L. Wen, D. Du, et al. "Detection and tracking meet drones challenge." *IEEE TPAMI* 44(11):7380-7399 (2022). DOI 10.1109/TPAMI.2021.3119563. (VisDrone.)
+[40] J. Wang, W. Yang, H. Guo, R. Zhang, G.S. Xia. "Tiny Object Detection in Aerial Images." *2020 25th International Conference on Pattern Recognition (ICPR)* 3791-3798 (2021). DOI 10.1109/icpr48806.2021.9413340
+[41] D. Du, Y. Qi, H. Yu, Y. Yang, K. Duan, G. Li, W. Zhang, Q. Huang, et al.. "The Unmanned Aerial Vehicle Benchmark: Object Detection and Tracking." *Lecture Notes in Computer Science* 375-391 (2018). DOI 10.1007/978-3-030-01249-6_23
+[42] Darius Lam, Richard Kuzma, Kevin McGee, Samuel Dooley, Michael Laielli, Matthew Klaric, Yaroslav Bulatov, Brendan McCord. "xView: Objects in Context in Overhead Imagery." arXiv:1802.07856 (2018)
+[43] Ke Li, Gang Wan, Gong Cheng, Liqiu Meng, Junwei Han. "Object Detection in Optical Remote Sensing Images: A Survey and A New Benchmark." arXiv:1909.00133 (2019) (DIOR benchmark)
+[44] G. Cheng, J. Han, P. Zhou, L. Guo. "Multi-class geospatial object detection and geographic image classification based on collection of part detectors." *ISPRS Journal of Photogrammetry and Remote Sensing* 98:119-132 (2014).
+[45] S. Ge, J. Li, et al. "Detecting masked faces in the wild with LLE-CNNs." *CVPR* 2017, pp. 426-434. DOI 10.1109/CVPR.2017.53. (Cited only to delimit the MAFA packaging difference.)
+[46] S. Yang, P. Luo, C.C. Loy, X. Tang. "WIDER FACE: A Face Detection Benchmark." *2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)* 5525-5533 (2016).
+[47] Shuai Shao, Zijian Zhao, Boxun Li, Tete Xiao, Gang Yu, Xiangyu Zhang, Jian Sun. "CrowdHuman: A Benchmark for Detecting Human in a Crowd." arXiv:1805.00123 (2018)
+[48] P.V.A.B. de Venâncio, A.C. Lisboa, A.V. Barbosa. "An automatic fire detection system based on deep convolutional neural networks for low-power, resource-constrained devices." *Neural Computing and Applications* 34(18):15349-15368 (2022). DOI 10.1007/s00521-022-07467-z
+[49] L. Cascone, M. Nappi, C. Pero, X. Wang. "A framework for bias-aware dataset evaluation in soft facial attribute recognition." *Pattern Recognition* 172:112416 (2026). DOI 10.1016/j.patcog.2025.112416
+[50] Y. Huang, Z. Zhang, Y. Huang, Q. Wu, H. Huang, Y. Zhong, L. Wang. "Customized meta-dataset for automatic classifier accuracy evaluation." *Pattern Recognition* 146:110026 (2024). DOI 10.1016/j.patcog.2023.110026
+[51] J. Sweeney. "Optimizer Memory Makes Shuffle Order a First-Order Source of Fine-Tuning Noise." arXiv:2606.29554 (2026).
+[52] E. Pintelas, I.E. Livieris. "GeNeX: Genetic Network eXperts framework for addressing Validation Overfitting." *IEEE Transactions on Neural Networks and Learning Systems* (2026); arXiv:2603.11056
+[53] Y. Tian, Q. Ye, D. Doermann. "YOLOv12: attention-centric real-time object detectors." arXiv:2502.12524 (2025).
+[54] H. Suo, H. Wang, Y. Li. "Checkpoint Selection and Evaluation in EEG Emotion Recognition." arXiv:2607.27655 (2026).
 [55] N. Ajroldi, A. Orvieto, J. Geiping. "When, Where and Why to Average Weights?" arXiv:2502.06761 (2025).

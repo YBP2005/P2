@@ -2743,7 +2743,7 @@ P(rate ≤ 0) = **0.002**.
 (`p_aitovis`) and **56 % / 29 %** (`p_vistod15`), pooled **55 %** against **23.3 %**.
 
 **Metric and endpoint detail.** `best.pt × val` versus the per-epoch maximum in `results.csv` differs by
-up to **0.083 pp**: the selection action and the readout action can differ; the earlier attribution to a `best.pt` selection rule other than mAP50-95 is **withdrawn** — in the pinned v8.4.120 `fitness ≡ mAP50-95` on the monitored split — and the residual is recorded as **unidentified**. `last.pt`'s val recomputation differs from the final `results.csv` row
+up to **0.083 pp**: the selection action and the readout action can differ; the earlier attribution to a `best.pt` selection rule other than mAP50-95 is **withdrawn** — in the pinned v8.4.120 `best.pt` maximises **fitness = 0.1·mAP50 + 0.9·mAP50-95**, which selects the mAP50-95 argmax in **90.5 %** of runs (§S18, §S21) — and the residual is recorded as **unidentified**. `last.pt`'s val recomputation differs from the final `results.csv` row
 by **~0.02 pp**.
 
 **The closest concurrent work, moved out of the article.** The article's §8.6 no longer carries this comparison; it is recorded here. **[15]** splits selection leakage into diversity and noise over **2,047** tabular classification datasets (the noise share is reported, the non-tabular case is undone). **[12]** measures checkpoint selection raising a reported score by **6.24 pp** on EEG when the candidate set grows from **5 to 80** — and, in the same table, **−1.24 pp** (95 % interval **−2.67 to 0.26**) on its other pool, so **its own sign does not reproduce across its two pools**. This paper instead uses **our own five arm-cells**, reports a **ratio**, on **detection**, with **measured `val` noise** as moderator (the third-party logs of §5.5 corroborate the same component, but they carry no `test` side and so cannot form this ratio). **No number left the paper when this paragraph moved**: every value above is the article's former wording.
@@ -3315,7 +3315,7 @@ row's judged number, the `yolo_dist` first-version correction (**4/19**), the li
 Mendeley face-mask's **generator** provenance, and the audit's unused "63–79 %" bound. The clause is **relocated, not
 dropped**: it is kept here so that the article's §6.1 stays inside the journal's page limit.
 
-### Table S45 — §2.1 relocated from the article (detailed related-work comparison)
+### S45 — §2.1 relocated from the article (a **section**, not a table; detailed related-work comparison)
 
 > Moved here at revision because the journal counts text inside the 20–35 page limit. The article keeps
 > the one-paragraph positioning statement in §2 and the two delimiting sections (§2.2, §2.3).
@@ -4213,3 +4213,11 @@ training budget on the same corpus it reaches **+99.2 %**, so the 20 %-train rea
 ## S28 · The clean-test sentence, moved from §3.2 (content kept)
 
 **We then ran the clean test** of G3's epoch-budget series on **one machine with early stopping disabled**, all four budgets present: C1 is **met**, C2 falls **outside** its band — **this clean re-run is a **sensitivity on a later protocol change** (early stopping disabled): **the primary reading stays the pre-declared series, on which C1 is not met** (peaking at E = 200); **disabling early stopping makes the same series monotone (arm-equal +0.44 / +0.68 / +0.97 / +1.27; slope on ln E +0.40, t = 7.95, p = 1.3×10⁻⁹)** — C1’s failure is **early-stopping-dependent**, reported as such rather than by choosing the series that passes.1 and **Table S34b**; **the pre-declared verdict stays with the with-early-stopping series**. The judged criteria carry one message, **at the level of sign, not of functional form**: the selection bias moves with the amount of selection noise and with the number of selection opportunities, but not with whether the two splits are the same file — **the form itself was withdrawn** (§3.1). Two consequences do not follow: §4's configuration-level fact stands, while the stronger reading — that aliasing *adds* a measurable amount on top — does not. **The premium this paper measures is the premium of selecting on the reported split; aliasing is the configuration that guarantees it, not an additional term.**
+
+---
+
+## S29 · Two concrete recommendations, moved from §11
+
+③ State the test convention: below n = 6 a
+permutation test has no resolution; print the `2/2ⁿ` floor beside every p. ④ Declare the counting unit
+behind every count, as Table 3's header does.

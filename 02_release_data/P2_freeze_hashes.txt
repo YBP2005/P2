@@ -1,0 +1,4 @@
+# FROZEN-HASH registration (hashes only; the frozen texts are not redistributed)
+
+ff0343c939ed3224fa9faa011cbec6a4c4bbe072cf4741bc85b139a6d6ec8e1c  79768  blind(frozen)
+b1b9ea652edd0099d7394d29344148d6defd2041345c50edbb14339b16c8ca0e  306918  supplement(frozen)

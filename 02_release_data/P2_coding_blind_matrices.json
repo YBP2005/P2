@@ -1,0 +1,1959 @@
+{
+ "units": [
+  "release",
+  "protocol",
+  "yolo_dist",
+  "reported"
+ ],
+ "values": [
+  "independent",
+  "alias",
+  "absent",
+  "gated",
+  "unknown",
+  "not_recorded"
+ ],
+ "bench": [
+  "COCO",
+  "PASCAL VOC",
+  "Objects365",
+  "Open Images v7",
+  "DOTA v1.0",
+  "DOTA v2.0",
+  "VisDrone-DET",
+  "AI-TOD",
+  "UAVDT",
+  "xView",
+  "DIOR",
+  "NWPU VHR-10",
+  "SHWD",
+  "SFCHD",
+  "MAFA",
+  "Mendeley face-mask",
+  "WIDER FACE",
+  "CrowdHuman",
+  "D-Fire (FireSmoke)"
+ ],
+ "coders": {
+  "Deepseek-V4.1-Flash": {
+   "model_dir": "Deepseek-V4.1-Flash",
+   "file": "p2r21coding_Deepseek-V4.1-Flash_20261018.md",
+   "md5": "d6860808e8cac0ac52731f9db3a00456",
+   "bytes": 11613,
+   "format": "ROW",
+   "matrix": {
+    "1": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "gated",
+     "reported": "alias"
+    },
+    "2": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "alias",
+     "reported": "independent"
+    },
+    "3": {
+     "release": "absent",
+     "protocol": "gated",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "4": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "gated",
+     "reported": "alias"
+    },
+    "5": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "gated",
+     "reported": "alias"
+    },
+    "6": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "gated",
+     "reported": "alias"
+    },
+    "7": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "8": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "9": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "10": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "not_recorded",
+     "reported": "alias"
+    },
+    "11": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "12": {
+     "release": "absent",
+     "protocol": "absent",
+     "yolo_dist": "absent",
+     "reported": "unknown"
+    },
+    "13": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "14": {
+     "release": "independent",
+     "protocol": "unknown",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "15": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "not_recorded",
+     "reported": "alias"
+    },
+    "16": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "unknown",
+     "reported": "not_recorded"
+    },
+    "17": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "18": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "19": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "not_recorded",
+     "reported": "alias"
+    }
+   },
+   "evidence": {
+    "1": {
+     "release": "R",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "2": {
+     "release": "R",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "3": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "R",
+     "reported": "P"
+    },
+    "4": {
+     "release": "R",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "5": {
+     "release": "R",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "6": {
+     "release": "R",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "7": {
+     "release": "R",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "8": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "9": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "10": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "11": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "12": {
+     "release": "R",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "13": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "14": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "15": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "16": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "17": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "18": {
+     "release": "P",
+     "protocol": "R",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "19": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "N"
+    }
+   },
+   "problems": []
+  },
+  "glm-5.2": {
+   "model_dir": "GLM-5.2",
+   "file": "p2r21coding_glm-5.2_20261018.md",
+   "md5": "91e04c2286544379544fced715577318",
+   "bytes": 9261,
+   "format": "ROW",
+   "matrix": {
+    "1": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "2": {
+     "release": "independent",
+     "protocol": "unknown",
+     "yolo_dist": "independent",
+     "reported": "independent"
+    },
+    "3": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "4": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "5": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "6": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "7": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "8": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "9": {
+     "release": "independent",
+     "protocol": "unknown",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "10": {
+     "release": "independent",
+     "protocol": "unknown",
+     "yolo_dist": "independent",
+     "reported": "independent"
+    },
+    "11": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "independent",
+     "reported": "independent"
+    },
+    "12": {
+     "release": "absent",
+     "protocol": "absent",
+     "yolo_dist": "absent",
+     "reported": "unknown"
+    },
+    "13": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "independent",
+     "reported": "independent"
+    },
+    "14": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "absent",
+     "reported": "independent"
+    },
+    "15": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "absent",
+     "reported": "independent"
+    },
+    "16": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "17": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "independent",
+     "reported": "independent"
+    },
+    "18": {
+     "release": "independent",
+     "protocol": "absent",
+     "yolo_dist": "independent",
+     "reported": "independent"
+    },
+    "19": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "unknown",
+     "reported": "independent"
+    }
+   },
+   "evidence": {
+    "1": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "2": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "3": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "4": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "5": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "6": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "7": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "8": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "9": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "10": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "11": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "12": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "R",
+     "reported": "N"
+    },
+    "13": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "14": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "15": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "16": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "17": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "18": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "19": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "P"
+    }
+   },
+   "problems": []
+  },
+  "glm-5.3": {
+   "model_dir": "GLM-5.3",
+   "file": "p2r21coding_glm-5.3_20261018.md",
+   "md5": "153ba267e3f7f51327f836faf67c5a70",
+   "bytes": 8889,
+   "format": "TABLE",
+   "matrix": {
+    "1": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "gated",
+     "reported": "alias"
+    },
+    "2": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "alias",
+     "reported": "independent"
+    },
+    "3": {
+     "release": "absent",
+     "protocol": "gated",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "4": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "5": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "6": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "7": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "8": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "absent",
+     "reported": "unknown"
+    },
+    "9": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "10": {
+     "release": "absent",
+     "protocol": "gated",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "11": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "absent",
+     "reported": "independent"
+    },
+    "12": {
+     "release": "absent",
+     "protocol": "absent",
+     "yolo_dist": "absent",
+     "reported": "unknown"
+    },
+    "13": {
+     "release": "absent",
+     "protocol": "absent",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "14": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "absent",
+     "reported": "unknown"
+    },
+    "15": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "absent",
+     "reported": "independent"
+    },
+    "16": {
+     "release": "absent",
+     "protocol": "absent",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "17": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "18": {
+     "release": "independent",
+     "protocol": "alias",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "19": {
+     "release": "absent",
+     "protocol": "absent",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    }
+   },
+   "evidence": {
+    "1": {
+     "release": "R",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "2": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "R",
+     "reported": "P"
+    },
+    "3": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "4": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "5": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "6": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "7": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "8": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "9": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "10": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "11": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "12": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "13": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "14": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "15": {
+     "release": "R",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "R"
+    },
+    "16": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "17": {
+     "release": "P",
+     "protocol": "R",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "18": {
+     "release": "P",
+     "protocol": "R",
+     "yolo_dist": "N",
+     "reported": "R"
+    },
+    "19": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "N"
+    }
+   },
+   "problems": []
+  },
+  "GLM-5.3-Flash": {
+   "model_dir": "GLM-5.3-Flash",
+   "file": "p2r21coding_GLM-5.3-Flash_20261018.md",
+   "md5": "0caf9d119820a0eae705cfd8b4f7160a",
+   "bytes": 10728,
+   "format": "ROW",
+   "matrix": {
+    "1": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "gated",
+     "reported": "alias"
+    },
+    "2": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "3": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "4": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "5": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "unknown",
+     "reported": "alias"
+    },
+    "6": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "unknown",
+     "reported": "alias"
+    },
+    "7": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "gated",
+     "reported": "alias"
+    },
+    "8": {
+     "release": "independent",
+     "protocol": "unknown",
+     "yolo_dist": "absent",
+     "reported": "gated"
+    },
+    "9": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "10": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "11": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "unknown",
+     "reported": "independent"
+    },
+    "12": {
+     "release": "absent",
+     "protocol": "absent",
+     "yolo_dist": "absent",
+     "reported": "unknown"
+    },
+    "13": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "14": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "not_recorded",
+     "reported": "unknown"
+    },
+    "15": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "absent",
+     "reported": "gated"
+    },
+    "16": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "17": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "unknown",
+     "reported": "gated"
+    },
+    "18": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "unknown",
+     "reported": "alias"
+    },
+    "19": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "absent",
+     "reported": "unknown"
+    }
+   },
+   "evidence": {
+    "1": {
+     "release": "R",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "2": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "R",
+     "reported": "P"
+    },
+    "3": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "4": {
+     "release": "R",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "5": {
+     "release": "R",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "6": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "7": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "8": {
+     "release": "P",
+     "protocol": "R",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "9": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "10": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "11": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "12": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "13": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "14": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "15": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "16": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "17": {
+     "release": "P",
+     "protocol": "R",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "18": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "19": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "N"
+    }
+   },
+   "problems": []
+  },
+  "hy4-preview": {
+   "model_dir": "Hy4 preview",
+   "file": "p2r21coding_hy4-preview_20261018.md",
+   "md5": "0a1ce1b438db5556b7ea6d4dada97cb9",
+   "bytes": 14679,
+   "format": "ROW",
+   "matrix": {
+    "1": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "2": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "alias",
+     "reported": "independent"
+    },
+    "3": {
+     "release": "absent",
+     "protocol": "gated",
+     "yolo_dist": "unknown",
+     "reported": "absent"
+    },
+    "4": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "gated",
+     "reported": "alias"
+    },
+    "5": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "gated",
+     "reported": "alias"
+    },
+    "6": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "gated",
+     "reported": "alias"
+    },
+    "7": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "gated",
+     "reported": "alias"
+    },
+    "8": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "9": {
+     "release": "independent",
+     "protocol": "unknown",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "10": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "unknown",
+     "reported": "absent"
+    },
+    "11": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "unknown",
+     "reported": "absent"
+    },
+    "12": {
+     "release": "absent",
+     "protocol": "absent",
+     "yolo_dist": "not_recorded",
+     "reported": "absent"
+    },
+    "13": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "unknown",
+     "reported": "absent"
+    },
+    "14": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "not_recorded",
+     "reported": "unknown"
+    },
+    "15": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "not_recorded",
+     "reported": "independent"
+    },
+    "16": {
+     "release": "absent",
+     "protocol": "absent",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "17": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "18": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "absent",
+     "reported": "alias"
+    },
+    "19": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "independent",
+     "reported": "independent"
+    }
+   },
+   "evidence": {
+    "1": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "2": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "3": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "4": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "5": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "6": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "7": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "8": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "9": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "10": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "11": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "12": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "13": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "14": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "15": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "16": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "17": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "18": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "19": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    }
+   },
+   "problems": []
+  },
+  "Space-Bunny": {
+   "model_dir": "Space-Bunny",
+   "file": "p2r21coding_Space-Bunny_20261018.md",
+   "md5": "37f37e3d8811a70f046cdd8d30ed28e3",
+   "bytes": 13338,
+   "format": "ROW",
+   "matrix": {
+    "1": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "unknown",
+     "reported": "not_recorded"
+    },
+    "2": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "3": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "4": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "unknown",
+     "reported": "not_recorded"
+    },
+    "5": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "unknown",
+     "reported": "not_recorded"
+    },
+    "6": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "unknown",
+     "reported": "not_recorded"
+    },
+    "7": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "unknown",
+     "reported": "not_recorded"
+    },
+    "8": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "9": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "unknown",
+     "reported": "not_recorded"
+    },
+    "10": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "unknown",
+     "reported": "not_recorded"
+    },
+    "11": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "unknown",
+     "reported": "not_recorded"
+    },
+    "12": {
+     "release": "absent",
+     "protocol": "absent",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "13": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "unknown",
+     "reported": "not_recorded"
+    },
+    "14": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "15": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "unknown"
+    },
+    "16": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "unknown",
+     "reported": "not_recorded"
+    },
+    "17": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "unknown",
+     "reported": "not_recorded"
+    },
+    "18": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "19": {
+     "release": "unknown",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    }
+   },
+   "evidence": {
+    "1": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "2": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "3": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "4": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "5": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "6": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "7": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "8": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "9": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "10": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "11": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "12": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "13": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "14": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "15": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "P"
+    },
+    "16": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "17": {
+     "release": "P",
+     "protocol": "R",
+     "yolo_dist": "P",
+     "reported": "N"
+    },
+    "18": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "19": {
+     "release": "P",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    }
+   },
+   "problems": []
+  },
+  "gemini-3.8-flash": {
+   "model_dir": "gemini-3.8-flash",
+   "file": "p2r21coding_gemini-3.8-flash_20261018.md",
+   "md5": "0bdaa63b6c2c78a0669c02f4b76e928c",
+   "bytes": 7648,
+   "format": "ROW",
+   "matrix": {
+    "1": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "2": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "3": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "4": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "independent",
+     "reported": "independent"
+    },
+    "5": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "6": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "7": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "8": {
+     "release": "unknown",
+     "protocol": "unknown",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "9": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "10": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "11": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "unknown",
+     "reported": "unknown"
+    },
+    "12": {
+     "release": "absent",
+     "protocol": "absent",
+     "yolo_dist": "absent",
+     "reported": "unknown"
+    },
+    "13": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "14": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "independent",
+     "reported": "independent"
+    },
+    "15": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "absent",
+     "reported": "independent"
+    },
+    "16": {
+     "release": "absent",
+     "protocol": "absent",
+     "yolo_dist": "absent",
+     "reported": "unknown"
+    },
+    "17": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "18": {
+     "release": "independent",
+     "protocol": "gated",
+     "yolo_dist": "alias",
+     "reported": "alias"
+    },
+    "19": {
+     "release": "independent",
+     "protocol": "independent",
+     "yolo_dist": "independent",
+     "reported": "independent"
+    }
+   },
+   "evidence": {
+    "1": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "R",
+     "reported": "R"
+    },
+    "2": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "R",
+     "reported": "R"
+    },
+    "3": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "R",
+     "reported": "R"
+    },
+    "4": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "R",
+     "reported": "R"
+    },
+    "5": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "R",
+     "reported": "R"
+    },
+    "6": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "R",
+     "reported": "R"
+    },
+    "7": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "R",
+     "reported": "R"
+    },
+    "8": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "9": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "10": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "R",
+     "reported": "P"
+    },
+    "11": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "12": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "R",
+     "reported": "P"
+    },
+    "13": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "R",
+     "reported": "P"
+    },
+    "14": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "R",
+     "reported": "R"
+    },
+    "15": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "R",
+     "reported": "R"
+    },
+    "16": {
+     "release": "P",
+     "protocol": "P",
+     "yolo_dist": "P",
+     "reported": "P"
+    },
+    "17": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "R",
+     "reported": "R"
+    },
+    "18": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "R",
+     "reported": "R"
+    },
+    "19": {
+     "release": "R",
+     "protocol": "R",
+     "yolo_dist": "R",
+     "reported": "R"
+    }
+   },
+   "problems": []
+  },
+  "gpt-5.6-sol": {
+   "model_dir": "gpt-5.6-sol",
+   "file": "p2r21coding_gpt-5.6-sol_20261018.md",
+   "md5": "3a7d463baad6ea81e5d9b4497087673e",
+   "bytes": 7737,
+   "format": "ROW",
+   "matrix": {
+    "1": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "2": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "3": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "4": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "5": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "6": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "7": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "8": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "9": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "10": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "11": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "12": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "13": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "14": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "15": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "16": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "17": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "18": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    },
+    "19": {
+     "release": "not_recorded",
+     "protocol": "not_recorded",
+     "yolo_dist": "not_recorded",
+     "reported": "not_recorded"
+    }
+   },
+   "evidence": {
+    "1": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "2": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "3": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "4": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "5": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "6": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "7": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "8": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "9": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "10": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "11": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "12": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "13": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "14": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "15": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "16": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "17": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "18": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    },
+    "19": {
+     "release": "N",
+     "protocol": "N",
+     "yolo_dist": "N",
+     "reported": "N"
+    }
+   },
+   "problems": []
+  }
+ }
+}
