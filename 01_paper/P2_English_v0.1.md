@@ -25,7 +25,7 @@ Object-detection papers report a number from a split they call held out. We audi
 
 **2. The selection premium only partly survives.** The premium is positive in every escalated cell; the **paired Δgap** (arms' `val`-vs-`test` difference) changes sign by corpus, not the selection term — and **only gaps above the ≈0.5 pp A/A floor count** (**S23**). The **mean direction is metric-robust while one cell's significance and sign unanimity are not** (`smoke2sf`, p = 0.54). A **descriptive** 13-cell scan leaves **3** cells after BH, so the direction claim rests on the four escalated cells. **On a disjoint split, realization is partial**: the **claim-level interval includes zero**; arm-cell and run-weighted estimates are **descriptive** intervals only (Table 4). **At full budget, one corpus, one detector: 99 % (§8.8).** No power analysis was registered; nine `n` = 3 cells stay descriptive.
 
-**3. The printed count rests on one rater.** The layer the literature reports is printed as **12 of 19** (63 %; 4 undecidable); re-verifying every row first-hand and re-coding blind with **five** models recovers **19 of 30** corrected cells, eleven unanimously, while **26 of 76** stay undecidable and **11 of 30 are not recovered** (§6.1, S12).
+**3. The printed count rests on one rater.** The layer the literature reports is printed as **12 of 19** — **and its instrument reproduces only about a third of its own marks, a band of ±3–4 cells (S27)**; re-verifying every row and re-coding blind with **five** models recovers **19 of 30** cells, eleven unanimously.1, S12).
 ---
 
 **Keywords:** evaluation validity; dataset splits; checkpoint selection; object detection; benchmark audit;
@@ -65,7 +65,7 @@ therefore a methodological premise, not a caveat (§3, §6).
 We do not claim that aliasing is data contamination: the image-level intersection between the
 training and held-out evaluation images is **zero** (SHWD [44] excepted, where `train` and `val` are one
 directory). We do not claim a single bias direction: our paired analysis finds **two corpora where `val`
-understates and two where it overstates**, and **nine cells are not testable at n = 3** (§5.1, §7.1). Nor do we claim the
+understates and two where it overstates**, and **nine cells are not testable at n = 3** (§5.1, §7.1; the escalation ledger is **Table S38b**, which records which cells moved to n = 10). Nor do we claim the
 convention is framework-general (§6.5) or that the audited benchmarks are wrong: they report what their
 configuration computes.
 
@@ -157,7 +157,7 @@ The companion and this paper share project-internal process protocols — a mult
 definitions* is stated independently for molecular benchmark auditing, in a 2026 preprint whose abstract closes "different
 defensible definitions return different answers from the same file" [14]. **The observation is the cited literature's; its
 instantiation in detection evaluation, and the four named units, are ours** — the units named by *who controls the split*, the
-19-row evidence table, and the premium on **five arm-cells**. It is orthogonal to [15], which separates leakage by **type**; the **single citation convention is `reported = 10–11 of 19 ≈ 63–65 %` on the decidable rows, with the printed-layer numbers (12–14/19) and the upper bound (≤14/19) scoped to their own columns**; we
+19-row evidence table, and the premium on **five arm-cells**. It is orthogonal to [15], which separates leakage by **type**; the **single citation convention is `reported = 10–11 of the 16–17 decidable rows` (≈ **63–65 %**), i.e. **10–11 of 19 ≈ 53–58 %** of all nineteen**, with the printed-layer numbers (12–14/19) and the upper bound (≤14/19) scoped to their own columns**; we
 separate the **counting subject**, so one type can still be counted under four units (§6.1).
 
 > **Table S2** → Supplementary §S8.
@@ -253,8 +253,8 @@ than contrary, since its mechanism is holdout **reuse** and ours needs none.
 
 | Corpus | n | Δgap (pp) | p | 95 % CI | Reading (**Δgap's sign**) |
 |---|---|---|---|---|---|
-| shwd2sf | 10 | **+0.779** | 0.0053 | [+0.297, +1.261] | `val` **understates** |
-| smoke2sf | 10 | **+0.461** | 0.0263 | [+0.068, +0.855] | `val` **understates** |
+| shwd2sf | 10 | **+0.779** | 0.0053 | [+0.297, +1.261] | `val` **understates** — **above the A/A floor** |
+| smoke2sf | 10 | **+0.461** | 0.0263 | [+0.068, +0.855] | **at the A/A floor** (S23) — **not read as an identified effect** |
 | p_aitovis | 10 | **−1.226** | 1.3×10⁻⁸ | [−1.370, −1.081] | `val` **overstates** |
 | p_vistod15 | 10 | **−3.315** | 6.5×10⁻⁹ | [−3.676, −2.953] | `val` **overstates** |
 
