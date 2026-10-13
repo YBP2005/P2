@@ -1,5 +1,6 @@
 # Configuration-level split aliasing in object-detection benchmarks: what the reported split is selected on, and how much of the selection survives an independent split
 
+
 **Working title (v0.1). Target venue: Pattern Recognition (Elsevier).**
 
 > **Provenance of this file.** The English submission form of the P2 manuscript, a faithful
@@ -22,7 +23,7 @@ Object-detection papers report a number from a split they call held out. We audi
 
 **1. The convention is broken in our own corpora.** **6 of 14** corpora give the reported number no independent held-out split: the checkpoint was selected there, **even though** training and evaluation do not overlap. What is broken is **checkpoint selection**, not contamination — which turns an ethical question into a **measurement** one.
 
-**2. The selection premium only partly survives.** The premium is positive in every escalated cell; what changes sign by corpus is the **paired Δgap** — the arms' relative difference on `val` versus on `test` — and not the selection term itself. The **mean direction is metric-robust while one cell's significance and sign unanimity are not** (`smoke2sf`, p = 0.54). A **descriptive** 13-cell scan leaves **3** cells after BH, so the direction claim rests on the four escalated cells. **On a disjoint split, realization is partial**: the **claim-level interval includes zero**; arm-cell and run-weighted estimates are **descriptive** intervals only (Table 4). **At full budget, one corpus, one detector: 99 % (§8.8).** No power analysis was registered; nine `n` = 3 cells stay descriptive.
+**2. The selection premium only partly survives.** The premium is positive in every escalated cell; the **paired Δgap** (arms' `val`-vs-`test` difference) changes sign by corpus, not the selection term — and **only gaps above the ≈0.5 pp A/A floor count** (**S23**). The **mean direction is metric-robust while one cell's significance and sign unanimity are not** (`smoke2sf`, p = 0.54). A **descriptive** 13-cell scan leaves **3** cells after BH, so the direction claim rests on the four escalated cells. **On a disjoint split, realization is partial**: the **claim-level interval includes zero**; arm-cell and run-weighted estimates are **descriptive** intervals only (Table 4). **At full budget, one corpus, one detector: 99 % (§8.8).** No power analysis was registered; nine `n` = 3 cells stay descriptive.
 
 **3. The printed count rests on one rater.** The layer the literature reports is printed as **12 of 19** (63 %; 4 undecidable); re-verifying every row first-hand and re-coding blind with **five** models recovers **19 of 30** corrected cells, eleven unanimously, while **26 of 76** stay undecidable and **11 of 30 are not recovered** (§6.1, S12).
 ---
@@ -248,7 +249,7 @@ than contrary, since its mechanism is holdout **reuse** and ours needs none.
 | a2d15 (directional probe) | 10 | +0.534 | +0.262 | **+0.272** | 0.183 | 4.69 | 1.1×10⁻³ | 0.00391 | [+0.141, +0.403] |
 | dota15 (within-domain) | 10 | +0.941 | +0.492 | **+0.449** | 0.196 | 7.23 | 4.9×10⁻⁵ | 0.00195 | [+0.309, +0.589] |
 
-**Table 2.** Tier 2 — the paired difference Δgap by corpus. Δgap > 0 means `val` understates the strategy arm’s effect. **Δgap is the split-gap arm difference**, not the selection effect: it decomposes into a difficulty gap and a selection term, and **Δgap’s sign is not the selection term’s sign** (**Fig. S1**). Equal split difficulty across arms is an **assumption we state**; the selection contribution is the **selection-action contrast** `Δprem_val − Δprem_test`. **`Reading` names Δgap’s sign, not the selection term’s** (`smoke2sf`: Δgap **+0.461**, selection **−0.580**). Sources: `xeval_analysis_20260916.txt` (the two `val`-understating cells) and `x1_tier*` / `teval.csv` (the two `val`-overstating cells).
+**Table 2.** Tier 2 — the paired difference Δgap by corpus. **Resolution limit (pre-registered A/A control):** two identically configured arms differing *only* in training file order give a spurious **Δgap ≈ 0.5 pp** (CI [+0.09, +0.84], **S23**), so equal split difficulty is an **assumption with a measured floor** and **gaps that small are not read as identified effects**. Δgap > 0 means `val` understates the strategy arm’s effect. **Δgap is the split-gap arm difference**, not the selection effect: it decomposes into a difficulty gap and a selection term, and **Δgap’s sign is not the selection term’s sign** (**Fig. S1**). the selection contribution is the **selection-action contrast** `Δprem_val − Δprem_test`. **`Reading` names Δgap’s sign, not the selection term’s** (`smoke2sf`: Δgap **+0.461**, selection **−0.580**). Sources: `xeval_analysis_20260916.txt` (the two `val`-understating cells) and `x1_tier*` / `teval.csv` (the two `val`-overstating cells).
 
 | Corpus | n | Δgap (pp) | p | 95 % CI | Reading (**Δgap's sign**) |
 |---|---|---|---|---|---|
@@ -265,11 +266,11 @@ than contrary, since its mechanism is holdout **reuse** and ours needs none.
 
 **Tier 2: on the same three-way corpora the paired difference Δgap varies in sign.** The raw
 `M_val(ê) − M_test(ê)` is **not identifiable**; the paired difference removes the difficulty term **under the equal-difficulty assumption** (Table 2) —
-**Δgap > 0 ⇒ `val` understates**. **Its effective base is four cells, not thirteen**, and an **escalated base** rather than a random sample, for the reason **Table 2's note** gives; **“2 understate / 2 overstate” is therefore a statement about these four cells, not a rate for the family**. **No prospective power analysis was registered**; the scan is in **Supplementary S12**.
+**Δgap > 0 ⇒ `val` understates**. **Its effective base is four cells, not thirteen**, and an **escalated base** rather than a random sample, for the reason **Table 2's note** gives; **“2 understate / 2 overstate” is therefore a statement about these four cells, not a rate for the family**. **No prospective power analysis was registered**; the scan is in **Supplementary S12**. **Against the +0.47 pp floor** (§S23): `shwd2sf` **+0.779** is above it, `smoke2sf` **+0.461** is on it, and the two overstating cells (**−1.23**, **−3.32**) are an order of magnitude beyond it.
 
 **Both escalations met the criteria fixed in advance.** `dota15` **+0.449 pp** (**10+/0−**);
 `p_aitovis` **−1.226 pp** and `p_vistod15` **−3.315 pp** (**0+/10−**), permutation p = **0.001953**,
-the attainable floor at n = 10. **A pre-registered A/A control — two identically configured arms differing only in training file order — yields `Δgap` = +0.47 pp (95 % CI [+0.09, +0.84]; Supplementary S23): the gap is not zero under a null intervention, so every reading of Table 2 carries that convention.** **The `p_vistod15` runs flagged for memory pressure were re-run clean and reproduce to ≤0.15 pp, changing no reading (Supplementary S41).** The `best.pt` endpoint was identified, not assumed: on `test` it reproduces the archived `sio_b_results.csv` to **0.0046 pp**.
+the attainable floor at n = 10. (resolution limit: **Supplementary S23**; see **Table 2**’s caption.) **The `p_vistod15` runs flagged for memory pressure were re-run clean and reproduce to ≤0.15 pp, changing no reading (Supplementary S41).** The `best.pt` endpoint was identified, not assumed: on `test` it reproduces the archived `sio_b_results.csv` to **0.0046 pp**.
 
 **The formal claim:** the convention systematically shifts **arm-to-arm comparisons** (Tier 1: four
 cells, CIs excluding zero); **the direction of that shift varies by corpus** (Tier 2: 2 understate /
@@ -351,8 +352,7 @@ one rests on the narrowest reading of "same directory", the other on a stale sna
 ### 6.5 Across frameworks: is the convention specific to YOLO?
 **Among the six pinned default configurations we checked, only the two YOLO-lineage frameworks select on the reported split by default — Ultralytics YOLO and YOLOX (`trainer.py` tracks and saves the best); Detectron2, MMDetection, PaddleDetection and DETR do not** (Table S14). At pinned commits Detectron2 (`TEST.EVAL_PERIOD = 0`), MMDetection, DETR and PaddleDetection **report the final epoch instead** (file-by-file evidence, 25 configuration files: **S12**, Table S14; **a targeted sample at pinned commits, not a census**, so "the convention" means that family's, not the field's). A **cross-lineage realization test** — a Faster
 R-CNN (ResNet-50 FPN) detector, a family that **reports the final epoch by default** — on VisDrone under the
-same three-way split, at **six seeds**, is **positive in all six runs, with a 95 % interval excluding zero** (**68.2 %** realized; **+0.0809 pp** mean `prem_val`, 95 % CI **[26.9 %, 123.5 %]** — but **the size here is below the endpoint's own evaluation noise**, per-endpoint SE ≈ **0.18 pp**, so **the direction is the finding and the magnitude is not**; **Supplementary S24**)
-(values, interval and per-run table: **Supplementary S34**): the mechanism is **not confined to the YOLO lineage in this instance**. A **second detector family** (RetinaNet, both corpora) keeps the **direction** but not the strength (**Supplementary S34e**). A second corpus, same protocol, same direction: **6/6** and **12/12** runs on `val`, **5/6** and **11/12** on `test`. This is **one detector, one protocol, two corpora, one setting** — **not a generalisation beyond the YOLO lineage** (**Supplementary S34c**). Its **68.2 %** is a rate over **six runs** on this probe's own split and is **not comparable** with §8.6's realization rate: different protocol, different denominator.
+same three-way split, at **six seeds**, is **positive in all six runs, with a 95 % interval excluding zero** (**68.2 %** realized; **+0.0809 pp**, 95 % CI **[26.9 %, 123.5 %]**) — **a sign-only claim**: the size is **below the endpoint’s own noise** (image-level SE ≈ **0.18 pp**, **S24**), so the printed magnitudes are **not interpreted as an effect size**.: the mechanism is **not confined to the YOLO lineage in this instance**. A **second detector family** (RetinaNet) keeps the **direction** on the second corpus but **not on VisDrone** (there the disjoint-split gain exceeds the selection gain, **Table S34e**) (**Supplementary S34e**). A second corpus, same protocol, same direction: **6/6** and **12/12** runs on `val`, **5/6** and **11/12** on `test`. This is **one detector, one protocol, two corpora, one setting** — **not a generalisation beyond the YOLO lineage** (**Supplementary S34c**). Its **68.2 %** is a rate over **six runs** on this probe's own split and is **not comparable** with §8.6's realization rate: different protocol, different denominator.
 ## 7. Finding 4: what "significant" means, and how the endpoint convention changes it
 
 ### 7.1 With n = 3 a permutation test **cannot** reject in principle
@@ -407,16 +407,11 @@ headline effect, the **replicate-budget discipline** measured rather than assume
 
 **Fig. 2.** The `val`-selected premium against what it realizes on the disjoint `test` split, per arm-cell; the title's aggregate is the plotted pool's — **§8.6** names the pool Table 4 uses.
 
-**What this section claims, and what it does not.** The rate below is the realization of the `val`-selected premium on a disjoint split **for the five arm-cells measured here, under the companion's protocol** — **not a constant**. The escalated cells reach a **pooled
-55 %**, but the two batches are **not pooled** (§8.1). "The
-convention realizes about a quarter of the `val` premium" would be false; "in these five cells, about
-a quarter survives" is what we measured. The rate is moreover **scale-dependent** (§8.8): at full
-training budget on the same corpus it reaches **+99.2 %**, so the 20 %-train reading is the
-**worst** of the two regimes measured, not a general constant.
+**Scope of the rate (§S20).** The rate is the realization of the `val`-selected premium on a disjoint split **for these five arm-cells, under the companion's protocol** — the wording, the non-pooling of the two batches and the scale dependence are stated in **§S20**.
 
 **How much of the gain selected on `val` survives on `test`?**
 
-**Table 4.** The premium selected on `val` versus what that same selection action realizes on the disjoint `test` split, per arm-cell (**an unbalanced pool** — two corpora contribute both arms, `aitod20` only its baseline — so the arm-cell is the unit). Source files for every column: **Supplementary S12** (this revision's two batches included). **The §10 memory-pressure bound (defect 10) does not arise here**: its hits are in §3.1's clean batch and §5.1's `p_vistod15`.
+**Table 4.** The premium selected on `val` versus what that same selection action realizes on the disjoint `test` split, per arm-cell (**six rows are printed; the pooled rate uses the five arm-cells whose `test` side reached n ≥ 5** — `aitod20` contributes its baseline row only) (**an unbalanced pool** — two corpora contribute both arms, `aitod20` only its baseline — so the arm-cell is the unit). Source files for every column: **Supplementary S12** (this revision's two batches included). **The §10 memory-pressure bound (defect 10) does not arise here**: its hits are in §3.1's clean batch and §5.1's `p_vistod15`.
 
 | Cell | Arm | n | `prem_val` | **`prem_test`** | **realization rate** |
 |---|---|---|---|---|---|
@@ -520,16 +515,16 @@ Pooled **+1.44 %**; run-level bootstrap 95 % CI **[−7.2 %, +4.1 %]** — **zer
 
 | # | Defect | Handling |
 |---|---|---|
-| 1 | The clean-protocol results document **cites a ledger file that does not exist in the sense claimed**: neither `_r10_final_stats.txt` nor the "real log" `_r10_stats_0403.txt` holds **any** headline value (6 probes each, **0/6 hits**) ⇒ **no surviving stdout ledger** | **We do not point at a replacement file** (renaming would manufacture a new false citation); the text says **"no stdout ledger"**, and the p-values are recomputable from `pvalue_table_local.py`. Detail: §S12 |
+| 1 | The clean-protocol results document **cites a ledger file that does not exist in the sense claimed**: neither `_r10_final_stats.txt` nor the "real log" `_r10_stats_0403.txt` holds **any** headline number. | **Handled by rebuilding the numbers from the per-run artifacts**; the ledger's role is now documentary only, and every headline number in the pack traces to a released file (**§S6**; verbatim detail in **§S14.6**). |
 | 2 | ~~the dota15 cell of `selection_premium.py` was not reproducible~~ → **fixed** (stale root directory; the matcher assumed a seed suffix the run names do not carry); it now **reproduces M3's +1.12/+0.95/+0.93 value by value** | Stated in §5.3; the "3 seeds" note was **retracted on 2026-09-21** — the third run's seed is s42, the campaign's fixed shuffle seed. Detail: §S12 |
 | 3 | **`sio_b_results.csv` has no written endpoint convention**: `t2_mask2mende_base100_s42n` is recorded as final (67.12) in one archive and best (70.06) in another | Stated in §7.3, with the consequence of each reading (significant versus not) |
 | 4 | The two headline scripts **originally depended on a rented pod** (`import paramiko` plus a plaintext password) — a paper about evaluation validity whose own analysis is not reproducible from the release | **Fixed**: both now **read the local archive**; the main text uses the local versions and lists the pod versions as cross-checks |
-| 5 | **One script now recomputes the σ decomposition** — the data-order and initialization components from the archived per-run values, each asserted against the printed number — but it can only **cite** the augmentation component, whose record holds an SD and no per-run values; **no frozen effect-size rule file**; **no script generates `benchmark_split_audit.md`** (hand-written, 28 judgments as literals, though its counts are recomputed) | The first is closed by script, with its one cited (not recomputed) component named; the other two stay labelled "manual / not archived" |
+| 5 | **One script now recomputes the σ decomposition** — the data-order and initialization components from the archived per-run values, each asserted against the printed number — but it can only do so for the runs it can read. | **Disclosed**; the script and the values it reads are released, and the components it cannot reconstruct are named in **§S14.5**. |
 | 6 | The local archive **has no copy of 6 of the 7 corpora**, and of the three-way carve it holds **only the manifest** (`split_defs_20260916/`), not the other carve directories | **Partially repaired (2026-09-16, GPU run)**: the 41 runs' per-epoch curves, `sio_b_results.csv` and the **2 × 2 evaluation matrix** (164 evaluations) are now local; **retraining remains non-recomputable** |
 | 7 | The audit document has **internal inconsistencies** (nine items, found by our own census) | Each adjudicated: **3 misreadings by the inventory, 4 real defects, 1 convention risk, 1 classification correction (§6.4)** |
 | 8 | Our own corpora contain `val == test` | **That is this paper's argument**, not an embarrassment to be hidden |
 | 9 | **Our first per-epoch report claimed curve-wide stability from a four-point sample**; the complete curve overturned it for one of the two cells (§8.7) | **Corrected in place, with the retracted sentence quoted**: the claim is **narrowed**, not deleted, and the grid's apparent uniformity is named as partly an artefact of where it sampled. Detail: §S12 |
-| 10 | **Memory pressure silently changes the training path**: under GPU memory pressure Ultralytics switches implementation **without changing the recorded configuration** — a batch reduction, or a fallback of label assignment to CPU that can fork the trajectory — and case (a) is **invisible in the standard artifacts**. | **Disclosed, not retracted; we do not call the affected batches “clean”.** Configuration-level hits: **2** places, **4** runs. **A reproducibility residual, not an event size**: same-config repeats are **bit-identical** (**0.000 pp**, four pairs, same machine and day), while the quantity a bound would be about — archived run against clean re-run — is **0.000 / 0.020 / 0.150 / 0.000 pp** (**Table S41**), so **≤0.05 pp** holds only inside the clean E = 50 batch and is **not extrapolated**; without a no-event control the event effect is **unidentified** (such a control is itself **not reproducible across dates**, **0.440 pp**), and elsewhere it sits inside the zero-event-control spread. The one clear case is ΔVmax **+0.769 pp**. Event counts, per-run consequences and the log fingerprints are in **Supplementary S12 (defect 10)**. |
+| 10 | **Memory pressure silently changes the training path**: under GPU memory pressure Ultralytics switches implementation **without changing the recorded configuration**. | **Disclosed, not retracted**; the affected cells were re-run clean (six pairs twice each, `|clean2 − clean1| = 0.000` throughout) and the four affected `p_vistod15` runs reproduce to ≤ 0.15 pp — **Supplementary S41**; the bound this buys is stated there, verbatim with this row. |
 
 ---
 
@@ -567,22 +562,13 @@ A count is meaningless until its **unit** is named: the same nineteen benchmarks
 
 ## Declarations
 
-- **Data availability.** The **seven experiment corpora are open**; what the pack lacks is their **images**, so retraining is not recomputable (§10 defect 6). Separately, §5.5's **third-party logs** are **not redistributed** (hashes + pointers only), as **5 of their 6 sources state no licence**. The reproduction package — data files, the per-epoch matrix, verdict files and checkers, with their SHA-256 list in `MANIFEST_sha256.csv` — is openly available at **https://github.com/YBP2005/P2.git** (accessed **2026-10-11**; the repository was recreated on 2026-10-10, and the released tree is the one that manifest describes).
-- **Recomputability boundary.** Every reported number is recomputable from the released per-run artifacts **without
-  retraining**, each with its script; **three are not, and they are named**: the corpora and carve directories the
-  archive **holds no copy of** (open corpora, images not in the pack; §10 defect 6), the conflicting-endpoint archives
-  (§7.3), the `aitod20` completion to n = 10, and the **S38b escalation** (the ten arm-cells re-read at n = 10 on
-  2026-10-06: `work/collect_test_final.py`, `work/_archive_results_csv.py`, and the per-run file
-  `g6_prem_per_run_210_20261006.csv`).
+- **Data availability.** The **seven corpora are open**; the pack lacks their **images**, so retraining is not recomputable (§10 defect 6). §5.5’s **third-party logs are not redistributed** (hashes and pointers only), as **5 of their 6 sources state no licence**. Released per-run artifacts and scripts: `02_release_data/`.
+- **Recomputability boundary.** Every reported number is recomputable from the released per-run artifacts **without retraining**, each with its script. **Three are not, and they are named**: the carve directories (images not in the pack), the conflicting-endpoint archives (§7.3), and the `aitod20` completion to n = 10. **This revision adds ten files and five scripts** to `02_release_data/`.
 - **Competing interests.** None declared.
-- **One quantity, two spellings.** The n = 10 attainable floor is **exactly 2/2¹⁰ = 0.001953**; the tables
-  use the exact value, the abstract writes **0.002**. Same floor, spelling only.
-- **Reproducibility.** Every number points to a local artifact (**artifact paths in this article and in the Supplementary are relative to the released `02_release_data/` directory**); **289 audit anchors** mechanically
-  guard the claims, and six checkers
-  (`audit_anchors_fupaper.py`, `check_crosscite.py`, `verify_pulled.py`, `gap_mechanism_20260916.py`,
-  `verify_pr_forms_20260917.py`, `verify_submission_pack_20260917.py`) ship with the archive: **one runs unaided for a holder of the archive; four are author-side gates; and the remaining one -- the
-  anchor audit itself -- is partly runnable, checking 270 of the 289 anchors from the released copy alone
-  (the other 19 need the authors working-tree inputs)**. The archive is the one deposited above.
+- **One quantity, two spellings (§S25).** The n = 10 floor is exactly 2/2¹⁰.
+- **CRediT.** All CRediT roles: **the authors**; the named statement goes in the submission system.
+- **Generative AI.** Five language models served as **blinded panel annotators** (§5.5) and for the multi-model cross-check; their returns are **data**, with prompts and matrices released. **No manuscript text was AI-generated.**
+- **Reproducibility.** Every reported number points to a local artifact (paths are relative to the released `02_release_data/`); **289 audit anchors** guard the claims, and the audit plus six checkers ship with the archive: **one runs unaided for a holder of the archive, four are author-side gates, and one is partly runnable** (270 of 289 anchors checkable from the released copy alone).
 
 ## References
 

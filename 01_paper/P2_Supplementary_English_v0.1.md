@@ -476,8 +476,7 @@ r10_smoke2sf_lr005_100ep_3way_s51n             59.866   59.892   59.649   59.583
      ⇒ ✅ digit-for-digit agreement (<0.05 pp): the evaluation chain follows the project convention, and the archive values can be reproduced independently
   (best,val)  recomputed vs results.csv maximum: n=41  max diff 0.0834  median 0.0148 pp
      ⇒ ℹ️ One earlier attribution is withdrawn here. We had put this residual down to `best.pt` being
-       selected by **fitness** rather than by mAP50-95; in the pinned version **fitness ≡ mAP50-95** on the
-       monitored split, so the selection rule does not explain it. The candidate causes are a difference
+       selected by **fitness** rather than by mAP50-95; in the pinned version the checkpoint rule maximises fitness = **0.1·mAP50 + 0.9·mAP50-95**, which picks the mAP50-95 argmax in **90.5 %** of runs (§S18, §S21), so the selection rule explains at most a small part of it. The candidate causes are a difference
        between the training-time validator and this standalone re-evaluation, or best.pt sitting at an
        epoch other than the logged argmax. We do not know which, and record the residual as
        **unidentified**, not attributed.
@@ -3991,7 +3990,7 @@ meeting the 35-page limit; each is already carried by §S12 in substance.
 **Recomputation status.** The readings were originally **not locally recomputable** (the archive lacks 6 of 7 corpora; **§10, defect 5**); a GPU **2 × 2 evaluation** on **41** three-way runs of **YOLOv12n [54]** × {`best`, `last`} × {`val`, `test`} makes them so, **retraining not**, reproducing the archived `best × test` values to within **0.0047 pp** (median **0.0021 pp**) — the endpoint rule's positive control (**Supplementary S12**).
 ### S14.5 The pool-composition sensitivity paragraph (already carried by §S12)
 
-**Pool composition — and why the claim does not turn on it.** Table 4 prints **six** measured arm-cells; adding the sixth (`aitod20` **strategy**) moves the run-weighted rate **23.3 % → 8.7 %** and the median **+17.6 % → −4.2 %**. **The inclusion rule is a rule, not a per-cell choice**: an arm-cell enters **iff its `test` side reached n ≥ 5**, and **exactly five met it at the freeze**, where all three weightings coincide (**23.26 %**). The sixth row **qualifies but completed later**, so it is the sensitivity. **Every claim is interval-level and any scope gives the same verdict** — five-cell **[−17.3 %, 53.2 %]** (P = 0.118), six-cell **[−4.9 %, +21.3 %]**, eleven-cluster **[19.3 %, 60.4 %]** — the cell-level intervals **both cover zero**, so **no conclusion depends on the pool boundary**.
+**Pool composition — and why the claim does not turn on it.** Table 4 prints **six** measured arm-cells; adding the sixth (`aitod20` **strategy**) moves the run-weighted rate **23.3 % → 8.7 %** and the median **+17.6 % → −4.2 %**. **The inclusion rule is a rule, not a per-cell choice**: an arm-cell enters **iff its `test` side reached n ≥ 5**, and **exactly five met it at the freeze**, where all three weightings coincide (**23.26 %**). The sixth row **qualifies but completed later**, so it is the sensitivity. **Every claim is interval-level and any scope gives the same verdict** — five-cell **[−17.3 %, 53.2 %]** (P = 0.118), six-cell **[−4.9 %, +21.3 %]**, eleven-cluster **[19.3 %, 60.4 %]** — the cell-level intervals **both cover zero**, so **the frozen five-cell interval includes zero while the wider pools’ intervals exclude it (§S19, §S8.6b), so the scope is stated with each reading**.
 
 ### S14.6 The three bases (duplicated by the Aggregate paragraph)
 
@@ -4187,6 +4186,24 @@ Pooled `Σ prem_test / Σ prem_val` = **+1.44 %**; run-level bootstrap (B = 20,0
 
 **Not covered, stated rather than papered over.** The **specific runs** behind Table 4 live on machine B, which has no GPU; the SFCHD pass above therefore uses a different run set on the **same corpus**, not Table 4's own runs. Both passes still answer the question the review asked — *how large is the noise on a single endpoint* — and they answer it in the same direction.
 
-**Reading, by the pre-declared criterion.** The criterion was: an endpoint SE **≥ 0.15 pp** means the small premium magnitudes (`prem_val = +0.0809 pp` in S34, `+0.075 pp` in Table S46) are **inside evaluation noise**, and the magnitude sentence must become **sign-only**; an SE **≤ 0.05 pp** would leave every number standing. The measured SE is **0.16–0.25 pp on every endpoint**, i.e. **two to five times the premiums being discussed** ⇒ **the magnitudes in S34 and S46 are below the noise floor of a single endpoint evaluation**, and the honest statement of those results is **about direction, not size**. §6.5 has been amended accordingly. This does not weaken the *direction* findings (they rest on intervals over seeds, not on the size of one endpoint), and it does not touch the §8.6/§8.8 realization results, which are differences **between** endpoints whose common noise largely cancels.
+**Reading, by the pre-declared criterion.** The criterion was: an endpoint SE **≥ 0.15 pp** means the small premium magnitudes (`prem_val = +0.0809 pp` in S34, `+0.075 pp` in Table S46) are **inside evaluation noise**, and the magnitude sentence must become **sign-only**; an SE **≤ 0.05 pp** would leave every number standing. The measured SE is **0.16–0.25 pp on every endpoint**, i.e. **two to five times the premiums being discussed** ⇒ **the magnitudes in S34 and S46 are below the noise floor of a single endpoint evaluation**, and the honest statement of those results is **about direction, not size**. §6.5 now states this result as an explicit **sign-only** claim and marks the printed percentages as **not interpreted as an effect size**. This does not weaken the *direction* findings (they rest on intervals over seeds, not on the size of one endpoint), and it does not touch the §8.6/§8.8 realization results, which are differences **between** endpoints whose common noise largely cancels.
 
 **Reproduction.** `e4_make_json.py` (predictions, 8 shards) then `e4_bootstrap.py --draws 25 --sub 400` (8 shards) produce `e4_se.csv`; `e4_conclusion.py` applies the thresholds above. Seeds, draw counts and the rescaling formula are all printed in the artifacts.
+
+---
+
+## S25 · One quantity, two spellings (moved from the Declarations)
+
+**One quantity, two spellings.** The n = 10 attainable floor is **exactly 2/2¹⁰ = 0.001953**; the tables
+  use the exact value, the abstract writes **0.002**. Same floor, spelling only.
+
+---
+
+## S26 · What the §8.6 rate claims, and what it does not (moved from the article)
+
+**What this section claims, and what it does not.** The rate below is the realization of the `val`-selected premium on a disjoint split **for the five arm-cells measured here, under the companion's protocol** — **not a constant**. The escalated cells reach a **pooled
+55 %**, but the two batches are **not pooled** (§8.1). "The
+convention realizes about a quarter of the `val` premium" would be false; "in these five cells, about
+a quarter survives" is what we measured. The rate is moreover **scale-dependent** (§8.8): at full
+training budget on the same corpus it reaches **+99.2 %**, so the 20 %-train reading is the
+**worst** of the two regimes measured, not a general constant.
