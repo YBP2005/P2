@@ -4178,14 +4178,14 @@ Pooled `Σ prem_test / Σ prem_val` = **+1.44 %**; run-level bootstrap (B = 20,0
 
 **Method.** A COCO ground truth is built directly from each run's `test` labels; each draw resamples **image ids with replacement** and re-runs `pycocotools` mAP50-95 on the sampled subset. Cost calibration: one 400-image subset evaluation takes **23 s** on this hardware (a full 1,610-image pass is roughly four times that), so the pass uses **25 draws × 400-image subsets** per endpoint and rescales to the full set by `SE_full = SE_sub × sqrt(400/1610)`; the exact convention is written into every row of `e4_se.csv`. Twenty-five draws give the *SE estimate itself* a Monte-Carlo error of roughly 14 %, which is small against the three-fold gap between the two thresholds below.
 
-**Result (14 endpoints complete at the time of writing; every one of them exceeds the threshold).**
+**Result — two corpora, both complete.** The VisDrone pass covers the **eleven §8.8 runs resident on machine A** (22 endpoints); the SFCHD pass covers the **twenty C2 runs** on the SFCHD three-way carve (40 endpoints), which is the **same corpus** as Table 4's headline cells even though it is not the same run set. Every endpoint in both passes was measured with the same protocol.
 
-| Quantity | Value |
-|---|---|
-| per-endpoint SE, median | **0.176 pp** |
-| per-endpoint SE, mean | 0.182 pp |
-| per-endpoint SE, range | **0.161 – 0.253 pp** |
-| induced SE of `prem_test` (`sqrt(SE_best² + SE_last²)`), median | **0.249 pp** |
+| Corpus (run set) | endpoints | per-endpoint SE, median | SE range | induced SE of `prem_test`, median |
+|---|---:|---:|---|---:|
+| **VisDrone** (§8.8, 11 runs) | 22 | **0.178 pp** | 0.161 – 0.253 pp | 0.252 pp |
+| **SFCHD** (C2, 20 runs) | 40 | **0.534 pp** | 0.458 – 0.599 pp | **0.741 pp** |
+
+**Not covered, stated rather than papered over.** The **specific runs** behind Table 4 live on machine B, which has no GPU; the SFCHD pass above therefore uses a different run set on the **same corpus**, not Table 4's own runs. Both passes still answer the question the review asked — *how large is the noise on a single endpoint* — and they answer it in the same direction.
 
 **Reading, by the pre-declared criterion.** The criterion was: an endpoint SE **≥ 0.15 pp** means the small premium magnitudes (`prem_val = +0.0809 pp` in S34, `+0.075 pp` in Table S46) are **inside evaluation noise**, and the magnitude sentence must become **sign-only**; an SE **≤ 0.05 pp** would leave every number standing. The measured SE is **0.16–0.25 pp on every endpoint**, i.e. **two to five times the premiums being discussed** ⇒ **the magnitudes in S34 and S46 are below the noise floor of a single endpoint evaluation**, and the honest statement of those results is **about direction, not size**. §6.5 has been amended accordingly. This does not weaken the *direction* findings (they rest on intervals over seeds, not on the size of one endpoint), and it does not touch the §8.6/§8.8 realization results, which are differences **between** endpoints whose common noise largely cancels.
 
