@@ -4204,3 +4204,13 @@ convention realizes about a quarter of the `val` premium" would be false; "in th
 a quarter survives" is what we measured. The rate is moreover **scale-dependent** (§8.8): at full
 training budget on the same corpus it reaches **+99.2 %**, so the 20 %-train reading is the
 **worst** of the two regimes measured, not a general constant.
+
+---
+
+## S27 · The instrument’s own reliability, stated numerically
+
+**The numbers.** The nineteen rows were coded by one rater (28 literal judgements, §10 defect 5). An independent **five-coder blind panel** agrees with itself at **Fleiss’ κ 0.836** (38 of 51 unblocked cells identical) and a non-blind model-assisted pass agrees at **κ 0.874**, **but the blind panel reproduces only 31.4 % of the printed marks** (42.2 % on the finer scale), **26 of 76** cells stay undecidable, and the first-party re-verification moved **30 of 76** cells.
+
+**What that does to the count.** On the decidable rows the reported-layer count is **10–11 of 16–17 (≈ 63–65 %)**. An instrument that moves about **30 of 76 (≈ 39 %)** of cells implies a **band of roughly ±3–4 cells** on a nineteen-row count. The **direction** of the majority reading survives that band; **its size does not**, and no cell-level claim in this paper rests on a single coded mark. Two counting units **did** change direction under re-verification, and that is reported in §2 rather than smoothed over.
+
+**Why the count is still reported.** The count is the *object* of the study — what a reader of the literature would take away — and the paper’s claim is about the **unit dependence**, which is measured with the same instrument in both directions and therefore does not require the instrument to be exact. What the instrument cannot support is a **magnitude** reading of the count, and none is made.
