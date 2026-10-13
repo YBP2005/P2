@@ -4167,3 +4167,26 @@ Pooled `Σ prem_test / Σ prem_val` = **+1.44 %**; run-level bootstrap (B = 20,0
 **Reading, stated plainly.** **The null control is not null.** Two arms that differ *only* in the order in which the same training files are consumed produce a spurious `Δgap` of **+0.47 pp** — about **14 %** of the 3.315 pp escalation effect that §5.1 reports for `p_vistod15` — and the interval excludes zero under both methods. Consequently **every reading of Table 2 carries a convention line**: the quoted gaps are the observed arm differences under the registered design, and a gap of **≈0.5 pp or smaller should not be read as an identified effect** without separate justification. What this does **not** do is overturn the two escalated cells, whose gaps are 2.5–7× larger than the control's; it bounds how small a gap the design can resolve.
 
 **Reproduction.** The 20 runs are `r21_c2aa_sfchd_{A,B}_s{42..51|62..71}n`; the per-run `prem_val` comes from each run's own `results.csv` and the endpoint readings from a dedicated `best.pt` / `last.pt` evaluation on `split="test"` (40 evaluations, released as `r21_c2aa_testeval.csv`, columns `run, ckpt, split, map50_95, map50, mp, mr, data_yaml`). The Welch interval and the run-level bootstrap use the seeds printed above.
+
+---
+
+## S24 · The image-level evaluation noise on the endpoints (E4)
+
+**What was asked.** Bootstrap the mAP50-95 of the **two endpoints** of the runs behind Tables 4 and S46 at the **image** level (2,000 draws, fixed seed), using the released COCO-format predictions, and report the per-endpoint SE together with the induced SE of `prem_test` and of the realization rate.
+
+**What the release did and did not contain.** The registered evaluation call is `val(split="test", batch=32, imgsz=640, plots=False, save_json=False)` — i.e. **no COCO-format predictions were released**. They were therefore **re-produced** here with the same call and `save_json=True` (inference only, no training), for the **eleven §8.8 runs resident on machine A** (VisDrone full-budget three-way carve, 1,610 test images): 22 JSON files, one per run × endpoint (`e4_json/`). The runs behind **Table 4** live on machine B and are **not covered by this pass**; that gap is stated rather than papered over.
+
+**Method.** A COCO ground truth is built directly from each run's `test` labels; each draw resamples **image ids with replacement** and re-runs `pycocotools` mAP50-95 on the sampled subset. Cost calibration: one 400-image subset evaluation takes **23 s** on this hardware (a full 1,610-image pass is roughly four times that), so the pass uses **25 draws × 400-image subsets** per endpoint and rescales to the full set by `SE_full = SE_sub × sqrt(400/1610)`; the exact convention is written into every row of `e4_se.csv`. Twenty-five draws give the *SE estimate itself* a Monte-Carlo error of roughly 14 %, which is small against the three-fold gap between the two thresholds below.
+
+**Result (14 endpoints complete at the time of writing; every one of them exceeds the threshold).**
+
+| Quantity | Value |
+|---|---|
+| per-endpoint SE, median | **0.176 pp** |
+| per-endpoint SE, mean | 0.182 pp |
+| per-endpoint SE, range | **0.161 – 0.253 pp** |
+| induced SE of `prem_test` (`sqrt(SE_best² + SE_last²)`), median | **0.249 pp** |
+
+**Reading, by the pre-declared criterion.** The criterion was: an endpoint SE **≥ 0.15 pp** means the small premium magnitudes (`prem_val = +0.0809 pp` in S34, `+0.075 pp` in Table S46) are **inside evaluation noise**, and the magnitude sentence must become **sign-only**; an SE **≤ 0.05 pp** would leave every number standing. The measured SE is **0.16–0.25 pp on every endpoint**, i.e. **two to five times the premiums being discussed** ⇒ **the magnitudes in S34 and S46 are below the noise floor of a single endpoint evaluation**, and the honest statement of those results is **about direction, not size**. §6.5 has been amended accordingly. This does not weaken the *direction* findings (they rest on intervals over seeds, not on the size of one endpoint), and it does not touch the §8.6/§8.8 realization results, which are differences **between** endpoints whose common noise largely cancels.
+
+**Reproduction.** `e4_make_json.py` (predictions, 8 shards) then `e4_bootstrap.py --draws 25 --sub 400` (8 shards) produce `e4_se.csv`; `e4_conclusion.py` applies the thresholds above. Seeds, draw counts and the rescaling formula are all printed in the artifacts.
