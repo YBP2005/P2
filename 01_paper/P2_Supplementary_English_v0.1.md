@@ -4221,3 +4221,16 @@ training budget on the same corpus it reaches **+99.2 %**, so the 20 %-train rea
 ③ State the test convention: below n = 6 a
 permutation test has no resolution; print the `2/2ⁿ` floor beside every p. ④ Declare the counting unit
 behind every count, as Table 3's header does.
+
+---
+
+## S30 · §8.8’s interval with measurement noise propagated (requested in review)
+
+**What was asked.** Propagate the image-level endpoint SE (measured for this corpus in §S24: median **0.178 pp** per endpoint) into §8.8’s realization interval, with the numerator’s induced SE taken as **√2 × SE** = **0.252 pp**.
+
+| Interval | 95 % CI | lower bound above the band’s edge (+74 %)? |
+|---|---|---|
+| run-to-run bootstrap only | **[+76.9 %, +135.5 %]** | yes, by 2.9 pp |
+| **+ endpoint noise (20,000 draws, seed 20261013)** | **[+31.6 %, +225.0 %]** | **no** |
+
+**Reading.** The premium is realized in full at this budget, but **the out-of-band claim is not robust to the measurement noise of a single endpoint** — the interval then overlaps the pre-registered band, which is also where §8.9’s second full-budget corpus lands (+1.44 %, in-band). We therefore report the point estimate and both intervals and **do not claim an out-of-band result**. Per-run inputs: `P2_e1full_per_run.csv`; endpoint SEs: `P2_e4_se_visdrone.csv`.
