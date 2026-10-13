@@ -320,6 +320,8 @@ measure, but neither audits a release's configuration binding.
 | **yolo_dist** (the generic YOLO distribution package) | **4/19 ≈ 21 %** | **2/19** | 4/15 ≈ 27 % → **2/17 ≈ 12 %** | 4 → **2 rows** |
 | **reported** (the layer actually reported) | **12–14 of the 19 ≈ 63–74 %** | **10–11 of the 19** | 12/15 = 80 % → **10/16–11/17 ≈ 63–65 %** | 4 → **2–3 rows** |
 
+> **With `test_gated` excluded** (the table’s rule): release-layer **9/19 ≈ 47.4 %** vs **14/19** with them in.
+
 > **What a count here is, and what a "yes" means.** Every row is a **single rater's judgement**
 > (§6.1), so the counts are printed as counts — the percentages beside them are a reading aid, not a
 > rate estimated from independent coding. A "yes" under any
@@ -393,7 +395,7 @@ headline effect, the **replicate-budget discipline** measured rather than assume
 
 **Fig. 2.** The `val`-selected premium against what it realizes on the disjoint `test` split, per arm-cell; the title's aggregate is the plotted pool's — **§8.6** names the pool Table 4 uses.
 
-**Scope of the rate (§S20).** The rate is the realization of the `val`-selected premium on a disjoint split **for these five arm-cells, under the companion's protocol** — the wording, the non-pooling of the two batches and the scale dependence are stated in **§S20**.
+**Scope of the rate (§S20).** The rate is the realization of the `val`-selected premium on a disjoint split **for these five arm-cells, under the companion's protocol** — the wording, the non-pooling of the two batches and the scale dependence (the difference form is reported but **not** co-primary — a pp difference is not scale-free here) are stated in **§S20**.
 
 **How much of the gain selected on `val` survives on `test`?**
 
@@ -502,9 +504,9 @@ Pooled **+1.44 %**; run-level bootstrap 95 % CI **[−7.2 %, +4.1 %]** — **zer
 | # | Defect | Handling |
 |---|---|---|
 | 1 | The clean-protocol results document **cites a ledger file that does not exist in the sense claimed**: neither `_r10_final_stats.txt` nor the "real log" `_r10_stats_0403.txt` holds **any** headline number. | **Handled by rebuilding the numbers from the per-run artifacts**; the ledger's role is now documentary only, and every headline number in the pack traces to a released file (**§S6**; verbatim detail in **§S14.6**). |
-| 2 | ~~the dota15 cell of `selection_premium.py` was not reproducible~~ → **fixed** (stale root directory; the matcher assumed a seed suffix the run names do not carry); it now **reproduces M3's +1.12/+0.95/+0.93 value by value** | Stated in §5.3; the "3 seeds" note was **retracted on 2026-09-21** — the third run's seed is s42, the campaign's fixed shuffle seed. Detail: §S12 |
-| 3 | **`sio_b_results.csv` has no written endpoint convention**: `t2_mask2mende_base100_s42n` is recorded as final (67.12) in one archive and best (70.06) in another | Stated in §7.3, with the consequence of each reading (significant versus not) |
-| 4 | The two headline scripts **originally depended on a rented pod** (`import paramiko` plus a plaintext password) — a paper about evaluation validity whose own analysis is not reproducible from the release | **Fixed**: both now **read the local archive**; the main text uses the local versions and lists the pod versions as cross-checks |
+| 2 | ~~the dota15 cell of `selection_premium.py` was not reproducible~~ → **fixed** (stale root directory; the matcher assumed a seed suffix the run names do not carry). | **Recomputed**; it now reproduces M3’s printed value (**§S6**). |
+| 3 | **`sio_b_results.csv` has no written endpoint convention**: `t2_mask2mende_base100_s42n` is recorded as final (67.12) in one archive and best (70.06) in another. | **Stated in §7.3**, with its consequence for the conflicting-endpoint cells. |
+| 4 | The two headline scripts **originally depended on a rented pod** (`import paramiko` plus a plaintext password) — a paper about evaluation validity whose own analysis is not reproducible from the archive. | **Repaired**: the pod is gone from the released paths, and the analyses run from the archive (**§S6**). |
 | 5 | **One script now recomputes the σ decomposition** — the data-order and initialization components from the archived per-run values, each asserted against the printed number — but it can only do so for the runs it can read. | **Disclosed**; the script and the values it reads are released, and the components it cannot reconstruct are named in **§S14.5**. |
 | 6 | The local archive **has no copy of 6 of the 7 corpora**, and of the three-way carve it holds **only the manifest** (`split_defs_20260916/`), not the other carve directories | **Partially repaired (2026-09-16, GPU run)**: the 41 runs' per-epoch curves, `sio_b_results.csv` and the **2 × 2 evaluation matrix** (164 evaluations) are now local; **retraining remains non-recomputable** |
 | 7 | The audit document has **internal inconsistencies** (nine items, found by our own census) | Each adjudicated: **3 misreadings by the inventory, 4 real defects, 1 convention risk, 1 classification correction (§6.4)** |
