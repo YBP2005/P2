@@ -3382,17 +3382,17 @@ availability statement in the article);
 
 | Headline number | Derived table (package) | Producing script |
 |---|---|---|
-| 23.3 % realization rate and its three (coincident) weightings (§8.6, Table 4) | `release_selection-transfer_perseed.csv` (**four of the five arm-cells**; the `aitod20` cell's completion to n = 10 is **not** in this package, see the scope note below), `release_shape-noise-by-budget.csv` | `work/item2_final_v2_20260925.py` |
-| κ and its clustered error (§8.7) | `x3b_tableS22_20260918.csv`, `x3b_tableS23_20260918.csv` | `work/x2_kappa_clustered_20260918.py`, `work/x3b_perepoch_corrected_20260918.py` |
-| shape share of the premium (§3.1 corollary) | `release_shape-noise-by-budget.csv` | `work/prop6_shape_noise_20260920.py` |
-| transfer slope for the shape/noise decomposition | `release_selection-transfer_shape-share.csv` | `work/prop6_transfer_20260920.py` |
-| Tier 1 / Tier 2 paired and permutation statistics (§5.1) | `release_X1_tier2_best-last_summary.csv` | `work/xeval_analyze_20260916.py` |
-| registered replication and its saturated control (§9) | `release_T1_registered-replication_summary.csv`, `release_T2_saturated-control_summary.csv` | `work/preregister_E_ext_20260919.py` |
-| G1″ / G1′ / G2 / G3 / G4 verdicts (§3.2) | `release_G1p_AB-half-level-match.csv`, `release_G1pp_thirds_levels.csv`, `release_G2_selection-split-size_summary.csv`, `release_G3_epoch-budget_summary.csv`, `release_G3ext_E50-400_perrun.csv`, `release_G4_mende20_3way_perseed.csv` | `work/g1p_verdict_20260919.py` and the verdict scripts named in Tables S31–S33 |
-| the 19 × 4 counting-unit table (§6.1, Table 3) | recomputed in-package | `work/recompute_split_units_20260916.py` |
-| the framework-default check (§6.5) | line-by-line evidence in §S3 | `work/x10_alias_audit_20260918.py` |
-| the three variance components (§8.4, Table S19) | recorded in Table S19 only | `work/sigma_decomposition_20260926.py` — recomputes the data-order and initialization components from the archived per-run values; **cites** the augmentation component, whose record has no per-run values (Defect 5) |
-| the 289 audit anchors (Declarations) | in-package | `work/audit_anchors_fupaper.py` |
+| 1  23.3 % realization rate and its three (coincident) weightings (§8.6, Table 4)| `release_selection-transfer_perseed.csv` (**four of the five arm-cells**; the `aitod20` cell's completion to n = 10 is **not** in this package, see the scope note below), `release_shape-noise-by-budget.csv` | `work/item2_final_v2_20260925.py` |
+| 2  κ and its clustered error (§8.7)| `x3b_tableS22_20260918.csv`, `x3b_tableS23_20260918.csv` | `work/x2_kappa_clustered_20260918.py`, `work/x3b_perepoch_corrected_20260918.py` |
+| 3  shape share of the premium (§3.1 corollary)| `release_shape-noise-by-budget.csv` | `work/prop6_shape_noise_20260920.py` |
+| 4  transfer slope for the shape/noise decomposition| `release_selection-transfer_shape-share.csv` | `work/prop6_transfer_20260920.py` |
+| 5  Tier 1 / Tier 2 paired and permutation statistics (§5.1)| `release_X1_tier2_best-last_summary.csv` | `work/xeval_analyze_20260916.py` |
+| 6  registered replication and its saturated control (§9)| `release_T1_registered-replication_summary.csv`, `release_T2_saturated-control_summary.csv` | `work/preregister_E_ext_20260919.py` |
+| 7  G1″ / G1′ / G2 / G3 / G4 verdicts (§3.2)| `release_G1p_AB-half-level-match.csv`, `release_G1pp_thirds_levels.csv`, `release_G2_selection-split-size_summary.csv`, `release_G3_epoch-budget_summary.csv`, `release_G3ext_E50-400_perrun.csv`, `release_G4_mende20_3way_perseed.csv` | `work/g1p_verdict_20260919.py` and the verdict scripts named in Tables S31–S33 |
+| 8  the 19 × 4 counting-unit table (§6.1, Table 3)| recomputed in-package | `work/recompute_split_units_20260916.py` |
+| 9  the framework-default check (§6.5)| line-by-line evidence in §S3 | `work/x10_alias_audit_20260918.py` |
+| 10  the three variance components (§8.4, Table S19)| recorded in Table S19 only | `work/sigma_decomposition_20260926.py` — recomputes the data-order and initialization components from the archived per-run values; **cites** the augmentation component, whose record has no per-run values (Defect 5) |
+| 11  the 289 audit anchors (Declarations)| in-package | `work/audit_anchors_fupaper.py` |
 
 **The three variance components of §8.4 are the one entry in this map whose script covers two of its
 three components rather than all three.** The data-order and initialization components are recomputed
@@ -3428,17 +3428,14 @@ the marks it recomputes *from* were not derived by any script either.
 *What each row's evidence pointer resolves to, and what is now on record.* For every row, the
 recomputation artifact `split_units_recompute_20260916.txt` carries that row's own entry — its
 evidence class, its self-assessed confidence and its derivation or correction note — and
-`work/recompute_split_units_20260916.py` carries the same text as that row's literal. **The
-concrete source for all nineteen rows is now archived**: each row below names the upstream
-repository and commit the mark was read at, the file, the line the mark stands on, and the
-SHA-256 of the retrieved bytes. Read as a chain, one row is now walkable end to end — the
+`work/recompute_split_units_20260916.py` carries the same text as that row's literal. **The concrete source for all nineteen rows is now on record — as a pointer, not as bytes**: each row below names the upstream repository and commit the mark was read at, the file, the line the mark stands on, and the SHA-256 of the retrieved bytes. **The upstream files themselves are not redistributed**; a reader re-fetches each file at the pinned commit and checks the digest. Read as a chain, one row is now walkable end to end — the
 English row, that row's entry in `split_units_recompute_20260916.txt`, the same row's literal in
 the script, the audit's mark, and the upstream file with its line anchor and hash.
 
 *What is still not on record, stated because it bounds the chain.* The row-level source fields
 above are archived; the **audit's own line numbers** (`A:…`) remain unrecorded except for row 19,
 whose note names two of them, because the audit document's internal numbering is not regenerated
-by any shipped script. **Every one of the nineteen rows is pinned to a commit in this package**: the commit was resolved
+by any shipped script. **Every one of the nineteen rows is pinned to a commit recorded in this package**: the commit was resolved
 with `git ls-remote` on the repository's default branch, the file was re-fetched at that commit,
 and its bytes were checked to be identical to the archived copy (`sha256`), so the pinned commit
 is the commit of the bytes read and not merely a later state of the same file. Where the currently published
@@ -3499,10 +3496,10 @@ what was read on the date of this archive.
 
 ### Scope of reproducibility: two things that are not the same
 
-| What | Status | Why |
-|---|---|---|
-| **Evaluation-side recomputation** — every premium, rate, κ, interval and verdict in the article | **reproducible from the package** | needs the per-epoch matrices and the released tables, all shipped |
-| **Retraining** — re-running training to regenerate the checkpoints those numbers were computed on | **not reproducible from the package** | the archive holds no copy of the three-way carve directories and no copy of 6 of the 7 corpora (§10 defect 6) |
+| 12  What| Status | Why |
+| 13 ---|---|---|
+| 14  **Evaluation-side recomputation** — every premium, rate, κ, interval and verdict in the article| **reproducible from the package** | needs the per-epoch matrices and the released tables, all shipped |
+| 15  **Retraining** — re-running training to regenerate the checkpoints those numbers were computed on| **not reproducible from the package** | the archive holds no copy of the three-way carve directories and no copy of 6 of the 7 corpora (§10 defect 6) |
 
 This distinction is why the article claims **evaluation validity** rather than full reproducibility:
 every number we report is recomputable from what is shipped, while regenerating the checkpoints behind
@@ -3706,13 +3703,13 @@ assumption that makes it identifiable and the scope that bounds it. The last col
 "we do not claim" statements that the article's prose carries at §5.1, §5.4, §8.6 and §12, so that each
 quantity's boundary is stated once, beside the quantity rather than scattered across sections.
 
-| Quantity | Estimator | What has to hold | What it identifies | What we do not claim |
-|---|---|---|---|---|
-| **selection premium** | `best − last` **within one run**, mAP50-95 pp, on the monitored split; paired across arms | that `best` is the argmax of the same curve the reported split scores (the definitional part) | the checkpoint-selection term of run-to-run variation under the published convention | not that the convention *understates* the effect; not a single bias direction across corpora |
-| **Δgap** | the paired difference of the premium between the two arms, per corpus | that the two arms see equal split difficulty — an assumption we state, not one this design demonstrates | a split-dependent **arm contrast** | not an isolated selection effect; the selection contribution proper is `Δprem_val − Δprem_test` |
-| **realization rate** | `prem_test / prem_val`, run-weighted, over the five arm-cells at n = 10 | that the readout split is disjoint from the selection set and untouched by any selection rule | the share of the `val`-selected premium that survives on a disjoint split, **for these five cells** | not a constant of the convention; not significant read at the level of the claim; the aggregate is a ratio of small means |
-| **κ (transfer slope)** | through-origin slope of ΔT on ΔV over a run's epochs; run-clustered inference with runs as clusters | that "epoch" is the unit of the curve and that runs are the clusters | how much of a run's movement on `val` appears on `test` | κ is relative to each run's own final epoch and is **not** causal; κ is not constant across arms |
-| **peak-agreement predictor** | whether the `val` and `test` peaks fall on the same 5-epoch checkpoint | the shared 5-epoch grid, and that agreement is an observable, not an intervention | a **partial** predictor of Δgap's sign, via a lower median Δgap when the peaks agree | not an explanation of the sign; the agreement group's mean is carried by one run; not refined beyond the 5-epoch grid |
+| 16  Quantity| Estimator | What has to hold |
+| 17 ---|---|---|
+| 18  **selection premium**| `best − last` **within one run**, mAP50-95 pp, on the monitored split; paired across arms | that `best` is the argmax of the same curve the reported split scores (the definitional part) |
+| 19  **Δgap**| the paired difference of the premium between the two arms, per corpus | that the two arms see equal split difficulty — an assumption we state, not one this design demonstrates |
+| 20  **realization rate**| `prem_test / prem_val`, run-weighted, over the five arm-cells at n = 10 | that the readout split is disjoint from the selection set and untouched by any selection rule |
+| 21  **κ (transfer slope)**| through-origin slope of ΔT on ΔV over a run's epochs; run-clustered inference with runs as clusters | that "epoch" is the unit of the curve and that runs are the clusters |
+| 22  **peak-agreement predictor**| whether the `val` and `test` peaks fall on the same 5-epoch checkpoint | the shared 5-epoch grid, and that agreement is an observable, not an intervention |
 
 ### Table S36 — the analysis-status ledger
 
@@ -3722,20 +3719,20 @@ before the runs existed), **pre-planned** (fixed in advance of the analysis but 
 **post-hoc** (decided after the runs were seen). The class each item carries is the one the article's own
 prose asserts; the ledger collects them so that no post-hoc reading can be mistaken for a registered one. **Any p-value this paper quotes for a post-hoc row is uncorrected and descriptive**: the multiplicity corrections here are **three and not interchangeable**: a Benjamini–Hochberg step over the **declared, descriptive** 13-cell family (with **Holm** across the two targets of the escalation plan), and the **confirmatory** family, which is the **four escalated cells**; only the pre-planned rows belong to the first.
 
-| Item | Status | What fixes the class |
-|---|---|---|
-| the registered multi-target replication | **pre-registered** | its own frozen registration stamp, with zero runs existing at freeze time; reported by the companion |
-| the four-budget epoch series' criteria C1–C3 | **pre-registered** | the criteria are recorded as fixed before the runs |
-| the n = 10 escalation criterion for the Tier-2 cells | **pre-planned** | the criterion was fixed in advance of the escalations |
-| the endpoint convention `best − last` | **pre-planned** | frozen in writing before the re-analysis |
-| the 13-cell family and its Benjamini–Hochberg correction | **pre-planned** | the family was declared before the correction was computed; its **thirteen members and their raw p-values are Table S8**, and the Benjamini–Hochberg step over that family is stated in this section rather than tabulated, and the two cells escalated to n = 10 after that scan are named in Table 2's note |
-| the σ√(2 ln E) scaling | **post-hoc** | tested, then **withdrawn** — the form does not survive the archive |
-| the complete-curve κ and its run-clustered interval | **post-hoc** | the sweep was completed after the five-epoch reading |
-| the per-epoch Δgap sign reading | **post-hoc** | read off the completed curve, correcting a four-point sample |
-| the second coding of the 19-row table | **post-hoc** | reliability evidence gathered after the printed coding; it does not replace it |
-| the peak-agreement predictor | **post-hoc** | a reading of our own 40 runs |
-| the mAP50 / mAP75 re-scoring batches | **post-hoc** | evaluation-side robustness checks run for this revision |
-| plateau selection | **post-hoc** | offered as a candidate remedy, not as a validated rule |
+| 23  Item| Status | What fixes the class |
+| 24 ---|---|---|
+| 25  the registered multi-target replication| **pre-registered** | its own frozen registration stamp, with zero runs existing at freeze time; reported by the companion |
+| 26  the four-budget epoch series' criteria C1–C3| **pre-registered** | the criteria are recorded as fixed before the runs |
+| 27  the n = 10 escalation criterion for the Tier-2 cells| **pre-planned** | the criterion was fixed in advance of the escalations |
+| 28  the endpoint convention `best − last`| **pre-planned** | frozen in writing before the re-analysis |
+| 29  the 13-cell family and its Benjamini–Hochberg correction| **pre-planned** | the family was declared before the correction was computed; its **thirteen members and their raw p-values are Table S8**, and the Benjamini–Hochberg step over that family is stated in this section rather than tabulated, and the two cells escalated to n = 10 after that scan are named in Table 2's note |
+| 30  the σ√(2 ln E) scaling| **post-hoc** | tested, then **withdrawn** — the form does not survive the archive |
+| 31  the complete-curve κ and its run-clustered interval| **post-hoc** | the sweep was completed after the five-epoch reading |
+| 32  the per-epoch Δgap sign reading| **post-hoc** | read off the completed curve, correcting a four-point sample |
+| 33  the second coding of the 19-row table| **post-hoc** | reliability evidence gathered after the printed coding; it does not replace it |
+| 34  the peak-agreement predictor| **post-hoc** | a reading of our own 40 runs |
+| 35  the mAP50 / mAP75 re-scoring batches| **post-hoc** | evaluation-side robustness checks run for this revision |
+| 36  plateau selection| **post-hoc** | offered as a candidate remedy, not as a validated rule |
 
 
 ### Detail relocated from the article's single-rater audit
@@ -3833,8 +3830,8 @@ looking shipped when it is not.
 
 **shwd2sf · endpoint = `oracle`**
 
-| n | seeds | paired Δgap contrast (pp) | SD | paired *t* | *t* p | exact sign-flip p |
-|---|---|---:|---:|---:|---:|---:|
+| 37  n| seeds | paired Δgap contrast (pp) |
+| 38 ---|---|---:|
 | 3 | 42..44 | -0.7146 | 0.3364 | -3.6796 | 0.06657 | **0.25** |
 | 4 | 42..45 | -0.6632 | 0.2932 | -4.5231 | 0.02021 | **0.125** |
 | 5 | 42..46 | -0.6517 | 0.2553 | -5.7086 | 0.004656 | **0.0625** |
@@ -3846,8 +3843,8 @@ looking shipped when it is not.
 
 **shwd2sf · endpoint = `selected`**
 
-| n | seeds | paired Δgap contrast (pp) | SD | paired *t* | *t* p | exact sign-flip p |
-|---|---|---:|---:|---:|---:|---:|
+| 47  n| seeds | paired Δgap contrast (pp) |
+| 48 ---|---|---:|
 | 3 | 42..44 | -0.3933 | 0.4456 | -1.5287 | 0.2659 | **0.25** |
 | 4 | 42..45 | -0.4000 | 0.3641 | -2.1973 | 0.1155 | **0.125** |
 | 5 | 42..46 | -0.5194 | 0.4132 | -2.8109 | 0.04827 | **0.0625** |
@@ -3859,8 +3856,8 @@ looking shipped when it is not.
 
 **smoke2sf · endpoint = `oracle`**
 
-| n | seeds | paired Δgap contrast (pp) | SD | paired *t* | *t* p | exact sign-flip p |
-|---|---|---:|---:|---:|---:|---:|
+| 57  n| seeds | paired Δgap contrast (pp) |
+| 58 ---|---|---:|
 | 3 | 42..44 | -0.7938 | 0.1080 | -12.7284 | 0.006116 | **0.25** |
 | 4 | 42..45 | -0.8020 | 0.0897 | -17.8789 | 0.0003816 | **0.125** |
 | 5 | 42..46 | -0.7702 | 0.1054 | -16.3356 | 8.219e-05 | **0.0625** |
@@ -3872,8 +3869,8 @@ looking shipped when it is not.
 
 **smoke2sf · endpoint = `selected`**
 
-| n | seeds | paired Δgap contrast (pp) | SD | paired *t* | *t* p | exact sign-flip p |
-|---|---|---:|---:|---:|---:|---:|
+| 67  n| seeds | paired Δgap contrast (pp) |
+| 68 ---|---|---:|
 | 3 | 42..44 | -0.5631 | 1.3339 | -0.7311 | 0.5408 | **0.5** |
 | 4 | 42..45 | -0.5253 | 1.0917 | -0.9623 | 0.4069 | **0.375** |
 | 5 | 42..46 | -0.7462 | 1.0668 | -1.5641 | 0.1928 | **0.1875** |
@@ -3916,38 +3913,38 @@ Both `prem_val` and `prem_test` are in **pp** (mAP50-95 × 100).
 
 **Table S46.** Per-run readings (20 runs). `T_best`/`T_last` are on `test`.
 
-| Machine | Run | Arm | Seed | `prem_val` | `T_best` | `T_last` | `prem_test` |
-|---|---|---|---|---|---|---|---|
-| A | `r18_e1full_y12n_base100_s42n` | base100 | 42 | +0.253 | 13.190 | 12.945 | +0.245 |
-| A | `r18_e1full_y12n_base100_s43n` | base100 | 43 | +0.304 | 13.200 | 13.055 | +0.145 |
-| A | `r18_e1full_y12n_base100_s44n` | base100 | 44 | +0.410 | 13.160 | 12.983 | +0.177 |
-| A | `r18_e1full_y12n_base100_s45n` | base100 | 45 | +0.277 | 13.120 | 13.025 | +0.095 |
-| A | `r18_e1full_y12n_base100_s46n` | base100 | 46 | +0.105 | 13.230 | 13.069 | +0.161 |
-| A | `r18_e1full_y12n_base100_s47n` | base100 | 47 | +0.280 | 13.280 | 13.079 | +0.201 |
-| A | `r18_e1full_y12n_base100_s48n` | base100 | 48 | +0.217 | 13.220 | 13.044 | +0.176 |
-| B | `r18_e1full_y12n_base100_s49n` | base100 | 49 | +0.285 | 13.130 | 12.934 | +0.196 |
-| B | `r18_e1full_y12n_base100_s50n` | base100 | 50 | +0.181 | 13.170 | 13.014 | +0.156 |
-| B | `r18_e1full_y12n_base100_s51n` | base100 | 51 | +0.247 | 13.130 | 12.984 | +0.146 |
-| A | `r18_e1full_y12n_lr005_100ep_s42n` | lr005_100ep | 42 | +0.199 | 13.750 | 13.377 | +0.373 |
-| A | `r18_e1full_y12n_lr005_100ep_s43n` | lr005_100ep | 43 | +0.285 | 13.590 | 13.301 | +0.289 |
-| A | `r18_e1full_y12n_lr005_100ep_s44n` | lr005_100ep | 44 | +0.290 | 13.730 | 13.452 | +0.278 |
-| A | `r18_e1full_y12n_lr005_100ep_s45n` | lr005_100ep | 45 | +0.315 | 13.690 | 13.274 | +0.416 |
-| B | `r18_e1full_y12n_lr005_100ep_s46n` | lr005_100ep | 46 | +0.202 | 13.750 | 13.539 | +0.211 |
-| B | `r18_e1full_y12n_lr005_100ep_s47n` | lr005_100ep | 47 | +0.412 | 13.670 | 13.280 | +0.390 |
-| B | `r18_e1full_y12n_lr005_100ep_s48n` | lr005_100ep | 48 | +0.243 | 13.780 | 13.422 | +0.358 |
-| B | `r18_e1full_y12n_lr005_100ep_s49n` | lr005_100ep | 49 | +0.409 | 13.890 | 13.438 | +0.452 |
-| B | `r18_e1full_y12n_lr005_100ep_s50n` | lr005_100ep | 50 | +0.385 | 13.710 | 13.253 | +0.457 |
-| B | `r18_e1full_y12n_lr005_100ep_s51n` | lr005_100ep | 51 | +0.075 | 13.830 | 13.422 | +0.408 |
+| 77  Machine| Run | Arm |
+| 78 ---|---|---|
+| 79  A| `r18_e1full_y12n_base100_s42n` | base100 |
+| 80  A| `r18_e1full_y12n_base100_s43n` | base100 |
+| 81  A| `r18_e1full_y12n_base100_s44n` | base100 |
+| 82  A| `r18_e1full_y12n_base100_s45n` | base100 |
+| 83  A| `r18_e1full_y12n_base100_s46n` | base100 |
+| 84  A| `r18_e1full_y12n_base100_s47n` | base100 |
+| 85  A| `r18_e1full_y12n_base100_s48n` | base100 |
+| 86  B| `r18_e1full_y12n_base100_s49n` | base100 |
+| 87  B| `r18_e1full_y12n_base100_s50n` | base100 |
+| 88  B| `r18_e1full_y12n_base100_s51n` | base100 |
+| 89  A| `r18_e1full_y12n_lr005_100ep_s42n` | lr005_100ep |
+| 90  A| `r18_e1full_y12n_lr005_100ep_s43n` | lr005_100ep |
+| 91  A| `r18_e1full_y12n_lr005_100ep_s44n` | lr005_100ep |
+| 92  A| `r18_e1full_y12n_lr005_100ep_s45n` | lr005_100ep |
+| 93  B| `r18_e1full_y12n_lr005_100ep_s46n` | lr005_100ep |
+| 94  B| `r18_e1full_y12n_lr005_100ep_s47n` | lr005_100ep |
+| 95  B| `r18_e1full_y12n_lr005_100ep_s48n` | lr005_100ep |
+| 96  B| `r18_e1full_y12n_lr005_100ep_s49n` | lr005_100ep |
+| 97  B| `r18_e1full_y12n_lr005_100ep_s50n` | lr005_100ep |
+| 98  B| `r18_e1full_y12n_lr005_100ep_s51n` | lr005_100ep |
 
 **Table S47.** Summaries. The interval is a **run-level bootstrap** (20,000 resamples, seed
 20261011) of the ratio mean(`prem_test`)/mean(`prem_val`); it is **not** §8.6's cell-level interval
 and the two are not pooled (§12).
 
-| Arm | n | `prem_val` (pp) | `prem_test` (pp) | realisation rate | 95 % interval |
-|---|---|---|---|---|---|
-| `base100` (`lr0` = 0.001) | 10 | +0.256 | +0.170 | **+66.4 %** | inside [−28 %, +74 %] |
-| `lr005_100ep` (`lr0` = 0.005) | 10 | +0.282 | +0.363 | **+129.0 %** | above the band |
-| **pooled (run-weighted)** | **20** | **+0.269** | **+0.266** | **+99.2 %** | **[+80.4 %, +122.0 %]** |
+| 99  Arm| n | `prem_val` (pp) |
+| 100 ---|---|---|
+| 101  `base100` (`lr0` = 0.001)| 10 | +0.256 |
+| 102  `lr005_100ep` (`lr0` = 0.005)| 10 | +0.282 |
+| 103  **pooled (run-weighted)**| **20** | **+0.269** |
 
 **Registration and the decision rule.** The interval **[−28 %, +74 %]** was registered with the
 reviewers **before** this experiment ran; the rule is that a point estimate outside it changes the
@@ -4041,10 +4038,10 @@ headline effect, the **seed-budget discipline** measured rather than assumed ([5
 
 **What this is.** The same full-budget protocol as §8.8 on a different corpus (`mask_clean`, `nc = 1`; train 5,220 / val 900 / test 919), 2 arms × ten file orders = 20 runs, 100 epochs. `prem_val = max_e V(e) − V(final)` in mAP50-95 pp, read from each run's own `results.csv`.
 
-| Arm | n | mean `prem_val` | SD | range |
-|---|---:|---:|---:|---|
-| `base100` | 10 | **+26.219 pp** | 5.182 | +17.022 … +33.950 |
-| `lr005_100ep` | 10 | **+14.883 pp** | 5.221 | +7.594 … +26.532 |
+| 104  Arm| n | mean `prem_val` |
+| 105 ---|---:|---:|
+| 106  `base100`| 10 | **+26.219 pp** |
+| 107  `lr005_100ep`| 10 | **+14.883 pp** |
 
 **Why the magnitude differs from §8.8 by two orders of magnitude.** §8.8's VisDrone cell is a large, well-fit corpus (5,971 train images, a mature recipe), so its selection premium is **+0.27 pp**; this corpus is small (5,220 train images) and less fitted, so its premium is **+26.2 / +14.9 pp**. **The size of the premium is a property of the corpus and the recipe, not a constant of the method** — which is the same conclusion §8.6–§8.7 reach from the other direction. **The test-side realization rate for this corpus is NOT measured here** (it needs a per-epoch `test` sweep) and no realization number is claimed.
 
@@ -4056,11 +4053,11 @@ headline effect, the **seed-budget discipline** measured rather than assumed ([5
 
 **What we checked, and with what.** For **every run on the release whose `results.csv` carries both metrics — 377 runs**, including all headline cells — we computed the fitness-argmax epoch `e*` and compared the two candidate denominators `V(argmax)` and `V(e*)`.
 
-| Quantity | Result |
-|---|---|
-| runs where `e*` equals the `mAP50-95` argmax | **341 of 377 (90.5 %)** |
-| mean change in the premium when the denominator is taken at `e*` | **−0.0023 pp** |
-| largest change in any single run | **−0.086 pp** |
+| 108  Quantity| Result ||
+| 109 ---|---||
+| 110  runs where `e*` equals the `mAP50-95` argmax| **341 of 377 (90.5 %)** ||
+| 111  mean change in the premium when the denominator is taken at `e*`| **−0.0023 pp** ||
+| 112  largest change in any single run| **−0.086 pp** ||
 
 **What this means for the reported numbers.** Because the two rules coincide in nine runs out of ten and the premium they imply differs by **at most 0.086 pp** (mean −0.002 pp), the realization ratios printed in the article and this supplement are **materially unchanged** by the choice; **we nonetheless state the rule explicitly here** — where a run's `test` reading is taken at `best.pt`, the denominator is taken at that **same** epoch `e*`, not at the raw `mAP50-95` argmax — so that the numerator and denominator are selected by **one** rule. The residual (the 36 runs where the two differ) is bounded by the column above and is **not** claimed to be zero.
 
@@ -4074,10 +4071,10 @@ headline effect, the **seed-budget discipline** measured rather than assumed ([5
 
 **Estimator (fixed before the numbers below were computed).** The **claim-level** estimator is the ratio of sums over the 26 arm-cells, `Σ prem_test / Σ prem_val`; the **arm-cell-equal** estimator is the mean of the 26 per-cell rates. The **cluster unit is the cell** (a cell's two arms enter or leave together), because runs within a cell share corpus, recipe and split; the CI is a **cell-clustered bootstrap**, **B = 20,000**, seed **20261011**.
 
-| Estimator | Value | 95 % CI (cell-clustered, B = 20,000) |
-|---|---:|---|
-| **claim-level** `Σ prem_test / Σ prem_val` | **+11.76 %** | **[+2.58 %, +31.85 %]** |
-| arm-cell-equal mean of per-cell rates | +11.52 % | — |
+| 113  Estimator| Value | 95 % CI (cell-clustered, B = 20,000) |
+| 114 ---|---:|---|
+| 115  **claim-level** `Σ prem_test / Σ prem_val`| **+11.76 %** | **[+2.58 %, +31.85 %]** |
+| 116  arm-cell-equal mean of per-cell rates| +11.52 % | — |
 
 **The interval excludes zero.** Both estimator families agree on the sign and the magnitude, and the **printed tables cross-check**: `WC > 0` in **25 of the 26** arm-cells, which is the count already printed in the pool discussion above — an independent check that this parse and that table describe the same pool.
 
@@ -4095,10 +4092,10 @@ headline effect, the **seed-budget discipline** measured rather than assumed ([5
 
 **Both sides, per arm** (full budget, 100 epochs, n = 10 per arm):
 
-| Arm | `prem_val` | `prem_test` | realization (mean of per-run rates) |
-|---|---:|---:|---:|
-| `base100` | +26.219 pp | +1.755 pp | **+7.2 %** |
-| `lr005_100ep` | +14.883 pp | −1.165 pp | **−9.7 %** |
+| 117  Arm| `prem_val` | `prem_test` |
+| 118 ---|---:|---:|
+| 119  `base100`| +26.219 pp | +1.755 pp |
+| 120  `lr005_100ep`| +14.883 pp | −1.165 pp |
 
 Pooled `Σ prem_test / Σ prem_val` = **+1.44 %**; run-level bootstrap (B = 20,000, seed 20261011) 95 % CI **[−7.2 %, +4.1 %]** — **zero inside**; `prem_test > 0` in **12 of 20** runs. **Contrast with §8.8** (full-budget VisDrone): premium **+0.27 pp**, realization **99 %**. The per-checkpoint `test` readings behind this table are the released `g6_perepoch.csv` rows for these 20 runs (22 checkpoints each, `split = test`), produced by `g6_perepoch_eval.py`.
 
@@ -4112,13 +4109,13 @@ Pooled `Σ prem_test / Σ prem_val` = **+1.44 %**; run-level bootstrap (B = 20,0
 
 **The five headline cells, under both rules:**
 
-| Cell | Arm | n | `prem_val` (argmax) | `prem_val` (`e*`) | `prem_test` | rate (argmax) | rate (`e*`) |
-|---|---|---:|---:|---:|---:|---:|---:|
-| shwd2sf | baseline | 10 | 1.469 | 1.469 | +0.736 | +50.11 % | +50.11 % |
-| shwd2sf | strategy | 10 | 0.865 | 0.857 | +0.152 | +17.57 % | +17.73 % |
-| smoke2sf | baseline | 10 | 0.691 | 0.684 | +0.509 | +73.69 % | +74.36 % |
-| smoke2sf | strategy | 10 | 0.605 | 0.605 | −0.157 | −25.96 % | −25.96 % |
-| aitod20 | baseline | 1 | 0.786 | 0.786 | −0.376 | −47.86 % | −47.86 % |
+| 121  Cell| Arm | n |
+| 122 ---|---|---:|
+| 123  shwd2sf| baseline | 10 |
+| 124  shwd2sf| strategy | 10 |
+| 125  smoke2sf| baseline | 10 |
+| 126  smoke2sf| strategy | 10 |
+| 127  aitod20| baseline | 1 |
 
 * **Five-cell pooled rate**: **+19.558 %** (argmax) → **+19.620 %** (`e*`) — a change of **+0.062 pp**.
 * **Five-cluster bootstrap 95 % CI**: [−25.074 %, +50.961 %] (argmax) vs [−25.127 %, +51.159 %] (`e*`) — **both cover zero**.
@@ -4136,10 +4133,10 @@ Pooled `Σ prem_test / Σ prem_val` = **+1.44 %**; run-level bootstrap (B = 20,0
 
 **What the five cells' targets are — from the design, not from convention.** Four of Table 4's five cells are `shwd2sf` and `smoke2sf`, both of which read **source → target** and both of whose target is **SFCHD**; the fifth, `aitod20`, is "the **AI-TOD** corpus on its own 20 %-budget subset". The five cells therefore carry **two distinct targets** — SFCHD (40 of the 41 runs) and AI-TOD (1 run) — so a target-level bootstrap has **two clusters** and cannot be made narrow by construction. That is a property of the design, and it is why the number below is reported rather than recommended.
 
-| Clustering unit | 95 % CI (argmax denominator) | 95 % CI (`e*` denominator) |
-|---|---|---|
-| **arm-cell** (5 clusters, as printed) | [−10.64 %, +55.82 %] | [−10.67 %, +56.05 %] |
-| **target corpus** (2 clusters) | **[−47.86 %, +34.16 %]** | **[−47.86 %, +34.29 %]** |
+| 128  Clustering unit| 95 % CI (argmax denominator) | 95 % CI (`e*` denominator) |
+| 129 ---|---|---|
+| 130  **arm-cell** (5 clusters, as printed)| [−10.64 %, +55.82 %] | [−10.67 %, +56.05 %] |
+| 131  **target corpus** (2 clusters)| **[−47.86 %, +34.16 %]** | **[−47.86 %, +34.29 %]** |
 
 * Pooled rate over the five cells: **+32.417 %** (argmax) → **+32.539 %** (`e*`), a change of **+0.12 pp** — consistent with §S21.
 * **Both clusterings cover zero**, so the qualitative conclusion is the same; but the **lower bound moves by about 37 pp** depending on the unit, and the target-level interval is the honest one whenever the claim is read as being *about corpora* rather than about arm-cells.
@@ -4156,10 +4153,10 @@ Pooled `Σ prem_test / Σ prem_val` = **+1.44 %**; run-level bootstrap (B = 20,0
 
 **Pre-declared criterion (written before the runs).** The control passes if `Δgap_A/A`'s 95 % CI **covers zero**; it fails if the CI excludes zero **or** if |mean| exceeds ~0.2 pp (half the observed escalation effect).
 
-| Arm (file orders) | n | mean `G` | SD |
-|---|---:|---:|---:|
-| **A** (42–51) | 10 | **+1.015 pp** | 0.464 |
-| **B** (62–71) | 10 | **+0.548 pp** | 0.336 |
+| 132  Arm (file orders)| n | mean `G` |
+| 133 ---|---:|---:|
+| 134  **A** (42–51)| 10 | **+1.015 pp** |
+| 135  **B** (62–71)| 10 | **+0.548 pp** |
 
 **`Δgap_A/A` = +0.466 pp** (arm A − arm B); **Welch 95 % CI [+0.092, +0.841]**; run-level bootstrap (B = 20,000, seed 20261012) 95 % CI **[+0.116, +0.817]**. **Both intervals exclude zero, and the mean exceeds the 0.2 pp threshold.**
 
@@ -4179,14 +4176,14 @@ Pooled `Σ prem_test / Σ prem_val` = **+1.44 %**; run-level bootstrap (B = 20,0
 
 **Result — two corpora, both complete.** The VisDrone pass covers the **eleven §8.8 runs resident on machine A** (22 endpoints); the SFCHD pass covers the **twenty C2 runs** on the SFCHD three-way carve (40 endpoints), which is the **same corpus** as Table 4's headline cells even though it is not the same run set. Every endpoint in both passes was measured with the same protocol.
 
-| Corpus (run set) | endpoints | per-endpoint SE, median | SE range | induced SE of `prem_test`, median |
-|---|---:|---:|---|---:|
-| **VisDrone** (§8.8, 11 runs) | 22 | **0.178 pp** | 0.161 – 0.253 pp | 0.252 pp |
-| **SFCHD** (C2, 20 runs) | 40 | **0.534 pp** | 0.458 – 0.599 pp | **0.741 pp** |
+| 136  Corpus (run set)| endpoints | per-endpoint SE, median |
+| 137 ---|---:|---:|
+| 138  **VisDrone** (§8.8, 11 runs)| 22 | **0.178 pp** |
+| 139  **SFCHD** (C2, 20 runs)| 40 | **0.534 pp** |
 
 **Not covered, stated rather than papered over.** The **specific runs** behind Table 4 live on machine B, which has no GPU; the SFCHD pass above therefore uses a different run set on the **same corpus**, not Table 4's own runs. Both passes still answer the question the review asked — *how large is the noise on a single endpoint* — and they answer it in the same direction.
 
-**Reading, by the pre-declared criterion.** The criterion was: an endpoint SE **≥ 0.15 pp** means the small premium magnitudes (`prem_val = +0.0809 pp` in S34, `+0.075 pp` in Table S46) are **inside evaluation noise**, and the magnitude sentence must become **sign-only**; an SE **≤ 0.05 pp** would leave every number standing. The measured SE is **0.16–0.25 pp on every endpoint**, i.e. **two to five times the premiums being discussed** ⇒ **the magnitudes in S34 and S46 are below the noise floor of a single endpoint evaluation**, and the honest statement of those results is **about direction, not size**. §6.5 now states this result as an explicit **sign-only** claim and marks the printed percentages as **not interpreted as an effect size**. This does not weaken the *direction* findings (they rest on intervals over seeds, not on the size of one endpoint), and it does not touch the §8.6/§8.8 realization results, which are differences **between** endpoints whose common noise largely cancels.
+**Reading, by the pre-declared criterion.** The criterion was: an endpoint SE **≥ 0.15 pp** means the small premium magnitudes (`prem_val = +0.0809 pp` in S34, `+0.075 pp` in Table S46) are **inside evaluation noise**, and the magnitude sentence must become **sign-only**; an SE **≤ 0.05 pp** would leave every number standing. The measured SE is **0.16–0.25 pp on every endpoint**, i.e. **two to five times the premiums being discussed** ⇒ **the magnitudes in S34 and S46 are below the noise floor of a single endpoint evaluation**, and the honest statement of those results is **about direction, not size**. §6.5 now states this result as an explicit **sign-only** claim and marks the printed percentages as **not interpreted as an effect size**. This does not weaken the *direction* findings (they rest on intervals over seeds, not on the size of one endpoint), and it does **not** retire the §8.6/§8.8 realization results, but it **does** bound them: those rates are ratios whose numerator is a **difference of two endpoints**, so their induced SE is √2 × the endpoint SE (≈ **0.75 pp** on SFCHD, ≈ **0.25 pp** on VisDrone, both measured in `e4_se_sfchd.csv` / `e4_se_visdrone.csv`) — **no cancellation is assumed**, and the smallest realized premiums are inside that band.
 
 **Reproduction.** `e4_make_json.py` (predictions, 8 shards) then `e4_bootstrap.py --draws 25 --sub 400` (8 shards) produce `e4_se.csv`; `e4_conclusion.py` applies the thresholds above. Seeds, draw counts and the rescaling formula are all printed in the artifacts.
 

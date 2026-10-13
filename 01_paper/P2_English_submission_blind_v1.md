@@ -143,7 +143,7 @@ The companion and this paper share project-internal process protocols — a mult
 definitions* is stated independently for molecular benchmark auditing, in a 2026 preprint whose abstract closes "different
 defensible definitions return different answers from the same file" [14]. **The observation is the cited literature's; its
 instantiation in detection evaluation, and the four named units, are ours** — the units named by *who controls the split*, the
-19-row evidence table, and the premium on **five arm-cells**. It is orthogonal to [15], which separates leakage by **type**; we
+19-row evidence table, and the premium on **five arm-cells**. It is orthogonal to [15], which separates leakage by **type**; the **single citation convention is `reported = 10–11 of 19 ≈ 63–65 %` on the decidable rows, with the printed-layer numbers (12–14/19) and the upper bound (≤14/19) scoped to their own columns**; we
 separate the **counting subject**, so one type can still be counted under four units (§6.1).
 
 > **Table S2** → Supplementary §S8.
