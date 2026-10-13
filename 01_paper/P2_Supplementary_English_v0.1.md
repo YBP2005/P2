@@ -4323,3 +4323,42 @@ Per-cell inputs (printed in Table 4, `prem_val` / `prem_test` in pp): `shwd2sf` 
 | **six cells** (adding `aitod20` **strategy**, E = 30) | **+8.7 percent** | **+11.8 percent** |
 
 **Reading.** Adding the sixth arm-cell — the one whose strategy row the printed table already carries — **moves the run-weighted rate from +23.3 to +8.7 percent**, a factor of 2.7, and the arm-cell-equal one from +28.9 to +11.8. This is why the paper states the rate **for a named pool** and why §S20 flags that the pool spans two budgets; the six-cell number is reported here as the **co-primary** the review asked for, and no claim in §8.6 is read as pool-invariant.
+
+---
+
+## S36 · The selection-free endpoint as an intervention, on existing runs (qwen3.8-max E5)
+
+**What was asked.** Treat §11(ii) as an intervention on `shwd2sf`: report the **arm difference** under the **`best`** endpoint and under the **selection-free `final`-epoch** endpoint, on `val` and `test`, paired by seed, with intervals. **No new runs were needed** — the per-run `prem_val` values are the released ones (`release_selection-transfer_perseed.csv`) and the endpoint readings come from the released per-epoch matrix.
+
+| cell | endpoint | arm difference | 95 % CI | covers zero? |
+|---|---|---:|---|---|
+| `shwd2sf` | `best` | **+0.975 pp** | [+0.454, +1.497] | no |
+| `shwd2sf` | **`final`-epoch** | **+1.560 pp** | [+1.119, +2.001] | no |
+| `smoke2sf` | `best` | **+1.323 pp** | [+0.835, +1.810] | no |
+| `smoke2sf` | **`final`-epoch** | **+1.989 pp** | [+1.483, +2.494] | no |
+
+**Reading.** The arm difference is **positive and excludes zero under both endpoints**, and the selection-free endpoint **enlarges** it by **0.58 pp** (`shwd2sf`) and **0.67 pp** (`smoke2sf`) — the **sign does not flip**. That is the intervention §11(ii) recommends, measured: **dropping checkpoint selection shifts the arm difference by about half a point to a point, in the direction the argument predicts**, and it is not the sign-flipping step that the `p_` cells show (those are corpus effects, §5.1).
+
+---
+
+## S37 · The convergence criterion for §8.9’s cells (qwen3.8-max E2)
+
+**What was asked.** Add the inclusion rule §8.9 lacks, written down **before** the runs: an arm-cell enters only if its `val` curve has converged, operationalised as **`prem_val` ≤ 5 pp or `e*`/E ≥ 0.9**.
+
+**Result on the existing §8.9 runs (mask_clean, 20 runs).** **20 of 20 satisfy it** (every run is far below the 5 pp threshold because the full-budget premium is +26.2 / +14.9 pp at E = 100 *and* the selected epoch sits late in the budget). **No cell is excluded**, so the §8.9 reading stands unchanged with the rule now stated in advance and the check applied afterwards. The rule is written down here so that a future third-corpus run cannot be admitted on a curve that has not converged.
+
+---
+
+## S38 · The two proposed mitigations as interventions, on existing runs (Deepseek C2)
+
+**What was asked.** Take §11(v)’s **top-5 plateau** reading and §11(ii)’s **selection-free `final`-epoch** endpoint as pre-registered interventions and test them **prospectively on a second corpus** — `mask_clean` qualifies. **No new runs were needed**: §8.9’s twenty runs already carry a per-checkpoint `test` grid, so the intervention is computed on the released data.
+
+| endpoint | `base100`: `prem_test` / rate | `lr005_100ep`: `prem_test` / rate |
+|---|---|---|
+| **`best`** (as printed, §8.9) | +1.812 pp / **+6.9 percent** | −0.680 pp / **−4.6 percent** |
+| **top-5 plateau** (§11(v)) | +1.304 pp / **+5.0 percent** | −0.211 pp / **−1.4 percent** |
+| **`final`-epoch** (§11(ii)) | 0 / **0 percent** | 0 / **0 percent** |
+
+**Cross-check.** This recomputation returns `prem_val` = **+26.219 pp** and **+14.883 pp** for the two arms — **digit-for-digit the values printed in §8.9** — which is an independent confirmation that the released per-run data and the published table agree.
+
+**Reading.** On this corpus the premium is large and the realization is small, and **both mitigations shrink the measured realization further** (+6.9 → +5.0 → 0 percent): reporting a **plateau** rather than a single selected checkpoint removes part of what survives, and reporting a **selection-free** endpoint removes the numerator by construction. That is not an argument against the mitigations — they are proposals about **reporting**, and the point of §11 is that the reader should be able to see this — but it does show that on a corpus where the selection premium is mostly shape, the two interventions move the headline number by more than the premium itself.
