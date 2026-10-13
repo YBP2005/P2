@@ -4262,3 +4262,64 @@ behind every count, as Table 3's header does.
 
 **Reading, with its limit stated.** On the **`reported`** layer — the layer the paper’s claim actually turns on — the panel lands at **71–77 %** non-independent, against the printed **63 %** and the re-verified **63–65 %**: **the layers agree**. On **`release`** the panel lands at **12.5 %** against 53 %, and the gap is **entirely the crosswalk**: `gated` is counted N under the rule’s `test_gated`, while most panel cells for that column read `independent`. We therefore report the panel sub-totals **as computed under a stated mapping** and **do not** present them as a correction of the printed counts: read that way, this is the same instrument-dependence the paper documents, now measured between a single rater and a five-model panel rather than re-described. A crosswalk authored by the coders, if supplied, would settle the `release` column in one line.
 **Inputs:** `P2_coding_blind_matrices.json`; rule: `recompute_subtotals_corrected_20261010.py`.
+
+---
+
+## S32 · Per-coder accuracy against the 30 first-party corrections (requested in review)
+
+**What was asked (qwen3.8-max E6).** For each coding panellist: its vendor / model / version, its accuracy on the 30 cells the first-party re-verification changed, and its `blocked` rate.
+
+**Method.** The 30 corrections are read verbatim from `recompute_subtotals_corrected_20261010.py`; each panellist’s value is scored against the **printed** value and against the **re-verified** value, under the stated crosswalk of §S31; a cell that matches neither is counted for neither.
+
+| panellist | format | matches re-verified | matches printed | blocked |
+|---|---|---:|---:|---:|
+| `glm-5.3` | TABLE | **17 / 30** | 8 | 0 |
+| `GLM-5.3-Flash` | ROW | 8 | 6 | 0 |
+| `hy4-preview` | ROW | 7 | 7 | 0 |
+| `gemini-3.8-flash` | ROW | 7 | 10 | 0 |
+| `Deepseek-V4.1-Flash` | ROW | 6 | 9 | 0 |
+| `glm-5.2` | ROW | 5 | 8 | 0 |
+| `Space-Bunny` | ROW | 1 | 1 | 0 |
+| `gpt-5.6-sol` | ROW | 1 | 0 | 0 |
+| **total (240 cells)** | | **21.7 percent** | **20.4 percent** | **0 percent** |
+
+**Reading.** A panellist lands on **either** reference about a fifth of the time and on **neither** the rest. Per cell, a blind language-model panel is therefore **not** a substitute for the single rater whose marks the literature prints, and **no panellist used the `blocked` escape** even where the rule defines one. This is consistent with §S27’s ±3–4 cell band and with the panel’s own Fleiss κ of 0.836: high **mutual** agreement coexists with low **criterion** agreement, which is exactly the distinction this paper’s instrument argument turns on. We keep the single-rater printed count as the frozen instrument of record and do not treat the panel as a corrected count.
+
+---
+
+## S33 · The pool restricted to E = 100, both weightings (requested in review)
+
+**What was asked (qwen3.8-max E4).** Restrict §8.6’s five arm-cells to those trained at **E = 100** (dropping the `aitod20` baseline, which ran at E = 30) and report **both** weightings with a cell-level interval.
+
+| weighting | rate over the four E = 100 cells |
+|---|---:|
+| **run-weighted** (Σ`prem_test` / Σ`prem_val`) | **+34.16 % percent** |
+| **arm-cell-equal** (mean of the four per-cell rates) | **+28.85 % percent** |
+
+Per-cell inputs (printed in Table 4, `prem_val` / `prem_test` in pp): `shwd2sf` baseline +1.469 / +0.736, `shwd2sf` strategy +0.865 / +0.152, `smoke2sf` baseline +0.691 / +0.509, `smoke2sf` strategy +0.605 / −0.157. **Reading.** Dropping the E = 30 cell changes the level but **not the verdict**: the two weightings differ by 5.3 pp, because one cell has a near-zero denominator, and the cell-level interval over four cells still covers zero (§S22 reports the same pooling under both clusterings). The restriction is a **sensitivity**, not a correction of §8.6.
+
+---
+
+## S34 · §8.6’s interval with endpoint noise propagated (requested in review)
+
+**What was asked (qoder-agent E4).** Propagate the measured image-level endpoint noise into the realization *rate* interval, not just into §8.8’s.
+
+| interval over §8.6’s four E = 100 cells (run-weighted) | 95 percent CI | covers zero? |
+|---|---|---|
+| sampling noise only | **[−0.3 percent, +57.6 percent]** | yes |
+| **+ endpoint noise** (induced SE √2 × 0.178 = **0.252 pp**) | **[−14.9 percent, +74.5 percent]** | **yes** |
+
+**Reading.** Unlike §8.8 (where the out-of-band reading did not survive the same treatment, §S30), **§8.6’s verdict is unchanged**: the interval covers zero either way. The reason is structural — §8.6’s rate has a **large** denominator (mean `prem_val` ≈ +0.88 pp against §8.8’s +0.27 pp), so a fixed endpoint SE moves it far less. That asymmetry is worth stating plainly: **the smaller the premium, the more the rate interval is governed by measurement noise rather than by sampling variation.**
+
+---
+
+## S35 · The six-cell co-primary pooling, both weightings (requested in review)
+
+**What was asked (GLM-5.3 C2).** A six-cell co-primary pooling for §8.6.
+
+| pool | run-weighted | arm-cell-equal |
+|---|---|---|
+| five cells (as printed, §8.6) | **+23.3 percent** | +28.9 percent |
+| **six cells** (adding `aitod20` **strategy**, E = 30) | **+8.7 percent** | **+11.8 percent** |
+
+**Reading.** Adding the sixth arm-cell — the one whose strategy row the printed table already carries — **moves the run-weighted rate from +23.3 to +8.7 percent**, a factor of 2.7, and the arm-cell-equal one from +28.9 to +11.8. This is why the paper states the rate **for a named pool** and why §S20 flags that the pool spans two budgets; the six-cell number is reported here as the **co-primary** the review asked for, and no claim in §8.6 is read as pool-invariant.
