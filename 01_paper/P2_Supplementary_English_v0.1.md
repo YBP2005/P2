@@ -4234,3 +4234,31 @@ behind every count, as Table 3's header does.
 | **+ endpoint noise (20,000 draws, seed 20261013)** | **[+31.6 %, +225.0 %]** | **no** |
 
 **Reading.** The premium is realized in full at this budget, but **the out-of-band claim is not robust to the measurement noise of a single endpoint** — the interval then overlaps the pre-registered band, which is also where §8.9’s second full-budget corpus lands (+1.44 %, in-band). We therefore report the point estimate and both intervals and **do not claim an out-of-band result**. Per-run inputs: `P2_e1full_per_run.csv`; endpoint SEs: `P2_e4_se_visdrone.csv`.
+
+---
+
+## S31 · The four sub-totals under the blind panel’s majority vote (requested in review)
+
+**What was asked (GLM-5.3, C1).** Apply the **existing per-column counting rule** of `recompute_subtotals_corrected_20261010.py` to the **Round-9 five-coder blind panel**, and print the `release` / `protocol` / `yolo_dist` / `reported` sub-totals.
+
+**Method, and the one thing that is ours rather than the authors’.** The rule is taken verbatim. The panel’s matrices use a **different value vocabulary** (`independent`, `gated`, `alias`, `absent`, `unknown`, `not_recorded`) from the printed table (`independent_test`, `test_gated`, `no_test_key`, …), so a crosswalk is required; **no author-side crosswalk is in the package**, so the crosswalk below is **ours**, and cells the rule does not define for a column are counted as **U (undecidable)** rather than being forced:
+
+| panel value | release | protocol | yolo_dist | reported |
+|---|---|---|---|---|
+| `independent` | I | I | I | I |
+| `gated` | N | N | — (U) | — (U) |
+| `alias` | N | N | N | N |
+| `absent` | N | N | I | — (U) |
+| `unknown` / `not_recorded` | U | U | U | U |
+
+**Result (majority vote per benchmark × unit, 19 rows).**
+
+| unit | printed (single rater) | after first-party re-verification | **panel majority (all 8 coders)** | **panel majority (first 5)** |
+|---|---|---|---|---|
+| `release` | 10/19 | 14/19 | **2/16 = 12.5 %** | **2/16 = 12.5 %** |
+| `protocol` | 13/19 | 14/19 | **10/16 = 62.5 %** | **10/15 = 66.7 %** |
+| `yolo_dist` | 4/19 | 2/19 | **2/6 = 33.3 %** | **1/8 = 12.5 %** |
+| `reported` | 12/19 | 10–11/19 | **10/14 = 71.4 %** | **10/13 = 76.9 %** |
+
+**Reading, with its limit stated.** On the **`reported`** layer — the layer the paper’s claim actually turns on — the panel lands at **71–77 %** non-independent, against the printed **63 %** and the re-verified **63–65 %**: **the layers agree**. On **`release`** the panel lands at **12.5 %** against 53 %, and the gap is **entirely the crosswalk**: `gated` is counted N under the rule’s `test_gated`, while most panel cells for that column read `independent`. We therefore report the panel sub-totals **as computed under a stated mapping** and **do not** present them as a correction of the printed counts: read that way, this is the same instrument-dependence the paper documents, now measured between a single rater and a five-model panel rather than re-described. A crosswalk authored by the coders, if supplied, would settle the `release` column in one line.
+**Inputs:** `P2_coding_blind_matrices.json`; rule: `recompute_subtotals_corrected_20261010.py`.
