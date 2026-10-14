@@ -489,6 +489,8 @@ bound it: **one corpus**, and §5.1's `lr0` axis; a second corpus with a genuine
 
 
 ### 8.9 A second corpus at full budget: the premium and its realization are corpus properties
+> **Estimator note (added this revision).** The rates printed here are **per-arm** (`mean(prem_test)/mean(prem_val)` within an arm), whereas §8.6’s headline pools **across cells**. The two are **not the same estimator** and are not compared numerically anywhere in this paper; the per-arm form is used here because the two arms differ in sign and pooling them would cancel exactly the effect the section is about.
+
 **The same full-budget protocol on a second corpus** (`mask_clean`: 5,220 train / 900 val / 919 test, `nc = 1`; 2 arms × ten file orders, 100 epochs, `test` side from a per-checkpoint sweep):
 
 | Arm | n | `prem_val` | `prem_test` | realization |

@@ -28,7 +28,7 @@ so "the numbers in this document" and "the numbers in the source files" **cannot
 | **`best` / `last`** | the two checkpoints compared throughout: `best.pt`, written by the training script by **fitness** on the monitored split, and the final epoch |
 | **selection premium** | `best − last` **within a run**: what selecting the best checkpoint adds, measured on the split the numbers are reported from |
 | **Δgap** | the paired **difference of the premium between the two arms**, per corpus. Positive means `val` **understates** the strategy arm's effect (§5.1, Tier 2) |
-| **realization rate** | `prem_test / prem_val`, aggregated over cells (§8.6); the share of the premium selected on `val` that survives on a disjoint `test` |
+| **realization rate** | `prem_test / prem_val`, aggregated over cells (§8.6); the share of the premium selected on `val` that survives on a disjoint `test`. **Pool composition is an assumption, not a constant**: §S33 (E = 100 only) and §S35 (six cells) report the **same statistic under a different pool**, and each names its pool in its own heading |
 | **κ** | through-origin slope of `ΔT` on `ΔV` over a run's epochs (§8.7): how much of a run's movement on `val` appears on `test` |
 | **same directory / alias** | a dataset config whose `val:` and `test:` point at the same path, so the checkpoint is selected on the split it is scored on |
 | **`shapeiou`** | the shape-aware IoU variant used in the registered replication's strategy arm (§9) |
@@ -3326,6 +3326,8 @@ Mendeley face-mask's **generator** provenance, and the audit's unused "63–79 %
 dropped**: it is kept here so that the article's §6.1 stays inside the journal's page limit.
 
 ### S45 — §2.1 relocated from the article (a **section**, not a table; detailed related-work comparison)
+> **Reading the numbers in this section.** The citation numbers below are the ones **this section carried before it was relocated**. The article’s reference list is numbered by **first appearance**, so the two differ; **read the author names, not the numbers**, when matching this section to the current list.
+
 
 > Moved here at revision because the journal counts text inside the 20–35 page limit. The article keeps
 > the one-paragraph positioning statement in §2 and the two delimiting sections (§2.2, §2.3).
@@ -4294,7 +4296,7 @@ behind every count, as Table 3's header does.
 
 ---
 
-## S33 · The pool restricted to E = 100, both weightings (added this revision)
+## S33 · **Pool-restricted** realization rate (E = 100 only), both weightings (added this revision)
 
 **What was asked (qwen3.8-max E4).** Restrict §8.6’s five arm-cells to those trained at **E = 100** (dropping the `aitod20` baseline, which ran at E = 30) and report **both** weightings with a cell-level interval.
 
@@ -4320,7 +4322,7 @@ Per-cell inputs (printed in Table 4, `prem_val` / `prem_test` in pp): `shwd2sf` 
 
 ---
 
-## S35 · The six-cell co-primary pooling, both weightings (added this revision)
+## S35 · **Six-cell** realization rate (co-primary pool), both weightings (added this revision)
 
 **What was asked (GLM-5.3 C2).** A six-cell co-primary pooling for §8.6.
 
