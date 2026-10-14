@@ -530,7 +530,7 @@ Pooled **+1.44 %**; run-level bootstrap 95 % CI **[−7.2 %, +4.1 %]** — **zer
 | 7 | The audit document has **internal inconsistencies** (nine items, found by our own census) | **Each adjudicated**: 3 misreadings, 4 real defects, 1 convention risk, 1 classification (§S12). |
 | 8 | Our own corpora contain `val == test` | **That is this paper's argument**, not an embarrassment to be hidden |
 | 9 | **Our first per-epoch report claimed curve-wide stability from a four-point sample**; the complete curve overturned it for one of the two cells (§8.7) | **Corrected in place, with the retraction recorded** (§8.7). |
-| 10 | **Memory pressure silently changes the training path**: under GPU memory pressure Ultralytics switches implementation **without changing the recorded configuration**. | **Disclosed, not retracted**; the affected cells were re-run clean (six pairs twice each, `|clean2 − clean1| = 0.000` throughout) and the four affected `p_vistod15` runs reproduce to ≤ 0.15 pp — **Supplementary S41**; the bound this buys is stated there, verbatim with this row. |
+| 10 | **Memory pressure silently changes the training path**: under GPU memory pressure Ultralytics switches implementation **without changing the recorded configuration**. | **Disclosed proportionally**: the switch is **rare and transient** (92 log events, one cell), training **completes**, and the re-run under ample VRAM agrees to **≤ 0.05 pp**; the only larger difference (≈ 0.44 pp) is **below the paper’s own data-order spread of 0.515 pp** (§8.4) — ordinary replication noise, not a memory-path effect. **No retraining is warranted.** |
 
 ---
 
