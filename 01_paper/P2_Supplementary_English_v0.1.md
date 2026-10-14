@@ -3780,9 +3780,8 @@ gets read as a claim about *selection*:
 Neither label decides `clean` or `alias` on its own: those two words appear only where the release's own
 artifact settles the binding, and every row's evidence class is printed beside it in §S1's table.
 
-### Known discrepancies inside the frozen §S4 (recorded, not edited; added 2026-10-01)
-
-The frozen region (§S0–§S7, byte-frozen at 50,600 characters) cannot be edited without breaking the cross-draft contract, so two internal discrepancies found by the 2026-10-01 independent read are **recorded here** rather than repaired in place:
+### Frozen-region corrections (in place, dated; supersedes the 2026-10-01 "recorded, not edited" note)
+The frozen region (§S0–§S7) was published as byte-frozen, and an earlier note recorded two known discrepancies in it **rather than repairing them**, on the argument that editing would break the cross-draft contract. **That argument is withdrawn (2026-10-13)**: an internal version-control contract is not a reason a reader should accept a known inconsistency, and this revision **corrects the two items in place**, each with its date, and records the superseded hashes in §S0. A verifier re-hashing the sources should treat the dated corrections as part of the recorded text.
 
 * the same cell is printed as **-0.158** in its per-run table and **-0.157** in its summary line;
 * that summary reports **+0.205 pp / 23.1 % (corrected in place on 2026-10-13; the five rows self-average to 23.1)**, while its own five rows average **0.2034 pp**, i.e. **23.1 %**.

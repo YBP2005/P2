@@ -1,11 +1,11 @@
 {
- "measured_at": "2026-10-14T05:39:55",
+ "measured_at": "2026-10-14T05:44:39",
  "inputs": {
   "blind_md5": "ff196bae6c7343a9ca43b4b7bbc5c19e",
-  "sup_md5": "561ab5e0bd60b5c3d37570d9701411f0",
+  "sup_md5": "14c04bb93a775fbb2e3647e871948053",
   "blind_words": 12036,
   "blind_sha256": "2db3421ec66b6b666fea4290767e285acf44d548c52f46311eafa3899f931224",
-  "sup_sha256": "d8408e0b1fa2c242407c135006b8dd1833c4c4ee0407f969e7a0d4aa4926255a"
+  "sup_sha256": "d3bd0ce3da1e2d3d8ab4fc5a4b6c2763ebcf57c78f555dd391f1ab4af2cb78f3"
  },
  "variants": {
   "official_10pt_1.5": {
