@@ -654,6 +654,8 @@ S3 is a **targeted sampling of official configs/scripts** (5 frameworks, not a c
 The strength of every statement in the main text is distinguished accordingly.
 
 ## S8 · Tables moved from the main text
+> **Two index spaces, stated once.** `§S<n>` names a **section** and `Table S<n>` names a **table**; the two spaces are **independent** (a section and a table may share a number). Every reference here uses the explicit prefix, and both spaces are listed separately in the index above.
+
 
 > **Why they are here**: the venue caps submitted manuscripts at 20–35 double-spaced
 > numbered pages, and these evidence tables cost about eight pages in that format. **No
@@ -1112,7 +1114,7 @@ The strength of every statement in the main text is distinguished accordingly.
 > (+1.678 / +0.886 / +0.404 / +0.860 and +0.702 / +1.092 / +0.875 / +1.062) are unchanged and remain
 > correct for those four epochs. Script: `work/x3b_perepoch_corrected_20260918.py`.
 
-### Table S38 — the selection term, cell by cell: `prem_test` and WC for all thirteen scanned corpora
+### Table S38 — the selection term, cell by cell: `prem_test` and WC for all thirteen scanned corpora (**the n = 3 scan**)
 
 **Table S38.** *5.6 / 8.6* — the selection contribution proper, `prem_val − prem_test` = WC, formed here for **every** scanned corpus and both arms. **Two scopes, two counts, one table**: this table covers **26 arm-cells / 190 runs** — the five arm-cells printed in Table S20 (their values repeated here, **50 runs**) plus **21 arm-cells / 140 runs** closed on **2026-09-30** by scoring **every archived 5-epoch checkpoint** on each run's own held-out `test` split: **1,568 grid checkpoints over 140 runs** — the two figures are a **decomposition, not two counts of the same thing**: **1,848 evaluations in total = 1,568 grid checkpoints + 140 runs × 2 endpoints (`best`/`last`)**, on one machine, with the pipeline's registered call (`YOLO(w)` → `val(split="test", batch=32, imgsz=640, plots=False, save_json=False)`, no loss re-import), the data YAML read from each run's own `args.yaml` and asserted to be three-way with a `test:` split. `n` is the number of seeds carrying a `test` curve for that arm (3 where the scan ran at n = 3, 10 where the cell was later escalated, and 10 for the five arm-cells of Table S20); `prem_val` and `prem_test` are means over those seeds, in pp, with `prem_test = T_best − T_final`; realization rate = `prem_test / prem_val`. **The same run reproduces the values printed earlier in this supplement**: over the 21 arm-cells carrying both readings, the val maximum, `prem_val` and the archived `T_best` agree to **max |Δ| = 0.005 pp**, which is the printed rounding (`work/g6_repro_vs_printed_20260930.py`); the coverage audit reports **140/140 runs, 1,848 rows, 0 anomalies** (`g6_prem_per_run.csv` and `g6_perepoch_test_curves.csv`). Per-run readings and the curves themselves: release files `g6_prem_per_run.csv` and `g6_perepoch_test_curves.csv`.
 
@@ -1155,7 +1157,7 @@ The strength of every statement in the main text is distinguished accordingly.
 > section's descriptive claim therefore survives the escalation; what changes is the magnitude of the
 > median.
 
-### Table S38b — the ten arm-cells escalated from n = 3 to n = 10 (2026-10-06)
+### Table S38b — the ten arm-cells escalated from n = 3 to n = 10 (2026-10-06) (**the n = 10 re-read; its columns are not S38’s**)
 
 **Table S38b.** *5.6 / 8.6, supplementing Table S38* — the ten arm-cells of Table S38 that stood at
 n = 3 when the 2026-09-30 scan closed, re-read at **n = 10** after seeds 45–51 were trained on 2026-10-06
@@ -1471,6 +1473,8 @@ The `paired t / p` row is **raw** (no multiplicity adjustment); the permutation 
 | lr005 | 5 | +0.163 | +0.468 | +0.756 | +1.241 | ×2.65 |
 
 > **Pre-declared criteria (C1–C3, fixed before the runs).** **C1 — monotone rise of the premium with E — is not met**: **on all ten runs** the four-budget series peaks at E = 200 and falls at E = 400 (four of the ten E = 400 runs stopped early at effective budgets 388/318/362/375; on the six full runs the E = 400 mean is +1.278 pp, which is the column this table prints). The ln E regression over E = 50–200 gives slope **+0.3990** (se 0.0592), **p = 9.466e-08**. **C2 — the σ√(2 ln E) form — is not rejected**: premium(400)/premium(100) = **1.329** (the E = 400 arm-equal mean over all ten runs is **+0.907 pp**) against the predicted 1.141, **inside** the pre-declared band [0.86, 1.43]. **C3 — the shape control — passes** (ê/E 0.833 → 0.815). The extension (E = 50 and 400) was added for this revision; it uses the same corpus, recipe, seeds and arms as the E = 100/200 runs, and only `--epochs` differs. **The early-stopped runs decide the outcome**: the four E = 400 runs that stopped under the protocol’s own `patience` (effective budgets 388/318/362/375) are what makes the series non-monotone; dropping them flips **both** criteria — the six full E = 400 runs run to a mean of +1.278 pp on a monotone series (C1 met) and move the ratio outside the band (C2 rejected). Both readings are conditional on that restriction and are reported as such; the pre-declared verdict above is the one computed on **all** runs. **This note supersedes an earlier reading of the two-budget series, which reported only three budgets and mislabelled them as monotone; the four-budget verdict is in S11 and §3.2. The table below is the with-early-stopping reading; the same four budgets re-run **on one machine** with early stopping disabled **satisfy C1**, put **C2 outside its band** and **pass C3 on the pre-declared mean reading** (only the lr005 arm exceeds it) — see Table S34b.**
+> **Primary reading for G3.** The **pre-registered criterion is primary**: on the with-early-stopping series C1 is **not met** and C2 is not rejected. The six-full-run series (§13.2b) is a **sensitivity**, not the primary; Table S37’s verdict column carries the **pre-registered** reading.
+
 
 **Secondary criterion C4 (WC on a disjoint readout) — not met, and systematically so.** With ê selected on `val` and read out on the disjoint third C3 (100 images; `C3 ∩ val = 0` and `C3 ∩ train = 0` verified programmatically), WC = `prem_val` − `prem_C3` is **negative in all 16 readouts** (mean **-0.616 pp**): the peak-to-endpoint gap is *larger* on the small disjoint split than on `val`. That is consistent with the shape reading above — the premium is largely the split's own curve shape, and a 100-image split has a steeper curve — and it means Proposition 4's inequality **cannot be tested by reading out on a small disjoint carve**. Two limitations are stated with the result: the readout split has 100 images only, and the four early-stopped E = 400 runs are excluded, leaving n = 6 at that budget.
 
@@ -2235,7 +2239,7 @@ Tier 1).
 
 ### 9.3 The seed convention: how the ten seeds are realized
 
-**What this implies for the intervals in the article's Tables 1–2** (added 2026-10-10, at review): those intervals take the **replicate** as the sampling unit, so what they bound is the **file-order** component of the reported mean — **not** the variance between independent training seeds. The **initialization** component measured in §8.4 is of the **same order** (**0.146 → 0.439 pp**) and is **not** folded into them; the two tables carry a pointer here for that reason, and their `n` of eleven paired units is ten runs carrying a `--shuffle-seed` suffix plus one whose directory records none. Read the intervals with that axis named.
+**What this implies for the intervals in the article's Tables 1–2** (added 2026-10-10): those intervals take the **replicate** as the sampling unit, so what they bound is the **file-order** component of the reported mean — **not** the variance between independent training seeds. The **initialization** component measured in §8.4 is of the **same order** (**0.146 → 0.439 pp**) and is **not** folded into them; the two tables carry a pointer here for that reason, and their `n` of eleven paired units is ten runs carrying a `--shuffle-seed` suffix plus one whose directory records none. Read the intervals with that axis named.
 
 Per-run randomness is installed as a **deterministic permutation of the training file order**
 (`--shuffle-seed`, set to the number in the run's own name), not through the framework's `seed`
@@ -3813,7 +3817,7 @@ looking shipped when it is not.
 ### Table S42 — the prefix-n view of the two clean-protocol cells (n = 3…10; paired *t* and exact sign-flip permutation; both endpoints)
 
 
-**Table S42.** *7.2* — requested in review: the two registered cells at every prefix n, under **both endpoint conventions**. Source: `release_selection-transfer_perseed.csv` (**40 runs** = 2 cells × 2 arms × 10 seeds, seeds 42–51). The permutation p is **exact** (all 2ⁿ sign flips enumerated, no sampling), so it has a **floor of 2/2ⁿ** — at n = 3 that is **0.25**, which is why the permutation column, not the *t* column, is the binding constraint for the n = 3 cells.
+**Table S42.** *7.2* — computed for this revision: the two registered cells at every prefix n, under **both endpoint conventions**. Source: `release_selection-transfer_perseed.csv` (**40 runs** = 2 cells × 2 arms × 10 seeds, seeds 42–51). The permutation p is **exact** (all 2ⁿ sign flips enumerated, no sampling), so it has a **floor of 2/2ⁿ** — at n = 3 that is **0.25**, which is why the permutation column, not the *t* column, is the binding constraint for the n = 3 cells.
 
 > **Sign convention — one symbol per quantity.** This column is **named `Δprem(seed)`** and is **not** Table 2's Δgap: Table 2's Δgap is the **arm difference of the val-vs-test gaps**, while `Δprem(seed) = prem(strategy) − prem(baseline)` for that seed. It is the **within-seed arm contrast**
 > `Δprem(seed) = prem(strategy) − prem(baseline)` (definition from the generating script,
@@ -3873,7 +3877,7 @@ looking shipped when it is not.
 | 10 | 42..51 | +0.9818 | 1.0369 | +2.9941 | 0.00275 | **0.0195312** |
 ### Table S43 — the transfer slope κ: per-run distribution and the free-intercept control
 
-**Table S43.** *8.7* — requested in review (a free-intercept control was asked for explicitly; a per-run distribution was asked for as "the cheapest statistical gain"). Definition follows §8.7: `ΔV(e) = V(e) − V(final)`, `ΔT(e) = T(e) − T(final)` **within a run**, over `val` per epoch (`xeval_20260916/runs/*_results.csv`) intersected with `test` per epoch (`xeval_perepoch_20260918/matrix_perepoch.csv`).
+**Table S43.** *8.7* — computed for this revision (the free-intercept control, a per-run distribution was asked for as "the cheapest statistical gain"). Definition follows §8.7: `ΔV(e) = V(e) − V(final)`, `ΔT(e) = T(e) − T(final)` **within a run**, over `val` per epoch (`xeval_20260916/runs/*_results.csv`) intersected with `test` per epoch (`xeval_perepoch_20260918/matrix_perepoch.csv`).
 
 **Reproduction of the printed estimate.** This independent recomputation resolves **765 (run, epoch) points over 41 runs** — the same count the printed estimate states — and gives **κ = 0.710** and **R² = 0.928** (R² taken relative to zero, the convention of the printed fit), against the printed **κ = 0.708, R² = 0.937**. The point count agrees **exactly**; the slope agrees to **0.003** and R² to **0.009**, i.e. the printed estimate is reproducible to that tolerance, and the remaining gap is in the fit details rather than the data.
 
@@ -4227,7 +4231,7 @@ behind every count, as Table 3's header does.
 
 ---
 
-## S30 · §8.8’s interval with measurement noise propagated (requested in review)
+## S30 · §8.8’s interval with measurement noise propagated (added this revision)
 
 **What was asked.** Propagate the image-level endpoint SE (measured for this corpus in §S24: median **0.178 pp** per endpoint) into §8.8’s realization interval, with the numerator’s induced SE taken as **√2 × SE** = **0.252 pp**.
 
@@ -4240,7 +4244,7 @@ behind every count, as Table 3's header does.
 
 ---
 
-## S31 · The four sub-totals under the blind panel’s majority vote (requested in review)
+## S31 · The four sub-totals under the blind panel’s majority vote (added this revision)
 
 **What was asked (GLM-5.3, C1).** Apply the **existing per-column counting rule** of `recompute_subtotals_corrected_20261010.py` to the **Round-9 five-coder blind panel**, and print the `release` / `protocol` / `yolo_dist` / `reported` sub-totals.
 
@@ -4268,7 +4272,7 @@ behind every count, as Table 3's header does.
 
 ---
 
-## S32 · Per-coder accuracy against the 30 first-party corrections (requested in review)
+## S32 · Per-coder accuracy against the 30 first-party corrections (added this revision)
 
 **What was asked (qwen3.8-max E6).** For each coding panellist: its vendor / model / version, its accuracy on the 30 cells the first-party re-verification changed, and its `blocked` rate.
 
@@ -4290,7 +4294,7 @@ behind every count, as Table 3's header does.
 
 ---
 
-## S33 · The pool restricted to E = 100, both weightings (requested in review)
+## S33 · The pool restricted to E = 100, both weightings (added this revision)
 
 **What was asked (qwen3.8-max E4).** Restrict §8.6’s five arm-cells to those trained at **E = 100** (dropping the `aitod20` baseline, which ran at E = 30) and report **both** weightings with a cell-level interval.
 
@@ -4303,7 +4307,7 @@ Per-cell inputs (printed in Table 4, `prem_val` / `prem_test` in pp): `shwd2sf` 
 
 ---
 
-## S34 · §8.6’s interval with endpoint noise propagated (requested in review)
+## S34 · §8.6’s interval with endpoint noise propagated (added this revision)
 
 **What was asked (qoder-agent E4).** Propagate the measured image-level endpoint noise into the realization *rate* interval, not just into §8.8’s.
 
@@ -4316,7 +4320,7 @@ Per-cell inputs (printed in Table 4, `prem_val` / `prem_test` in pp): `shwd2sf` 
 
 ---
 
-## S35 · The six-cell co-primary pooling, both weightings (requested in review)
+## S35 · The six-cell co-primary pooling, both weightings (added this revision)
 
 **What was asked (GLM-5.3 C2).** A six-cell co-primary pooling for §8.6.
 
