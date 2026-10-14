@@ -3365,6 +3365,7 @@ position, not by run noise** (§8.6). Its remedies are therefore not interchange
 `val`-side difference stays uninterpretable as a generalisation difference even after selection is removed**.
 
 ### Reproduction map: headline number → entry point
+> **Row 1 entry point.** Table 4's headline is reproduced from the released per-run files: `P2_e1full_per_run.csv` (the full-budget corridor) and `release_selection-transfer_perseed.csv` (the per-seed arm contrast), both in `02_release_data/`, with `SHA256SUMS.txt` beside them.
 
 **Every headline number that a script produces maps to one entry below** — a producing script, or an explicit
 note that no script produces it — so a reader can either recompute a number or see at once that we

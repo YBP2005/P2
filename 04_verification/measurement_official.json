@@ -1,16 +1,16 @@
 {
- "measured_at": "2026-10-14T05:04:55",
+ "measured_at": "2026-10-14T05:25:39",
  "inputs": {
-  "blind_md5": "e24ea07b6720a1de91c00b3fc055fa20",
-  "sup_md5": "96166ed65e8eabee57757ab7475d6dff",
-  "blind_words": 11939,
-  "blind_sha256": "fdcf88f7ee25bf28bd716fdf50787038bd3a620fc54710626f3c1853614d0ea5",
-  "sup_sha256": "611f1e97c863a72db37061ddf12bd2078b876b830cbee98fbb09fb6d4f931d89"
+  "blind_md5": "bb081605e55c5d1547fd6b5485f3c104",
+  "sup_md5": "fce0dc4abb031ab8afb98bcd13595e4e",
+  "blind_words": 11963,
+  "blind_sha256": "8e157751587b731c48f33918aa2ce824c9f5a36f2326f5fd10cfc04d99f54f43",
+  "sup_sha256": "3dcb3dffc92ea4ab11165de2c90a4ad736aa8819082d57adbd86fdfcd1a04435"
  },
  "variants": {
   "official_10pt_1.5": {
    "pages": 35,
-   "words": 11939,
+   "words": 11963,
    "body_pt": 10.0,
    "spacing": 1.5,
    "margins_cm": [

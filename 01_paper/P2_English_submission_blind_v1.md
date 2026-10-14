@@ -328,6 +328,8 @@ measure, but neither audits a release's configuration binding.
 > unit means the reported number is **not a sample from an independent split**; it does **not** mean
 > the benchmark is broken or the experiment dishonest, and it does not license a generalization claim.
 > **Primary reading (panel).** The **five-coder blind panel** leads: **19 of 30 corrected cells (63.3 %)**, eleven unanimously, **κ 0.836**. The **single-rater count is the frozen instrument of record**.
+> **The full round ships.** The eight-coder blind matrices, the agreement statistics and the intake ledger are released with this package (`P2_coding_blind_matrices.json`, `P2_coding_kappa.json`, `P2_coding_intake_ledger.json`), so the panel reading above is re-derivable rather than asserted.
+
 
 > **Frozen instrument.** These 19 rows were coded by **one rater** — 28 literal judgements (**§10**, defect 5). The five blind coders **independently reach 19 of 30 (63.3 %)** corrected cells, eleven unanimously, while **26 of 76** cells stay **undecidable**; **an independent blind panel reproduces only 31.4 % of the printed marks (42.2 % on the finer scale), so a 19-row count of 10–11 carries a band of roughly ±3–4 cells** — the *direction* of the majority survives on the decidable rows (10–11 of 16–17), **its size does not** (**Supplementary S27**); a **non-blind, model-assisted** pass agrees at κ **0.874** and **moves two rows** (**Supplementary S12**). `reported` means **the number the literature prints**: it is printed as a range, **12–14 of the 19 ≈ 63–74 %**, with the **80 %** column the lower end over the **12/15** decidable rows, and `n_a` rows counted in the **19** but not the numerator (**Supplementary S12**).
 
@@ -525,8 +527,7 @@ the same source? Make it a **hard pipeline check** on every dataset YAML (§4.2)
 resolved paths. ② If you must select on the reported split, say so and report a selection-free endpoint — **the `final`-epoch endpoint, the only selection-free one this archive measures** —
 alongside — the step **enlarges** the arm difference (§5.1). **The cost of not doing so is
 scale-dependent**: at 20 % train the selection action realises about a quarter of the `val` premium
-on a disjoint split, but **at full budget the answer is corpus-specific**: **+99.2 % on VisDrone (§8.8)** vs **+1.44 %, interval covering zero, on the second full-budget corpus (§8.9)** — the cost is **not monotone in scarcity**, and the recommendation is **scoped to where it was measured** — the practice is **most
-damaging exactly where data is scarcest**. ③④ **Test conventions and counting units** (the two concrete asks): stated in **Supplementary S29**.
+on a disjoint split, but **at full budget the answer is corpus-specific**: **+99.2 % on VisDrone (§8.8)** vs **+1.44 %, interval covering zero, on the second full-budget corpus (§8.9)** — the cost is **not monotone in scarcity**, and the recommendation is **scoped to where it was measured**  ③④ **Test conventions and counting units** (the two concrete asks): stated in **Supplementary S29**.
 
 ⑤ **A plateau is a post-hoc candidate, not a rule we validate.** Weight averaging is established [55];
    what is *measured here* takes the **mean of the ranked top-5 `val` epochs' readings** (a reading average, not a weight average), capturing **70 %** of the
