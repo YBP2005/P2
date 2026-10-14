@@ -57,7 +57,7 @@ then report that it misses its criterion — a registration **also reported in t
 
 Ask "how many of these benchmarks have a split problem?" and, unless a unit is declared, every answer is
 defensible and they disagree by a factor of six: 2/19 (**structural**: one path bound to both keys),
-10/19 (**`release` unit**: no independent held-out test), 13/19 (**`protocol` unit**: local independent testing gated), **12–14 of the 19** (**`reported` unit** — **12** the single rater's printed coding, **14** that rater's rows after a **non-blind recoding** moved two; **five blind coders agree at κ 0.824** and, once the record is re-verified first-hand, independently reach **19 of the 30** corrected cells, eleven unanimously (**S12**); the reported number's split is non-independent). The readings above are all defensible, and §6.1's four counting units (`release`, `protocol`, `yolo_dist`, `reported`) are the **columns** they come from — including `yolo_dist`, omitted above, at **4/19**. Declaring the unit is
+10/19 (**`release` unit**: no independent held-out test), 13/19 (**`protocol` unit**: local independent testing gated), **12–14 of the 19** (**`reported` unit (**renamed `documented / locally scorable` where the claim is about the literature; see §S39**)** — **12** the single rater's printed coding, **14** that rater's rows after a **non-blind recoding** moved two; **five blind coders agree at κ 0.824** and, once the record is re-verified first-hand, independently reach **19 of the 30** corrected cells, eleven unanimously (**S12**); the reported number's split is non-independent). The readings above are all defensible, and §6.1's four counting units (`release`, `protocol`, `yolo_dist`, `reported`) are the **columns** they come from — including `yolo_dist`, omitted above, at **4/19**. Declaring the unit is
 therefore a methodological premise, not a caveat (§3, §6).
 
 ### 1.2 What we do not claim
@@ -161,7 +161,7 @@ separate the **counting subject**, so one type can still be counted under four u
 
 > **Table S2** → Supplementary §S8.
 
-**The `reported` unit is read from the release documentation and from the dataset's own paper**: we did not sample papers per benchmark, so no prevalence claim is made (§11). For each of 19 benchmarks we record all four units, an evidence class and a confidence level, and recompute every percentage from the row markers under a per-unit subtotal check **and one stated `n_a` rule** (**Supplementary S12**) — the full 19 × 4
+**The `reported` unit (**renamed `documented / locally scorable` where the claim is about the literature; see §S39**) is read from the release documentation and from the dataset's own paper**: we did not sample papers per benchmark, so no prevalence claim is made (§11). For each of 19 benchmarks we record all four units, an evidence class and a confidence level, and recompute every percentage from the row markers under a per-unit subtotal check **and one stated `n_a` rule** (**Supplementary S12**) — the full 19 × 4
 table and the cross-check against the original audit are **Supplementary S1**, the derived counts §6.1 and its
 table.
 
@@ -265,7 +265,7 @@ than contrary, since its mechanism is holdout **reuse** and ours needs none.
 
 **Tier 2: on the same three-way corpora the paired difference Δgap varies in sign.** The raw
 `M_val(ê) − M_test(ê)` is **not identifiable**; the paired difference removes the difficulty term **under the equal-difficulty assumption** (Table 2) —
-**Δgap > 0 ⇒ `val` understates**. **Its effective base is four cells, not thirteen**, and an **escalated base** rather than a random sample, for the reason **Table 2's note** gives; **“2 understate / 2 overstate” is therefore a statement about these four cells, not a rate for the family**. **No prospective power analysis was registered**; the scan is in **Supplementary S12**. **Against the +0.47 pp floor** (§S23): `shwd2sf` **+0.779** is above it, `smoke2sf` **+0.461** is on it, and the two overstating cells (**−1.23**, **−3.32**) are an order of magnitude beyond it. **On the same rule the reading is one cell above the floor, one at it and two far below it** — so the direction claim rests on **one** understating cell that clears the floor, not two. **Scope of that floor:** §S23 measures the floor on the **selection term** `G = prem_val − prem_test`; Table 2’s `Δgap` adds the difficulty term, so applying the floor to `Δgap` is a **conservative analogy, not a strict null**.
+**Δgap > 0 ⇒ `val` understates**. **Its effective base is four cells, not thirteen, and the floor is measured on one corpus pair — it is a reference point for that pair, not a universal threshold**, and an **escalated base** rather than a random sample, for the reason **Table 2's note** gives; **“2 understate / 2 overstate” is therefore a statement about these four cells, not a rate for the family**. **No prospective power analysis was registered**; the scan is in **Supplementary S12**. **Against the +0.47 pp floor** (§S23): `shwd2sf` **+0.779** is above it, `smoke2sf` **+0.461** is on it, and the two overstating cells (**−1.23**, **−3.32**) are an order of magnitude beyond it. **On the same rule the reading is one cell above the floor, one at it and two far below it** — so the direction claim rests on **one** understating cell that clears the floor, not two. **Scope of that floor:** §S23 measures the floor on the **selection term** `G = prem_val − prem_test`; Table 2’s `Δgap` adds the difficulty term, so applying the floor to `Δgap` is a **conservative analogy, not a strict null**.
 
 **Both escalations met the criteria fixed in advance.** `dota15` **+0.449 pp** (**10+/0−**);
 `p_aitovis` **−1.226 pp** and `p_vistod15` **−3.315 pp** (**0+/10−**), permutation p = **0.001953**,
@@ -550,7 +550,7 @@ damaging exactly where data is scarcest**. ③④ **Test conventions and countin
 ## 12. Limitations
 
 - **Four disclosed uncertainties bound every claim**: the 19-row audit is **single-rater**; the log sample is a **convenience sample** with no sampling frame; the GPU memory-pressure evidence is **one machine**; and §8.8's full-budget reading is **one corpus, one detector, on the same `lr0` axis as §5.1** — it does **not** re-open §8.6's pool and **no interval of §8.6 folds into it**.
-- The audit reads **split definitions only** (YAML, README, paper text), **no datasets**; under the `reported` unit **4 rows are evidence-insufficient**; and counts carry **no sampling interval, deliberately** (the grading is in the count itself, Table 3 column 2).
+- The audit reads **split definitions only** (YAML, README, paper text), **no datasets**; under the `reported` unit (**renamed `documented / locally scorable` where the claim is about the literature; see §S39**) **4 rows are evidence-insufficient**; and counts carry **no sampling interval, deliberately** (the grading is in the count itself, Table 3 column 2).
 - **The full nine-item limitations list is in Supplementary §S16.**
 
 ---
