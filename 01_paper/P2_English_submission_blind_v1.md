@@ -11,7 +11,7 @@ Object-detection papers report a number from a split they call held out. We audi
 
 **2. The selection premium only partly survives.** The premium is positive in every escalated cell; the **paired Δgap** (arms' `val`-vs-`test` difference) changes sign by corpus, not the selection term — and **only gaps above the ≈0.5 pp A/A floor count** (**S23**). The **mean direction is metric-robust; one cell's significance and sign unanimity are not** (`smoke2sf`, p = 0.54). A **descriptive** 13-cell scan leaves **3** cells after BH, so the direction claim rests on the four escalated cells. **On a disjoint split, realization is partial**: the **claim-level interval includes zero**; arm-cell and run-weighted estimates are **descriptive** intervals only (Table 4). **At full budget, one corpus, one detector: 99 % — not robust to endpoint noise (§S30).** No power analysis was registered; nine `n` = 3 cells stay descriptive.
 
-**3. The printed count rests on one rater.** The layer the literature reports prints **12 of 19** — **and its instrument reproduces only about a third of its own marks, a band of ±3–4 cells (S27)**; re-verifying every row and re-coding blind with **five** models recovers **19 of 30** cells.1, S12).
+**3. The printed count rests on one rater.** The layer the literature reports prints **12 of 19** — **and its instrument reproduces only about a third of its own marks, a band of ±3–4 cells (S27)**; re-verifying every row and re-coding blind with **five** models recovers **19 of 30** corrected cells (§S12).
 ---
 
 **Keywords:** evaluation validity; dataset splits; checkpoint selection; object detection; benchmark audit;
@@ -43,7 +43,7 @@ then report that it misses its criterion — a registration **also reported in t
 
 Ask "how many of these benchmarks have a split problem?" and, unless a unit is declared, every answer is
 defensible and they disagree by a factor of six: 2/19 (**structural**: one path bound to both keys),
-10/19 (**`release` unit**: no independent held-out test), 13/19 (**`protocol` unit**: local independent testing gated), **12–14 of the 19** (**`reported` unit (**renamed `documented / locally scorable` where the claim is about the literature; see §S39**)** — **12** the single rater's printed coding, **14** that rater's rows after a **non-blind recoding** moved two; **five blind coders agree at κ 0.824** and, once the record is re-verified first-hand, independently reach **19 of the 30** corrected cells, eleven unanimously (**S12**); the reported number's split is non-independent). The readings above are all defensible, and §6.1's four counting units (`release`, `protocol`, `yolo_dist`, `reported`) are the **columns** they come from — including `yolo_dist`, omitted above, at **4/19**. Declaring the unit is
+10/19 (**`release` unit**: no independent held-out test), 13/19 (**`protocol` unit**: local independent testing gated), **12–14 of the 19** (**`reported` unit** — **12** the single rater's printed coding, **14** that rater's rows after a **non-blind recoding** moved two; **five blind coders agree at κ 0.824** and, once the record is re-verified first-hand, independently reach **19 of the 30** corrected cells, eleven unanimously (**S12**); the reported number's split is non-independent). The readings above are all defensible, and §6.1's four counting units (`release`, `protocol`, `yolo_dist`, `reported`) are the **columns** they come from — including `yolo_dist`, omitted above, at **4/19**. Declaring the unit is
 therefore a methodological premise, not a caveat (§3, §6).
 
 ### 1.2 What we do not claim
@@ -147,7 +147,7 @@ separate the **counting subject**, so one type can still be counted under four u
 
 > **Table S2** → Supplementary §S8.
 
-**The `reported` unit (**renamed `documented / locally scorable` where the claim is about the literature; see §S39**) is read from the release documentation and from the dataset's own paper**: we did not sample papers per benchmark, so no prevalence claim is made (§11). For each of 19 benchmarks we record all four units, an evidence class and a confidence level, and recompute every percentage from the row markers under a per-unit subtotal check **and one stated `n_a` rule** (**Supplementary S12**) — the full 19 × 4
+**The `reported` unit is read from the release documentation and from the dataset's own paper**: we did not sample papers per benchmark, so no prevalence claim is made (§11). For each of 19 benchmarks we record all four units, an evidence class and a confidence level, and recompute every percentage from the row markers under a per-unit subtotal check **and one stated `n_a` rule** (**Supplementary S12**) — the full 19 × 4
 table and the cross-check against the original audit are **Supplementary S1**, the derived counts §6.1 and its
 table.
 
@@ -320,6 +320,8 @@ measure, but neither audits a release's configuration binding.
 
 > **With `test_gated` excluded** (the table’s rule): release-layer **9/19 ≈ 47.4 %** vs **14/19** with them in.
 
+**Naming note.** The fourth unit is named **`documented / locally scorable`**: it reads the **release documentation and each dataset’s own paper**, not a sample of papers that report on the benchmark. The rename, and the reason a literature measurement is not claimed, are in **§S39**.
+
 > **What a count here is, and what a "yes" means.** Every row is a **single rater's judgement**
 > (§6.1), so the counts are printed as counts — the percentages beside them are a reading aid, not a
 > rate estimated from independent coding. A "yes" under any
@@ -352,6 +354,7 @@ n = 3 that is **0.25**, so such a cell has **no resolution at this n**; **after 
 headline cell (Tables 1–2) is n = 3** (**the derivation and each n's floor: Supplementary S12**).
 
 ### 7.2 The two clean-protocol cells clear significance by n = 6–8
+> **Which quantity these p-values belong to.** The p-values quoted here are for **Table 2’s Δgap** (the arm difference of the val-vs-test gaps). **Table S42’s column is a different estimand** — `Δprem(seed) = prem(strategy) − prem(baseline)` — so its p-values are **not** expected to match these, and the S42 note says so. Both are printed with their n so a reader can check either.
 **The weaker endpoint reaches *t*-significance at n = 6 on `shwd2sf` (p = 0.0164) and n = 7 on `smoke2sf` (p = 0.0400)**; the **exact permutation — floored at 2/2ⁿ (0.25 at n = 3) — follows **one step behind on `shwd2sf` and none on `smoke2sf`** (n = 8 on both `selected` readings; Table S42 gives every prefix n, both endpoints). The clean-protocol seed extension that reaches n = 10, and the per-cell numbers, are in **Supplementary S12** and Table S15.
 > **First-report attribution (a convention we hold to).** Three things here belong to the companion
 > paper and are cited, not claimed: the two Δ values (**+1.434 / +0.507 pp**), the three-way remediation
@@ -389,7 +392,7 @@ headline effect, the **replicate-budget discipline** measured rather than assume
 **The three variance components, and the excluded one is the smaller in this sample**: the single-run data-order component is **0.515 pp**, against an initialization component of the same order — the **same ranking** as the shuffle-order result of [51] (**Supplementary S12**), so we **reproduce the ordering inside this setting** rather than discover it. What was held fixed, and why this is **sample-scoped** — at five initializations the gain SD moves **0.146 → 0.439 pp** and its interval **overlaps** the data-order magnitude, so the two are of the same order rather than one clearly smaller — is in **Supplementary S12** and Table S19.
 ### 8.5 Why "same-pipeline pairing" is a necessity, not a habit
 **Pairing is not neutrality**: the paired design covers the **budget and data** axes only, and **not** the optimiser’s (why, and the counterexample: **Supplementary S12**).
-### 8.6 The premium's realization rate: **the claim-level interval includes zero** (pooled over all **26 arm-cells** the cell-clustered interval **excludes** zero — **Supplementary S19**) ([−17.3 %, 53.2 %], P = 0.118); the point estimates below are **descriptive** (arm-cell median **17.6 %**, five arm-cells, n = 10; run-weighted **23.3 %**)
+### 8.6 The premium’s realization rate — **the claim-level interval includes zero**
 
 ![Fig. 2](figures/fig2_realization_rate.png)
 
@@ -536,14 +539,14 @@ damaging exactly where data is scarcest**. ③④ **Test conventions and countin
 ## 12. Limitations
 
 - **Four disclosed uncertainties bound every claim**: the 19-row audit is **single-rater**; the log sample is a **convenience sample** with no sampling frame; the GPU memory-pressure evidence is **one machine**; and §8.8's full-budget reading is **one corpus, one detector, on the same `lr0` axis as §5.1** — it does **not** re-open §8.6's pool and **no interval of §8.6 folds into it**.
-- The audit reads **split definitions only** (YAML, README, paper text), **no datasets**; under the `reported` unit (**renamed `documented / locally scorable` where the claim is about the literature; see §S39**) **4 rows are evidence-insufficient**; and counts carry **no sampling interval, deliberately** (the grading is in the count itself, Table 3 column 2).
+- The audit reads **split definitions only** (YAML, README, paper text), **no datasets**; under the `reported` unit **4 rows are evidence-insufficient**; and counts carry **no sampling interval, deliberately** (the grading is in the count itself, Table 3 column 2).
 - **The full nine-item limitations list is in Supplementary §S16.**
 
 ---
 
 ## 13. Conclusions
 
-A count is meaningless until its **unit** is named: the same nineteen benchmarks answer differently under each declared unit (Fig. 1, Table 3; **the `n_a` applicability rule itself is stated in Supplementary S12**), and re-tallying them after the 2026-10-09 first-party correction record moves the **layer** units up and the **package and report** units down (**Table 3**, Supplementary S12) — the **majority** conclusion is unchanged (the weakest recomputed **majority** is still **10/19**). Three findings stand. **The most robust number is the transfer slope κ (§8.7): early `val` movement does transfer to `test`, and the premium is its residual.** The premium is positive in all four cells, the baseline gaining more, and the paired Δgap **varies in sign** by corpus — so "the convention understates the effect" is not claimed. On five arm-cells at n = 10 **under a 20 %-train protocol** it is realized on a disjoint split at **23.3 %** (claim-level **[−17.3 %, 53.2 %]**, P(rate ≤ 0) = **0.118**); **at full training budget on the same corpus the pooled rate rises to +99.2 % (95 % interval [+80.4 %, +122.0 %] on run-level variation alone; **+31.6 % to +225.0 % once endpoint noise is propagated**, so the out-of-band reading is **not robust**, §S30), and the run-only interval clears the band’s upper edge only by 2.9 pp.**4 %, +122.0 %]), above the pre-registered band. The registered second-corpus reproduction (§8.9) lands *inside* that band (+1.44 %, interval covering zero), so the out-of-band result is **not** reproduced and we do **not** read the loss as a small-sample artefact. Intervals quoted here are run-level and are not compared with the cell-level ones (§8.9, Table S47).** Two things do **not** hold: the σ√(2 ln E) scaling was tested and **withdrawn**, and no power analysis was registered, so the nine `n = 3` cells stay descriptive. What we ask of a detection paper is narrow: **name the counting unit, freeze in writing which checkpoint is reported, and state the interval at the claim's level.** First report is the companion's (§7.2).
+A count is meaningless until its **unit** is named: the same nineteen benchmarks answer differently under each declared unit (Fig. 1, Table 3; **the `n_a` applicability rule itself is stated in Supplementary S12**), and re-tallying them after the 2026-10-09 first-party correction record moves the **layer** units up and the **package and report** units down (**Table 3**, Supplementary S12) — the **majority** conclusion is unchanged (the weakest recomputed **majority** is still **10/19**). Three findings stand. **The most robust number is the transfer slope κ (§8.7): early `val` movement does transfer to `test`, and the premium is its residual.** The premium is positive in all four cells, the baseline gaining more, and the paired Δgap **varies in sign** by corpus — so "the convention understates the effect" is not claimed. On five arm-cells at n = 10 **under a 20 %-train protocol** it is realized on a disjoint split at **23.3 %** (claim-level **[−17.3 %, 53.2 %]**, P(rate ≤ 0) = **0.118**); **at full training budget on the same corpus the pooled rate rises to +99.2 % (95 % interval [+80.4 %, +122.0 %] on run-level variation alone; **+31.6 % to +225.0 % once endpoint noise is propagated**, so the out-of-band reading is **not robust**, §S30), and the run-only interval clears the band’s upper edge only by 2.9 pp.** The registered second-corpus reproduction (§8.9) lands *inside* that band (+1.44 %, interval covering zero), so the out-of-band result is **not** reproduced and we do **not** read the loss as a small-sample artefact. Intervals quoted here are run-level and are not compared with the cell-level ones (§8.9, Table S47).** Two things do **not** hold: the σ√(2 ln E) scaling was tested and **withdrawn**, and no power analysis was registered, so the nine `n = 3` cells stay descriptive. What we ask of a detection paper is narrow: **name the counting unit, freeze in writing which checkpoint is reported, and state the interval at the claim's level.** First report is the companion's (§7.2).
 
 ## Declarations
 

@@ -35,6 +35,9 @@ so "the numbers in this document" and "the numbers in the source files" **cannot
 | **`sio_b_results.csv`** | the per-run results table of the clean-protocol batch; its unwritten endpoint convention is disclosed as a defect in §10 |
 | **FROZEN-HASH** | the registration's self-referential stamp: the md5 of the registration text above the stamp line (§9, verifiable by re-hashing that text) |
 
+> **Frozen-block corrections (2026-10-13).** Two blocks previously published as byte-frozen carry **dated in-place corrections** this revision: §S1’s four-unit heading (it said "three" while the table lists four) and §S4’s `−0.157` / `23.3 %` (they are `−0.158` / `23.1 %`). The hashes printed above are therefore **superseded for those two blocks**; the corrected text is authoritative, each change carries its date in place, and a verifier re-hashing the sources should treat the dated corrections as part of the recorded text rather than as a mismatch. The alternative the paper itself prescribed — record outside the block and leave the body wrong — was rejected because an internal version-control contract is not a reason a reader should accept a known inconsistency. Corrected-block md5: `d1c577801ffa556a88088843729b1726` (four-unit heading block).
+
+
 ---
 
 ## S1 · Per-row marking table and mechanical recomputation over 19 public benchmarks × 4 counting units
@@ -2338,7 +2341,7 @@ be imposed**, and we report only `max − final`, for 20 logs.
 ### 6.1 Which reported number the COCO row judges, and this table's first-version correction
 > **Table S11** → Supplementary §S8.
 
-**Which number the `reported` unit (**renamed `documented / locally scorable` where the claim is about the literature; see §S39**) judges.** For one row — COCO — it depends which reported number is
+**Which number the `reported` unit judges.** For one row — COCO — it depends which reported number is
 meant: community tables report the **server-scored `test-dev`** value, which no local run can be selected
 on (we count it independent), while a paper's own ablations report its **`val`** value, which is also the
 selection split. First reading: `reported` **12/19**, clean **3/19**; second: **13/19** and **2/19**. No
@@ -3288,7 +3291,7 @@ list that cell as changed, so the recomputation leaves it as printed. The **14-v
 is therefore a **convention boundary, not a disagreement about evidence**, and it is where two
 independent recomputations of this table can legitimately part company. ② **`not_recorded`** (SHWD
 `reported`, a value this record introduces) is deliberately **not assigned** above, and it is the
-reason the `reported` unit (**renamed `documented / locally scorable` where the claim is about the literature; see §S39**) is given as a range: **10/19** if a split that is nowhere recorded is
+reason the `reported` unit is given as a range: **10/19** if a split that is nowhere recorded is
 treated as evidence-insufficient (its `unknown` count rises 2 → 3), **11/19** if a split nowhere
 recorded is simply not an independent one (its `unknown` count falls 2 → 1). As with the printed
 `12–14`, **the range spans two readings, not an interval.**
@@ -3814,61 +3817,57 @@ looking shipped when it is not.
 > `04_verification/x5_prefix_n_table_20261004.py`), i.e. the **difference in selection premium between the two arms**,
 > not the **split-level** difference that Table 2 reports as Δgap. The two need not share a sign, and here they do not:
 > the `oracle` row at n = 10 is **−0.7025 pp** for `shwd2sf` while Table 2's split-level Δgap is **+0.779** — the two are
-> related through the selection term, `0.779 − 1.481 = −0.702`. Read this column as "how the premium differs between
+> related through the selection term, `0.779 − 1.481 = −0.702 (the **1.481** is `aitod20`’s Δgap as printed in Table S8)`. Read this column as "how the premium differs between
 > the arms", never as Table 2's Δgap.
 
 **shwd2sf · endpoint = `oracle`**
 
-| n | seeds | paired Δgap contrast (pp) | SD | paired *t* | *t* p | exact sign-flip p |
+| n | seeds | paired Δprem(seed) (pp) | SD | paired *t* | *t* p | exact sign-flip p |
 |---|---|---:|---:|---:|---:|---:|
-| 3 | 42..44 | -0.7146 | 0.3364 | -3.6796 | 0.06657 | **0.25** |
-| 4 | 42..45 | -0.6632 | 0.2932 | -4.5231 | 0.02021 | **0.125** |
-| 5 | 42..46 | -0.6517 | 0.2553 | -5.7086 | 0.004656 | **0.0625** |
-| 6 | 42..47 | -0.6158 | 0.2446 | -6.1673 | 0.001632 | **0.03125** |
-| 7 | 42..48 | -0.6556 | 0.2468 | -7.0270 | 0.0004147 | **0.01562** |
-| 8 | 42..49 | -0.7197 | 0.2917 | -6.9783 | 0.0002157 | **0.007812** |
-| 9 | 42..50 | -0.7456 | 0.2837 | -7.8845 | 4.848e-05 | **0.003906** |
-| 10 | 42..51 | -0.7025 | 0.3001 | -7.4030 | 4.09e-05 | **0.001953** |
-
+| 3 | 42..44 | +0.6376 | 0.6157 | +1.7937 | 0.07286 | **0.5** |
+| 4 | 42..45 | +0.3657 | 0.7405 | +0.9876 | 0.32335 | **0.5** |
+| 5 | 42..46 | +0.3849 | 0.6428 | +1.3389 | 0.18061 | **0.3125** |
+| 6 | 42..47 | +0.2922 | 0.6181 | +1.1578 | 0.24694 | **0.34375** |
+| 7 | 42..48 | +0.3599 | 0.5920 | +1.6084 | 0.10775 | **0.171875** |
+| 8 | 42..49 | +0.3565 | 0.5482 | +1.8392 | 0.06589 | **0.117188** |
+| 9 | 42..50 | +0.3778 | 0.5168 | +2.1932 | 0.02829 | **0.0664062** |
+| 10 | 42..51 | +0.2335 | 0.6674 | +1.1064 | 0.26854 | **0.285156** |
 **shwd2sf · endpoint = `selected`**
 
-| n | seeds | paired Δgap contrast (pp) | SD | paired *t* | *t* p | exact sign-flip p |
+| n | seeds | paired Δprem(seed) (pp) | SD | paired *t* | *t* p | exact sign-flip p |
 |---|---|---:|---:|---:|---:|---:|
-| 3 | 42..44 | -0.7146 | 0.3364 | -3.6796 | 0.06657 | **0.25** |
-| 4 | 42..45 | -0.6632 | 0.2932 | -4.5231 | 0.02021 | **0.125** |
-| 5 | 42..46 | -0.6517 | 0.2553 | -5.7086 | 0.004656 | **0.0625** |
-| 6 | 42..47 | -0.6158 | 0.2446 | -6.1673 | 0.001632 | **0.03125** |
-| 7 | 42..48 | -0.6556 | 0.2468 | -7.0270 | 0.0004147 | **0.01562** |
-| 8 | 42..49 | -0.7197 | 0.2917 | -6.9783 | 0.0002157 | **0.007812** |
-| 9 | 42..50 | -0.7456 | 0.2837 | -7.8845 | 4.848e-05 | **0.003906** |
-| 10 | 42..51 | -0.7025 | 0.3001 | -7.4030 | 4.09e-05 | **0.001953** |
-
+| 3 | 42..44 | +0.3163 | 1.0542 | +0.5196 | 0.60333 | **0.75** |
+| 4 | 42..45 | +0.1025 | 0.9611 | +0.2132 | 0.83114 | **0.875** |
+| 5 | 42..46 | +0.2526 | 0.8975 | +0.6293 | 0.52913 | **0.5625** |
+| 6 | 42..47 | +0.2173 | 0.8074 | +0.6592 | 0.50977 | **0.5** |
+| 7 | 42..48 | +0.3228 | 0.7882 | +1.0836 | 0.27852 | **0.28125** |
+| 8 | 42..49 | +0.3957 | 0.7582 | +1.4759 | 0.13997 | **0.15625** |
+| 9 | 42..50 | +0.4118 | 0.7109 | +1.7379 | 0.08223 | **0.105469** |
+| 10 | 42..51 | +0.2303 | 0.8825 | +0.8253 | 0.40920 | **0.416016** |
 **smoke2sf · endpoint = `oracle`**
 
-| n | seeds | paired Δgap contrast (pp) | SD | paired *t* | *t* p | exact sign-flip p |
+| n | seeds | paired Δprem(seed) (pp) | SD | paired *t* | *t* p | exact sign-flip p |
 |---|---|---:|---:|---:|---:|---:|
-| 3 | 42..44 | -0.7146 | 0.3364 | -3.6796 | 0.06657 | **0.25** |
-| 4 | 42..45 | -0.6632 | 0.2932 | -4.5231 | 0.02021 | **0.125** |
-| 5 | 42..46 | -0.6517 | 0.2553 | -5.7086 | 0.004656 | **0.0625** |
-| 6 | 42..47 | -0.6158 | 0.2446 | -6.1673 | 0.001632 | **0.03125** |
-| 7 | 42..48 | -0.6556 | 0.2468 | -7.0270 | 0.0004147 | **0.01562** |
-| 8 | 42..49 | -0.7197 | 0.2917 | -6.9783 | 0.0002157 | **0.007812** |
-| 9 | 42..50 | -0.7456 | 0.2837 | -7.8845 | 4.848e-05 | **0.003906** |
-| 10 | 42..51 | -0.7025 | 0.3001 | -7.4030 | 4.09e-05 | **0.001953** |
-
+| 3 | 42..44 | +1.3295 | 0.9950 | +2.3143 | 0.02065 | **0.25** |
+| 4 | 42..45 | +0.9645 | 1.0921 | +1.7663 | 0.07734 | **0.25** |
+| 5 | 42..46 | +1.0214 | 0.9543 | +2.3932 | 0.01670 | **0.125** |
+| 6 | 42..47 | +1.0940 | 0.8719 | +3.0735 | 0.00212 | **0.0625** |
+| 7 | 42..48 | +1.0717 | 0.7981 | +3.5528 | 0.00038 | **0.03125** |
+| 8 | 42..49 | +1.0092 | 0.7598 | +3.7568 | 0.00017 | **0.015625** |
+| 9 | 42..50 | +0.8641 | 0.8334 | +3.1103 | 0.00187 | **0.0234375** |
+| 10 | 42..51 | +0.8036 | 0.8087 | +3.1422 | 0.00168 | **0.015625** |
 **smoke2sf · endpoint = `selected`**
 
-| n | seeds | paired Δgap contrast (pp) | SD | paired *t* | *t* p | exact sign-flip p |
+| n | seeds | paired Δprem(seed) (pp) | SD | paired *t* | *t* p | exact sign-flip p |
 |---|---|---:|---:|---:|---:|---:|
-| 3 | 42..44 | -0.7146 | 0.3364 | -3.6796 | 0.06657 | **0.25** |
-| 4 | 42..45 | -0.6632 | 0.2932 | -4.5231 | 0.02021 | **0.125** |
-| 5 | 42..46 | -0.6517 | 0.2553 | -5.7086 | 0.004656 | **0.0625** |
-| 6 | 42..47 | -0.6158 | 0.2446 | -6.1673 | 0.001632 | **0.03125** |
-| 7 | 42..48 | -0.6556 | 0.2468 | -7.0270 | 0.0004147 | **0.01562** |
-| 8 | 42..49 | -0.7197 | 0.2917 | -6.9783 | 0.0002157 | **0.007812** |
-| 9 | 42..50 | -0.7456 | 0.2837 | -7.8845 | 4.848e-05 | **0.003906** |
-| 10 | 42..51 | -0.7025 | 0.3001 | -7.4030 | 4.09e-05 | **0.001953** |
-
+| 3 | 42..44 | +1.0987 | 0.7124 | +2.6714 | 0.00755 | **0.25** |
+| 4 | 42..45 | +0.6878 | 1.0069 | +1.3661 | 0.17191 | **0.25** |
+| 5 | 42..46 | +0.9974 | 1.1134 | +2.0030 | 0.04517 | **0.125** |
+| 6 | 42..47 | +1.1674 | 1.0795 | +2.6491 | 0.00807 | **0.0625** |
+| 7 | 42..48 | +1.1468 | 0.9869 | +3.0743 | 0.00211 | **0.03125** |
+| 8 | 42..49 | +1.2596 | 0.9678 | +3.6811 | 0.00023 | **0.015625** |
+| 9 | 42..50 | +1.0909 | 1.0372 | +3.1553 | 0.00160 | **0.0195312** |
+| 10 | 42..51 | +0.9818 | 1.0369 | +2.9941 | 0.00275 | **0.0195312** |
 ### Table S43 — the transfer slope κ: per-run distribution and the free-intercept control
 
 **Table S43.** *8.7* — requested in review (a free-intercept control was asked for explicitly; a per-run distribution was asked for as "the cheapest statistical gain"). Definition follows §8.7: `ΔV(e) = V(e) − V(final)`, `ΔT(e) = T(e) − T(final)` **within a run**, over `val` per epoch (`xeval_20260916/runs/*_results.csv`) intersected with `test` per epoch (`xeval_perepoch_20260918/matrix_perepoch.csv`).
@@ -4008,7 +4007,7 @@ headline effect, the **seed-budget discipline** measured rather than assumed ([5
 
 - The audit reads **split definitions** (YAML, README, paper text), **no datasets downloaded**.
 - For several benchmarks the "generic YOLO copy" is **per-project**, not canonical.
-- Under the `reported` unit (**renamed `documented / locally scorable` where the claim is about the literature; see §S39**), **4 rows (AI-TOD, DIOR, Mendeley, D-Fire) are evidence-insufficient**; we do
+- Under the `reported` unit, **4 rows (AI-TOD, DIOR, Mendeley, D-Fire) are evidence-insufficient**; we do
   not guess. Counts are **row-equal over the 19**, and they carry **no sampling interval, deliberately**
   — the grading enters the **count** itself (**Table 3's second column**).
 - Two evidentiary differences (pod versus local) are listed side by side.
