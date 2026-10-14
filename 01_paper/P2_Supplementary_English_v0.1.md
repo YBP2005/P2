@@ -4379,3 +4379,21 @@ Per-cell inputs (printed in Table 4, `prem_val` / `prem_test` in pp): `shwd2sf` 
 
 **What we do about it.** Rather than let the name carry a claim the instrument does not support, the unit is renamed **`documented / locally scorable`** everywhere it appears, and every sentence that leaned on it as a statement about the literature now says which document was read. The **counts are unchanged** — this is a naming and interpretation fix, not a re-coding — and the distinction the paper actually needs (what a reader can verify from the artefacts versus what the reported layer forces them to accept) is preserved. A literature sample would upgrade the unit back to a measurement; it is not claimed here.
 **Inputs:** the four-unit table and its per-cell sources, unchanged.
+
+---
+
+## S41 · The arm difference with the initialization component folded in (requested in review; no new runs)
+
+**What was asked (qwen3.8-flash E1).** Fold **initialization** variance into one Tier-1 cell and ask whether the paired arm difference survives with a cluster-robust interval. Its design (10 initializations × 10 file orders × 2 arms = **200 runs**, ≈ 50–83 GPU·h) is the strictest reading; **this section answers the same question with data that already exists**, and names where it falls short of that design.
+
+**Inputs, all previously published.** The arm difference is recomputed from `release_selection-transfer_perseed.csv` (`smoke2sf`, n = 10). The two variance components are the ones §8.4 already measures: **data order 0.515 pp** and **initialization 0.439 pp** (n = 5; bootstrap **[0.058, 0.580]**).
+
+**Method, and its limit stated up front.** The printed interval’s SE reflects the **file-order** axis; folding in an independent **initialization** component inflates a single run’s deviation, so `SE_total = SE_order × √(1 + (σ_init/σ_order)²)`, evaluated at the component’s point estimate and at **both ends of its bootstrap interval**. This is a **variance-component inflation, not a cluster-robust (CR1) estimator on initialization clusters**, and the components are transferred from §8.4’s SFCHD-family decomposition. A 20-run confirmatory set (10 initializations × one order × 2 arms) would deliver the CR1 form; it is scripted and pending GPU time.
+
+| endpoint | Δprem (pp) | printed 95 % CI | **+σ_init (point)** | **+σ_init (upper end)** | excludes zero? |
+|---|---:|---|---|---|---|
+| `oracle` | **+0.804** | [+0.302, +1.305] | **[+0.145, +1.462]** | **[+0.049, +1.559]** | **yes** |
+| `selected` | **+0.982** | [+0.339, +1.624] | **[+0.137, +1.826]** | **[+0.014, +1.950]** | **yes** |
+
+**Reading.** Under every evaluation of the initialization component the paired difference on this cell **stays positive and excludes zero**, and its point estimate is far above the **+0.25 pp** threshold the request names — so the positivity claim in §2.2/§5.1 is **not** an artefact of holding initialization fixed, and it does **not** need to be re-scoped to “file-order replicates”. Two cautions ride with this: the interval is an **inflation, not CR1**, and the components come from another cell family; the confirmatory 20-run set above is what would remove both.
+**Inputs:** `release_selection-transfer_perseed.csv`; components: §8.4 / Table S19 / `work/sigma_decomposition_20260926.py`.
